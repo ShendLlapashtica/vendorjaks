@@ -1,0 +1,329 @@
+/* CITATIONS — IEEE in-text numerals and the reference list.
+ *
+ * Lives here, NOT in App.css or index.css, so the visual system in those
+ * two files stays separate from these hundred lines. Imported from
+ * ManifestoScreen.jsx, which is the only screen that renders citations.
+ *
+ * Deliberately colour-light. It inherits `currentColor` almost everywhere so
+ * that whatever palette lands in App.css, the citations follow it instead of
+ * fighting it. The only hard-coded colours are the two translucent inks used
+ * for the reference-list rules, which read on both a red poster and a dark
+ * ground.
+ */
+
+/* ---------------------------------------------------------------------- */
+/* IN-TEXT NUMERALS                                                        */
+/* ---------------------------------------------------------------------- */
+
+.vj-cite {
+  white-space: nowrap;
+}
+
+.vj-cite-num {
+  color: inherit;
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82em;
+  /* Raised, but with no line-height cost — a <sup> would open up the leading
+     of every paragraph that carries a citation. */
+  vertical-align: 0.35em;
+  line-height: 0;
+  padding: 0 0.1em;
+  opacity: 0.85;
+  border-bottom: 1px solid currentColor;
+}
+
+.vj-cite-num:hover,
+.vj-cite-num:focus-visible {
+  opacity: 1;
+  outline: none;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* A numeral immediately after text needs a hair of air, but not after an
+   opening bracket or before punctuation. */
+.vj-poster-body .vj-cite,
+.vj-poster-figure-label .vj-cite,
+.vj-poster-site-desc .vj-cite,
+.vj-pse-impact-note .vj-cite {
+  margin-left: 0.25em;
+}
+
+/* The statistics table's source cell holds the numeral and the outbound
+   arrow side by side. */
+.vj-pse-row-src {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.vj-pse-row-out {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.55;
+  margin-left: 0.35em;
+}
+
+.vj-pse-row-out:hover,
+.vj-pse-row-out:focus-visible {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------- */
+/* PAGE PARTS                                                              */
+/* ---------------------------------------------------------------------- */
+/* The 2026-09-14 "undersymmetrical" complaint was partly that /pse was one
+   undifferentiated column. These headings name the three parts. */
+
+.vj-manifesto-part-title {
+  font-size: clamp(1.15rem, 4vw, 1.6rem);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  margin: 2.5rem auto 0.75rem;
+  padding: 0 1rem;
+  max-width: 68ch;
+  opacity: 0.92;
+}
+
+.vj-manifesto-close {
+  text-align: center;
+  text-transform: lowercase;
+  font-size: clamp(1rem, 3.4vw, 1.35rem);
+  letter-spacing: 0.01em;
+  opacity: 0.8;
+  margin: 3rem auto 4rem;
+  padding: 0 1rem;
+  max-width: 40ch;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CRIME-SITE LIST                                                         */
+/* ---------------------------------------------------------------------- */
+/* Each site now carries its own figure and its own caveat instead of eleven
+   copies of one boilerplate sentence, so the rows need real structure. */
+
+.vj-poster-site-figure {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.vj-poster-site-desc {
+  display: block;
+  font-size: 0.86em;
+  line-height: 1.5;
+  opacity: 0.92;
+  margin-top: 0.2rem;
+}
+
+/* The caveats are the honest part — "a charge, not a verdict", "first
+   instance, NOT final", "a field investigation, not a court finding". They
+   are set apart so they cannot be skimmed past as if they were prose. */
+.vj-poster-site-flag {
+  display: block;
+  font-size: 0.78em;
+  line-height: 1.45;
+  margin-top: 0.3rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid currentColor;
+  opacity: 0.72;
+}
+
+/* The "position, not a finding" badge on the owner's own argument screen. */
+.vj-poster-kind {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.18em 0.7em;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/* REFERENCE LIST                                                          */
+/* ---------------------------------------------------------------------- */
+/* IEEE: numbered, in citation order, never alphabetical. The numerals are
+   rendered as real text in a fixed column rather than by `list-style`, so
+   they line up with the in-text `[n]` and so :target can highlight a row. */
+
+.vj-refs {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.vj-refs-lead {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.75;
+  margin: 0 0 1.25rem;
+}
+
+.vj-refs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.vj-refs-item {
+  display: grid;
+  grid-template-columns: 3.1em 1fr;
+  gap: 0 0.35em;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.28);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  scroll-margin-top: 2rem;
+}
+
+.vj-refs-item:last-child {
+  border-bottom: 1px solid rgba(127, 127, 127, 0.28);
+}
+
+/* Clicking an in-text [n] lands here; the row says so for a moment. */
+.vj-refs-item:target {
+  background: rgba(127, 127, 127, 0.16);
+}
+
+.vj-refs-num {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.vj-refs-text {
+  min-width: 0;
+}
+
+/* URLs are long and must not force the page into horizontal scroll. */
+.vj-refs-link {
+  color: inherit;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  opacity: 0.9;
+}
+
+.vj-refs-accessed {
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+/* The institution, in the reader's own language, under the entry — the IEEE
+   entry itself stays in the document's language, because a translated
+   document title no longer finds the document. */
+.vj-refs-inst {
+  grid-column: 2;
+  font-size: 0.78rem;
+  opacity: 0.6;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 420px) {
+  .vj-refs-item {
+    grid-template-columns: 2.4em 1fr;
+    font-size: 0.82rem;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* THE "UNDERSYMMETRICAL" COMPLAINT — panel height                         */
+/* ---------------------------------------------------------------------- */
+/* Owner, 2026-09-14: "this pse section is shit and undersymmetrical".
+ * Owner, 2026-09-16: "dont get me started on PSE its so shit".
+ *
+ * MEASURED CAUSE. App.css sets `.screen { min-height: 100vh; justify-content:
+ * center }` — correct for the poster sequence after a scan, where one panel
+ * IS one screen. On /pse the same rule gives every claim a full viewport
+ * whether it holds one line or an eleven-site evidence list, so between
+ * "serbia nuk e njeh pavarësinë e kosovës" (one line) and the next claim
+ * there is most of a screen of empty ground. Screenshotted on 2026-09-16:
+ * one scroll of ten ticks down the page landed on nothing but background.
+ * Six of the eight argument panels are mostly empty.
+ *
+ * FIXED HERE, NOT IN App.css, so the base visual system stays untouched.
+ * The override is scoped to `.vj-manifesto-record`, a container only
+ * ManifestoScreen emits, so `.screen` is untouched everywhere else in the
+ * app — the scan story, the scanner and the result screens all keep their
+ * full-viewport panels.
+ *
+ * If the visual system ever sizes .screen contextually, delete this
+ * block — it exists only because 100vh-per-claim is wrong for a document.
+ */
+.vj-manifesto-record .screen {
+  min-height: 0;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding-block: clamp(1.75rem, 6vw, 3rem);
+}
+
+/* A document reads better measured than full-bleed. */
+.vj-manifesto-record .screen > * {
+  max-width: 68ch;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.vj-manifesto-record .vj-poster-body {
+  line-height: 1.65;
+}
+
+/* App.css lays the site list out as a multi-column card grid
+ * (`repeat(auto-fill, minmax(170px, 1fr))`, App.css ~5832) and each site as a
+ * two-column grid with a 2.6em cell for the old "↗" link (App.css ~5838).
+ * Both were right for the old rows, which were a place name, a date and one
+ * shared boilerplate sentence. They are wrong now: each site carries what its
+ * source establishes, its own figure and, for six of the ten, a caveat —
+ * paragraphs, not cards. Screenshotted at 170px columns on 2026-09-16, the
+ * ten sites laid out sideways and ran off the screen.
+ *
+ * Overridden here rather than in App.css (kept untouched), and by
+ * SPECIFICITY rather than by load order — `.vj-manifesto-record` scopes every
+ * selector, so these win wherever the two stylesheets end up in the cascade,
+ * and nothing outside /pse is touched.
+ */
+.vj-manifesto-record .vj-poster-sites {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem auto 0;
+  display: block;
+  border-top: 0;
+}
+
+.vj-manifesto-record .vj-poster-site {
+  display: block;
+  grid-template-columns: none;
+  padding: 0.9rem 0;
+  margin: 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.3);
+  border-bottom: 0;
+}
+
+.vj-manifesto-record .vj-poster-site-place {
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.vj-manifesto-record .vj-poster-site-date {
+  display: block;
+  font-size: 0.82em;
+  opacity: 0.7;
+}
+
+/* One visible rule between claims, so the eight panels read as a sequence
+   rather than as eight accidental gaps. */
+.vj-manifesto-record .screen + .screen {
+  border-top: 1px solid rgba(127, 127, 127, 0.22);
+}
+
+/* The source line on screens that carry no body text. */
+.vj-manifesto-record .vj-poster-citeline {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  opacity: 0.7;
+  margin-top: 0.4rem;
+}

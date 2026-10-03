@@ -1,0 +1,260 @@
+/* ===========================================================================
+   verdict.css — styling owned by the VERDICT CORRECTNESS lane.
+   Imported from src/components/Flag.jsx, which every product surface reaches.
+
+   App.css and index.css hold the base UI; nothing here duplicates or
+   overrides them. This file only styles elements that did not exist before:
+   the "we don't know" flag placeholder, the always-on barcode line, and the
+   split-origin disclosure.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. THE "WE DON'T KNOW" MARKER
+   ---------------------------------------------------------------------------
+   Owner, 2026-09-16: "always showflag".
+
+   Every product row now carries something in the flag slot. Where origin is
+   genuinely unknown that something must be VISIBLY a non-answer: it may not
+   be a real country's flag and it may not be mistakable for one.
+
+   So it is deliberately anti-flag — no 4:3 rectangle, no fill, no border
+   radius that reads as a pennant. A dashed circle with a question mark:
+   round where flags are rectangular, outlined where flags are filled,
+   monochrome where flags are coloured. At 16px in a scrolling list it reads
+   as "blank" rather than as "some country I don't recognise", which is the
+   entire point.
+   --------------------------------------------------------------------------- */
+.vj-product-flag.is-unknown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  vertical-align: middle;
+}
+
+.vj-product-flag.is-unknown > [aria-hidden='true'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* Round, not rectangular — the shape itself says "not a flag". */
+  border-radius: 50%;
+  border: 1px dashed currentColor;
+  background: transparent;
+  color: color-mix(in srgb, currentColor 55%, transparent);
+  font-weight: 600;
+  line-height: 1;
+  flex: none;
+}
+
+.vj-flag-unknown-sm > [aria-hidden='true'] {
+  width: 16px;
+  height: 16px;
+  font-size: 11.5px;
+}
+.vj-flag-unknown-md > [aria-hidden='true'] {
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+}
+.vj-flag-unknown-lg > [aria-hidden='true'] {
+  width: 30px;
+  height: 30px;
+  font-size: 17px;
+}
+.vj-flag-unknown-hero > [aria-hidden='true'] {
+  width: 64px;
+  height: 64px;
+  font-size: 34px;
+  border-width: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   2. THE BARCODE, ON EVERY SURFACE
+   ---------------------------------------------------------------------------
+   Owner, 2026-09-16: "show always barcode for it". The digits are the
+   evidence for the verdict, so they are set in the mono face already used
+   for digit strings here, and they are selectable.
+
+   `is-absent` is not hidden and not faded into nothing: "pa barkod" is the
+   most important caveat on a row, because it means the origin verdict had
+   no number to rest on.
+   --------------------------------------------------------------------------- */
+.vj-barcode {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  line-height: 1.2;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.vj-barcode-label {
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  font-size: 0.82em;
+  flex: none;
+}
+
+.vj-barcode-value::-webkit-scrollbar {
+  display: none;
+}
+.vj-barcode-value {
+  letter-spacing: 0.055em;
+  font-variant-numeric: tabular-nums;
+  /* NEVER break the digit string. `overflow-wrap: anywhere` was here, and
+     in a crushed container it split 8601500110057 into a COLUMN of
+     three-digit chunks (860 / 150 / 011 / 005 / 7) — measured on the
+     desktop catalogue, 2026-09-16. A barcode is the evidence behind the
+     whole verdict and a shopper reads it against the pack in their hand,
+     so it has to stay one line. Where the container really is too narrow
+     it scrolls rather than wraps; it is never truncated, because hiding
+     digits would hide the evidence. */
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* The digits must be copyable — a shopper comparing against a pack may
+     well want to paste them somewhere. */
+  user-select: text;
+}
+
+.vj-barcode.is-sm {
+  font-size: 11.5px;
+}
+.vj-barcode.is-md {
+  font-size: 13px;
+}
+.vj-barcode.is-lg {
+  font-size: 15px;
+}
+
+/* Absent: stated in words, italic so it cannot be misread as digits. */
+.vj-barcode.is-absent .vj-barcode-value {
+  font-style: italic;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+
+/* A retailer SKU shown verbatim, marked as not-a-barcode. */
+.vj-barcode.is-sku .vj-barcode-value {
+  opacity: 0.75;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.25em;
+}
+
+.vj-barcode-skunote {
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 0.85em;
+  flex: none;
+}
+
+/* ---------------------------------------------------------------------------
+   3. SPLIT ORIGIN — registration ≠ manufacture ≠ ownership
+   ---------------------------------------------------------------------------
+   The Bimilk case. Three true facts about one yogurt, each on its own line,
+   each with its own source link. Deliberately NOT styled like the boycott
+   verdict (no red, no strike) and NOT styled like the green `vendore` badge
+   either: this is disclosure, not a judgement, and it must not read as
+   either one.
+   --------------------------------------------------------------------------- */
+.vj-origin-split {
+  display: block;
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.vj-origin-split-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px;
+}
+
+.vj-origin-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  margin: 3px 0;
+}
+
+.vj-origin-line .vj-flag {
+  flex: none;
+}
+
+.vj-origin-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+.vj-origin-src {
+  font-size: 0.9em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* The ownership disclosure chip, used on rows where there is no room for
+   the full three-line block. Neutral by design — "you should know this",
+   not "do not buy". */
+.vj-origin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  white-space: nowrap;
+  flex: none;
+}
+
+/* ---------------------------------------------------------------------------
+   4. "ON SALE IN KOSOVO" IS NOT A LOCAL CLAIM
+   ---------------------------------------------------------------------------
+   The third state of the alternatives badge. Deliberately quieter than the
+   green-dotted `vendore` chip and carrying no flag, because it asserts
+   less: the product is on the shelf here, and nothing is known about who
+   made it. Making it look like the local badge is the exact conflation the
+   project's first hard rule forbids.
+   --------------------------------------------------------------------------- */
+.vendore-chip.is-unclaimed,
+.vj-allalt-chip.is-unclaimed,
+.vj-altinline-chip.is-unclaimed,
+.vj-best-chip.is-unclaimed {
+  background: transparent;
+  color: inherit;
+  opacity: 0.72;
+  border: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+  font-style: italic;
+}
+
+/* No dot, ever — the green dot is the `vendore` status and this is not it. */
+.vendore-chip.is-unclaimed .dot,
+.vj-allalt-chip.is-unclaimed .dot,
+.vj-altinline-chip.is-unclaimed .dot,
+.vj-best-chip.is-unclaimed .dot {
+  display: none;
+}
+
+/* Owner: "alternativa vendore show always a miniflag if KS or Albanian .
+   and more better pronounced". A proven-local chip's flag gets a hairline
+   and a touch of lift so it reads as a flag rather than a coloured pixel. */
+.vendore-chip.is-claimed .vj-flag-img,
+.vj-altinline-chip .vj-flag-img,
+.vj-best-chip .vj-flag-img {
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.3);
+}

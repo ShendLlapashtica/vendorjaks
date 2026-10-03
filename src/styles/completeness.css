@@ -1,0 +1,162 @@
+/* COMPLETENESS LAYER.
+ *
+ * Owner, 2026-09-16: "leave nothing undocumented like a random product
+ * without a history name or grams or price and for other nationalities name
+ * aswell an alternative if none say there is none that is local".
+ *
+ * This file styles only the things that are now SAID OUT LOUD where the app
+ * previously rendered nothing: the size/price fact pair, the explicit
+ * "unknown" variants of each, and the "no local alternative" block.
+ *
+ * It is deliberately a separate stylesheet, imported last from main.jsx,
+ * so src/App.css and src/index.css stay untouched. Nothing here restyles
+ * an existing element; it only gives the new ones a look. Everything is
+ * expressed with the project's existing custom properties where they exist,
+ * with a literal fallback, so it survives a palette change either way.
+ */
+
+/* --- the size · price pair ------------------------------------------------ */
+
+.vj-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-top: 0.25em;
+  font-size: 0.82em;
+  line-height: 1.35;
+}
+
+.vj-fact {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.vj-fact-size {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+.vj-fact-price {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* THE POINT OF THE WHOLE FILE.
+ *
+ * "We don't know" must be visibly different from a real figure, or the two
+ * become one blur and the app is back to implying facts it does not have.
+ * So an unknown is italic, lighter, and never bold — it reads as an absence
+ * being reported, not as a value. It is NOT hidden and NOT a dash: a dash is
+ * just an empty gap with a character in it. */
+.vj-fact.is-unknown {
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* Sold by the kilo is a real answer, not an absence — so it is NOT styled
+ * like the unknowns above. It gets the dotted underline that says "there is
+ * an explanation on hover" (the title attribute carries it). */
+.vj-fact-size.is-byweight {
+  font-style: normal;
+  opacity: 0.95;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+}
+
+/* A parsed size carries a title= with the exact substring it was read from.
+ * Marking it lets a sceptical user find the audit trail. */
+.vj-fact-size[title] {
+  cursor: help;
+}
+
+/* --- per-surface placement ------------------------------------------------ */
+
+.vj-explore-row-facts,
+.vj-history-item-facts {
+  font-size: 0.78em;
+}
+
+.vj-alt-hero-facts {
+  justify-content: center;
+  gap: 0.75em;
+  margin-top: 0.4em;
+  font-size: 0.95em;
+}
+
+.vj-best-facts,
+.vj-altinline-facts,
+.vj-choice-facts {
+  justify-content: center;
+  margin-top: 0.3em;
+}
+
+.vj-allalt-facts,
+.vj-alt-card-facts {
+  margin-top: 0.2em;
+}
+
+/* --- the unknown net-weight row in the spec sheet ------------------------- */
+
+.vj-spec-row.is-unknown dd,
+.vj-spec-row dd.is-unknown {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.vj-spec-row dd[title] {
+  cursor: help;
+}
+
+/* --- "there is none that is local" ---------------------------------------- */
+
+/* The section wrapper that now appears on the non-Serbian result screens,
+ * where the alternative used to be hidden behind a toggle (or, on the
+ * not-a-country screen, absent entirely). */
+.vj-local-alt-section {
+  width: 100%;
+  margin: 6cqw 0 0;
+  padding: 0 6cqw;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.vj-local-alt-title {
+  margin: 0 0 0.6em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  opacity: 0.75;
+}
+
+/* The explicit "nuk u gjet alternativë vendore" heading. It is given real
+ * weight on purpose: this IS the answer to the owner's question for a
+ * foreign product, not an error state apologising for itself. */
+.vj-altinline-none-title,
+.vj-best-none-title {
+  margin: 0 0 0.35em;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.vj-altinline.is-empty,
+.vj-best.is-empty .vj-best-none-title {
+  text-align: center;
+}
+
+.vj-altinline.is-empty {
+  padding: 4cqw;
+  border: 1px dashed currentColor;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+.vj-altinline-none-why {
+  margin: 0.35em 0 0;
+  font-size: 0.85em;
+  line-height: 1.45;
+  opacity: 0.75;
+}
