@@ -1,0 +1,172 @@
+# THE MECHANISM THAT MAKES "EVERY DAY SOMETHING NEW" TRUE.
+#
+# Owner, 2026-09-16: "the database seems stale . constantly update te gjitha
+# with new info must never stay the same very day something new never the same
+# these products been the same past 10 days"
+#
+# He was right and the cause was not subtle: every crawl this project has ever
+# run was a human typing a command. Nothing re-ran the harvest, so the
+# catalogue could not change no matter what the UI did with it.
+#
+# This workflow is the missing half. Vercel deploys from this repo, so a commit
+# IS the deploy: if the refresh finds real new data and the gate passes, the
+# commit lands and the shopper sees it that morning without anyone being awake.
+#
+# IT COMMITS ONLY WHAT SURVIVES THE GATE.
+# scripts/refresh-catalogue.mjs writes a candidate catalogue, runs
+# eval-alternatives (WRONG FAMILY must be 0, TOTAL LIES must be 0), the
+# currency sanity check, the row-count floor, the size ceiling, `npm test` and
+# `npm run build` against it, and on any failure restores the previous file
+# byte for byte and exits non-zero. A non-zero exit fails this step, so the
+# commit step below never runs. There is no path where a broken catalogue gets
+# pushed because nobody was watching at 04:00.
+#
+# IT COMMITS ONLY WHAT ACTUALLY CHANGED.
+# `changed=false` days are real and are logged as such. The 63 MB catalogue is
+# rewritten only when rows genuinely moved; data/refresh-log.json is appended
+# every run, including the ones where the answer is "nothing new today". Faking
+# a diff so the repo looks busy is the same dishonesty as reshuffling the same
+# rows in the UI.
+
+name: Refresh catalogue
+
+on:
+  schedule:
+    # 04:15 UTC daily — 06:15 in Kosovo in summer, 05:15 in winter. Kosovo
+    # retailers update shelf prices overnight, so this reads the new prices
+    # before the morning shop. Not on the hour: GitHub's scheduler is busiest
+    # then and delays cron jobs by up to 20 minutes.
+    - cron: '15 4 * * *'
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: 'Comma-separated source keys (blank = all). Keys: maxi,buka,vipa,eurofood,amg'
+        required: false
+        default: ''
+      limit:
+        description: 'Max products per source (blank = no cap). Use a small number for a smoke test.'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Run the whole cycle and the gate, then restore the tree and commit nothing.'
+        type: boolean
+        required: false
+        default: false
+
+# Never let two refreshes write the catalogue at once: the loser would commit a
+# candidate built from a base the winner had already replaced.
+concurrency:
+  group: refresh-catalogue
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          # The refresh needs the committed catalogue to diff against, but not
+          # its history. data/kosovo-retail.json is 63 MB; a full clone would
+          # download every past version of it on every run.
+          fetch-depth: 1
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The catalogue on disk before anything runs, so the diff and the
+      # restore-on-failure have a known reference even if a step is retried.
+      - name: Record the pre-refresh state
+        run: |
+          echo "rows before: $(node -e "console.log(JSON.parse(require('fs').readFileSync('data/kosovo-retail.json','utf8')).products.length)")"
+          echo "bytes before: $(stat -c%s data/kosovo-retail.json)"
+
+      # THE WHOLE CYCLE. Exits non-zero if any gate fails, which stops the job
+      # here and leaves the commit step unreached.
+      - name: Re-crawl, merge, and run the hard gate
+        id: refresh
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.sources }}" ]; then ARGS="$ARGS --sources=${{ inputs.sources }}"; fi
+          if [ -n "${{ inputs.limit }}" ]; then ARGS="$ARGS --limit=${{ inputs.limit }}"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          echo "node scripts/refresh-catalogue.mjs $ARGS"
+          node scripts/refresh-catalogue.mjs $ARGS
+
+      # Kept whatever happened, including on a gate failure — the log entry for
+      # a refused run is the most useful one there is.
+      - name: Upload the refresh report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-log-${{ github.run_number }}
+          path: |
+            data/refresh-log.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      # ONE COMMIT STEP, and it runs on a no-change day too.
+      #
+      # The 63 MB catalogue is only rewritten by the script when rows actually
+      # moved, so on a quiet day the only staged files are the run log and the
+      # table row in docs/REFRESH.md — about 30 KB. That is deliberate: the
+      # owner's complaint is that nothing changes, and a repo that records
+      # "the job ran at 04:15 and every source served the same catalogue" is
+      # evidence the mechanism is alive. It also costs almost nothing, because
+      # git is committing a small JSON file, not the catalogue.
+      #
+      # What it must never do is fake a data change to look busy. It cannot:
+      # the script leaves data/kosovo-retail.json byte-identical unless
+      # something real moved, so `git add` has nothing to stage for it.
+      - name: Commit and deploy — only what the gate passed
+        if: steps.refresh.outputs.gate_passed == 'true' && inputs.dry_run != true
+        run: |
+          git config user.name  'vendorja-refresh[bot]'
+          git config user.email 'vendorja-refresh@users.noreply.github.com'
+          # Named paths only. `git add -A` would sweep up whatever else a
+          # parallel job left in the tree, and this job must only ever
+          # commit the artefacts it is responsible for.
+          #
+          # One at a time and only if present: `git add` fails the whole step
+          # on a pathspec that matches nothing, and data/price-history.json
+          # does not exist until the first day a price actually moves.
+          for f in data/kosovo-retail.json \
+                   data/kosovo-retail-xapi.json \
+                   data/refresh-log.json \
+                   data/price-history.json \
+                   docs/REFRESH.md; do
+            if [ -e "$f" ]; then git add "$f"; else echo "skip (absent): $f"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "::notice title=Nothing staged::Not even the run log changed. Nothing to commit."
+            exit 0
+          fi
+          git status --short --cached
+          if [ "${{ steps.refresh.outputs.changed }}" = "true" ]; then
+            SUBJECT="Catalogue refresh: ${{ steps.refresh.outputs.headline }}"
+          else
+            SUBJECT="Catalogue refresh: no change — every source served the same data"
+            echo "::notice title=No change::${{ steps.refresh.outputs.headline }}"
+          fi
+          git commit -m "$SUBJECT" \
+                     -m "Automated daily re-crawl. ${{ steps.refresh.outputs.added }} products added, ${{ steps.refresh.outputs.gone }} gone, ${{ steps.refresh.outputs.repriced }} prices changed; ${{ steps.refresh.outputs.rows }} rows total. Every gate in scripts/refresh-catalogue.mjs passed: WRONG FAMILY 0, TOTAL LIES 0, currency sanity, row-count floor, size ceiling, npm test, npm run build."
+          # Rebase rather than force: a human may have pushed while the crawl
+          # was running, and their commit is worth more than this one.
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Say why the gate refused
+        if: failure()
+        run: |
+          echo "::error title=Refresh refused::The catalogue on disk was restored and nothing was committed."
+          echo "The failing gate is named in the step log above (G1..G8) and in the run entry of data/refresh-log.json."

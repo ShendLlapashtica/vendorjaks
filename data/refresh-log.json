@@ -1,0 +1,580 @@
+{
+ "generator": "scripts/refresh-catalogue.mjs",
+ "runs": [
+  {
+   "at": "2026-09-16T13:50:01.981Z",
+   "elapsedMs": 17982,
+   "mode": "gates-only",
+   "dryRun": false,
+   "fast": false,
+   "injectedFault": null,
+   "gatePassed": true,
+   "changed": false,
+   "catalogueChanged": false,
+   "crawlOutputChanged": false,
+   "catalogueRowsBefore": 91197,
+   "catalogueRows": 91197,
+   "added": 0,
+   "gone": 0,
+   "repriced": 0,
+   "otherFieldChanges": {},
+   "sourceDelta": {},
+   "addedSample": [],
+   "goneSample": [],
+   "priceChangeSample": [],
+   "crawl": null,
+   "merge": null,
+   "currency": {
+    "shippedRows": 33039,
+    "shippedPriced": 32858,
+    "median": 1.75,
+    "p10": 0.6,
+    "p90": 5.89,
+    "p99": 24.9,
+    "max": 319.99,
+    "over100": 23,
+    "shareOver100": 0.07,
+    "wholeFileMedian": 150,
+    "nonEurRows": 0
+   },
+   "gates": [
+    {
+     "id": "G2",
+     "title": "the merged catalogue did not lose rows",
+     "ok": true,
+     "detail": "91197 -> 91197 rows, floor 90741"
+    },
+    {
+     "id": "G3a",
+     "title": "shipped median price is a plausible grocery price",
+     "ok": true,
+     "detail": "median 1.75 EUR (allowed 0.3–20) · p10 0.6 · p90 5.89 · p99 24.9 · max 319.99 · 32858 priced rows"
+    },
+    {
+     "id": "G3b",
+     "title": "shipped p90 price is not a Lek magnitude",
+     "ok": true,
+     "detail": "p90 5.89 EUR (max allowed 60)"
+    },
+    {
+     "id": "G3c",
+     "title": "almost nothing on a grocery shelf costs over 100 EUR",
+     "ok": true,
+     "detail": "23 rows over 100 EUR = 0.07% (max allowed 2%)"
+    },
+    {
+     "id": "G3d",
+     "title": "no shipped row carries a currency other than EUR",
+     "ok": true,
+     "detail": "EUR or null on every shipped row"
+    },
+    {
+     "id": "G4",
+     "title": "the catalogue is safely under GitHub's 100 MB hard limit",
+     "ok": true,
+     "detail": "63.1 MB of a 90 MB ceiling (GitHub rejects a push over 100 MB outright)"
+    },
+    {
+     "id": "G5",
+     "title": "the build filter, the app filter and this gate use the same source block list",
+     "ok": true,
+     "detail": "all three copies carry [/gjirafa/i, /wolt\\.com\\/al\\//i, /Wolt Shqipëri/i]"
+    },
+    {
+     "id": "G6a",
+     "title": "eval-alternatives.mjs exits 0",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G6b",
+     "title": "WRONG FAMILY is 0 on every set",
+     "ok": true,
+     "detail": "WRONG FAMILY lines: [0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "id": "G6c",
+     "title": "TOTAL LIES is 0",
+     "ok": true,
+     "detail": "TOTAL LIES: 0"
+    },
+    {
+     "id": "G7",
+     "title": "npm test is green",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G8",
+     "title": "npm run build succeeds",
+     "ok": true,
+     "detail": "exit 0"
+    }
+   ],
+   "headline": "every source returned exactly what it returned last time — nothing new today, and that is the honest answer"
+  },
+  {
+   "at": "2026-09-16T13:41:13.528Z",
+   "elapsedMs": 438070,
+   "mode": "full",
+   "dryRun": false,
+   "fast": false,
+   "injectedFault": null,
+   "gatePassed": true,
+   "changed": true,
+   "catalogueChanged": false,
+   "crawlOutputChanged": true,
+   "catalogueRowsBefore": 91197,
+   "catalogueRows": 91197,
+   "added": 0,
+   "gone": 0,
+   "repriced": 0,
+   "otherFieldChanges": {},
+   "sourceDelta": {},
+   "addedSample": [],
+   "goneSample": [],
+   "priceChangeSample": [],
+   "crawl": {
+    "rows": 1876,
+    "previousRows": 1848,
+    "sources": [
+     {
+      "source": "maxiks.shop",
+      "crawled": true,
+      "count": 1698,
+      "verdict": "no-obvious-data-source",
+      "reason": null
+     },
+     {
+      "source": "bukabakery.com",
+      "crawled": true,
+      "count": 40,
+      "verdict": "reverse-engineerable-embedded",
+      "reason": null
+     },
+     {
+      "source": "vipa-ks.com",
+      "crawled": true,
+      "count": 28,
+      "verdict": "reverse-engineerable-embedded",
+      "reason": null
+     },
+     {
+      "source": "euro-food.org",
+      "crawled": true,
+      "count": 90,
+      "verdict": "no-obvious-data-source",
+      "reason": null
+     },
+     {
+      "source": "amgketchup-ks.com",
+      "crawled": true,
+      "count": 20,
+      "verdict": "reverse-engineerable-embedded",
+      "reason": null
+     }
+    ],
+    "requests": 1717,
+    "bytes": 177411277,
+    "robotsBlocked": 0,
+    "outputChanged": true,
+    "sourceDelta": {
+     "vipa-ks.com": {
+      "from": 0,
+      "to": 28
+     }
+    }
+   },
+   "merge": {
+    "incoming": 1876,
+    "imported": 0,
+    "skippedCurrency": 0,
+    "skippedDuplicateOtherSource": 812,
+    "skippedSameRowNoRefresh": 0,
+    "refreshedRows": 0,
+    "priceChanged": 0,
+    "priceMissingKeptOld": 0,
+    "priceCurrencyRefused": 0,
+    "unchanged": 1064
+   },
+   "currency": {
+    "shippedRows": 33039,
+    "shippedPriced": 32858,
+    "median": 1.75,
+    "p10": 0.6,
+    "p90": 5.89,
+    "p99": 24.9,
+    "max": 319.99,
+    "over100": 23,
+    "shareOver100": 0.07,
+    "wholeFileMedian": 150,
+    "nonEurRows": 0
+   },
+   "gates": [
+    {
+     "id": "G1",
+     "title": "the crawl did not come back near-empty",
+     "ok": true,
+     "detail": "1876 rows, floor 1478 (80% of the previous 1848, minimum 100). A site redesign or a block must not be allowed to wipe the catalogue."
+    },
+    {
+     "id": "G2",
+     "title": "the merged catalogue did not lose rows",
+     "ok": true,
+     "detail": "91197 -> 91197 rows, floor 90741"
+    },
+    {
+     "id": "G3a",
+     "title": "shipped median price is a plausible grocery price",
+     "ok": true,
+     "detail": "median 1.75 EUR (allowed 0.3–20) · p10 0.6 · p90 5.89 · p99 24.9 · max 319.99 · 32858 priced rows"
+    },
+    {
+     "id": "G3b",
+     "title": "shipped p90 price is not a Lek magnitude",
+     "ok": true,
+     "detail": "p90 5.89 EUR (max allowed 60)"
+    },
+    {
+     "id": "G3c",
+     "title": "almost nothing on a grocery shelf costs over 100 EUR",
+     "ok": true,
+     "detail": "23 rows over 100 EUR = 0.07% (max allowed 2%)"
+    },
+    {
+     "id": "G3d",
+     "title": "no shipped row carries a currency other than EUR",
+     "ok": true,
+     "detail": "EUR or null on every shipped row"
+    },
+    {
+     "id": "G4",
+     "title": "the catalogue is safely under GitHub's 100 MB hard limit",
+     "ok": true,
+     "detail": "63.1 MB of a 90 MB ceiling (GitHub rejects a push over 100 MB outright)"
+    },
+    {
+     "id": "G5",
+     "title": "the build filter, the app filter and this gate use the same source block list",
+     "ok": true,
+     "detail": "all three copies carry [/gjirafa/i, /wolt\\.com\\/al\\//i, /Wolt Shqipëri/i]"
+    },
+    {
+     "id": "G6a",
+     "title": "eval-alternatives.mjs exits 0",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G6b",
+     "title": "WRONG FAMILY is 0 on every set",
+     "ok": true,
+     "detail": "WRONG FAMILY lines: [0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "id": "G6c",
+     "title": "TOTAL LIES is 0",
+     "ok": true,
+     "detail": "TOTAL LIES: 0"
+    },
+    {
+     "id": "G7",
+     "title": "npm test is green",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G8",
+     "title": "npm run build succeeds",
+     "ok": true,
+     "detail": "exit 0"
+    }
+   ],
+   "headline": "no catalogue change, but the crawl itself moved: vipa-ks.com 0→28"
+  },
+  {
+   "at": "2026-09-16T13:30:18.466Z",
+   "elapsedMs": 420910,
+   "mode": "full",
+   "dryRun": false,
+   "fast": false,
+   "injectedFault": null,
+   "gatePassed": true,
+   "changed": true,
+   "catalogueRowsBefore": 91197,
+   "catalogueRows": 91197,
+   "added": 0,
+   "gone": 0,
+   "repriced": 0,
+   "otherFieldChanges": {},
+   "sourceDelta": {},
+   "addedSample": [],
+   "goneSample": [],
+   "priceChangeSample": [],
+   "crawl": {
+    "rows": 1848,
+    "previousRows": 1876,
+    "sources": [
+     {
+      "source": "maxiks.shop",
+      "crawled": true,
+      "count": 1698,
+      "verdict": "no-obvious-data-source",
+      "reason": null
+     },
+     {
+      "source": "bukabakery.com",
+      "crawled": true,
+      "count": 40,
+      "verdict": "reverse-engineerable-embedded",
+      "reason": null
+     },
+     {
+      "source": "vipa-ks.com",
+      "crawled": false,
+      "count": 0,
+      "verdict": "blocked-do-not-build",
+      "reason": "xapi verdict blocked-do-not-build"
+     },
+     {
+      "source": "euro-food.org",
+      "crawled": true,
+      "count": 90,
+      "verdict": "no-obvious-data-source",
+      "reason": null
+     },
+     {
+      "source": "amgketchup-ks.com",
+      "crawled": true,
+      "count": 20,
+      "verdict": "reverse-engineerable-embedded",
+      "reason": null
+     }
+    ],
+    "requests": 1715,
+    "bytes": 177315947,
+    "robotsBlocked": 0,
+    "outputChanged": true
+   },
+   "merge": {
+    "incoming": 1848,
+    "imported": 0,
+    "skippedCurrency": 0,
+    "skippedDuplicateOtherSource": 812,
+    "skippedSameRowNoRefresh": 0,
+    "refreshedRows": 0,
+    "priceChanged": 0,
+    "priceMissingKeptOld": 0,
+    "priceCurrencyRefused": 0,
+    "unchanged": 1036
+   },
+   "currency": {
+    "shippedRows": 33039,
+    "shippedPriced": 32858,
+    "median": 1.75,
+    "p10": 0.6,
+    "p90": 5.89,
+    "p99": 24.9,
+    "max": 319.99,
+    "over100": 23,
+    "shareOver100": 0.07,
+    "wholeFileMedian": 150,
+    "nonEurRows": 0
+   },
+   "gates": [
+    {
+     "id": "G1",
+     "title": "the crawl did not come back near-empty",
+     "ok": true,
+     "detail": "1848 rows, floor 1500 (80% of the previous 1876, minimum 100). A site redesign or a block must not be allowed to wipe the catalogue."
+    },
+    {
+     "id": "G2",
+     "title": "the merged catalogue did not lose rows",
+     "ok": true,
+     "detail": "91197 -> 91197 rows, floor 90741"
+    },
+    {
+     "id": "G3a",
+     "title": "shipped median price is a plausible grocery price",
+     "ok": true,
+     "detail": "median 1.75 EUR (allowed 0.3–20) · p10 0.6 · p90 5.89 · p99 24.9 · max 319.99 · 32858 priced rows"
+    },
+    {
+     "id": "G3b",
+     "title": "shipped p90 price is not a Lek magnitude",
+     "ok": true,
+     "detail": "p90 5.89 EUR (max allowed 60)"
+    },
+    {
+     "id": "G3c",
+     "title": "almost nothing on a grocery shelf costs over 100 EUR",
+     "ok": true,
+     "detail": "23 rows over 100 EUR = 0.07% (max allowed 2%)"
+    },
+    {
+     "id": "G3d",
+     "title": "no shipped row carries a currency other than EUR",
+     "ok": true,
+     "detail": "EUR or null on every shipped row"
+    },
+    {
+     "id": "G4",
+     "title": "the catalogue is safely under GitHub's 100 MB hard limit",
+     "ok": true,
+     "detail": "63.1 MB of a 90 MB ceiling (GitHub rejects a push over 100 MB outright)"
+    },
+    {
+     "id": "G5",
+     "title": "the build filter, the app filter and this gate use the same source block list",
+     "ok": true,
+     "detail": "all three copies carry [/gjirafa/i, /wolt\\.com\\/al\\//i, /Wolt Shqipëri/i]"
+    },
+    {
+     "id": "G6a",
+     "title": "eval-alternatives.mjs exits 0",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G6b",
+     "title": "WRONG FAMILY is 0 on every set",
+     "ok": true,
+     "detail": "WRONG FAMILY lines: [0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "id": "G6c",
+     "title": "TOTAL LIES is 0",
+     "ok": true,
+     "detail": "TOTAL LIES: 0"
+    },
+    {
+     "id": "G7",
+     "title": "npm test is green",
+     "ok": true,
+     "detail": "exit 0"
+    },
+    {
+     "id": "G8",
+     "title": "npm run build succeeds",
+     "ok": true,
+     "detail": "exit 0"
+    }
+   ],
+   "headline": ""
+  }
+ ],
+ "note": "Every scheduled refresh appends one entry, including the runs where NOTHING CHANGED — that is the point. `changed: false` is a real and useful answer and is never dressed up as news. Capped at the last 30 runs.",
+ "latest": {
+  "at": "2026-09-16T13:50:01.981Z",
+  "elapsedMs": 17982,
+  "mode": "gates-only",
+  "dryRun": false,
+  "fast": false,
+  "injectedFault": null,
+  "gatePassed": true,
+  "changed": false,
+  "catalogueChanged": false,
+  "crawlOutputChanged": false,
+  "catalogueRowsBefore": 91197,
+  "catalogueRows": 91197,
+  "added": 0,
+  "gone": 0,
+  "repriced": 0,
+  "otherFieldChanges": {},
+  "sourceDelta": {},
+  "addedSample": [],
+  "goneSample": [],
+  "priceChangeSample": [],
+  "crawl": null,
+  "merge": null,
+  "currency": {
+   "shippedRows": 33039,
+   "shippedPriced": 32858,
+   "median": 1.75,
+   "p10": 0.6,
+   "p90": 5.89,
+   "p99": 24.9,
+   "max": 319.99,
+   "over100": 23,
+   "shareOver100": 0.07,
+   "wholeFileMedian": 150,
+   "nonEurRows": 0
+  },
+  "gates": [
+   {
+    "id": "G2",
+    "title": "the merged catalogue did not lose rows",
+    "ok": true,
+    "detail": "91197 -> 91197 rows, floor 90741"
+   },
+   {
+    "id": "G3a",
+    "title": "shipped median price is a plausible grocery price",
+    "ok": true,
+    "detail": "median 1.75 EUR (allowed 0.3–20) · p10 0.6 · p90 5.89 · p99 24.9 · max 319.99 · 32858 priced rows"
+   },
+   {
+    "id": "G3b",
+    "title": "shipped p90 price is not a Lek magnitude",
+    "ok": true,
+    "detail": "p90 5.89 EUR (max allowed 60)"
+   },
+   {
+    "id": "G3c",
+    "title": "almost nothing on a grocery shelf costs over 100 EUR",
+    "ok": true,
+    "detail": "23 rows over 100 EUR = 0.07% (max allowed 2%)"
+   },
+   {
+    "id": "G3d",
+    "title": "no shipped row carries a currency other than EUR",
+    "ok": true,
+    "detail": "EUR or null on every shipped row"
+   },
+   {
+    "id": "G4",
+    "title": "the catalogue is safely under GitHub's 100 MB hard limit",
+    "ok": true,
+    "detail": "63.1 MB of a 90 MB ceiling (GitHub rejects a push over 100 MB outright)"
+   },
+   {
+    "id": "G5",
+    "title": "the build filter, the app filter and this gate use the same source block list",
+    "ok": true,
+    "detail": "all three copies carry [/gjirafa/i, /wolt\\.com\\/al\\//i, /Wolt Shqipëri/i]"
+   },
+   {
+    "id": "G6a",
+    "title": "eval-alternatives.mjs exits 0",
+    "ok": true,
+    "detail": "exit 0"
+   },
+   {
+    "id": "G6b",
+    "title": "WRONG FAMILY is 0 on every set",
+    "ok": true,
+    "detail": "WRONG FAMILY lines: [0, 0, 0, 0, 0, 0]"
+   },
+   {
+    "id": "G6c",
+    "title": "TOTAL LIES is 0",
+    "ok": true,
+    "detail": "TOTAL LIES: 0"
+   },
+   {
+    "id": "G7",
+    "title": "npm test is green",
+    "ok": true,
+    "detail": "exit 0"
+   },
+   {
+    "id": "G8",
+    "title": "npm run build succeeds",
+    "ok": true,
+    "detail": "exit 0"
+   }
+  ],
+  "headline": "every source returned exactly what it returned last time — nothing new today, and that is the honest answer"
+ }
+}
