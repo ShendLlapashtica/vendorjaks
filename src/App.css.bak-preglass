@@ -1,0 +1,5844 @@
+/* ============================================================
+   VENDORJA — protest-poster visual system.
+   The 8 screens below (Home, Scanner, Verdict, Argument, Reminder, Slogan,
+   Choice, Result) are ported 1:1 from the owner's measured reference,
+   docs/vendorja-ui-reference.html — same class names, same cqw values,
+   same nth-child indents. Do not "improve" a number without re-checking
+   that file; it is the source of truth for these 8 screens.
+   ============================================================ */
+
+.vj-app {
+  /* #root is display:flex, so .vj-app is a flex item. Without an explicit
+     width it shrinks to its content's MIN-CONTENT width — and .screen sets
+     overflow:hidden, whose min-content width is 0. Measured 2026-09-12:
+     .vj-app computed to 0px wide while its children were 388px, clipping
+     every foreign-country result screen to an entirely blank page.
+     An explicit width is what keeps the column open. */
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* ---------- Buttons (flat — no radius, no shadow, no gradients) ---------- */
+.vj-btn-flat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  font-family: var(--round);
+  font-weight: 500;
+  font-size: var(--info-md);
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+}
+.vj-btn-white {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+.vj-btn-white-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.vj-btn-black {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+.vj-btn-ghost-black {
+  background: transparent;
+  color: var(--black);
+  border-color: var(--black);
+}
+.vj-btn-flat:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.vj-btn-flat:active {
+  transform: scale(0.98);
+}
+
+.vj-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--black);
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--round);
+  padding: 12px 18px;
+  background: var(--black);
+  color: var(--white);
+  font-size: var(--info-md);
+  min-height: 44px;
+}
+.vj-btn-ghost {
+  background: transparent;
+  color: var(--black);
+}
+.vj-btn-danger {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+.vj-btn-sm {
+  min-height: 36px;
+  padding: 8px 14px;
+  font-size: var(--info-sm);
+}
+.vj-link-btn {
+  background: none;
+  border: none;
+  color: var(--red);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px;
+  font-size: var(--info-md);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   LOGO — the only centered, whole, unmoving element. Ported from the
+   reference: Outfit 600, letter-spacing -0.02em, sized so the word fills
+   61.2% of the screen's width (the reference computes this at runtime by
+   measuring the rendered word; we use its own documented starting
+   constant, --logo-k:13.6, as a fixed value — see build report).
+   ============================================================ */
+:root {
+  /* ============ PALETTE + TYPE TOKENS ============
+     Restored 2026-09-12 from docs/vendorja-ui-reference.html, the measured
+     design reference. A CSS pass earlier that day inserted a new type scale
+     INTO this block and dropped every original custom property with it —
+     --red, --white, --black, --green and all three font stacks vanished, so
+     every `var(--red)` / `var(--white)` in the sheet resolved to nothing and
+     the whole app lost its colours and typefaces at once.
+     These are the reference's exact values. Do not remove them. */
+  --red: #FF0000;
+  --white: #FFFFFF;
+  --black: #000000;
+  --green: #00A651;
+  --stack: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --round: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --info: var(--round);
+  --logo-k: 13.6;
+  color-scheme: light;
+
+  /* iOS safe areas, used by the sticky bars and full-bleed screens. */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
+  /* Type scale shared by the screens added on 2026-09-12. */
+  --display-lg: clamp(22px, 6vw, 36px);
+  --display-md: clamp(18px, 4.8vw, 24px);
+  --display-sm: clamp(16px, 4.3vw, 20px);
+  --body-lg: clamp(14px, 3.8vw, 16px);
+  --body-md: clamp(12px, 3.3vw, 14px);
+  --body-sm: clamp(11px, 3vw, 13px);
+  --label-lg: clamp(12px, 3.2vw, 14px);
+  --label-md: clamp(11px, 3vw, 12px);
+  --label-sm: clamp(10px, 2.8vw, 12px);
+}
+.logo {
+  font: 600 calc(var(--logo-k) * 1cqw) / 1 var(--round);
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-align: center;
+  white-space: nowrap;
+}
+.logo.small {
+  font-size: calc(var(--logo-k) * 0.34cqw);
+}
+.logo.red {
+  color: var(--red);
+}
+.screen .logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.logo-img {
+  display: block;
+  margin: 0 auto;
+  width: 61.2cqw;
+  height: auto;
+}
+.logo.small.logo-img {
+  width: 20.8cqw;
+}
+/* .logo.red.logo-img: no filter needed anymore — Logo.jsx now points
+   directly at the real red-colored asset (public/logo-wordmark-red.png)
+   instead of inverting a white placeholder SVG. */
+
+/* ============================================================
+   POSTER SCREEN CONTAINER — `.screen` / `.screen.black` / `.screen.white`.
+   container-type:inline-size makes every cqw value below = % of THIS
+   element's width, so cropping/overlap is identical on every phone.
+   ============================================================ */
+.screen {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--red);
+  color: var(--white);
+  /* Vertically centers normal-flow content (.stack/.stagger/.collision,
+     now static instead of absolutely positioned — see 2026-09-11 rebuild
+     note above those rules). Elements that still use position:absolute
+     (.logo, ScannerView's .frame/.strip) are unaffected by this. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  padding-block: 64px;
+}
+.screen.black {
+  background: var(--black);
+}
+.screen.white {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* `.poster-screen` + `.bg-red` / `.bg-black` / `.bg-white` — an alias of the
+   `.screen` container above, used by full-page screens that are built as a
+   normal flex column (HomeScreen, ResultLocalScreen, ChoiceScreen) rather
+   than the strict absolute-positioned poster treatments. Without this,
+   these three screens had no background, no `position: relative` context,
+   and critically no `container-type: inline-size` — which silently made
+   every `cqw`-sized child (e.g. TreatmentB's staggered text) invalid at
+   computed-value time, collapsing it to nothing. That is what produced a
+   blank white screen with content present in the DOM but invisible. */
+.poster-screen {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.bg-red {
+  background: var(--red);
+  color: var(--white);
+}
+.bg-black {
+  background: var(--black);
+  color: var(--white);
+}
+.bg-white {
+  background: var(--white);
+  color: var(--black);
+}
+.poster-snap {
+  scroll-snap-align: start;
+}
+
+/* ---------- A · STACK (verdict, slogan) ----------
+   Rebuilt 2026-09-11: the old version set a fixed 15.5cqw font-size with
+   white-space:nowrap and a large left offset, which was DESIGNED to crop
+   text at both edges of the screen. Per direct owner feedback ("text not
+   showing... must flow in to be seen... make it all symmetrical"), this is
+   now a centered block that wraps normally at a responsive size — every
+   word is always fully visible, on every screen size. */
+.stack {
+  position: static;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 6vw;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+}
+.stack li {
+  font: 700 clamp(28px, 9vw, 60px) / 1.12 var(--stack);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: break-word;
+  color: var(--white);
+  max-width: 20ch;
+}
+.stack li.ink {
+  color: var(--black);
+}
+
+/* ---------- B · STAGGER (home, money, argument) ----------
+   Rebuilt 2026-09-11 for the same reason as .stack above: normal wrapping,
+   centered, responsive size, no cropping — instead of fixed per-line
+   negative/positive margins tuned to one specific sentence length. */
+.stagger {
+  position: static;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 6vw;
+  text-align: center;
+}
+.stagger span {
+  display: inline;
+  font: 500 clamp(20px, 5.5vw, 34px) / 1.35 var(--round);
+  letter-spacing: -0.005em;
+  white-space: normal;
+  color: var(--black);
+}
+.stagger span::after {
+  content: ' ';
+}
+
+/* ---------- C · COLLISION (reminder) ----------
+   Rebuilt 2026-09-11: was overlapping/sliding letters designed to erase
+   themselves off-screen. Now a simple, fully-visible, centered two-line
+   statement — the emphasis comes from scale and repetition of only the
+   two real words involved, not from clipping. */
+.collision {
+  position: static;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  text-align: center;
+}
+.collision .g {
+  margin: 0;
+}
+.collision .g span {
+  display: inline;
+  font: 600 clamp(22px, 6vw, 40px) / 1.3 var(--round);
+  letter-spacing: -0.01em;
+  white-space: normal;
+  color: var(--white);
+}
+.collision .g span:first-child {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.collision .g span + span::before {
+  content: ' ';
+}
+
+/* ---------- small info text ---------- */
+.meta {
+  position: absolute;
+  font: 400 3.4cqw/1.35 var(--mono);
+  letter-spacing: 0.01em;
+}
+.label {
+  font: 500 3.1cqw/1.2 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- motion: rows drift in opposite directions ---------- */
+@keyframes driftL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-5cqw);
+  }
+}
+@keyframes driftR {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(5cqw);
+  }
+}
+.drift > *:nth-child(odd) {
+  animation: driftL 9s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+.drift > *:nth-child(even) {
+  animation: driftR 11s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+@keyframes sweep {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 0.8cqw);
+  }
+}
+
+/* ============================================================
+   SCAN STORY shell — the vertical, scroll-snapped sequence of `.screen`s.
+   ============================================================ */
+.vj-scan-story {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--red);
+}
+.vj-scan-story-scroller {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-padding-top: 0;
+}
+.vj-scan-story-scroller .screen {
+  overflow: visible;
+  height: auto;
+  min-height: 100dvh;
+}
+
+/* ============================================================
+   01 · HOME (ballina)
+   ============================================================ */
+.scanbtn {
+  position: absolute;
+  left: 12.6cqw;
+  top: 128cqw;
+  display: flex;
+  align-items: center;
+  gap: 5cqw;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--black);
+  font: 500 9cqw/1 var(--round);
+}
+.scanbtn .c {
+  width: 30cqw;
+  height: 30cqw;
+  border-radius: 50%;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.reticle {
+  position: relative;
+  width: 12cqw;
+  height: 12cqw;
+}
+.reticle i {
+  position: absolute;
+  width: 4cqw;
+  height: 4cqw;
+  border: 1.1cqw solid var(--black);
+}
+.reticle i:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.reticle i:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+.reticle i:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.reticle i:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+.scanbtn:focus-visible {
+  outline: 1cqw solid var(--black);
+  outline-offset: 2cqw;
+}
+/* `.search` is a styled <input> here (the reference mocks it as plain
+   text) so it's actually usable, same position/type/border. */
+.search {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  top: 172cqw;
+  border: 0;
+  border-bottom: 0.7cqw solid var(--black);
+  padding: 0 0 2cqw;
+  font: 500 4.6cqw/1 var(--round);
+  color: var(--black);
+  background: transparent;
+  border-radius: 0;
+}
+.search::placeholder {
+  color: var(--black);
+  opacity: 0.65;
+}
+.search:focus {
+  outline: none;
+}
+.home-nav {
+  position: absolute;
+  right: 6cqw;
+  bottom: 8cqw;
+  display: flex;
+  gap: 3cqw;
+}
+.home-nav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: 400 3cqw/1.35 var(--mono);
+  color: var(--black);
+  text-decoration: underline;
+  min-height: 44px;
+}
+
+/* ============================================================
+   02 · SCANNER (skaneri)
+   ============================================================ */
+.vj-scanner-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.frame {
+  position: absolute;
+  left: 12cqw;
+  width: 76cqw;
+  top: 62cqw;
+  height: 50cqw;
+}
+.frame i {
+  position: absolute;
+  width: 12cqw;
+  height: 12cqw;
+  border: 1.2cqw solid var(--white);
+}
+.frame i:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.frame i:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+.frame i:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.frame i:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+.line {
+  position: absolute;
+  left: 4cqw;
+  right: 4cqw;
+  height: 0.8cqw;
+  background: var(--red);
+  animation: sweep 1.6s linear infinite alternate;
+}
+.strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 44cqw;
+  background: var(--red);
+  padding: 7cqw 6cqw calc(6cqw + var(--safe-bottom));
+}
+.strip p {
+  margin: 0;
+  font: 500 6.2cqw/1.1 var(--round);
+  color: var(--black);
+  max-width: 80cqw;
+}
+.strip .decoder-line {
+  margin: 1.6cqw 0 0;
+  font: 400 3cqw/1.3 var(--mono);
+  color: var(--black);
+  opacity: 0.75;
+}
+.strip .manual-row {
+  display: flex;
+  gap: 2.4cqw;
+  align-items: flex-end;
+  margin-top: 5cqw;
+}
+.strip .search {
+  position: static;
+  flex: 1;
+  color: var(--white);
+  border-color: var(--white);
+  min-height: 56px;
+}
+.strip .search::placeholder {
+  color: var(--white);
+  opacity: 0.75;
+}
+.strip .manual-submit {
+  min-height: 56px;
+  padding: 0 5cqw;
+  background: var(--black);
+  color: var(--white);
+  border: 0;
+  font: 500 4.4cqw/1 var(--round);
+  cursor: pointer;
+}
+.strip .torch {
+  position: absolute;
+  right: 6cqw;
+  top: 7cqw;
+  background: var(--black);
+  color: var(--white);
+  border: 0;
+  padding: 2cqw 4cqw;
+  font: 500 3.4cqw/1 var(--round);
+  cursor: pointer;
+}
+.scanner-close {
+  position: absolute;
+  right: 6cqw;
+  top: 10.4cqw;
+  background: none;
+  border: 0;
+  color: var(--white);
+  font: 400 3.4cqw/1.35 var(--mono);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  padding: 2cqw;
+  min-height: 44px;
+}
+.timeout-banner {
+  position: absolute;
+  left: 6cqw;
+  right: 6cqw;
+  bottom: 48cqw;
+  background: var(--white);
+  color: var(--black);
+  padding: 4cqw;
+  font: 500 3.8cqw/1.3 var(--round);
+}
+
+/* ============================================================
+   FAILURE-STATE SCREENS — designed posters, never a grey toast. Camera
+   permission denied / no BarcodeDetector (ZXing running) / decoder failed
+   to load / product not found on OFF / OFF slow-or-503 / no local
+   alternative survives the gate. Every one keeps manual entry reachable.
+   ============================================================ */
+.fail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8cqw 8cqw calc(8cqw + var(--safe-bottom));
+  gap: 4cqw;
+}
+.fail .label {
+  color: var(--white);
+}
+.fail .word {
+  margin: 0;
+  font: 600 13cqw/0.95 var(--round);
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-transform: lowercase;
+}
+.fail p.body {
+  margin: 0;
+  font: 400 4.6cqw/1.4 var(--round);
+  color: var(--white);
+  max-width: 88cqw;
+}
+.fail .actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4cqw;
+  margin-top: 2cqw;
+}
+.fail .actions-col .search {
+  position: static;
+  border-color: var(--white);
+  color: var(--white);
+  min-height: 56px;
+}
+.fail .actions-col .search::placeholder {
+  color: var(--white);
+  opacity: 0.75;
+}
+.fail button.solid {
+  min-height: 56px;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+  font: 500 4.4cqw/1 var(--round);
+  cursor: pointer;
+  padding: 0 5cqw;
+}
+.fail button.outline {
+  min-height: 56px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  font: 500 4.4cqw/1 var(--round);
+  cursor: pointer;
+  padding: 0 5cqw;
+}
+
+/* ---------- 08's clean-result also reused for "no alternative found" (still white, still calm) ---------- */
+.fail.white .word,
+.fail.white p.body,
+.fail.white .label {
+  color: var(--black);
+}
+.fail.white button.outline {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+/* ============================================================
+   VERDICT screen extras (03) — product info block below the stack, and
+   the always-instant verdict is dominant by construction (15.5cqw type).
+   ============================================================ */
+.verdict-info {
+  position: static;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: grid;
+  gap: 10px;
+  text-align: center;
+  justify-items: center;
+}
+.verdict-info .name {
+  font: 500 clamp(17px, 4.5vw, 24px) / 1.3 var(--round);
+  color: var(--white);
+}
+/* The honesty caveat: same info block, full width, full contrast, directly
+   under the name, not a buried footnote. */
+.verdict-info .origin {
+  font: 500 clamp(13px, 3.2vw, 16px) / 1.4 var(--mono);
+  color: var(--white);
+}
+.verdict-info .report-btn {
+  margin-top: 6px;
+  background: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font: 500 12px/1 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 18px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.verdict-info .report-btn:disabled {
+  opacity: 0.6;
+}
+.verdict-loading-note {
+  position: static;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  font: 400 14px/1.4 var(--mono);
+  color: var(--white);
+  opacity: 0.85;
+  text-align: center;
+}
+.scroll-hint {
+  position: static;
+  margin: 0 auto;
+  color: var(--black);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ============================================================
+   04 · ARGUMENT
+   ============================================================ */
+.arg-label {
+  position: static;
+  margin: 0 auto;
+  color: var(--black);
+  text-align: center;
+  font-size: 12px;
+}
+.arg-source {
+  position: static;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  color: var(--black);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.arg-source a {
+  color: inherit;
+}
+.vj-tag-unverified {
+  display: inline-block;
+  border: 1px solid currentColor;
+  padding: 0.5cqw 1.5cqw;
+  font-size: 2.8cqw;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   07 · CHOICE (zgjedhja) — calm but still red; nothing is broken/cropped.
+   ============================================================ */
+.alt {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  top: 52cqw;
+  display: grid;
+  gap: 3.2cqw;
+}
+.pack {
+  width: 46cqw;
+  aspect-ratio: 1;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.pack img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pack span {
+  position: absolute;
+  left: 4cqw;
+  bottom: 4cqw;
+  font: 400 3cqw/1.3 var(--mono);
+  color: var(--black);
+}
+.alt h3 {
+  margin: 1cqw 0 0;
+  font: 600 8.4cqw/1 var(--round);
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.alt p {
+  margin: 0;
+  font: 400 4.1cqw/1.35 var(--round);
+  color: var(--black);
+}
+/* "vendore" status — black badge, exact reference green dot, never a solid
+   green pill (that reads as decoration, not status). */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2cqw;
+  background: var(--black);
+  color: var(--white);
+  padding: 1.6cqw 3cqw;
+  justify-self: start;
+  font: 500 3.4cqw/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dot {
+  width: 2.6cqw;
+  height: 2.6cqw;
+  border-radius: 50%;
+  background: var(--green);
+  flex: none;
+}
+
+/* Confidence-level distinction (2026-09-11): a sourced brand pairing and a
+   same-category guess must be unmistakable at a glance — different weight,
+   color block, badge and position, not just different words. */
+.confidence {
+  justify-self: start;
+  padding: 1.6cqw 3cqw;
+  font: 500 3.2cqw/1.3 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.confidence.reported {
+  background: var(--white);
+  color: var(--red);
+  font-weight: 600;
+}
+.confidence.reported a {
+  color: var(--red);
+  text-decoration: underline;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-left: 1cqw;
+}
+.confidence.category {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.alt-pager {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  top: 46cqw;
+  display: flex;
+  gap: 1.6cqw;
+}
+.alt-pager span {
+  width: 2.4cqw;
+  height: 2.4cqw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+.alt-pager span.active {
+  background: var(--white);
+}
+.alt-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+.alt-page {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.actions {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  bottom: calc(14cqw + var(--safe-bottom));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4cqw;
+}
+.actions button {
+  height: 15cqw;
+  min-height: 56px;
+  border: 0;
+  font: 500 4.6cqw/1 var(--round);
+  cursor: pointer;
+}
+.actions .w {
+  background: var(--white);
+  color: var(--black);
+}
+.actions .k {
+  background: var(--black);
+  color: var(--white);
+}
+.actions button:focus-visible {
+  outline: 0.8cqw solid var(--white);
+  outline-offset: 1cqw;
+}
+.choice-status {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  top: 52cqw;
+  font: 400 4.4cqw/1.4 var(--round);
+  color: var(--white);
+}
+.choice-stores {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  bottom: calc(32cqw + var(--safe-bottom));
+  max-height: 30cqw;
+  overflow-y: auto;
+}
+.choice-category-picker {
+  position: absolute;
+  left: 12.6cqw;
+  right: 6cqw;
+  top: 40cqw;
+}
+.choice-category-picker .vj-section-subtitle {
+  color: var(--white);
+}
+
+/* ============================================================
+   08 · CLEAR (vendore / not from Serbia) — the only white screen.
+   ============================================================ */
+.clear {
+  position: absolute;
+  left: 8cqw;
+  right: 8cqw;
+  top: 66cqw;
+  display: grid;
+  gap: 4cqw;
+}
+.clear .word {
+  font: 600 21cqw/0.9 var(--round);
+  letter-spacing: -0.03em;
+  color: var(--black);
+  margin: 0;
+}
+.check {
+  width: 13cqw;
+  height: 13cqw;
+  background: var(--green);
+  position: relative;
+}
+.check::after {
+  content: '';
+  position: absolute;
+  left: 4.3cqw;
+  top: 2.2cqw;
+  width: 3.4cqw;
+  height: 6.6cqw;
+  border: solid var(--white);
+  border-width: 0 1.4cqw 1.4cqw 0;
+  transform: rotate(45deg);
+}
+.clear p {
+  margin: 0;
+  font: 400 4.4cqw/1.35 var(--round);
+}
+.redbtn {
+  position: absolute;
+  left: 8cqw;
+  right: 8cqw;
+  bottom: calc(14cqw + var(--safe-bottom));
+  height: 15cqw;
+  min-height: 56px;
+  border: 0;
+  background: var(--red);
+  color: var(--white);
+  font: 500 4.8cqw/1 var(--round);
+  cursor: pointer;
+}
+.redbtn:focus-visible {
+  outline: 0.8cqw solid var(--black);
+  outline-offset: 1cqw;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift > *,
+  .line {
+    animation: none !important;
+  }
+  .vj-scan-story-scroller {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================================
+   CHROME (Explore / Manifesto / History / Alternative page) — white, red
+   only for the header bar and buttons. Not governed by the 8-screen
+   reference (plain functional UI per the original brief).
+   ============================================================ */
+.vj-chrome-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: calc(10px + var(--safe-top)) 16px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.vj-chrome-back,
+.vj-chrome-lang {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--info-md);
+  cursor: pointer;
+  padding: 6px;
+}
+.vj-chrome-title {
+  margin: 0;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: lowercase;
+}
+.vj-chrome-main {
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+}
+
+/* ---------- EXPLORE ---------- */
+.vj-explore {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+}
+.vj-explore-search input {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid var(--black);
+  padding: 0 14px;
+  font: inherit;
+  font-size: var(--info-md);
+  margin-bottom: 12px;
+}
+.vj-explore-notice,
+.vj-explore-empty {
+  font-size: var(--info-md);
+  color: #444;
+}
+.vj-explore-cats {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.vj-explore-cats button {
+  flex: none;
+  border: 2px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  padding: 6px 14px;
+  font-size: var(--info-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+.vj-explore-cats button.active {
+  background: var(--black);
+  color: var(--white);
+}
+.vj-explore-group {
+  margin-bottom: 20px;
+}
+.vj-explore-cat-header {
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--stack);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.1rem, 5vw, 1.8rem);
+  margin: 0 0 8px -16px;
+  padding: 8px 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-explore-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #eee;
+}
+.vj-explore-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--white);
+  border: none;
+  padding: 10px 4px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+/* Serbian-flagged products get a light red background tint instead of
+   plain white — this is a boycott list, they should read as visually
+   distinct from local/neutral products at a glance, not identical. */
+.vj-explore-row-flagged {
+  background: #fdeaea;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.vj-explore-row-media {
+  /* Owner, 2026-09-12: "make the product bigger when looking in eksploro".
+     Was a 56px thumbnail — too small to recognise a pack on a shelf. */
+  width: clamp(88px, 24vw, 116px);
+  height: clamp(88px, 24vw, 116px);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+}
+.vj-explore-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.vj-explore-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-explore-row-placeholder {
+  font-size: 1.5rem;
+}
+.vj-explore-row-body {
+  flex: 1;
+  min-width: 0;
+}
+.vj-explore-row-body h4 {
+  margin: 0 0 2px;
+  font-size: var(--info-md);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-explore-row-brand {
+  margin: 0 0 4px;
+  color: #666;
+  font-size: var(--info-sm);
+}
+.vj-explore-row-tags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.vj-tag-flagged {
+  background: var(--red);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+}
+.vj-explore-row-price {
+  font-weight: 700;
+  font-size: var(--info-sm);
+}
+.vj-explore-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Shared "vendore" chip for plain (non-poster) white screens — same visual
+   language as .badge/.dot above: black chip, green dot, never a solid
+   green fill. */
+.vendore-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+}
+.vendore-chip .dot {
+  width: 6px;
+  height: 6px;
+}
+
+/* ---------- ALTERNATIVE / PRODUCER PAGE ---------- */
+.vj-alt-page {
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+}
+.vj-alt-header-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(10px + var(--safe-top)) 16px 10px;
+}
+.vj-alt-back,
+.vj-alt-share {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: var(--info-md);
+  padding: 6px;
+}
+.vj-alt-body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.vj-alt-product-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 8px 0 16px;
+}
+.vj-alt-photo,
+.vj-alt-photo-placeholder {
+  width: 96px;
+  height: 96px;
+  flex: none;
+  object-fit: contain;
+  border: 2px solid #eee;
+  background: #fafafa;
+}
+.vj-alt-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.vj-alt-product-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+.vj-alt-brand-line {
+  margin: 0 0 4px;
+  color: #555;
+  font-size: var(--info-md);
+}
+.vj-alt-meta-line {
+  margin: 0 0 4px;
+  color: #777;
+  font-size: var(--info-sm);
+}
+.vj-alt-price {
+  font-weight: 800;
+  color: var(--red);
+  margin: 4px 0;
+}
+.vj-alt-flag-banner {
+  background: var(--red);
+  color: var(--white);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.vj-alt-flag-banner p {
+  margin: 0;
+  font-weight: 600;
+}
+.vj-alt-issued-line {
+  background: #f5f5f5;
+  padding: 10px 14px;
+  font-size: var(--info-sm);
+  margin-bottom: 14px;
+}
+.vj-alt-honesty {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+}
+.vj-alt-honesty summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--info-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.vj-alt-honesty p {
+  margin: 8px 0 0;
+  font-size: var(--info-md);
+}
+.vj-alt-section-title {
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+}
+.vj-alt-section-subtitle,
+.vj-section-subtitle {
+  color: #555;
+  font-size: var(--info-sm);
+  margin: 0 0 14px;
+}
+.vj-alt-empty-box {
+  background: #f5f5f5;
+  padding: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+.vj-alt-source-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ---------- MANIFESTO ---------- */
+.vj-manifesto-sources {
+  background: var(--white);
+  color: var(--black);
+  padding: 40px 6vw 60px;
+}
+.vj-manifesto-sources h2 {
+  font-size: var(--info-md);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+.vj-manifesto-sources ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vj-manifesto-sources li {
+  font-size: var(--info-sm);
+  color: #333;
+}
+.vj-manifesto-sources li b {
+  display: block;
+  color: #000;
+}
+.vj-manifesto-sources a {
+  color: var(--black);
+  text-decoration: underline;
+}
+.vj-manifesto-sources p {
+  font-size: var(--info-sm);
+  color: #555;
+}
+
+/* ---------- HISTORY ---------- */
+.vj-history {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.vj-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #eee;
+}
+.vj-history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  border: none;
+  padding: 12px 8px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+.vj-history-dot {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  background: var(--black);
+}
+.vj-history-dot.serbian {
+  background: var(--red);
+}
+.vj-history-dot.local {
+  background: var(--green);
+}
+.vj-history-item-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.vj-history-item-text .name {
+  font-weight: 600;
+  font-size: var(--info-md);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-history-item-text .code {
+  color: #777;
+  font-size: var(--info-sm);
+}
+.vj-history-clear-row {
+  margin-top: 16px;
+}
+
+/* ============================================================
+   SHARE CARD overlay
+   ============================================================ */
+.vj-share-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.vj-share-preview {
+  max-width: min(90vw, 360px);
+  max-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vj-share-canvas {
+  max-width: 100%;
+  max-height: 60vh;
+  border: 2px solid var(--white);
+}
+.vj-share-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.vj-share-size-toggle {
+  display: flex;
+  gap: 8px;
+}
+.vj-share-size-toggle button {
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.vj-share-size-toggle button.active {
+  background: var(--white);
+  color: var(--red);
+}
+
+/* ============================================================
+   Legacy sub-components restyled flat (AlternativesGrid, CategoryPicker,
+   StoreList) — JS untouched, classnames kept.
+   ============================================================ */
+.vj-alternatives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.vj-alt-card {
+  background: var(--white);
+  border: 2px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+.vj-alt-card-media {
+  aspect-ratio: 1;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.vj-alt-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-alt-card-placeholder {
+  color: #aaa;
+  font-size: 1.75rem;
+}
+.vj-alt-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+.vj-alt-badge-live {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+.vj-alt-card-body {
+  padding: 10px;
+}
+.vj-alt-card-body h4 {
+  margin: 0 0 2px;
+  font-size: var(--info-sm);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* -webkit-box alone leaves a sliver of the third line visible, which reads
+     as a rendering fault rather than as a truncation. Pinning the box to
+     exactly two line-heights makes the cut clean. */
+  max-height: 2.8em;
+}
+.vj-alt-card-body .vj-alt-brand {
+  margin: 0;
+  color: #777;
+  font-size: 0.75rem;
+}
+.vj-pairing-note {
+  margin: 6px 0 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.vj-pairing-note.reported {
+  color: var(--red);
+}
+.vj-pairing-note.category {
+  color: #777;
+}
+
+/* Confidence-level distinction (2026-09-11 requirement): a sourced pairing
+   and a same-category guess must differ in more than words. */
+.vj-alt-card.is-reported {
+  border-color: var(--red);
+  border-width: 3px;
+}
+.vj-confidence {
+  margin: 8px 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+.vj-confidence-reported {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: var(--red);
+  padding: 4px 8px;
+  display: block;
+}
+.vj-confidence-reported .vj-source-link {
+  display: inline;
+  margin-left: 6px;
+  color: var(--white);
+  text-decoration: underline;
+  font-weight: 500;
+  text-transform: none;
+}
+.vj-confidence-category {
+  font-weight: 500;
+  color: #888;
+  opacity: 0.85;
+}
+.vj-source-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.vj-category-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+.vj-category-picker button {
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  padding: 12px 10px;
+  font-weight: 600;
+  font-size: var(--info-sm);
+  cursor: pointer;
+  text-align: center;
+  min-height: 44px;
+}
+.vj-category-picker button.active {
+  background: var(--white);
+  color: var(--red);
+}
+
+.vj-empty-box {
+  text-align: center;
+  padding: 20px 14px;
+  background: rgba(0, 0, 0, 0.05);
+  color: inherit;
+  margin-bottom: 16px;
+}
+
+.vj-store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+.vj-store-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 10px 12px;
+}
+.vj-store-row-main h4 {
+  margin: 0 0 2px;
+  font-size: var(--info-sm);
+}
+.vj-store-row-addr,
+.vj-store-row-meta {
+  margin: 0;
+  color: #777;
+  font-size: 0.8rem;
+}
+.vj-store-row-distance {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+.vj-alt-page,
+.vj-chrome-main {
+  font-size: var(--info-md);
+}
+
+/* ============================================================
+   HOME v2 — rebuilt 2026-09-11, replacing the giant-cropped-poster
+   home screen per direct owner feedback. Conventional layout, white
+   background, red as an accent only (logo / primary button / active
+   states), real readable type, scan as the unmistakable primary action.
+   Scoped entirely under .vj-home2 so it never touches the shared
+   `.screen` / `.stagger` / `.logo` system the post-scan story screens
+   still use.
+   ============================================================ */
+.vj-home2 {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--white);
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+.vj-home2-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(14px + var(--safe-top)) 20px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--white);
+}
+.vj-home2-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+.vj-home2-lang {
+  border: none;
+  background: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.vj-home2-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: 8px 24px 32px;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.vj-home2-tagline {
+  margin: 0;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: clamp(24px, 6.5vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.vj-home2-scan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 64px;
+  border: none;
+  border-radius: 18px;
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.28);
+}
+.vj-home2-scan:active {
+  transform: scale(0.98);
+}
+.vj-home2-scan-icon {
+  display: inline-flex;
+  color: var(--white);
+}
+
+.vj-home2-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 14px;
+  background: var(--white);
+  padding: 4px 4px 4px 18px;
+}
+.vj-home2-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--round);
+  font-size: 15px;
+  min-height: 52px;
+  color: var(--black);
+}
+.vj-home2-search input::placeholder {
+  color: #9a9a9a;
+}
+.vj-home2-search button {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  background: var(--black);
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.vj-home2-counter {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #8a8a8a;
+  text-align: center;
+}
+
+.vj-home2-footer {
+  padding: 10px 20px calc(14px + var(--safe-bottom));
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  border-top: 1px solid #f0f0f0;
+}
+.vj-home2-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.vj-home2-nav button {
+  border: none;
+  background: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #6b6b6b;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+.vj-home2-nav button:hover {
+  color: var(--red);
+}
+
+/* ============================================================
+   JOB 3a · FLAG COMPONENT — three rendering paths with size
+   modifiers and fallback styles for SVG / emoji / ISO chip.
+   ============================================================ */
+.vj-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 2;
+}
+.vj-flag-sm {
+  width: 28px;
+}
+.vj-flag-md {
+  width: 44px;
+}
+.vj-flag-lg {
+  width: 96px;
+}
+.vj-flag-hero {
+  /* Owner asked twice for this bigger. */
+  width: clamp(200px, 68cqw, 340px);
+}
+.vj-flag-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #999;
+}
+.vj-flag-emoji {
+  font-size: 1em;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vj-flag-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(10px, 2.5vw, 16px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+  box-sizing: border-box;
+}
+.vj-flag.is-chip {
+  color: var(--black);
+  background: var(--white);
+}
+.vj-flag.is-chip .vj-flag-chip {
+  color: var(--black);
+}
+.vj-flag.is-none .vj-flag-chip {
+  color: #999;
+}
+
+/* ============================================================
+   JOB 3b · RESULT COUNTRY SCREENS — ResultOtherScreen and
+   ResultNotACountryScreen. Black background, neutral and calm,
+   displayed like a poster but without the poster's militant red.
+   ============================================================ */
+.vj-result-country {
+  gap: 32px;
+  padding-block: 40px;
+}
+.vj-country-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+.vj-country-name {
+  margin: 0;
+  font: 600 clamp(24px, 6.5vw, 40px) / 1.2 var(--round);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.vj-country-prefix {
+  margin: 0;
+  font: 500 clamp(13px, 3.2vw, 16px) / 1.4 var(--mono);
+  color: var(--white);
+  opacity: 0.85;
+}
+.vj-country-verdict {
+  margin: 6px 0 0;
+  font: 700 clamp(32px, 9vw, 60px) / 1.12 var(--stack);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.vj-country-meta {
+  margin: 8px 0 0;
+  font: 500 clamp(14px, 4vw, 22px) / 1.3 var(--round);
+  color: var(--white);
+}
+.vj-country-note {
+  margin: 4px 0 0;
+  font: 500 clamp(14px, 4vw, 22px) / 1.4 var(--mono);
+  color: var(--white);
+  opacity: 0.9;
+}
+.vj-country-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+.vj-noflag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(120px, 38vw, 220px);
+  aspect-ratio: 3 / 2;
+  font-size: clamp(48px, 15vw, 96px);
+  color: var(--white);
+  opacity: 0.6;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+.vj-btn-ghost {
+  min-height: 56px;
+  padding: 12px 24px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  font-family: var(--round);
+  font-weight: 500;
+  font-size: var(--info-md);
+  cursor: pointer;
+}
+
+/* ============================================================
+   JOB 3c · VERDICT SCREEN (03) — product photo, flag, discrepancy
+   line, and verdict word on the red poster. Newly refactored from
+   simple stack layout to a full-featured screen (2026-09-12).
+   ============================================================ */
+.vj-verdict-flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.vj-verdict-flag-caption {
+  margin: 0;
+  font: 500 clamp(11px, 2.8vw, 14px) / 1.3 var(--mono);
+  letter-spacing: 0.02em;
+  color: var(--white);
+  opacity: 0.8;
+}
+.vj-verdict-discrepancy {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--black);
+  color: var(--white);
+  font: 500 clamp(12px, 3vw, 15px) / 1.35 var(--round);
+  text-align: center;
+  max-width: 480px;
+  border-radius: 4px;
+}
+.vj-verdict-discrepancy a {
+  color: var(--white);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.vj-verdict-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* The parent .screen is align-items:stretch, so a fixed-width child sits
+     flush left without this. Measured left-aligned on 2026-09-12. */
+  margin-inline: auto;
+  width: clamp(120px, 60cqw, 260px);
+  aspect-ratio: 1;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.vj-verdict-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-verdict-photo-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font: 500 clamp(12px, 3vw, 15px) / 1.3 var(--round);
+  text-align: center;
+  color: #999;
+  border: 2px dashed #999;
+  border-radius: 8px;
+}
+.vj-verdict-photo-ph.is-loading {
+  border: none;
+  color: var(--white);
+}
+
+/* ============================================================
+   JOB 3d · ALL ALTERNATIVES SCREEN (04) — full roster of every
+   alternative brand. THIS IS TALLER THAN VIEWPORT and MUST scroll
+   properly (Job 1). Three evidence levels: reported (strongest),
+   category (middle), catalog (weakest), all visually distinct.
+   ============================================================ */
+.vj-allalt-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 6vw calc(20px + var(--safe-bottom));
+  max-width: 100%;
+}
+.vj-allalt-head {
+  text-align: center;
+}
+.vj-allalt-head h2 {
+  margin: 0 0 8px;
+  font: 700 clamp(22px, 5.5vw, 36px) / 1.2 var(--round);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.vj-allalt-count {
+  margin: 0;
+  font: 400 clamp(12px, 3vw, 15px) / 1.4 var(--mono);
+  color: var(--white);
+  opacity: 0.8;
+}
+.vj-allalt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.vj-allalt-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: start;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-left: 4px solid transparent;
+}
+.vj-allalt-row.is-reported {
+  background: rgba(255, 255, 255, 0.12);
+  border-left-color: var(--white);
+}
+.vj-allalt-row.is-category {
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 0.8;
+}
+.vj-allalt-row.is-catalog {
+  background: rgba(255, 255, 255, 0.02);
+  opacity: 0.65;
+}
+.vj-allalt-media {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.vj-allalt-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-allalt-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.vj-allalt-brand {
+  display: block;
+  margin: 0;
+  font: 600 clamp(14px, 3.5vw, 17px) / 1.2 var(--round);
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-allalt-company {
+  display: block;
+  margin: 0;
+  font: 400 clamp(12px, 3vw, 14px) / 1.3 var(--round);
+  color: rgba(255, 255, 255, 0.7);
+}
+.vj-allalt-replaces {
+  display: block;
+  margin: 0;
+  font: 500 clamp(11px, 2.8vw, 13px) / 1.3 var(--mono);
+  color: rgba(255, 255, 255, 0.65);
+}
+.vj-allalt-cats {
+  display: block;
+  margin: 0;
+  font: 400 clamp(11px, 2.8vw, 13px) / 1.3 var(--mono);
+  color: rgba(255, 255, 255, 0.55);
+}
+.vj-allalt-price {
+  display: block;
+  margin: 0;
+  font: 600 clamp(12px, 3vw, 15px) / 1.3 var(--round);
+  color: var(--white);
+}
+.vj-allalt-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  flex: none;
+}
+.vj-allalt-chip {
+  display: inline-block;
+  padding: 4px 8px;
+  font: 600 clamp(9px, 2vw, 11px) / 1 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.vj-allalt-chip.is-ks {
+  background: rgba(36, 74, 165, 0.4);
+}
+.vj-allalt-chip.is-al {
+  background: rgba(255, 255, 255, 0.1);
+}
+.vj-allalt-evidence {
+  display: block;
+  font: 500 clamp(10px, 2.5vw, 12px) / 1.2 var(--mono);
+  letter-spacing: 0.01em;
+  text-align: right;
+}
+.vj-allalt-evidence.is-reported {
+  background: var(--white);
+  color: var(--black);
+  padding: 4px 8px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.vj-allalt-evidence.is-reported:visited {
+  color: var(--black);
+}
+.vj-allalt-evidence.is-category {
+  color: rgba(255, 255, 255, 0.6);
+}
+.vj-allalt-evidence.is-catalog {
+  color: rgba(255, 255, 255, 0.45);
+}
+.vj-allalt-empty {
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+  font: 500 clamp(14px, 3.8vw, 18px) / 1.4 var(--round);
+  color: rgba(255, 255, 255, 0.7);
+}
+.vj-allalt-foot {
+  margin: 20px 0 0;
+  padding: 16px;
+  text-align: center;
+  font: 400 clamp(11px, 2.8vw, 13px) / 1.4 var(--mono);
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   JOB 4 · RESPONSIVE DESKTOP — phone-first cqw layout contained
+   to ~480px max width on wide viewports, centred with dark surround.
+   Prevents cqw units from blowing up and absolutely-positioned
+   elements from landing off-screen.
+   ============================================================ */
+@media (min-width: 900px) {
+  /* DESKTOP GROUND. The poster column stays phone-width because .screen is
+     container-type:inline-size and the whole poster layout is written in
+     cqw units calibrated to a phone — widening the container makes every
+     value explode. What changed (owner, 2026-09-12: "its just black on
+     sides") is the ground AROUND it: flat black gutters read as a broken
+     page, so the surround is now the app's own red with the column sitting
+     on it as a deliberate surface. */
+  html,
+  body {
+    background: var(--red);
+  }
+
+  .vj-app {
+    width: min(100%, 480px);
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    background: var(--red);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 0 60px rgba(0, 0, 0, 0.28);
+  }
+
+  .vj-scan-story {
+    /* inset-inline is shorthand for left+right and WILL reset `left` if it
+       comes after — order matters here. */
+    inset-inline: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 480px);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 0 0 60px rgba(0, 0, 0, 0.28);
+  }
+
+  /* The non-poster screens are ordinary document flow, not cqw poster art,
+     so they get to use the width instead of being trapped in the strip. */
+  .vj-chrome-main,
+  .vj-faq,
+  .vj-manifesto-sources {
+    max-width: 68ch;
+    margin-inline: auto;
+  }
+  .vj-explore-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+  }
+}
+
+/* ============================================================
+   GS1 FOOTNOTE — the demoted origin caveat (owner, 2026-09-12)
+   Was a full-size block on the verdict screen. The owner's reaction was
+   "only show this when neccessary in a footnote down in footer", so it is
+   now one small line at the bottom of EVERY result screen, linking to the
+   Q&A where the real explaining lives.
+   ============================================================ */
+.vj-gs-footnote {
+  margin: auto 0 0;
+  padding: 10px 6vw calc(10px + var(--safe-bottom, 0px));
+  font: 400 clamp(10px, 2.9vw, 12px) / 1.35 var(--info, system-ui, sans-serif);
+  text-align: center;
+  opacity: 0.62;
+  letter-spacing: 0.01em;
+}
+.vj-gs-footnote.is-light {
+  color: var(--black);
+}
+.vj-gs-footnote.is-dark {
+  color: var(--white);
+}
+.vj-gs-footnote-link {
+  display: inline;
+  margin-left: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   Q&A ("pyetje që i bën gjithkush")
+   ============================================================ */
+.vj-faq {
+  padding: 20px 6vw 48px;
+  max-width: 68ch;
+  margin-inline: auto;
+}
+.vj-faq-title {
+  margin: 0 0 18px;
+  font: 700 clamp(22px, 6vw, 30px) / 1.12 var(--stack, system-ui, sans-serif);
+  color: var(--black);
+}
+.vj-faq-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vj-faq-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-faq-item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 0;
+  border: none;
+  background: none;
+  color: var(--black);
+  font: 600 clamp(15px, 4.1vw, 17px) / 1.3 var(--info, system-ui, sans-serif);
+  text-align: left;
+  cursor: pointer;
+}
+.vj-faq-q i {
+  flex: 0 0 auto;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--red);
+}
+.vj-faq-a {
+  margin: 0;
+  padding: 0 0 18px;
+  font: 400 clamp(14px, 3.8vw, 16px) / 1.5 var(--info, system-ui, sans-serif);
+  color: rgba(0, 0, 0, 0.78);
+}
+
+/* ============================================================
+   MEMORIAL PHOTOGRAPHS — always black and white (owner, 2026-09-12)
+   Grayscale is applied here rather than requiring pre-converted files.
+   ============================================================ */
+.vj-memorial-photo {
+  margin: 18px 0 0;
+  padding: 0;
+}
+.vj-memorial-photo img {
+  display: block;
+  width: 100%;
+  max-height: 46vh;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.06);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.vj-memorial-photo figcaption {
+  margin-top: 7px;
+  font: 400 clamp(10px, 2.9vw, 12px) / 1.4 var(--info, system-ui, sans-serif);
+  color: rgba(255, 255, 255, 0.72);
+}
+.vj-memorial-credit {
+  display: block;
+  margin-top: 2px;
+  opacity: 0.72;
+}
+
+/* ============================================================
+   TIGHTER TYPE — "make the texts more close to each other"
+   (owner, 2026-09-12). Applies to the repeated poster stacks.
+   ============================================================ */
+.stack {
+  gap: 0.02em;
+}
+.stack li {
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.collision .g {
+  gap: 0.02em;
+  line-height: 1.03;
+}
+
+/* ============================================================
+   860 = BOYCOTT framing, under the verdict word.
+   ============================================================ */
+.vj-boycott860 {
+  width: min(88%, 520px);
+  margin: 14px auto 0;
+  padding: 12px 14px;
+  background: var(--black);
+  color: var(--white);
+  text-align: left;
+}
+.vj-boycott860-word {
+  margin: 0 0 5px;
+  font: 700 clamp(14px, 4.1vw, 17px) / 1.15 var(--stack, system-ui, sans-serif);
+  letter-spacing: -0.01em;
+}
+.vj-boycott860-body {
+  margin: 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.42 var(--info, system-ui, sans-serif);
+  opacity: 0.88;
+}
+
+/* ============================================================
+   ALL-ALTERNATIVES ROWS — layout correction (2026-09-12)
+   The original `grid-template-columns: auto 1fr auto` let the right-hand
+   evidence column (which carries a long "çift i raportuar ↗" link) size
+   itself to content, collapsing the 1fr text column to ~70px. Measured in
+   Chrome: brand names truncated to "Fru…"/"Se…" and the company line broke
+   one word per line.
+   Corrected to a two-column grid with the evidence block on its own row
+   beneath the text, so the brand name always has the full width.
+   ============================================================ */
+.vj-allalt-row {
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: center;
+}
+.vj-allalt-media {
+  grid-row: span 2;
+  align-self: start;
+}
+.vj-allalt-text {
+  min-width: 0;
+  gap: 3px;
+}
+.vj-allalt-brand {
+  /* Long brand names wrap now instead of being cut to an ellipsis. */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+}
+.vj-allalt-company,
+.vj-allalt-replaces,
+.vj-allalt-cats,
+.vj-allalt-price {
+  overflow-wrap: anywhere;
+}
+.vj-allalt-right {
+  grid-column: 2;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px 8px;
+}
+.vj-allalt-evidence {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ============================================================
+   1. STORY NAV — sticky navbar (kthehu · pagename · language)
+   Rendered as first child of .vj-scan-story-scroller (the scroll container).
+   position:sticky positions against nearest scrolling ancestor, so it stays
+   visible as the story scrolls. Opaque background prevents poster content
+   from showing through. Three-part grid layout: back button left, title
+   center, language toggle right. Respects iOS safe area.
+   ============================================================ */
+.vj-story-nav {
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  background: var(--black);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: calc(12px + var(--safe-top, 0px)) 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vj-story-nav-back,
+.vj-story-nav-lang {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: clamp(14px, 3.8vw, 16px);
+  cursor: pointer;
+  padding: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vj-story-nav-back:active,
+.vj-story-nav-lang:active {
+  opacity: 0.7;
+}
+
+.vj-story-nav-title {
+  text-align: center;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: clamp(15px, 4.2vw, 18px);
+  line-height: 1.3;
+  color: var(--white);
+  overflow-wrap: break-word;
+}
+
+/* Ensure poster content below the nav doesn't hide behind it when snapped.
+   The nav height is approximately 44px + padding (12px + safe-top + 12px) = ~68-76px.
+   Use 80px as a safe conservative margin. */
+.poster-snap {
+  scroll-margin-top: 80px;
+}
+
+/* ============================================================
+   2. PRODUCT SPECS — full spec sheet on verdict screen
+   White plate panel, generous padding, centred. Shows exact product details:
+   name, flavour, weight, serving size, packaging, nutriscore, allergens,
+   ingredients, and nutrition facts. Two-column rows (label, value) with
+   hairline separators. Nutrition rows use tabular-nums for aligned columns.
+   ============================================================ */
+.vj-specs {
+  width: 100%;
+  max-width: 440px;
+  margin: 20px auto;
+  padding: 20px 16px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 8px;
+}
+
+.vj-specs.is-empty {
+  text-align: center;
+}
+
+.vj-specs-title {
+  margin: 0 0 14px;
+  font: 600 clamp(16px, 4.2vw, 18px) / 1.3 var(--round);
+  color: var(--black);
+}
+
+.vj-specs-subtitle {
+  margin: 16px 0 10px;
+  font: 600 clamp(13px, 3.5vw, 15px) / 1.3 var(--round);
+  color: #333;
+}
+
+.vj-specs-name {
+  margin: 0 0 12px;
+  font: 700 clamp(15px, 4.1vw, 17px) / 1.35 var(--round);
+  color: var(--black);
+  letter-spacing: -0.005em;
+}
+
+.vj-specs-unavailable {
+  margin: 0;
+  font: 400 clamp(13px, 3.6vw, 15px) / 1.4 var(--round);
+  color: #777;
+}
+
+.vj-spec-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.vj-spec-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.vj-spec-row:last-child {
+  border-bottom: none;
+}
+
+.vj-spec-row dt {
+  font: 500 clamp(12px, 3.3vw, 14px) / 1.3 var(--round);
+  color: #666;
+  text-align: left;
+}
+
+.vj-spec-row dd {
+  margin: 0;
+  font: 600 clamp(12px, 3.3vw, 14px) / 1.3 var(--round);
+  color: var(--black);
+  text-align: right;
+  word-break: break-word;
+}
+
+.vj-spec-list.is-nutrition .vj-spec-row dd {
+  font-variant-numeric: tabular-nums;
+}
+
+.vj-specs-ingredients {
+  margin-top: 16px;
+}
+
+.vj-specs-ingredients p {
+  margin: 8px 0 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.5 var(--round);
+  color: #333;
+}
+
+/* ============================================================
+   3. BEST ALTERNATIVE SCREEN — hero moment, the one replacement product
+   Sits on a red poster screen. One big centred card that feels like a payoff.
+   Media area shows product photo or flag (~64cqw/280px square, white plate).
+   Brand name large, company smaller/muted. Strong visual distinction between
+   reported pairings (documented) and category matches (same-category guess).
+   Empty state is deliberate, not broken.
+   ============================================================ */
+.vj-best {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 6vw calc(20px + var(--safe-bottom, 0px));
+}
+
+.vj-best-status {
+  margin: 0;
+  font: 400 clamp(14px, 3.8vw, 16px) / 1.4 var(--round);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.vj-best-kicker {
+  margin: 0;
+  font: 600 clamp(13px, 3.5vw, 15px) / 1.3 var(--mono);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vj-best-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.vj-best-media {
+  width: min(64cqw, 280px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vj-best-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vj-best-brand {
+  margin: 0;
+  font: 700 clamp(18px, 5vw, 24px) / 1.2 var(--round);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.vj-best-company {
+  margin: 0;
+  font: 400 clamp(13px, 3.6vw, 15px) / 1.3 var(--round);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vj-best-product {
+  margin: 0;
+  font: 500 clamp(12px, 3.3vw, 14px) / 1.35 var(--round);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.vj-best-price {
+  margin: 0;
+  font: 700 clamp(16px, 4.4vw, 19px) / 1.2 var(--round);
+  color: var(--white);
+}
+
+.vj-best-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  font: 600 clamp(11px, 2.8vw, 13px) / 1 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.vj-best-chip.is-ks {
+  background: rgba(36, 74, 165, 0.5);
+}
+
+.vj-best-chip.is-al {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.vj-best-why {
+  margin: 0;
+  padding: 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.4 var(--round);
+}
+
+/* Reported pairing: strong, high contrast block with source link. This is the
+   strong claim, visually dominant. */
+.vj-best-why.is-reported {
+  padding: 8px 12px;
+  background: var(--white);
+  color: var(--black);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.vj-best-why.is-reported a {
+  display: inline;
+  margin-left: 4px;
+  color: var(--black);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Category match: small, muted, clearly secondary vs reported. */
+.vj-best-why.is-category {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(11px, 3vw, 13px);
+  opacity: 0.8;
+}
+
+.vj-best-instead {
+  margin: 0;
+  font: 500 clamp(12px, 3.3vw, 14px) / 1.3 var(--round);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.vj-best-more {
+  margin: 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.35 var(--mono);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Empty state: deliberate "no match found" message, not a broken/missing state. */
+.vj-best.is-empty .vj-best-card {
+  background: rgba(0, 0, 0, 0.15);
+  gap: 12px;
+  padding: 32px 24px;
+}
+
+.vj-best-none {
+  margin: 0;
+  font: 700 clamp(16px, 4.4vw, 20px) / 1.2 var(--round);
+  color: var(--white);
+}
+
+.vj-best-none-why {
+  margin: 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.4 var(--round);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================================
+   4. VERDICT FOOTER — product meta and registration caveat
+   Sits at the very bottom of the verdict poster screen. Small, muted, centred.
+   Contains .vj-gs-footnote child which is already styled. Footer keeps them
+   together and ensures proper spacing/centering without duplicating styles.
+   ============================================================ */
+.vj-verdict-footer {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.vj-verdict-footer-meta {
+  margin: 0 0 8px;
+  font: 500 clamp(11px, 3vw, 13px) / 1.3 var(--mono);
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.01em;
+}
+
+.vj-verdict-footer-origin {
+  margin: 0;
+  font: 400 clamp(10px, 2.9vw, 12px) / 1.35 var(--mono);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ============================================================
+   PRODUCT FLAGS IN LISTS — owner, 2026-09-12: "use flags for
+   countries' products". Appears in the explore grid, history, and
+   alternative chips. Mono = boycott, same rule as the verdict screen.
+   ============================================================ */
+.vj-product-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+  flex: none;
+}
+.vj-product-flag .vj-flag-svg {
+  border-width: 0.5px;
+}
+/* A drained flag means the same thing everywhere: boycott. */
+.vj-product-flag.is-boycott {
+  outline: 1.5px solid var(--red);
+  outline-offset: 1px;
+}
+.vj-product-flag-name {
+  font: 500 clamp(10px, 2.8vw, 12px) / 1 var(--info, system-ui, sans-serif);
+  white-space: nowrap;
+}
+.vendore-chip .vj-flag {
+  margin-right: 4px;
+}
+.vj-history-item .vj-product-flag {
+  margin-right: 8px;
+}
+
+/* ============================================================
+   FLAG TONES (owner, 2026-09-12)
+     is-danger — a boycott target. "strong must not buy ... almost
+                 dangerous looking flag." Red wash + red ring.
+     is-muted  — a NON-RECOGNISER of Kosovo ("mos-njohës": Spain,
+                 Greece, Cyprus, Romania, Slovakia and others). Grey.
+                 Not a boycott — a different, weaker statement, and the
+                 two must never be confusable.
+     is-normal — full colour.
+   The tone is applied here rather than only inside the SVG so it also
+   covers the emoji and ISO-chip rendering paths.
+   ============================================================ */
+.vj-flag {
+  position: relative;
+  isolation: isolate;
+}
+
+/* --- DANGER --------------------------------------------------------- */
+.vj-flag.is-danger::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(255, 0, 0, 0.42);
+  mix-blend-mode: multiply;
+  box-shadow: inset 0 0 0 2px #ff0000;
+}
+.vj-flag.is-danger .vj-flag-img,
+.vj-flag.is-danger .vj-flag-emoji,
+.vj-flag.is-danger .vj-flag-chip {
+  filter: saturate(1.5) contrast(1.1);
+}
+.vj-flag.is-danger.vj-flag-hero::after {
+  box-shadow: inset 0 0 0 3px #ff0000, 0 0 18px rgba(255, 0, 0, 0.55);
+}
+
+/* --- MUTED / MOS-NJOHËS --------------------------------------------- */
+/* The component renders real artwork as <img class="vj-flag-img"> now; the
+   old .vj-flag-svg selector silently stopped matching, so Serbia's flag was
+   rendering in FULL COLOUR on the boycott screen. Measured 2026-09-12:
+   computed filter was `none`. */
+.vj-flag.is-muted .vj-flag-img,
+.vj-flag.is-muted .vj-flag-svg,
+.vj-flag.is-muted .vj-flag-emoji,
+.vj-flag.is-muted .vj-flag-chip {
+  filter: grayscale(1) contrast(0.95);
+  opacity: 0.8;
+}
+.vj-flag.is-muted::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.85);
+}
+
+/* The "mos-njohës" tag that travels with a muted flag. */
+.vj-nonrecogniser {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: #6b6b6b;
+  color: #fff;
+  font: 700 clamp(9px, 2.5vw, 11px) / 1.1 var(--info, system-ui, sans-serif);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   STICKY NAVBAR EVERYWHERE (owner, 2026-09-12: "always at the top a
+   sticky navbar as i said before"). The scan story has .vj-story-nav;
+   these are the other two top bars.
+   ============================================================ */
+.vj-home2-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--white);
+  padding-top: var(--safe-top, 0px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+.vj-chrome-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* ============================================================
+   THE LOCAL ALTERNATIVE, inline under the hero (owner: "MUST HAVE A
+   PHOTO AND MUST BE AT THE VERY TOP UNDER THE HERO ... first JO E JONA,
+   name of serb product, then local product name and photo").
+   ============================================================ */
+.vj-verdict-scanned-name {
+  margin: 6px auto 0;
+  max-width: min(88%, 460px);
+  font: 500 clamp(13px, 3.6vw, 16px) / 1.3 var(--info, system-ui, sans-serif);
+  text-align: center;
+  opacity: 0.92;
+}
+.vj-altinline {
+  width: min(88%, 460px);
+  margin: 14px auto 0;
+  padding: 16px 14px 18px;
+  background: var(--white);
+  color: var(--black);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.vj-altinline-kicker {
+  margin: 0;
+  font: 700 clamp(10px, 2.8vw, 12px) / 1 var(--info, system-ui, sans-serif);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.vj-altinline-photo {
+  width: min(52cqw, 190px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.vj-altinline-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-altinline-brand {
+  margin: 4px 0 0;
+  font: 700 clamp(20px, 6vw, 28px) / 1.1 var(--stack, system-ui, sans-serif);
+  letter-spacing: -0.02em;
+}
+.vj-altinline-company {
+  margin: 0;
+  font: 400 clamp(12px, 3.3vw, 14px) / 1.3 var(--info, system-ui, sans-serif);
+  opacity: 0.7;
+}
+.vj-altinline-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  background: var(--black);
+  color: var(--white);
+  font: 700 clamp(9px, 2.5vw, 11px) / 1.1 var(--info, system-ui, sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vj-altinline-why {
+  margin: 2px 0 0;
+  font: 400 clamp(11px, 3vw, 13px) / 1.35 var(--info, system-ui, sans-serif);
+}
+.vj-altinline-why.is-reported {
+  padding: 6px 10px;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 600;
+}
+.vj-altinline-why.is-reported a {
+  color: var(--white);
+}
+.vj-altinline-why.is-category {
+  opacity: 0.62;
+}
+.vj-altinline.is-empty {
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--white);
+}
+.vj-altinline-none {
+  margin: 0;
+  font: 700 clamp(14px, 4vw, 17px) / 1.2 var(--stack, system-ui, sans-serif);
+}
+.vj-altinline-none-why {
+  margin: 0;
+  font: 400 clamp(11px, 3vw, 13px) / 1.4 var(--info, system-ui, sans-serif);
+  opacity: 0.8;
+}
+.vj-altinline-status {
+  margin: 12px auto 0;
+  font: 400 clamp(11px, 3vw, 13px) / 1.3 var(--info, system-ui, sans-serif);
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   COUNTRY CHECKLIST — Stance on Kosovo, EU, NATO, embargo, etc.
+   Shown on black result screens. THREE DISTINCT STATES (not two):
+   true (✓, green), false (✗, red), unknown (–, grey/muted).
+   Unknown must never be confusable with false.
+   ============================================================ */
+.vj-stance {
+  color: var(--white);
+}
+
+.vj-stance-title {
+  margin: 0 0 16px;
+  font: 700 clamp(18px, 4.8vw, 24px) / 1.2 var(--round);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.vj-stance-country {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.vj-stance-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.vj-stance-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 56px;
+  position: relative;
+}
+
+.vj-stance-row:last-child {
+  border-bottom: none;
+}
+
+/* Marker: yes (✓), no (✗), unknown (–) — three visually distinct states. */
+.vj-stance-marker {
+  flex: 0 0 auto;
+  font: 700 24px / 1 var(--mono);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+/* YES state: greenish tick. */
+.vj-stance-row.is-yes .vj-stance-marker {
+  background: rgba(76, 175, 80, 0.18);
+  color: #5fb365;
+}
+
+/* NO state: reddish cross. */
+.vj-stance-row.is-no .vj-stance-marker {
+  background: rgba(255, 76, 76, 0.18);
+  color: #ff6666;
+}
+
+/* UNKNOWN state: neutral grey dash. Neither tick nor cross. */
+.vj-stance-row.is-unknown .vj-stance-marker {
+  background: rgba(160, 160, 160, 0.12);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Screen reader text: the state is announced as a word, never as a glyph. */
+.vj-stance-state-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Body: label, note, unknown word, source link stacked or inline. */
+.vj-stance-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.vj-stance-label {
+  font: 500 clamp(13px, 3.6vw, 15px) / 1.35 var(--round);
+  color: var(--white);
+}
+
+.vj-stance-note {
+  font: 400 clamp(11px, 3vw, 13px) / 1.35 var(--round);
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.vj-stance-unknown-word {
+  font: 500 clamp(10px, 2.8vw, 12px) / 1.2 var(--mono);
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+.vj-stance-source {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 5px 7px;
+  font: 500 clamp(10px, 2.8vw, 11px) / 1.3 var(--mono);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  border-radius: 3px;
+  transition: opacity 200ms ease;
+  width: fit-content;
+}
+
+.vj-stance-source:visited {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.vj-stance-source:hover {
+  opacity: 0.9;
+}
+
+/* Record-level note: caveats, missing data, etc. */
+.vj-stance-record-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
+  font: 500 clamp(12px, 3.2vw, 14px) / 1.45 var(--round);
+  border-radius: 4px;
+  border-left: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Unverified record badge. */
+.vj-stance-unverified {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  background: rgba(255, 76, 76, 0.12);
+  color: #ff9999;
+  font: 500 clamp(12px, 3.2vw, 14px) / 1.45 var(--mono);
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  border-left: 3px solid rgba(255, 76, 76, 0.28);
+}
+
+/* ============================================================
+   NON-RECOGNISER TAG — updated for boycott variant.
+   `.vj-nonrecogniser` (grey): does not recognise Kosovo.
+   `.vj-nonrecogniser.is-boycott` (red): boycott target.
+   Different claims, different visuals — never confusable.
+   ============================================================ */
+.vj-nonrecogniser.is-boycott {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  background: var(--red);
+  color: var(--white);
+  font: 700 clamp(9px, 2.5vw, 11px) / 1.1 var(--info, system-ui, sans-serif);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+
+/* ============================================================
+   /pse STATISTICS — compact evidence table.
+   Rebuilt 2026-09-12: the previous version gave every one of 52 figures a
+   full-width card with "burimi:" on its own line and a two-line source
+   link, so roughly one statistic filled a phone screen. Owner: "the burimi
+   texts and everything are looking too gapped make them in pse better."
+   Now: a tight grid, the source inline and truncated, built from the same
+   tokens as the rest of the app.
+   ============================================================ */
+/* The panel sits inside .vj-chrome-main, which is WHITE — so the headings
+   are ink, not white. They were white-on-white and invisible. */
+.vj-pse-stats {
+  /* 16px matches the app chrome (.vj-chrome-header). Without it the figures
+     sat hard against the screen edge and read as clipped. */
+  padding: 14px 16px 28px;
+}
+.vj-pse-stats-title {
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--black);
+  font: 700 var(--display-md) / 1.1 var(--stack);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* TAX — the closing section, in red, at the foot of /pse. */
+.vj-pse-tax-foot {
+  margin-top: 22px;
+  padding: 14px 12px 16px;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.vj-pse-tax-foot-title {
+  margin: 0 0 10px;
+  font: 700 var(--display-sm) / 1.1 var(--stack);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.vj-pse-tax-impact {
+  margin-top: 10px;
+  padding: 10px 11px;
+  background: var(--black);
+}
+.vj-pse-tax-impact-figure {
+  font: 700 var(--display-sm) / 1 var(--stack);
+  font-variant-numeric: tabular-nums;
+}
+.vj-pse-tax-impact-label {
+  margin: 3px 0 0;
+  font: 400 var(--body-sm) / 1.3 var(--round);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   LOCAL (vendore) RESULT — flow layout.
+   The original screen was a poster: `.clear` absolutely positioned at
+   66cqw and `.redbtn` pinned to the bottom. That holds a check mark and
+   one word, but not a hero flag plus a full nutrition sheet — adding those
+   made the flag, the button and the footnote overlap each other.
+   Inside .vj-result-local everything returns to normal document flow.
+   ============================================================ */
+.vj-result-local {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: calc(64px + var(--safe-top)) 6vw calc(28px + var(--safe-bottom));
+  overflow: visible;
+  height: auto;
+}
+.vj-result-local .clear {
+  position: static;
+  left: auto;
+  right: auto;
+  top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.vj-result-local .clear .word {
+  font: 600 clamp(36px, 13vw, 64px) / 0.95 var(--round);
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+.vj-result-local .clear > p {
+  margin: 0;
+  text-align: center;
+  font: 400 var(--body-md) / 1.4 var(--round);
+}
+.vj-result-local-flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.vj-result-local-country {
+  font: 500 var(--label-md) / 1.2 var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--black);
+  opacity: 0.7;
+}
+.vj-result-local .redbtn {
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  max-width: 460px;
+}
+.vj-result-local .vj-specs {
+  width: 100%;
+}
+
+
+/* ============================================================
+   EXPLORE SHELF — essentials left, hygiene/other right.
+   Owner, 2026-09-12: "elementary products that are living required to left.
+   and hygiene others to right". Side is decided by lib/categoryFamily.js,
+   the same rules that gate the alternatives.
+   ============================================================ */
+.vj-explore-shelf {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.vj-explore-group.is-essential .vj-explore-cat-header::after {
+  content: " · ushqim";
+  opacity: 0.55;
+  font-size: 0.7em;
+}
+/* The household side used to append " · higjienë" to EVERY non-food heading,
+   so the page read "SHTËPI · HIGJIENË", "KOZMETIKË · HIGJIENË", "TË TJERA ·
+   HIGJIENË" and even "HIGJIENË · HIGJIENË". Hygiene is one shelf among
+   several, not a label for everything that is not food. Removed (owner,
+   2026-09-13: "remove this unneccessary highiene"); the heading already
+   names the category. */
+
+@media (min-width: 900px) {
+  /* Two real shelves side by side once there is room for them. */
+  .vj-explore-shelf {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    align-items: start;
+  }
+  .vj-explore-group.is-essential {
+    grid-column: 1;
+  }
+  .vj-explore-group.is-household {
+    grid-column: 2;
+  }
+}
+
+
+/* Real flag artwork: block-level, fills its 3:2 box, hairline frame so a
+   white band never disappears against a white background. */
+.vj-flag-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   /pse STATISTICS — one table style for every section.
+   Owner, 2026-09-12: "taksat e tyre this table putting section looks
+   good make it somewhat like that all of the others". Modelled on the
+   country checklist, which the owner also called out as working: a row
+   per fact, value first, source as a single mark.
+   ============================================================ */
+.vj-pse-sec {
+  margin: 0 0 26px;
+}
+.vj-pse-sec-title {
+  margin: 0 0 2px;
+  padding-bottom: 6px;
+  font: 700 var(--label-md) / 1.2 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.vj-pse-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.vj-pse-row {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.vj-pse-sec .vj-pse-row:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.022);
+}
+.vj-pse-row:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-pse-row-value {
+  width: 8.4em;
+  padding: 11px 12px 11px 2px;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font: 700 var(--body-lg) / 1.2 var(--stack);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+.vj-pse-row-unit {
+  font: 500 var(--label-sm) / 1 var(--mono);
+  opacity: 0.65;
+}
+.vj-pse-row-label {
+  padding: 11px 8px 11px 0;
+  vertical-align: top;
+  font: 400 var(--body-sm) / 1.4 var(--round);
+  color: var(--black);
+  /* NO line clamp here, deliberately. Two attempts at one (-webkit-line-clamp,
+     then a pinned max-height) both cut a sourced figure's year mid-glyph —
+     "· 2017" sliced in half reads as a rendering fault, and hiding part of a
+     cited statistic is a worse fault than an uneven row. Labels wrap in full;
+     the rhythm comes from the fixed figure column and the padding instead. */
+  overflow-wrap: break-word;
+}
+.vj-pse-row-year {
+  opacity: 0.55;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+.vj-pse-row-src {
+  padding: 7px 0;
+  vertical-align: middle;
+  text-align: right;
+  width: 2.2em;
+}
+.vj-pse-row-src a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  color: var(--black);
+  opacity: 0.55;
+  text-decoration: none;
+  transition: opacity 120ms ease, border-color 120ms ease;
+}
+.vj-pse-row-src a:hover {
+  opacity: 1;
+  border-color: var(--black);
+}
+/* Unconfirmed stays unmistakable. */
+.vj-pse-row.is-unverified .vj-pse-row-value {
+  color: var(--red);
+}
+.vj-pse-row-flag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  background: var(--red);
+  color: var(--white);
+  font: 700 var(--label-sm) / 1.5 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* TAX — the closing block, red. */
+.vj-pse-tax-foot {
+  margin: 26px -16px 14px;
+  padding: 18px 16px 20px;
+  background: var(--red);
+  color: var(--white);
+}
+.vj-pse-tax-foot-title {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  font: 700 var(--display-sm) / 1.1 var(--stack);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.vj-pse-table.is-onred .vj-pse-row {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.vj-pse-table.is-onred .vj-pse-row-value {
+  padding-left: 0;
+}
+.vj-pse-table.is-onred .vj-pse-row-value,
+.vj-pse-table.is-onred .vj-pse-row-label {
+  color: var(--white);
+}
+.vj-pse-table.is-onred .vj-pse-row-src a {
+  color: var(--white);
+  opacity: 0.7;
+}
+.vj-pse-table.is-onred .vj-pse-row.is-unverified .vj-pse-row-value {
+  color: var(--black);
+}
+.vj-pse-table.is-onred .vj-pse-row-flag {
+  background: var(--black);
+}
+
+/* Derived calculations — visibly not measurements. */
+.vj-pse-impact-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.vj-pse-impact {
+  padding: 9px 11px;
+  background: var(--black);
+  color: var(--white);
+}
+.vj-pse-impact.is-refusal {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+}
+.vj-pse-impact-top {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.vj-pse-impact-figure {
+  font: 700 var(--display-sm) / 1 var(--stack);
+  font-variant-numeric: tabular-nums;
+}
+.vj-pse-impact-badge {
+  padding: 0 5px;
+  background: var(--white);
+  color: var(--black);
+  font: 700 var(--label-sm) / 1.6 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vj-pse-impact-label {
+  margin: 4px 0 0;
+  font: 400 var(--body-sm) / 1.35 var(--round);
+}
+.vj-pse-impact-math {
+  margin: 4px 0 0;
+  font: 500 var(--label-md) / 1.3 var(--mono);
+  opacity: 0.85;
+}
+.vj-pse-impact-note {
+  margin: 4px 0 0;
+  font: 400 var(--label-sm) / 1.4 var(--round);
+  opacity: 0.7;
+}
+
+.vj-pse-toggle {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: none;
+  color: var(--black);
+  font: 500 var(--label-md) / 1.2 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ============================================================
+   FOREIGN / NOT-A-COUNTRY RESULT — LIGHT.
+   Owner, 2026-09-12: "the only problem with this is that its dark mode ...
+   leave this section exactly like this but give it the light mode feel like
+   in the first page". Same structure, same checklist, white ground and ink
+   type like the home screen — these screens were the only dark ones left.
+   ============================================================ */
+.vj-result-country {
+  background: var(--white);
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: calc(64px + var(--safe-top)) 6vw calc(28px + var(--safe-bottom));
+  overflow: visible;
+  height: auto;
+}
+.vj-result-country .vj-country-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+.vj-result-country .vj-country-name {
+  margin: 0;
+  font: 600 clamp(30px, 10vw, 52px) / 1 var(--round);
+  letter-spacing: -0.03em;
+  color: var(--black);
+}
+.vj-result-country .vj-country-prefix {
+  margin: 0;
+  font: 500 var(--label-md) / 1.2 var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--black);
+  opacity: 0.6;
+}
+.vj-result-country .vj-country-verdict {
+  margin: 4px 0 0;
+  font: 600 clamp(26px, 9vw, 44px) / 1 var(--round);
+  letter-spacing: -0.03em;
+  color: var(--red);
+  text-transform: lowercase;
+}
+.vj-result-country .vj-country-meta {
+  margin: 0;
+  font: 500 var(--body-md) / 1.35 var(--round);
+  color: var(--black);
+}
+.vj-result-country .vj-country-note {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 46ch;
+  font: 400 var(--body-sm) / 1.45 var(--round);
+  color: var(--black);
+  opacity: 0.72;
+}
+.vj-result-country .vj-noflag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(120px, 40cqw, 200px);
+  aspect-ratio: 3 / 2;
+  border: 2px dashed rgba(0, 0, 0, 0.3);
+  font: 600 clamp(30px, 9vw, 48px) / 1 var(--round);
+  color: rgba(0, 0, 0, 0.35);
+}
+.vj-result-country .vj-country-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 460px;
+}
+.vj-result-country .redbtn {
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+}
+.vj-result-country .vj-btn-ghost {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  background: none;
+  color: var(--black);
+  font: 500 var(--body-md) / 1.2 var(--round);
+  cursor: pointer;
+}
+.vj-result-country .vj-specs,
+.vj-result-country .vj-stance,
+.vj-result-country .vj-altinline {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* The checklist itself, in light. Structure unchanged — the three states
+   stay unmistakable, which is a project rule, not a style choice. */
+.vj-result-country .vj-stance,
+.vj-result-country .vj-stance-row,
+.vj-result-country .vj-stance-title,
+.vj-result-country .vj-stance-label,
+.vj-result-country .vj-stance-body {
+  color: var(--black);
+  background: transparent;
+}
+.vj-result-country .vj-stance-row {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-result-country .vj-stance-row:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-result-country .vj-stance a {
+  color: var(--black);
+  opacity: 0.6;
+}
+
+/* Checklist rows: compact. They were ~130px tall each because the label,
+   the (often empty) note and the source link each took their own band.
+   Now one tight stack beside the marker. */
+.vj-result-country .vj-stance-row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 2px;
+  align-items: start;
+  padding: 9px 0;
+  min-height: 0;
+}
+.vj-result-country .vj-stance-row > * {
+  margin: 0;
+}
+.vj-result-country .vj-stance-marker,
+.vj-result-country .vj-stance-state {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: start;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 1;
+}
+.vj-result-country .vj-stance-label {
+  grid-column: 2;
+  font: 500 var(--body-md) / 1.3 var(--round);
+}
+.vj-result-country .vj-stance-note,
+.vj-result-country .vj-stance-detail,
+.vj-result-country .vj-stance-year {
+  grid-column: 2;
+  font: 400 var(--label-md) / 1.35 var(--round);
+  opacity: 0.65;
+}
+.vj-result-country .vj-stance-source,
+.vj-result-country .vj-stance-row a {
+  grid-column: 2;
+  font: 400 var(--label-sm) / 1.3 var(--mono);
+  opacity: 0.5;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+/* The word form of the state ("po:" / "jo:") is redundant next to the
+   marker and was adding a line to every row. */
+.vj-result-country .vj-stance-state-word {
+  display: none;
+}
+.vj-result-country .vj-stance-title {
+  font: 700 var(--display-sm) / 1.15 var(--stack);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+/* An element with no text must not reserve a line. Several checklist rows
+   carry an empty note/detail node, which was leaving a blank band between
+   the label and its source link. */
+.vj-result-country .vj-stance-row p:empty,
+.vj-result-country .vj-stance-row span:empty,
+.vj-result-country .vj-stance-row div:empty {
+  display: none;
+}
+.vj-result-country .vj-stance-row {
+  row-gap: 1px;
+}
+
+/* ============================================================
+   POST-SCAN STORY — LIGHT.
+   Owner, 2026-09-12: "this post-scan page is good but it must be designed
+   like it is just light mode blacktext like frontpage".
+   Same structure, same order, same components — white ground and ink type,
+   matching the home screen. Red is kept for emphasis only (the verdict
+   word, the boycott block, buttons), exactly as the front page uses it.
+   ============================================================ */
+.vj-scan-story {
+  background: var(--white);
+}
+.vj-scan-story .screen,
+.vj-scan-story .screen.black {
+  background: var(--white);
+  color: var(--black);
+}
+/* Poster type goes to ink. */
+.vj-scan-story .stack li,
+.vj-scan-story .stagger span,
+.vj-scan-story .collision .g span,
+.vj-scan-story .logo {
+  color: var(--black);
+}
+.vj-scan-story .stack li.ink {
+  color: var(--red);
+}
+/* The verdict word is the one place red still shouts. */
+.vj-scan-story .vj-story-verdict .stack li {
+  color: var(--red);
+}
+.vj-scan-story .meta,
+.vj-scan-story .label,
+.vj-scan-story .scroll-hint {
+  color: var(--black);
+  opacity: 0.6;
+}
+.vj-scan-story .vj-verdict-flag-caption,
+.vj-scan-story .vj-verdict-scanned-name {
+  color: var(--black);
+}
+.vj-scan-story .vj-verdict-footer,
+.vj-scan-story .vj-verdict-footer-meta,
+.vj-scan-story .vj-verdict-footer-origin {
+  color: var(--black);
+}
+.vj-scan-story .vj-gs-footnote {
+  color: var(--black);
+}
+/* The alternative card is already white — give it an edge so it reads as a
+   card on a white page rather than dissolving into it. */
+.vj-scan-story .vj-altinline {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+}
+/* Argument / memorial screens: ink on white, red reserved for emphasis. */
+.vj-scan-story .vj-argument-headline,
+.vj-scan-story .vj-argument-body,
+.vj-scan-story .vj-argument-subhead,
+.vj-scan-story h2,
+.vj-scan-story h3,
+.vj-scan-story p {
+  color: var(--black);
+}
+.vj-scan-story .vj-allalt-head h2,
+.vj-scan-story .vj-allalt-count,
+.vj-scan-story .vj-allalt-foot,
+.vj-scan-story .vj-allalt-brand,
+.vj-scan-story .vj-allalt-company,
+.vj-scan-story .vj-allalt-replaces,
+.vj-scan-story .vj-allalt-cats {
+  color: var(--black);
+}
+.vj-scan-story .vj-allalt-row {
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+.vj-scan-story .vj-specs {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+}
+/* Sticky nav stays dark so it separates from the white page. */
+.vj-scan-story .vj-story-nav {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* The 860 block on the light story: red emphasis, white type. It was
+   inheriting a black background AND the new black text, so it rendered as
+   a solid black slab with its wording invisible inside it. */
+.vj-scan-story .vj-boycott860 {
+  background: var(--red);
+  color: var(--white);
+}
+.vj-scan-story .vj-boycott860 .vj-boycott860-word,
+.vj-scan-story .vj-boycott860 .vj-boycott860-body,
+.vj-scan-story .vj-boycott860 p {
+  color: var(--white);
+}
+/* Same trap for the discrepancy callout (the 387/Bosnia explanation). */
+.vj-scan-story .vj-verdict-discrepancy {
+  background: var(--black);
+  color: var(--white);
+}
+.vj-scan-story .vj-verdict-discrepancy,
+.vj-scan-story .vj-verdict-discrepancy a {
+  color: var(--white);
+}
+/* And the reported-pairing badge inside the alternative card. */
+.vj-scan-story .vj-altinline-why.is-reported,
+.vj-scan-story .vj-altinline-why.is-reported a,
+.vj-scan-story .vj-altinline-chip {
+  color: var(--white);
+}
+
+/* ============================================================
+   /pse (MANIFESTO) — LIGHT, to match the front page.
+   Owner, 2026-09-12: "all same design same everything just make it
+   lightmode so its not far away looking from the frontpage."
+   The page was still the original red poster sequence while every other
+   screen had moved to white — that gap is what made it feel foreign.
+   Structure, order and content are untouched; red is emphasis only.
+   ============================================================ */
+.vj-manifesto {
+  background: var(--white);
+  color: var(--black);
+}
+.vj-manifesto .screen,
+.vj-manifesto .screen.black {
+  background: var(--white);
+  color: var(--black);
+  /* Poster screens were each a full viewport tall with the text floated in
+     the middle — on a light page that reads as a wall of empty white. */
+  min-height: 0;
+  height: auto;
+  padding-block: 30px;
+  justify-content: flex-start;
+}
+.vj-manifesto .stack li,
+.vj-manifesto .stagger span,
+.vj-manifesto .collision .g span,
+.vj-manifesto .logo {
+  color: var(--black);
+}
+.vj-manifesto .stack li.ink {
+  color: var(--red);
+}
+.vj-manifesto .meta,
+.vj-manifesto .label {
+  color: var(--black);
+  opacity: 0.55;
+}
+.vj-manifesto p,
+.vj-manifesto h2,
+.vj-manifesto h3,
+.vj-manifesto li {
+  color: var(--black);
+}
+/* The repeated motto keeps its punch as red type on white. */
+.vj-manifesto .stack li {
+  color: var(--red);
+}
+.vj-manifesto .vj-manifesto-sources {
+  color: var(--black);
+}
+.vj-manifesto .vj-manifesto-sources a {
+  color: var(--black);
+}
+/* Tighter rhythm: the poster screens were spaced for full-bleed red. */
+.vj-manifesto > * + * {
+  margin-top: 4px;
+}
+
+/* /pse: the poster primitives were absolutely positioned for a full-bleed
+   red screen — `.stagger` at a fixed `top: 30cqw`, `.meta` pinned near the
+   bottom. Once the screens collapsed to content height those two overlapped,
+   so every source line ran straight through its own headline. In the
+   manifesto they return to normal flow. */
+.vj-manifesto .stagger,
+.vj-manifesto .meta,
+.vj-manifesto .logo,
+.vj-manifesto .collision,
+.vj-manifesto .stack {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+.vj-manifesto .screen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 6vw 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.vj-manifesto .stagger {
+  margin: 0;
+  text-align: left;
+}
+.vj-manifesto .stagger span {
+  display: inline;
+  font: 600 clamp(20px, 5.4vw, 30px) / 1.18 var(--round);
+  letter-spacing: -0.02em;
+  white-space: normal;
+}
+.vj-manifesto .stagger span::after {
+  content: ' ';
+}
+.vj-manifesto .meta {
+  margin: 0;
+  font: 400 var(--label-sm) / 1.4 var(--mono);
+  opacity: 0.5;
+  word-break: break-word;
+}
+.vj-manifesto .stack {
+  gap: 0;
+  padding: 0;
+}
+.vj-manifesto .stack li {
+  font: 700 clamp(22px, 6vw, 34px) / 1.1 var(--stack);
+  text-align: left;
+}
+.vj-manifesto .collision .g {
+  align-items: flex-start;
+}
+.vj-manifesto .collision .g span {
+  font: 600 clamp(22px, 6vw, 34px) / 1.12 var(--round);
+  white-space: normal;
+  text-align: left;
+}
+
+/* The stagger block kept a left inset from its poster days; on a light,
+   flowing page it just made every headline a narrow column. */
+.vj-manifesto .stagger {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin-inline: 0;
+}
+.vj-manifesto .screen > * {
+  width: 100%;
+}
+
+/* ============================================================
+   PRODUCT DETAIL — hero.
+   Owner, 2026-09-12: "in eksploro i click on a product. it must be shown
+   big as a hero section almost".
+   ============================================================ */
+.vj-alt-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 6vw 20px;
+  background: var(--white);
+  text-align: center;
+}
+.vj-alt-hero-media {
+  width: min(74cqw, 320px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.vj-alt-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vj-alt-hero-name {
+  margin: 0;
+  font: 600 clamp(22px, 7vw, 38px) / 1.08 var(--round);
+  letter-spacing: -0.03em;
+  color: var(--black);
+}
+.vj-alt-hero-brand {
+  margin: 0;
+  font: 400 var(--body-md) / 1.3 var(--round);
+  color: var(--black);
+  opacity: 0.7;
+}
+.vj-alt-hero-price {
+  margin: 0;
+  font: 700 clamp(18px, 5.4vw, 26px) / 1 var(--stack);
+  font-variant-numeric: tabular-nums;
+  color: var(--red);
+}
+.vj-alt-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   SCANNER — rebuilt 2026-09-12.
+   Owner: "flashlight notif is buggy and blocks screen must be shown a bit
+   uptop not block the screen", "add a photograph button", "this is very
+   user unfriendly the scan part".
+   Layout is a hard three-row stack: controls above, camera in the middle,
+   actions below. NOTHING is ever positioned over the viewfinder, because
+   that is precisely where the barcode has to be.
+   ============================================================ */
+.vj-scanner {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--black);
+  color: var(--white);
+}
+@media (min-width: 900px) {
+  .vj-scanner {
+    inset-inline: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 480px);
+  }
+}
+.vj-scanner-top {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  padding: calc(8px + var(--safe-top)) 10px 8px;
+  background: var(--black);
+}
+.vj-scanner-x,
+.vj-scanner-torch {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: none;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.vj-scanner-torch.is-on {
+  background: var(--white);
+  color: var(--black);
+}
+.vj-scanner-hint {
+  margin: 0;
+  text-align: center;
+  font: 500 var(--body-sm) / 1.3 var(--round);
+  color: var(--white);
+}
+.vj-scanner-stage {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  min-height: 0;
+}
+.vj-scanner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.vj-scanner-frame {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  aspect-ratio: 3 / 2;
+  pointer-events: none;
+}
+.vj-scanner-frame i {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--white);
+}
+.vj-scanner-frame i:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.vj-scanner-frame i:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+.vj-scanner-frame i:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.vj-scanner-frame i:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+.vj-scanner-sweep {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 50%;
+  height: 2px;
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.9);
+  animation: vj-sweep 2.2s ease-in-out infinite alternate;
+}
+@keyframes vj-sweep {
+  from {
+    top: 8%;
+  }
+  to {
+    top: 92%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vj-scanner-sweep {
+    animation: none;
+  }
+}
+.vj-scanner-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px calc(14px + var(--safe-bottom));
+  background: var(--black);
+}
+/* The primary action. Big, obvious, thumb-reachable. */
+.vj-scanner-shoot {
+  width: 100%;
+  min-height: 60px;
+  border: 0;
+  background: var(--red);
+  color: var(--white);
+  font: 600 clamp(17px, 5vw, 21px) / 1 var(--round);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+.vj-scanner-shoot:disabled {
+  opacity: 0.65;
+}
+.vj-scanner-manual-toggle {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: none;
+  color: var(--white);
+  font: 400 var(--body-md) / 1.2 var(--round);
+  cursor: pointer;
+}
+.vj-scanner-manual {
+  display: flex;
+  gap: 8px;
+}
+.vj-scanner-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: none;
+  color: var(--white);
+  font: 400 var(--body-md) / 1 var(--mono);
+}
+.vj-scanner-go {
+  min-height: 48px;
+  padding: 0 16px;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+  font: 600 var(--body-md) / 1 var(--round);
+  cursor: pointer;
+}
+.vj-scanner-decoder {
+  margin: 0;
+  text-align: center;
+  font: 400 var(--label-sm) / 1.3 var(--mono);
+  opacity: 0.5;
+}
+
+/* Checklist marks and label a notch bigger (owner: "make checks X bigger.
+   aswell and this text here a bit bigger"). */
+.vj-result-country .vj-stance-marker,
+.vj-result-country .vj-stance-state {
+  width: 38px;
+  height: 38px;
+  font-size: 23px;
+}
+.vj-result-country .vj-stance-row {
+  grid-template-columns: 42px minmax(0, 1fr);
+}
+.vj-result-country .vj-stance-label {
+  font-size: var(--body-lg);
+  font-weight: 600;
+}
+
+/* One navbar, one look. `.vj-story-nav` was a second, black skin for the
+   same thing — it is gone; the story now renders `.vj-chrome-header` too.
+   These few rules only cover the places it appears inside a scroller or a
+   result screen. */
+.vj-nav .vj-chrome-back {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: var(--body-md);
+  padding: 6px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.vj-scan-story .vj-chrome-header,
+.vj-result-country .vj-chrome-header,
+.vj-result-local .vj-chrome-header {
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+}
+/* The result screens are flex columns with padding; the bar must span the
+   full width and sit above that padding, not inside it. */
+.vj-result-country,
+.vj-result-local {
+  padding-top: 0;
+}
+.vj-result-country > .vj-chrome-header,
+.vj-result-local > .vj-chrome-header {
+  margin: 0 -6vw 10px;
+  width: calc(100% + 12vw);
+}
+
+/* The derived-impact blocks have a BLACK ground, so the /pse light-mode
+   rule (`.vj-manifesto p { color: var(--black) }`) turned their contents
+   into black-on-black — the figure, label, arithmetic and caveat all
+   vanished and only the white badge showed. Seen on screen 2026-09-12.
+   These need white type restored explicitly, and the same applies to the
+   tax table that sits on red. */
+.vj-pse-impact,
+.vj-pse-impact p,
+.vj-pse-impact .vj-pse-impact-figure,
+.vj-pse-impact .vj-pse-impact-label,
+.vj-pse-impact .vj-pse-impact-math,
+.vj-pse-impact .vj-pse-impact-note,
+.vj-manifesto .vj-pse-impact,
+.vj-manifesto .vj-pse-impact p {
+  color: var(--white);
+}
+.vj-pse-impact.is-refusal,
+.vj-pse-impact.is-refusal p,
+.vj-manifesto .vj-pse-impact.is-refusal p {
+  color: var(--white);
+}
+/* Tax table + heading sit on red. */
+.vj-manifesto .vj-pse-tax-foot,
+.vj-manifesto .vj-pse-tax-foot-title,
+.vj-manifesto .vj-pse-tax-foot p,
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-row-value,
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-row-label,
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-row-year {
+  color: var(--white);
+}
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-row-src a {
+  color: var(--white);
+}
+/* The badge stays inverted so it still reads as a label, not body text. */
+.vj-pse-impact-badge,
+.vj-manifesto .vj-pse-impact-badge {
+  color: var(--black);
+  background: var(--white);
+}
+
+/* Light-mode leftovers: elements that were white type on the old red
+   poster and became white-on-white once the story went light. Found by a
+   contrast audit of the live DOM (2026-09-12) rather than by eye — the
+   same class of bug had already shipped three times. */
+.vj-scan-story .vj-best-why.is-category,
+.vj-scan-story .vj-altinline-why.is-category {
+  color: rgba(0, 0, 0, 0.62);
+  background: transparent;
+}
+.vj-scan-story .label,
+.vj-result-local .label,
+.vj-result-country .label {
+  color: rgba(0, 0, 0, 0.6);
+}
+/* Ghost buttons (store "hap në Maps", secondary actions) on a light ground. */
+.vj-scan-story .vj-btn-ghost,
+.vj-result-local .vj-btn-ghost,
+.vj-scan-story .vj-btn.vj-btn-ghost,
+.vj-result-local .vj-btn.vj-btn-ghost {
+  color: var(--black);
+  border-color: rgba(0, 0, 0, 0.35);
+  background: none;
+}
+/* Store rows inside the light story. */
+.vj-scan-story .vj-stores-title,
+.vj-scan-story .vj-stores-chain-name,
+.vj-scan-story .vj-stores-chain-count,
+.vj-scan-story .vj-stores-city-name,
+.vj-scan-story .vj-store-row,
+.vj-scan-story .vj-store-row * {
+  color: var(--black);
+}
+
+/* Checklist notes were white-on-white on the now-light country screen —
+   which hid exactly the detail that makes the checklist worth reading:
+   the recognition year (2008), the NATO accession year (1949), and lines
+   like "dërgoi avionë në Operacionin Allied Force". */
+.vj-stance-note,
+.vj-stance-detail,
+.vj-stance-year,
+.vj-result-country .vj-stance-note,
+.vj-result-country .vj-stance-detail,
+.vj-result-country .vj-stance-year {
+  color: rgba(0, 0, 0, 0.66);
+}
+.vj-stance-source,
+.vj-stance-row a,
+.vj-result-country .vj-stance-source,
+.vj-result-country .vj-stance-row a {
+  color: rgba(0, 0, 0, 0.55);
+}
+.vj-stance-title,
+.vj-result-country .vj-stance-title,
+.vj-stance-label,
+.vj-result-country .vj-stance-label {
+  color: var(--black);
+}
+
+/* Last two from the contrast audit.
+   `.vj-stance-record-note` carries the per-country caveat — including the
+   one the owner quoted back: "Norway is NOT an EU member. It is in the
+   European Economic Area and EFTA". It was white-on-white, i.e. the single
+   most useful line on the screen was invisible. */
+.vj-stance-record-note,
+.vj-result-country .vj-stance-record-note {
+  color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 7px 9px;
+  font: 400 var(--label-md) / 1.45 var(--round);
+}
+/* `.label` is used on both dark and light grounds; scope the ink version to
+   the light screens rather than flipping it globally. */
+.screen.white .label,
+.vj-scan-story .label,
+.vj-scan-story .choice-stores .label,
+.vj-result-local .label,
+.vj-result-country .label,
+.vj-chrome-main .label {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
+   DESKTOP: THE LIST SCREENS STOP PRETENDING TO BE A PHONE
+   Owner, 2026-09-13: "eksploro is shit responsivity is shit on pc looks dog".
+
+   THE CAUSE. .vj-app is pinned to 480px on desktop so the POSTER screens
+   keep working — their whole layout is written in cqw units calibrated to a
+   phone, and widening the container makes every value explode. That is
+   right for posters and wrong for everything else: Explore is a product
+   catalogue, and on a 1425px screen it was a 480px strip with ~950px of
+   empty red either side, one product per row, category chips clipped
+   mid-word, and product names truncated to "MOLLE DELISHES KG/P...".
+
+   Worse, the two-column shelf rule below already fired at a 900px VIEWPORT
+   while the container was still 480px — so the two columns were squeezed
+   into ~230px each. The media query was measuring the wrong box.
+
+   THE FIX. Only the screens that are lists rather than posters get to
+   widen, selected with :has() so no component has to change. Where :has()
+   is unsupported the page simply stays at the 480px column, which is the
+   current behaviour — it degrades to what we have today, never to broken.
+   ============================================================ */
+@media (min-width: 900px) {
+  .vj-app:has(.vj-explore) {
+    width: min(100%, 1180px);
+    max-width: 1180px;
+  }
+
+  /* Widening .vj-app alone did nothing visible: the real constraints are
+     further down the chain (.vj-chrome-main caps at ~624px, .vj-explore at
+     720px), so the catalogue stayed a narrow column inside a wide shell.
+     Both have to be released for the grid below to get any room. */
+  .vj-app:has(.vj-explore) .vj-chrome-main,
+  .vj-app:has(.vj-explore) .vj-explore {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* The catalogue itself: as many product rows per line as fit, instead of
+     one per line with 950px of red beside it. */
+  .vj-app:has(.vj-explore) .vj-explore-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+  }
+
+  /* Chips wrap instead of scrolling sideways — there is room for all of
+     them now, and a horizontal scrollbar on a desktop catalogue is a
+     mobile affordance nobody looks for with a mouse. */
+  /* THE CHIP BAND. There are 346 categories in the retail data, not a dozen:
+     wrapping them all made the filter bar 2,621px tall and pushed every
+     product below the fold. Horizontal scrolling 346 chips with a mouse is
+     no better. So the band wraps but is capped to about three rows and
+     scrolls within itself — the filters stay browsable without swallowing
+     the page. (The 346 categories are raw, unmerged retail labels; merging
+     them is a data job, and this keeps the screen usable meanwhile.) */
+  .vj-app:has(.vj-explore) .vj-explore-cats {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    /* Exactly three chip rows: 3 chips (32px) + 2 gaps (8px) + the band's
+       own 10px padding top and bottom. 148px was arbitrary and sliced the
+       fourth row in half, which read as a rendering fault rather than as
+       "there is more below". */
+    max-height: calc(3 * 32px + 2 * 8px + 20px);
+    overflow-y: auto;
+    align-content: flex-start;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    background: #fbfbfb;
+  }
+
+  /* Two lines of product name instead of one truncated line. There is space
+     for it now, and "MOLLE DELISHES KG/P…" is not a product name. */
+  .vj-app:has(.vj-explore) .vj-explore-row-body h4 {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* THE SHELF SPLIT IS WRONG ON A WIDE SCREEN, not just narrow.
+     Measured: 5 essential groups against 2 household ones, so pinning
+     essential to column 1 and household to column 2 gave a long left column
+     beside a mostly empty right one — half the screen blank. The
+     essential/household distinction is still carried by the ORDER of the
+     shelves (food first, non-food last), so nothing is lost by letting the
+     groups run full width and spending the space on PRODUCTS instead:
+     one group per row, its products three across. */
+  .vj-app:has(.vj-explore) .vj-explore-shelf {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .vj-app:has(.vj-explore) .vj-explore-group.is-essential,
+  .vj-app:has(.vj-explore) .vj-explore-group.is-household {
+    grid-column: auto;
+  }
+}
+
+/* ============================================================
+   DESKTOP, THE REST OF THE SCREENS
+   The Explore fix above was only one screen. Audited on production at
+   1382px: /pyetje, /historiku and /pse were still using 35% of the window
+   — a 480px strip with the rest empty. Fixing one screen and calling the
+   job done is what made this look unfinished.
+
+   The rule is NOT "make everything 1180px". Two different problems:
+     · LISTS and GRIDS want the width (history, the /pse stat tables).
+     · PROSE wants a READABLE MEASURE. A FAQ answer set 1180px wide is
+       worse than one set at 480px, not better — ~70 characters is the
+       limit before the eye loses the line.
+   So lists widen, text is centred at a comfortable measure, and the
+   poster screens (.screen, cqw-calibrated to a phone) are never touched.
+   ============================================================ */
+@media (min-width: 900px) {
+  /* FAQ: centred, readable measure — wider than a phone, far short of the
+     window. */
+  .vj-app:has(.vj-faq) .vj-chrome-main,
+  .vj-app:has(.vj-faq) .vj-faq {
+    max-width: none;
+    width: 100%;
+  }
+  .vj-app:has(.vj-faq) {
+    width: min(100%, 780px);
+    max-width: 780px;
+  }
+
+  /* History: a list of past scans, so it takes the width and runs two up. */
+  .vj-app:has(.vj-history) {
+    width: min(100%, 1040px);
+    max-width: 1040px;
+  }
+  .vj-app:has(.vj-history) .vj-chrome-main,
+  .vj-app:has(.vj-history) .vj-history {
+    max-width: none;
+    width: 100%;
+  }
+  .vj-app:has(.vj-history) .vj-history-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+  }
+
+  /* /pse IS DELIBERATELY LEFT AT PHONE WIDTH. It is a poster wall: the
+     screens are laid out in cqw (ManifestoScreen positions its text at
+     30cqw), so widening the container moves the type down the page by a
+     third of the new width. A first attempt widened the shell to 900px and
+     pinned the posters back to 480 — that worked mechanically but left each
+     poster's text stranded in the middle of a 900px white sheet, which
+     looked worse than the 480px column it replaced. The statistics panel at
+     the foot was already rebuilt for this measure. Nothing to widen here. */
+}
+
+/* Unknown-origin marker — the flag slot for a product whose barcode names no
+   country (55% of the catalogue carries no barcode at all). Deliberately does
+   NOT look like a flag: no aspect-ratio box, no colour, just a neutral glyph,
+   so the row is complete without the app claiming an origin it cannot show. */
+.vj-product-flag.is-unknown {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 13px;
+  padding: 0 4px;
+  border: 1px dashed rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.55);
+  font: 700 10px/1 var(--mono);
+}
+.vj-product-flag.is-unknown .vj-product-flag-name {
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   DESKTOP, TAKE 3 — STOP SHOWING A PHONE ON A RED WALL
+   Owner, 2026-09-13: "desktop view shit", "responsivity is shit on pc
+   looks dog". Two earlier passes widened Explore/FAQ/History but left the
+   fundamental picture unchanged: on a 1440 or 1920 monitor every screen was
+   still a narrow white card floating in an enormous red field. Measured in
+   an iframe harness (real viewports, not a resized window) before this
+   block: at 1440 the HOME screen was a 480px column with 480px of flat red
+   on each side; at 1920 it was 25% of the window.
+
+   TWO CORRECTIONS OF FACT that make this block possible — both verified in
+   the DOM, not assumed:
+
+   1. HOME IS NOT A POSTER SCREEN. It was rebuilt on 2026-09-11 as
+      `.vj-home2`: an ordinary flex column, white ground, ZERO `.screen`
+      elements and not one cqw unit (measured: querySelectorAll('.screen')
+      returns nothing on "/"). The 480px cap that exists to protect the cqw
+      posters was never protecting anything here — it was only making the
+      home page small.
+
+   2. /pse's POSTERS NO LONGER LAY THEMSELVES OUT IN cqw. The block above
+      already resets them: `.vj-manifesto .stagger/.meta/.logo/.collision/
+      .stack { position: static !important; top: auto !important }` and the
+      type was re-set in vw clamps (`clamp(20px, 5.4vw, 30px)`), with
+      `.screen { min-height: 0; height: auto }`. The inline `top: 30cqw`
+      that the old comment warned about is overridden to `auto` and cannot
+      move anything. The only cqw left anywhere under `.vj-manifesto` is
+      `.meta`/`.label`'s font, and `.vj-manifesto .meta` re-sets that too.
+
+   THE RULE THIS BLOCK FOLLOWS: the PAGE fills the window, the CONTENT is
+   held at a measure that suits what it is — a hero, a catalogue, a list, a
+   column of prose. Red stays where it means something (the header bar, the
+   scan button, the emphasis type) instead of being 900px of empty ground.
+
+   NOT TOUCHED, deliberately: the scan result screens (`.vj-scan-story`,
+   `.vj-result-*`), `.vj-scanner` and the shared `.screen` primitives used
+   outside /pse. Those ARE still absolute cqw posters calibrated to a phone
+   and they keep the 480px column + red surround from the block above.
+   Everything here is inside a min-width query, so below 900px nothing in
+   the app changes at all.
+   ============================================================ */
+@media (min-width: 900px) {
+  /* One ground for every non-poster screen: white, edge to edge, no card
+     shadow. The shadow existed to lift a 480px card off the red; with no
+     red field left to lift it off, it only drew a line down the middle of
+     the window. */
+  .vj-app:has(.vj-home2),
+  .vj-app:has(.vj-explore),
+  .vj-app:has(.vj-history),
+  .vj-app:has(.vj-faq),
+  .vj-app:has(.vj-manifesto),
+  .vj-app:has(.vj-alt-page) {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: var(--white);
+    box-shadow: none;
+  }
+
+  /* The sticky red bar spans the window (it is the one full-bleed red
+     surface left), but "← kthehu" and "English" are padded in to sit on the
+     SAME left and right edges as the content underneath instead of being
+     flung to the far corners of a 1920px screen. Each route gets its own
+     measure because each column below is a different width — a bar aligned
+     to 1180 above a 760px column is two left edges on one screen, which is
+     exactly the kind of near-miss that reads as sloppy. */
+  .vj-app:has(.vj-explore) .vj-chrome-header {
+    padding-inline: max(16px, calc((100% - 1180px) / 2 + 24px));
+  }
+  .vj-app:has(.vj-history) .vj-chrome-header {
+    padding-inline: max(16px, calc((100% - 1040px) / 2 + 24px));
+  }
+  .vj-app:has(.vj-faq) .vj-chrome-header,
+  .vj-app:has(.vj-manifesto) .vj-chrome-header {
+    padding-inline: max(16px, calc((100% - 760px) / 2 + 24px));
+  }
+  .vj-chrome-main {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* ---------- HOME ----------
+     A landing page, not a phone screenshot. The column grows to a real
+     desktop measure and the type grows with it: a 34px headline in the
+     middle of a 1440px window is a caption, not a statement. */
+  .vj-home2-bar,
+  .vj-home2-footer {
+    padding-inline: max(32px, calc((100% - 1180px) / 2));
+  }
+  .vj-home2-logo {
+    height: 30px;
+  }
+  .vj-home2-main {
+    max-width: 620px;
+    gap: 32px;
+    padding: 24px 32px 48px;
+  }
+  .vj-home2-tagline {
+    /* vw here is the WINDOW, and the window is the right thing to scale
+       against now that the page is full width. */
+    font-size: clamp(34px, 3.2vw, 44px);
+  }
+  .vj-home2-scan {
+    min-height: 72px;
+    font-size: 22px;
+  }
+  /* Three nav links stretched across 1180px sat at 1/6, 1/2 and 5/6 of the
+     window with nothing between them. Grouped and centred they read as a
+     footer nav. */
+  .vj-home2-nav {
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 48px;
+  }
+
+  /* ---------- EXPLORE ----------
+     Catalogue: takes the width. Capped so the product grid never runs to
+     absurd line lengths on an ultrawide. */
+  .vj-app:has(.vj-explore) .vj-explore {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 20px 24px 56px;
+  }
+
+  /* ---------- HISTORY ----------
+     A list of at most 20 past scans; two or three cards per row. */
+  .vj-app:has(.vj-history) .vj-history {
+    max-width: 1040px;
+    margin-inline: auto;
+    padding: 20px 24px 48px;
+  }
+  /* The list's #eee ground is a hairline-separator trick for the 1px-gap
+     phone list. Once the same list is a grid with 10px gaps it stops being
+     a hairline and becomes grey mortar between the cards — and, where the
+     last row is short, a grey rectangle sitting next to the final card
+     where nothing exists. The cards carry their own white; the ground can
+     go. */
+  .vj-app:has(.vj-history) .vj-history-list {
+    background: transparent;
+  }
+  .vj-app:has(.vj-history) .vj-history-item {
+    border: 1px solid #eee;
+    padding: 14px 12px;
+  }
+
+  /* ---------- FAQ ----------
+     Prose. The page fills the window; the ANSWER does not — past roughly
+     70 characters the eye loses the line. 6vw of side padding was fine on a
+     phone and became 115px of dead margin inside the column at 1920. */
+  .vj-app:has(.vj-faq) .vj-faq {
+    max-width: 760px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 28px 24px 64px;
+  }
+
+  /* ---------- /pse ----------
+     Poster headlines + sourced statistics, read top to bottom. Same
+     treatment as the FAQ for the same reason: full-bleed page, one measured
+     column. See the two corrections at the top of this block for why this
+     is now safe — the manifesto's posters are static flow with vw type, not
+     absolute cqw. 760px keeps a headline on two lines instead of four and
+     gives the statistics tables room for their value column. */
+  .vj-app:has(.vj-manifesto) .vj-manifesto {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .vj-app:has(.vj-manifesto) .vj-manifesto .screen {
+    padding-inline: 24px;
+  }
+  /* The headline clamps top out at 30px from a 556px viewport upward, which
+     is a phone's maximum and reads as body copy once the page is a metre
+     wide. These are the argument's statements — they carry the screen. */
+  .vj-app:has(.vj-manifesto) .vj-manifesto .stagger span {
+    font-size: clamp(30px, 2.5vw, 36px);
+  }
+  .vj-app:has(.vj-manifesto) .vj-manifesto .stack li,
+  .vj-app:has(.vj-manifesto) .vj-manifesto .collision .g span {
+    font-size: clamp(34px, 2.9vw, 42px);
+  }
+  .vj-app:has(.vj-manifesto) .vj-manifesto-sources {
+    max-width: none;
+    padding-inline: 24px;
+  }
+
+  /* ---------- PRODUCT DETAIL ----------
+     Reached from Explore, so it is the one screen that loses `.vj-explore`
+     from the DOM and fell back to the 480px red strip. It is a product
+     page, not a poster.
+
+     The measure goes on `.vj-alt-body`, NOT on `.vj-alt-page`: the red
+     back/share bar is a child of the page, and capping the page turned that
+     bar into a 900px red rectangle floating in white with daylight at both
+     ends. Bars reach the edges of the window or they look broken. */
+  .vj-app:has(.vj-alt-page) .vj-alt-body {
+    max-width: 860px;
+    padding: 24px 24px 56px;
+  }
+  .vj-app:has(.vj-alt-page) .vj-alt-header-bar {
+    padding-inline: max(16px, calc((100% - 860px) / 2 + 24px));
+  }
+}
+
+/* An ultrawide has room for a fourth product column; below this the cap
+   above is what keeps the grid at three. */
+@media (min-width: 1600px) {
+  .vj-app:has(.vj-explore) .vj-explore {
+    max-width: 1400px;
+  }
+  .vj-app:has(.vj-explore) .vj-chrome-header {
+    padding-inline: max(16px, calc((100% - 1400px) / 2 + 24px));
+  }
+}
+
+/* ============================================================
+   HOME, WIDE — the statement and the action side by side.
+   Below this width the hero is one centred column (above). At 1180+ there
+   is enough room to set the headline large on the left and stack the scan
+   button / search / counter as an action panel on the right, which uses the
+   window instead of leaving a 600px column marooned in the middle of it.
+   Explicit grid placement, because the source order is headline, scan,
+   search, counter and the headline has to span all three rows.
+   ============================================================ */
+@media (min-width: 1180px) {
+  .vj-app:has(.vj-home2) .vj-home2-main {
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    column-gap: 72px;
+    row-gap: 20px;
+    padding: 40px 40px 64px;
+  }
+  /* Bar and footer line up with the headline's own left edge (the hero
+     column's 1080px measure plus its 40px padding), not with a separate
+     page gutter — two different left edges 90px apart on the same screen
+     is the kind of thing that reads as "unfinished" without anyone being
+     able to say why. */
+  .vj-app:has(.vj-home2) .vj-home2-bar,
+  .vj-app:has(.vj-home2) .vj-home2-footer {
+    padding-inline: max(32px, calc((100% - 1080px) / 2 + 40px));
+  }
+  .vj-app:has(.vj-home2) .vj-home2-tagline {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: center;
+    font-size: clamp(40px, 3.6vw, 56px);
+    line-height: 1.1;
+  }
+  .vj-app:has(.vj-home2) .vj-home2-scan {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .vj-app:has(.vj-home2) .vj-home2-search {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .vj-app:has(.vj-home2) .vj-home2-counter {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+
+/* ============================================================
+   HISTORY EMPTY STATE. Was a single line of muted text on a large empty
+   panel — and widening the screen on desktop made the emptiness louder.
+   ============================================================ */
+.vj-history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 48px 6vw 56px;
+  text-align: center;
+  max-width: 46ch;
+  margin-inline: auto;
+}
+.vj-history-empty-mark {
+  font: 400 clamp(40px, 12vw, 64px) / 1 var(--mono);
+  color: var(--red);
+  opacity: 0.45;
+}
+.vj-history-empty-title {
+  margin: 0;
+  font: 600 clamp(18px, 5vw, 24px) / 1.2 var(--round);
+  color: var(--black);
+}
+.vj-history-empty-hint {
+  margin: 0;
+  font: 400 var(--body-md) / 1.45 var(--round);
+  color: rgba(0, 0, 0, 0.62);
+}
+.vj-history-empty-cta {
+  position: static;
+  width: 100%;
+  max-width: 320px;
+  min-height: 52px;
+  margin-top: 6px;
+}
+
+/* Chain name and its count were butting together as "Super Viva25 pika". */
+.vj-stores-chain-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+}
+.vj-stores-chain-count {
+  white-space: nowrap;
+}
+
+/* NOT DONE: widening the post-scan story on desktop.
+   Attempted 2026-09-13 and REVERTED unverified. The story column is 480px
+   because its poster type is written in `cqw` against `.screen`'s
+   container, and the /pse attempt showed that widening the container
+   pushes poster text down the page rather than filling it. A break-out for
+   just the tabular content (specs, alternatives, stores) is the right
+   shape of fix, but the browser window was unusable at the time and the
+   change could not be measured — negative-margin break-outs cause
+   horizontal overflow when they are wrong. Left undone deliberately rather
+   than shipped unchecked. */
+
+/* ============================================================
+   BOJKOTO — the verdict, drawn ON the product
+   Owner, 2026-09-14: "serb products have a red cross over them saying
+   BOJKOTO! and this is straightforward now."
+   A badge beside the name is easy to scroll past; a cross over the pack shot
+   is not. Only ever drawn where the app has actually decided SERBIAN — by
+   GS1 prefix OR by the boycott table (the brand lane matters: the Chipsy 387
+   case is a Serbian product on a Bosnian prefix).
+   ============================================================ */
+.vj-explore-row-media {
+  position: relative;
+}
+.vj-bojkoto {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.vj-bojkoto svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.vj-bojkoto svg line {
+  stroke: var(--red);
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: 0.92;
+}
+.vj-bojkoto-word {
+  position: relative;
+  background: var(--red);
+  color: var(--white);
+  font: 700 10px/1.6 var(--mono);
+  letter-spacing: 0.08em;
+  padding: 0 5px;
+  transform: rotate(-8deg);
+  white-space: nowrap;
+}
+
+/* THE ALTERNATIVE, IN THE ROW. "no going inside needed" — the shopper must
+   see what to buy instead without tapping through. */
+.vj-explore-row-alt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  max-width: 190px;
+  padding-left: 10px;
+  margin-left: auto;
+  border-left: 2px solid var(--red);
+}
+.vj-explore-row-alt-label {
+  font: 700 9px/1.3 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.vj-explore-row-alt-card {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.vj-explore-row-alt-card img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: var(--white);
+  flex: none;
+}
+.vj-explore-row-alt-noimg {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  flex: none;
+}
+.vj-explore-row-alt-name {
+  font: 600 var(--info-sm) / 1.25 var(--round);
+  color: var(--black);
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+/* Narrow phones: the alternative drops under the product instead of beside
+   it, so neither gets squeezed to nothing. */
+@media (max-width: 460px) {
+  .vj-explore-row {
+    flex-wrap: wrap;
+  }
+  .vj-explore-row-alt {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    max-width: none;
+    border-left: none;
+    border-top: 2px solid var(--red);
+    padding: 8px 0 0;
+  }
+  .vj-explore-row-alt-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   PUBLIC SCAN FEED — /historiku, "të gjithëve" tab.
+   2026-09-14. APPENDED BLOCK: every selector below is new
+   (.vj-history-tab*, .vj-feed*) and nothing above this line is modified.
+   Same flat protest-poster system as the rest: no radius, no shadow,
+   hairline #eee separators, red only for the boycott dot.
+   ============================================================ */
+
+.vj-history-tabs {
+  display: flex;
+  gap: 1px;
+  background: #eee;
+  margin-bottom: 14px;
+}
+.vj-history-tab {
+  flex: 1;
+  border: none;
+  background: var(--white);
+  color: rgba(0, 0, 0, 0.55);
+  font: 600 var(--info-md) / 1 var(--round);
+  padding: 12px 8px;
+  min-height: 44px;
+  cursor: pointer;
+  text-align: center;
+}
+.vj-history-tab.is-active {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ---------- consent card ---------- */
+.vj-feed-consent {
+  border: 2px solid var(--black);
+  padding: 14px;
+  margin-bottom: 18px;
+}
+.vj-feed-consent-on {
+  border-color: var(--green);
+}
+.vj-feed-consent-off {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.vj-feed-consent-title {
+  margin: 0 0 8px;
+  font: 700 var(--info-md) / 1.25 var(--round);
+  color: var(--black);
+}
+.vj-feed-consent-body {
+  margin: 0 0 8px;
+  font: 400 var(--info-sm) / 1.5 var(--round);
+  color: rgba(0, 0, 0, 0.72);
+}
+.vj-feed-consent-privacy {
+  border-left: 2px solid var(--green);
+  padding-left: 8px;
+}
+.vj-feed-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.vj-feed-consent-actions .vj-btn-flat {
+  flex: 1 1 160px;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: var(--info-sm);
+}
+.vj-feed-consent-note {
+  margin: 10px 0 0;
+  font: 400 var(--info-sm) / 1.45 var(--round);
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- feed header ---------- */
+.vj-feed-head {
+  margin-bottom: 12px;
+}
+.vj-feed-title {
+  margin: 0;
+  font: 700 clamp(16px, 4.5vw, 20px) / 1.2 var(--round);
+  color: var(--black);
+}
+.vj-feed-sub {
+  margin: 4px 0 0;
+  font: 400 var(--info-sm) / 1.4 var(--round);
+  color: rgba(0, 0, 0, 0.6);
+}
+.vj-feed-count {
+  margin: 6px 0 0;
+  font: 600 9px / 1.3 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ---------- messages (loading / empty / unavailable / off) ---------- */
+.vj-feed-msg-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-top: 2px solid var(--black);
+  padding: 20px 0 8px;
+}
+.vj-feed-msg {
+  margin: 0;
+  font: 600 var(--info-md) / 1.35 var(--round);
+  color: var(--black);
+}
+.vj-feed-msg-hint {
+  margin: 0;
+  font: 400 var(--info-sm) / 1.5 var(--round);
+  color: rgba(0, 0, 0, 0.6);
+}
+.vj-feed-msg-block .vj-btn-flat {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: var(--info-sm);
+}
+
+/* ---------- the list ---------- */
+.vj-feed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #eee;
+}
+.vj-feed-item {
+  margin: 0;
+}
+.vj-feed-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: var(--white);
+  border: none;
+  padding: 12px 8px;
+  text-align: left;
+  cursor: pointer;
+}
+.vj-feed-item-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.vj-feed-item-name {
+  font-weight: 600;
+  font-size: var(--info-md);
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-feed-item-meta {
+  font-size: var(--info-sm);
+  color: #777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vj-feed-item-when {
+  flex: none;
+  font: 400 9px / 1.3 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   /pse — ONE GRID, ONE RHYTHM, ONE TYPE SCALE.
+   Owner, 2026-09-14: "this pse section is shit and undersymmetrical
+   fixthis right now . and make it a detailed for everythign".
+
+   WHAT "UNDERSYMMETRICAL" WAS, measured in the DOM (iframe harness, built
+   app, before this block). Left edge of each block, in page pixels:
+
+     at 390px viewport            at 1280px viewport
+     --------------------------   --------------------------
+     stats title          16.0    stats title         269.1
+     tax block title      17.5    tax block title     270.5
+     poster headline      23.4    poster headline     277.1
+     sources list         23.4    sources list        277.1
+     motto (.stack li)    34.7    motto               389.9
+     "kujto" (.collision) 80.2    "kujto"             396.8
+
+   Five left edges on a phone, six on a desktop, on a page that is one
+   column of one argument. The causes were all different and all real:
+     * `.vj-pse-stats` was padded in 16px while `.screen` and the sources
+       list were padded in 6vw (23.4px at 390, 46px at 768);
+     * `.vj-pse-tax-foot` broke out with a hard-coded `margin: 0 -16px`,
+       which only lines up if the parent's padding is exactly 16px;
+     * the poster primitives `.stack` and `.collision` are `align-items:
+       center` with `padding: 0 6vw` from their full-bleed poster days —
+       `.vj-manifesto` reset `.stack`'s padding but never its centring, and
+       never touched `.collision` at all, so the motto screens were centred
+       inside a left-aligned page and the "kujto" screen was centred inside
+       a DOUBLE 6vw inset;
+     * `.stack li { max-width: 20ch }` narrowed the motto further still.
+
+   Vertical rhythm was assembled the same way: `.screen` padded 22/24,
+   `.vj-pse-stats` 14/28, `.vj-manifesto-sources` 40/60, plus a 4px
+   `margin-top` between siblings. Four different spacing values.
+
+   Type: two <h2>s on the page at different sizes (stats 18-24px, sources
+   14px), and two <h3>s in two different fonts at two different sizes
+   (`.vj-pse-sec-title` 11px mono, `.vj-pse-tax-foot-title` 16-20px Inter).
+
+   THE SYSTEM BELOW: one gutter token, one vertical step token, one type
+   ramp of five sizes. Every block on /pse is padded with the gutter, every
+   full-bleed block breaks out by exactly the gutter, and every heading
+   level is one size in one font.
+   ============================================================ */
+.vj-manifesto {
+  /* One gutter. 6vw on a phone (what the posters already used), pinned at
+     24px from 400px up (what the desktop block already used) so the column
+     never drifts away from the header's own inset. */
+  --pse-gutter: clamp(16px, 6vw, 24px);
+  /* One vertical step. Every block's padding and every gap is this or a
+     plain multiple of it. */
+  --pse-step: clamp(18px, 4.6vw, 24px);
+  --pse-rule: rgba(0, 0, 0, 0.12);
+  --pse-rule-soft: rgba(0, 0, 0, 0.07);
+  /* One type ramp. hero = the mottos; head = both <h2>s AND the poster
+     headline; sub = every <h3>; micro = labels and citations. */
+  --pse-hero: clamp(26px, 7.2vw, 38px);
+  --pse-head: clamp(21px, 5.6vw, 30px);
+  --pse-sub: clamp(13px, 3.4vw, 15px);
+  --pse-body: clamp(13px, 3.4vw, 15px);
+  --pse-micro: clamp(10px, 2.7vw, 12px);
+}
+
+/* ---------- one gutter, one block rhythm ---------- */
+.vj-manifesto .screen,
+.vj-manifesto .vj-pse-stats,
+.vj-manifesto .vj-manifesto-sources {
+  padding-inline: var(--pse-gutter);
+}
+.vj-manifesto .screen {
+  padding-block: calc(var(--pse-step) * 1.15);
+  gap: calc(var(--pse-step) * 0.5);
+  border-bottom: 1px solid var(--pse-rule);
+}
+.vj-manifesto .vj-pse-stats {
+  padding-block: calc(var(--pse-step) * 1.6);
+  border-bottom: 1px solid var(--pse-rule);
+}
+.vj-manifesto .vj-manifesto-sources {
+  padding-block: calc(var(--pse-step) * 1.6) calc(var(--pse-step) * 2.5);
+}
+/* The 4px sibling margin was a fourth spacing value on top of three block
+   paddings; the hairline between screens is the separator now. */
+.vj-manifesto > * + * {
+  margin-top: 0;
+}
+
+/* ---------- the poster primitives join the column ----------
+   `.stack` and `.collision` still carry their full-bleed poster centring
+   and their own 6vw padding. On a left-aligned page that is the single
+   most visible break in the whole section. */
+.vj-manifesto .stack,
+.vj-manifesto .collision {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  align-items: flex-start;
+  text-align: left;
+}
+.vj-manifesto .stack li {
+  max-width: none;
+  font: 700 var(--pse-hero) / 1.04 var(--stack);
+  letter-spacing: -0.02em;
+}
+.vj-manifesto .collision .g {
+  align-items: flex-start;
+  text-align: left;
+}
+.vj-manifesto .collision .g span {
+  font: 600 var(--pse-hero) / 1.06 var(--round);
+  text-align: left;
+}
+.vj-manifesto .stagger span {
+  font: 600 var(--pse-head) / 1.2 var(--round);
+  letter-spacing: -0.02em;
+}
+
+/* ---------- poster detail: standfirst, body, evidence ----------
+   The owner's own long texts on the KOSOVE (1998-1999) and kodi-860
+   screens, the eleven ICTY crime sites and the 700,000+ displacement
+   figure were all in the data and none of them were on the screen. */
+.vj-poster-standfirst {
+  margin: 0;
+  font: 600 clamp(15px, 4vw, 18px) / 1.35 var(--round);
+  color: var(--red);
+}
+.vj-poster-body {
+  margin: 0;
+  max-width: 62ch;
+  font: 400 var(--pse-body) / 1.55 var(--round);
+  color: rgba(0, 0, 0, 0.8);
+}
+.vj-poster-figure {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: calc(var(--pse-step) * 0.5) 0;
+  border-block: 1px solid var(--pse-rule);
+}
+.vj-poster-figure-value {
+  font: 700 clamp(24px, 6.4vw, 32px) / 1 var(--stack);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--red);
+}
+.vj-poster-figure-label {
+  font: 400 var(--pse-micro) / 1.4 var(--mono);
+  color: rgba(0, 0, 0, 0.62);
+}
+.vj-poster-sites {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--pse-rule);
+}
+.vj-poster-site {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.6em;
+  gap: 2px 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--pse-rule-soft);
+}
+.vj-poster-site-place {
+  grid-column: 1;
+  font: 700 var(--pse-sub) / 1.25 var(--stack);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.vj-poster-site-date {
+  grid-column: 1;
+  font: 400 var(--pse-micro) / 1.3 var(--mono);
+  opacity: 0.6;
+}
+.vj-poster-site-desc {
+  grid-column: 1;
+  font: 400 var(--pse-micro) / 1.45 var(--round);
+  opacity: 0.75;
+}
+/* `killed` is null in the data for every one of these sites. The app says
+   so instead of quietly showing nothing. */
+.vj-poster-site-flag {
+  grid-column: 1;
+  font: 400 var(--pse-micro) / 1.45 var(--mono);
+  color: var(--red);
+}
+.vj-poster-site-src {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  text-decoration: none;
+  opacity: 0.55;
+}
+.vj-poster-site-src:hover {
+  opacity: 1;
+  border-color: var(--black);
+}
+.vj-manifesto .meta a {
+  color: inherit;
+}
+
+/* ---------- statistics: same column, same headings ---------- */
+.vj-manifesto .vj-pse-stats-head,
+.vj-manifesto .vj-pse-sec-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.vj-manifesto .vj-pse-stats-head {
+  margin-bottom: var(--pse-step);
+  padding-bottom: calc(var(--pse-step) * 0.4);
+  border-bottom: 3px solid var(--black);
+}
+.vj-manifesto .vj-pse-stats-title,
+.vj-manifesto .vj-manifesto-sources h2 {
+  /* The page's two <h2>s were 18-24px and a flat 14px. One level, one size. */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 700 var(--pse-head) / 1.1 var(--stack);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.vj-pse-stats-count {
+  margin: 0;
+  font: 400 var(--pse-micro) / 1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.vj-manifesto .vj-pse-sec {
+  margin: 0 0 calc(var(--pse-step) * 1.4);
+}
+.vj-manifesto .vj-pse-sec-head {
+  margin-bottom: calc(var(--pse-step) * 0.35);
+}
+/* Both <h3>s — the section titles and the red tax block's title — in one
+   font at one size. They were 11px mono and 16-20px Inter Tight. */
+.vj-manifesto .vj-pse-sec-title,
+.vj-manifesto .vj-pse-tax-foot-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  font: 700 var(--pse-sub) / 1.25 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.vj-pse-sec-count {
+  flex: none;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+}
+.vj-pse-sec-lead {
+  margin: 0;
+  max-width: 62ch;
+  font: 400 var(--pse-micro) / 1.5 var(--round);
+  opacity: 0.68;
+}
+.vj-pse-group {
+  margin-top: calc(var(--pse-step) * 0.6);
+}
+.vj-pse-group-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 2px;
+  font: 500 var(--pse-micro) / 1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+/* ---------- the row ---------- */
+/* NEVER TRUNCATE A SOURCED FIGURE. The value cell was `white-space: nowrap;
+   overflow: hidden; text-overflow: ellipsis` in a fixed 8.4em column, and
+   five of the eight arms rows on screen rendered as "~80 ne sherbi...",
+   "112 te porosit...", "26 te moderniz...", "8 shtese, te po...",
+   "12 avione (9 nj...". The quantity column now holds the number alone and
+   wraps rather than clipping if it ever needs to. */
+.vj-manifesto .vj-pse-row-value {
+  width: 8.6em;
+  padding: 10px 14px 10px 0;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: break-word;
+  font: 700 clamp(14px, 3.8vw, 17px) / 1.25 var(--stack);
+}
+.vj-manifesto .vj-pse-row-label {
+  padding: 10px 8px 10px 0;
+  font: 400 var(--pse-body) / 1.4 var(--round);
+}
+.vj-pse-row-qual {
+  opacity: 0.75;
+}
+.vj-pse-row-deal {
+  display: block;
+  margin-top: 2px;
+  font: 400 var(--pse-micro) / 1.4 var(--mono);
+  opacity: 0.6;
+}
+.vj-manifesto .vj-pse-row-src {
+  padding: 8px 0;
+  width: 2.6em;
+}
+/* Zebra counts ENTRIES, not <tr>s — with the notes open each entry is two
+   rows, and a tr-based stripe put every figure on the same shade. */
+.vj-pse-entry:nth-of-type(odd) {
+  background: rgba(0, 0, 0, 0.022);
+}
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-entry:nth-of-type(odd) {
+  background: rgba(0, 0, 0, 0.09);
+}
+.vj-manifesto .vj-pse-table {
+  border-bottom: 1px solid var(--pse-rule);
+}
+.vj-manifesto .vj-pse-table.is-onred {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* The note row: the whole sourced `note` and the document it came from.
+   This is what the toggle at the foot of the panel now switches — depth,
+   never existence. No figure is behind it. */
+.vj-pse-note {
+  padding: 0 0 11px;
+  border-top: 0;
+}
+.vj-pse-note-text,
+.vj-pse-note-src {
+  display: block;
+  font: 400 var(--pse-micro) / 1.5 var(--round);
+  opacity: 0.72;
+}
+.vj-pse-note-src {
+  margin-top: 3px;
+  font-family: var(--mono);
+  opacity: 0.55;
+}
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-note-text,
+.vj-manifesto .vj-pse-table.is-onred .vj-pse-note-src {
+  color: var(--white);
+}
+
+/* ---------- the red tax block breaks out by exactly one gutter ---------- */
+.vj-manifesto .vj-pse-tax-foot {
+  margin: calc(var(--pse-step) * 1.4) calc(var(--pse-gutter) * -1) 0;
+  padding: calc(var(--pse-step) * 1.1) var(--pse-gutter) calc(var(--pse-step) * 1.2);
+  border: 0;
+}
+.vj-manifesto .vj-pse-tax-foot .vj-pse-sec-head {
+  margin-bottom: calc(var(--pse-step) * 0.5);
+}
+.vj-manifesto .vj-pse-impact-list {
+  margin-top: calc(var(--pse-step) * 0.6);
+  gap: 10px;
+}
+.vj-manifesto .vj-pse-impact {
+  padding: 11px 12px;
+}
+/* The inputs were carried in the data from the start and never rendered —
+   arithmetic whose inputs a reader cannot see is not checkable. */
+.vj-pse-impact-inputs {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.vj-pse-impact-inputs li,
+.vj-manifesto .vj-pse-impact-inputs li {
+  font: 400 var(--pse-micro) / 1.45 var(--mono);
+  color: var(--white);
+  opacity: 0.72;
+}
+.vj-manifesto .vj-pse-toggle {
+  margin-top: calc(var(--pse-step) * 1.2);
+  padding: 10px 12px;
+  font: 500 var(--pse-micro) / 1.4 var(--mono);
+  letter-spacing: 0.08em;
+}
+
+/* ---------- the sources list joins the same grid ----------
+   It was a different measure, a different type size and a different row
+   shape from the tables directly above it, while being the same kind of
+   thing: a list of documents with links. Now one row per document, the
+   same hairline, and a year column that echoes the tables' figure column.
+   The list itself grew from 5 documents to 26: it was rendering only
+   argument.js's legal record while the statistics above it cited 21 more
+   documents from serbiaEconomy.js under the same heading. */
+.vj-manifesto .vj-manifesto-sources ul {
+  gap: 0;
+  border-top: 1px solid var(--pse-rule);
+}
+.vj-manifesto .vj-manifesto-sources li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5em;
+  gap: 2px 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--pse-rule);
+  font: 400 var(--pse-body) / 1.4 var(--round);
+  color: var(--black);
+}
+.vj-manifesto .vj-manifesto-sources li b {
+  grid-column: 1;
+  font: 700 var(--pse-micro) / 1.35 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+.vj-manifesto .vj-manifesto-sources li a,
+.vj-manifesto .vj-manifesto-sources li > span {
+  grid-column: 1;
+  overflow-wrap: break-word;
+}
+.vj-manifesto .vj-manifesto-sources li i {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: start;
+  justify-self: end;
+  font: 400 var(--pse-micro) / 1.9 var(--mono);
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+.vj-manifesto .vj-manifesto-sources h2 {
+  margin-bottom: calc(var(--pse-step) * 0.6);
+  padding-bottom: calc(var(--pse-step) * 0.4);
+  border-bottom: 3px solid var(--black);
+}
+
+/* ---------- desktop: the same system, one step up ----------
+   A NEW media block appended after the existing desktop section rather
+   than edited into it. Equal-specificity selectors later in the file win,
+   so the two agree instead of fighting. */
+@media (min-width: 900px) {
+  .vj-app:has(.vj-manifesto) .vj-manifesto {
+    --pse-step: 26px;
+    --pse-hero: 40px;
+    --pse-head: 31px;
+    --pse-sub: 14px;
+    --pse-body: 15px;
+    --pse-micro: 12px;
+  }
+  /* The desktop block above sets `.screen { padding-inline: 24px }` at a
+     higher specificity; the gutter token resolves to the same 24px, so the
+     stats panel and the sources list line up with it exactly. */
+  .vj-app:has(.vj-manifesto) .vj-manifesto .vj-pse-stats,
+  .vj-app:has(.vj-manifesto) .vj-manifesto .vj-manifesto-sources {
+    padding-inline: var(--pse-gutter);
+  }
+  .vj-app:has(.vj-manifesto) .vj-manifesto .stagger span {
+    font-size: var(--pse-head);
+  }
+  .vj-app:has(.vj-manifesto) .vj-manifesto .stack li,
+  .vj-app:has(.vj-manifesto) .vj-manifesto .collision .g span {
+    font-size: var(--pse-hero);
+  }
+  /* The figure column can afford to be a real column once there is room. */
+  .vj-app:has(.vj-manifesto) .vj-manifesto .vj-pse-row-value {
+    width: 9.5em;
+  }
+}
+
+/* ---------- /pse follow-ups, verified on screen ---------- */
+
+/* The eleven crime sites share one ICTY description and one "not confirmed"
+   caveat; both are stated once here instead of eleven times under the list.
+   See the note in ManifestoScreen.jsx. */
+.vj-poster-sites-note {
+  margin: 0;
+  font: 400 var(--pse-micro) / 1.5 var(--round);
+  color: rgba(0, 0, 0, 0.7);
+}
+.vj-poster-sites-note .vj-poster-site-flag {
+  color: var(--red);
+}
+/* With the shared wording lifted out, a site row is a place, a date and a
+   citation — so the eleven of them tile instead of running down the page as
+   eleven near-identical bands. */
+.vj-poster-sites {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0 18px;
+  border-top: 0;
+}
+.vj-poster-site {
+  align-content: start;
+  border-top: 1px solid var(--pse-rule);
+  border-bottom: 0;
+}
+
+/* The red tax block's heading now uses the SAME <h3> component as every
+   other section (that is the point), so it needs the on-red colours the old
+   bespoke `.vj-pse-tax-foot-title` used to carry for itself. */
+.vj-manifesto .vj-pse-tax-foot .vj-pse-sec-title,
+.vj-manifesto .vj-pse-tax-foot .vj-pse-sec-lead,
+.vj-manifesto .vj-pse-tax-foot .vj-pse-sec-count {
+  color: var(--white);
+}
+.vj-manifesto .vj-pse-tax-foot .vj-pse-sec-title {
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}

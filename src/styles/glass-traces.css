@@ -1,0 +1,88 @@
+/* ============================================================
+   TRACES ON THE GLASS
+   Owner, 2026-09-17: "add some blood like pattern to the front page bc it
+   looks like a window this front section .make some dark red blood there
+   add tiny hints of it (do this only only if you manage to make it look
+   realistic like blood left on the glass not animated splatter at one place
+   but mini points. be sure if you can"
+
+   HOW THIS IS BUILT, AND WHY IT IS NOT RED DOTS.
+   The brief is the hard part: "mini points", "left on the glass", and
+   explicitly NOT a splatter. Five things separate a trace from a sticker,
+   and all five are needed or it reads as confetti:
+
+   1. COLOUR. Fresh arterial red (#ff0000) is what makes CSS blood look like
+      a cartoon. Dried blood on a surface is a dark, desaturated oxblood —
+      #6b1212 at the centre falling to #2e0606 at the rim. It also has to
+      sit UNDER the page's own red accent (#ff2e2e) in both value and
+      chroma, or it competes with the CTA.
+   2. EDGES. A circle never reads as liquid. Every mark is pushed through
+      feTurbulence + feDisplacementMap, so its outline is irregular at the
+      pixel level the way surface tension actually leaves it.
+   3. THE RIM IS DARKER THAN THE CENTRE. Liquid drying on glass pulls
+      pigment outward (the coffee-ring effect), so the gradient runs light
+      core to dark edge, not the other way round.
+   4. GRAVITY. A drop on a vertical pane runs. A few marks carry a short
+      tapering tail downward; most do not, because most droplets are too
+      small to overcome surface tension.
+   5. DISTRIBUTION. Nothing is on a grid and nothing is centred. Marks
+      cluster the way spatter actually lands — a denser group with sparse
+      outliers, weighted to one side, and absent from the middle where the
+      headline and the CTA live.
+
+   It is one static layer. No animation: a moving splatter would be a horror
+   effect, which is not what the app is. It is also `pointer-events: none`
+   and behind everything, so it can never intercept a tap.
+   ============================================================ */
+
+.vj-glass-traces {
+  position: fixed;
+  inset: 0;
+  z-index: 1; /* above the body field + grain, below all content */
+  pointer-events: none;
+
+  /* Two layers at different scales so the marks do not tile visibly: a
+     sparse large pass and a fine "mist" pass of sub-pixel specks, which is
+     what sells it as a surface rather than as artwork. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='1000' viewBox='0 0 1400 1000'%3E%3Cdefs%3E%3Cfilter id='w' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.09' numOctaves='3' seed='13' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='5' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3CradialGradient id='d' cx='38%25' cy='34%25' r='72%25'%3E%3Cstop offset='0%25' stop-color='%236b1212' stop-opacity='0.88'/%3E%3Cstop offset='62%25' stop-color='%234a0b0b' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%232a0505' stop-opacity='0.92'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg filter='url(%23w)' fill='url(%23d)'%3E%3Cellipse cx='118' cy='96' rx='7.5' ry='6.4'/%3E%3Cpath d='M118 101 q2.6 14 -0.9 23 q-2.2 -10 -1.7 -23 z'/%3E%3Cellipse cx='163' cy='138' rx='3.1' ry='2.7'/%3E%3Cellipse cx='96' cy='168' rx='2.2' ry='2'/%3E%3Cellipse cx='201' cy='108' rx='1.5' ry='1.4'/%3E%3Cellipse cx='142' cy='203' rx='1.2' ry='1.1'/%3E%3Cellipse cx='238' cy='172' rx='1.9' ry='1.7'/%3E%3Cellipse cx='77' cy='121' rx='1.1' ry='1'/%3E%3Cellipse cx='186' cy='241' rx='0.9' ry='0.85'/%3E%3Cellipse cx='268' cy='131' rx='1'  ry='0.9'/%3E%3Cellipse cx='1281' cy='214' rx='6.2' ry='5.3'/%3E%3Cpath d='M1281 218 q2.1 11 -0.7 18 q-1.8 -8 -1.4 -18 z'/%3E%3Cellipse cx='1236' cy='268' rx='2.6' ry='2.3'/%3E%3Cellipse cx='1318' cy='176' rx='1.8' ry='1.6'/%3E%3Cellipse cx='1198' cy='231' rx='1.3' ry='1.2'/%3E%3Cellipse cx='1341' cy='253' rx='1' ry='0.95'/%3E%3Cellipse cx='1262' cy='318' rx='1.1' ry='1'/%3E%3Cellipse cx='1163' cy='192' rx='0.8' ry='0.75'/%3E%3Cellipse cx='209' cy='806' rx='5.1' ry='4.4'/%3E%3Cellipse cx='262' cy='861' rx='2.3' ry='2'/%3E%3Cellipse cx='158' cy='872' rx='1.6' ry='1.45'/%3E%3Cellipse cx='311' cy='823' rx='1.1' ry='1'/%3E%3Cellipse cx='121' cy='918' rx='0.9' ry='0.85'/%3E%3Cellipse cx='1148' cy='884' rx='4.3' ry='3.7'/%3E%3Cpath d='M1148 887 q1.7 9 -0.6 15 q-1.5 -7 -1.1 -15 z'/%3E%3Cellipse cx='1211' cy='927' rx='2' ry='1.8'/%3E%3Cellipse cx='1091' cy='941' rx='1.4' ry='1.3'/%3E%3Cellipse cx='1272' cy='871' rx='1' ry='0.9'/%3E%3Cellipse cx='1036' cy='898' rx='0.85' ry='0.8'/%3E%3Cellipse cx='688' cy='63' rx='1.5' ry='1.35'/%3E%3Cellipse cx='742' cy='41' rx='1' ry='0.95'/%3E%3Cellipse cx='621' cy='88' rx='0.8' ry='0.75'/%3E%3Cellipse cx='806' cy='958' rx='1.3' ry='1.2'/%3E%3Cellipse cx='733' cy='981' rx='0.9' ry='0.85'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='620' height='520' viewBox='0 0 620 520'%3E%3Cdefs%3E%3Cfilter id='m' x='-40%25' y='-40%25' width='180%25' height='180%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.22' numOctaves='2' seed='29' result='q'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='q' scale='3' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23m)' fill='%233d0808' fill-opacity='0.62'%3E%3Ccircle cx='58' cy='47' r='0.8'/%3E%3Ccircle cx='131' cy='92' r='0.6'/%3E%3Ccircle cx='27' cy='118' r='0.55'/%3E%3Ccircle cx='178' cy='38' r='0.5'/%3E%3Ccircle cx='96' cy='164' r='0.65'/%3E%3Ccircle cx='213' cy='127' r='0.45'/%3E%3Ccircle cx='461' cy='71' r='0.75'/%3E%3Ccircle cx='523' cy='134' r='0.55'/%3E%3Ccircle cx='418' cy='158' r='0.5'/%3E%3Ccircle cx='572' cy='96' r='0.45'/%3E%3Ccircle cx='487' cy='201' r='0.6'/%3E%3Ccircle cx='71' cy='392' r='0.7'/%3E%3Ccircle cx='142' cy='441' r='0.5'/%3E%3Ccircle cx='38' cy='468' r='0.55'/%3E%3Ccircle cx='198' cy='407' r='0.45'/%3E%3Ccircle cx='498' cy='428' r='0.65'/%3E%3Ccircle cx='561' cy='476' r='0.5'/%3E%3Ccircle cx='437' cy='487' r='0.45'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat;
+  background-position: center center, 0 0;
+  background-size: cover, 620px 520px;
+
+  /* Low enough to be a trace rather than a graphic. Read at 100% it is
+     almost subliminal, which is the brief ("tiny hints"). */
+  opacity: 0.5;
+
+  /* It sits ON the pane, so it picks up the same faint blur the glass has —
+     a mark in perfect focus reads as a decal printed on the screen. */
+  filter: blur(0.15px);
+}
+
+/* Slightly stronger and larger-scaled on a phone, where the pane is small
+   and a cover-sized SVG would otherwise crop the clusters out of frame. */
+@media (max-width: 640px) {
+  .vj-glass-traces {
+    background-size: 200% auto, 420px 360px;
+    background-position: 62% 8%, 0 0;
+    opacity: 0.44;
+  }
+}
+
+/* Anyone who has asked for less decoration gets none of this. It carries no
+   information, so removing it costs nothing. */
+@media (prefers-reduced-transparency: reduce) {
+  .vj-glass-traces {
+    display: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .vj-glass-traces {
+    display: none;
+  }
+}
+@media print {
+  .vj-glass-traces {
+    display: none;
+  }
+}
