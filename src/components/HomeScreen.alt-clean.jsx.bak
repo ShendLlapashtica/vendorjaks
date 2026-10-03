@@ -1,0 +1,92 @@
+import { useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
+import { isPlausibleBarcode } from '../lib/gs1.js';
+
+// HOME — rebuilt 2026-09-11 per direct owner feedback rejecting the
+// giant-cropped-poster treatment that was here before ("wrong is
+// everything... looks bad"). This is a conventional, clean mobile layout:
+// white background, red used only as an accent (logo, primary button,
+// active states) — never as a full-bleed background — real readable type
+// at normal sizes, and the scan action as the unmistakable primary CTA.
+// Product browsing ("eksploro") is one quiet secondary link among several,
+// not a grid competing with scan for attention.
+//
+// Deliberately scoped to ONLY this file + its own `.vj-home2-*` CSS block
+// in App.css, so it doesn't touch `.screen` / `.stagger` / `.logo` etc.
+// that the post-scan story screens still rely on.
+export default function HomeScreen({ scanCount, onScan, onSubmitBarcode, onSearchExplore, onOpenExplore, onOpenManifesto, onOpenHistory }) {
+  const { t, lang, toggleLanguage } = useLanguage();
+  const [query, setQuery] = useState('');
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    const value = query.trim();
+    if (!value) return;
+    if (isPlausibleBarcode(value)) {
+      onSubmitBarcode(value.replace(/\D/g, ''));
+    } else {
+      onSearchExplore(value);
+    }
+  }
+
+  const counterText =
+    scanCount === 0 ? t('homeCounterZero') : t(scanCount === 1 ? 'homeCounterOne' : 'homeCounterOther', { count: scanCount });
+
+  return (
+    <div className="vj-home2">
+      <header className="vj-home2-bar">
+        <img src="/logo-wordmark-red.png" alt="vendorja" className="vj-home2-logo" />
+        <button type="button" className="vj-home2-lang" onClick={toggleLanguage} lang={lang === 'sq' ? 'en' : 'sq'}>
+          {t('languageToggle')}
+        </button>
+      </header>
+
+      <main className="vj-home2-main">
+        <p className="vj-home2-tagline">{t('homeTaglineAria')}</p>
+
+        <button type="button" className="vj-home2-scan" onClick={onScan} aria-label={t('homeScanAria')}>
+          <span className="vj-home2-scan-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+              <path d="M6 16V9a3 3 0 0 1 3-3h7" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+              <path d="M42 16V9a3 3 0 0 0-3-3h-7" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+              <path d="M6 32v7a3 3 0 0 0 3 3h7" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+              <path d="M42 32v7a3 3 0 0 1-3 3h-7" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+              <rect x="17" y="17" width="14" height="14" rx="2" fill="currentColor" />
+            </svg>
+          </span>
+          {t('homeScanLabel')}
+        </button>
+
+        <form className="vj-home2-search" onSubmit={handleSearchSubmit}>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t('homeSearchPlaceholder')}
+            aria-label={t('homeSearchPlaceholder')}
+            inputMode="search"
+          />
+          <button type="submit" aria-label={t('homeSearchPlaceholder')}>
+            →
+          </button>
+        </form>
+
+        <p className="vj-home2-counter">{counterText}</p>
+      </main>
+
+      <footer className="vj-home2-footer">
+        <nav className="vj-home2-nav" aria-label="navigation">
+          <button type="button" onClick={onOpenExplore}>
+            {t('navExplore')}
+          </button>
+          <button type="button" onClick={onOpenManifesto}>
+            {t('navManifesto')}
+          </button>
+          <button type="button" onClick={onOpenHistory}>
+            {t('navHistory')}
+          </button>
+        </nav>
+      </footer>
+    </div>
+  );
+}
