@@ -1,0 +1,21 @@
+# vendorja — https://vendorja.com
+#
+# Everything is crawlable except one file. /data/kosovo-retail.json is the
+# 15 MB (≈1.2 MB compressed) catalogue the app fetches on every page load;
+# letting a crawler pull it on every render of every URL burns far more
+# budget than the /eksploro screen it feeds is worth, and the same catalogue
+# is already published as plain HTML under /produkt and /kategoria.
+#
+# /b/ is NOT blocked here on purpose: those URLs carry an `X-Robots-Tag:
+# noindex, follow` header (see vercel.json), and a crawler has to be allowed
+# to fetch a URL in order to see that header. The indexable equivalent of
+# /b/<barkodi> is /produkt/<barkodi>.
+
+User-agent: *
+Allow: /
+Disallow: /data/kosovo-retail.json
+# Build report, not content: what the SEO build claimed about hreflang and
+# what survived verification. `npm run seo-audit` reads it; nobody else should.
+Disallow: /seo-hreflang.json
+
+Sitemap: https://vendorja.com/sitemap.xml

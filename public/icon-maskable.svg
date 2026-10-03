@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Vendorja">
+  <!-- Maskable: the mark sits inside the middle 80% because Android crops up
+       to 20% from every edge, and the ground runs full-bleed behind it. -->
+  <rect width="512" height="512" fill="#ff2e2e" />
+  <g transform="translate(256 256) scale(5.2) translate(-32 -34.5)">
+    <path d="M10 15h12.5l9.5 27.5L41.5 15H54L38.5 54h-13z" fill="#14161a" />
+  </g>
+</svg>

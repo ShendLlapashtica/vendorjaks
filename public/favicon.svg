@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Vendorja">
+  <!--
+    Owner, 2026-09-17: "FAVICON just a red bg with a V".
+    The scan-reticle brackets are gone. At 16px they were the first thing to
+    turn to mush anyway, so this is both what he asked for and the better
+    mark: one shape, maximum weight, nothing to lose when a browser
+    downsamples it to a tab strip.
+    Colours are the literal tokens from src/index.css — --accent-cta
+    #ff2e2e and --on-light #14161a, a pair that measures 4.90:1.
+    The V is drawn as a filled path, not a stroke, so no renderer can thin
+    it. It is also slightly wider and taller than the old one now that it
+    has the whole square to itself.
+  -->
+  <rect width="64" height="64" rx="14" fill="#ff2e2e" />
+  <path d="M10 15h12.5l9.5 27.5L41.5 15H54L38.5 54h-13z" fill="#14161a" />
+</svg>

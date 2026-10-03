@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80">
+  <text x="0" y="58" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="52" fill="#FFFFFF" letter-spacing="0">vendor</text>
+  <!-- "ja" continues after "vendor"; the "j" dot is replaced with a small
+       square scan-reticle instead of a round dot, per the owner's spec. Exact
+       x offset is a best-effort placeholder — swap this whole file for the
+       owner's Canva export whenever it's supplied. -->
+  <text x="228" y="58" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="52" fill="#FFFFFF" letter-spacing="0">j</text>
+  <rect x="234" y="10" width="10" height="10" fill="#FFFFFF" />
+  <text x="248" y="58" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="52" fill="#FFFFFF" letter-spacing="0">a</text>
+</svg>
