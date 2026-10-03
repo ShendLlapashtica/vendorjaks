@@ -1,0 +1,31 @@
+{
+  "name": "vendorja",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vendorja \u2014 scan a barcode, learn which GS1 organisation issued it, and find local Kosovo/Albanian alternatives to Serbian-registered products.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "prune-payload": "node scripts/prune-payload.mjs",
+    "refresh": "node scripts/refresh-catalogue.mjs",
+    "refresh:dry": "node scripts/refresh-catalogue.mjs --dry-run",
+    "refresh:gate": "node scripts/refresh-catalogue.mjs --gates-only",
+    "merge-retail": "node scripts/merge-retail.mjs",
+    "eval-alternatives": "node scripts/eval-alternatives.mjs",
+    "seo-audit": "node scripts/seo-audit.mjs",
+    "seo-reach": "node scripts/seo-reach.mjs"
+  },
+  "dependencies": {
+    "flag-icons": "^7.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}

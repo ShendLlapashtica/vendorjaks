@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+
+.vercel
+
+# Throwaway probes from the SEO/feed build session. `_serve.mjs` is the one
+# keeper (it reproduces vercel.json's cleanUrls + /b rewrite locally so the
+# generated pages can be checked before a deploy) and is promoted to
+# scripts/serve-dist.mjs; the rest were one-shot diagnostics.
+_probe.mjs
+_probe2.mjs
+_qa.mjs
+_links.mjs
+
+# scripts/prune-payload.mjs writes a 24 MB public/data/kosovo-retail.json.
+# public/ is tracked and copied into dist/, so one `git add -A` after that
+# script runs would commit a 24 MB duplicate of the shipped payload.
+public/data/

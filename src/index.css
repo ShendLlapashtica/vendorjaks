@@ -1,0 +1,590 @@
+/* ============================================================
+   VENDORJA — "DEEP FIELD" visual system.
+   Rewritten 2026-09-16, replacing the fixed red/white/black protest-poster
+   palette. Owner's brief, verbatim: "a better font ... a glassmorphic UI
+   ... easier on the eyes ... darkblue (for everything) red (for only cta's
+   almost nothing)".
+
+   ------------------------------------------------------------
+   1. DESIGN RATIONALE
+   ------------------------------------------------------------
+   THE INVERSION. The old system used #ff0000 as the PAGE GROUND (body,
+   .screen, .vj-app, every chrome header) and 63 `var(--red)` call sites.
+   Red-as-ground is why the app read as a "letdown" on a phone: a fully
+   saturated ground has no luminance range left, so nothing can be
+   emphasised — every element ends up equally loud and the eye has nowhere
+   to rest. The fix is not "make it blue"; it is to give the page a
+   LUMINANCE RAMP (--navy-950 … --navy-300, 7 steps) so surfaces can sit
+   above and below each other, and to spend the one remaining loud colour
+   on the one thing that must be obeyed.
+
+   Red is now spent on exactly three things, in this order of frequency:
+     (a) the primary action button (--accent-cta),
+     (b) the "this is Serbian" alarm surface and its verdict word
+         (--status-alarm / --alarm-wash / --alarm-edge),
+     (c) nothing else. It is never a background for a page, a header, a
+         card, a tag or a list row again.
+
+   THE VERDICT DISTINCTION IS LOAD-BEARING AND IS RE-EXPRESSED, NOT LOST.
+   The app's whole point is telling "this is Serbian" apart from "this is
+   local" at a glance, in a shop, on a phone. The old build did it with
+   red-ground vs white-ground. Because red is now CTA-only, the two
+   verdicts are re-keyed to two different HUES over the same navy ground:
+     · Serbian  → alarm skin: red radial wash at low alpha, red hairline
+                  edge, verdict word in --status-alarm. This is a
+                  legitimate CTA-adjacent use of red (an alarm IS a call
+                  to act), and it is the only large red thing in the app,
+                  so it keeps all of its force.
+     · Local    → local skin: --status-local (#00A651, the owner's exact
+                  measured green, unchanged) as wash, edge and check mark.
+   A colour-blind user is not left guessing: both screens keep their word
+   ("JO E JONA" / "E JONA"), their flag and their icon. Colour is the
+   accelerant, never the only channel.
+
+   GLASS NEEDS SOMETHING TO BLUR. Glass over a flat ground is a grey box.
+   <body> therefore carries a fixed field of three large radial washes
+   (two blue, one very faint red bloom top-right so the brand colour is
+   still present in the air without being a surface), plus a grain layer,
+   and every page/panel ground above it is transparent or low-alpha. That
+   is what the panels are sampling.
+
+   ------------------------------------------------------------
+   2. WHAT WAS TAKEN FROM WHERE  (researched 2026-09-16)
+   ------------------------------------------------------------
+   · blur + saturation: apple.com's shipped global-nav stylesheet uses
+     `saturate(180%) blur(20px)` behind an @supports gate
+     (https://www.apple.com/ac/globalnav/7/en_US/styles/ac-globalnav.built.css).
+     web.dev's reference example is `brightness(150%) saturate(150%)
+     blur(1rem)` (https://web.dev/articles/backdrop-filter). Microsoft's
+     Acrylic uses a hardcoded Gaussian `sc_blurRadius = 30.0f`
+     (https://github.com/microsoft/microsoft-ui-xaml/issues/1191).
+     We use 20px / 170% — Apple's radius, just under Apple's saturation,
+     because our ground is already chromatic.
+   · layer order: Fluent Acrylic's official stack is "background, blur,
+     exclusion blend, color/tint overlay, noise"
+     (https://learn.microsoft.com/en-us/windows/apps/design/style/acrylic).
+     We follow it minus the exclusion blend: field → blur → tint → noise.
+   · hairline edge + lighter top edge: Apple documents Liquid Glass's
+     "specular highlights" conceptually but publishes NO numeric alphas
+     (https://developer.apple.com/videos/play/wwdc2025/219/), and the 1px
+     `rgba(255,255,255,.3)` border is community convention from the term's
+     originator, not a vendor spec (https://ixdf.org/literature/topics/glassmorphism).
+     The one authoritative justification for a LIGHT edge on dark is
+     Material's dark-theme rule — "Shadows are less effective in an app
+     using a dark theme, because they will have less contrast with the
+     dark background colors", so elevation is signalled by a
+     semi-transparent WHITE OVERLAY instead
+     (https://github.com/material-components/material-components-android/blob/master/docs/theming/Dark.md).
+     Our alphas (--edge .13 / --edge-top .26) are tuned by eye against
+     that principle and are NOT claimed to be anyone's published numbers.
+   · layered shadow: Material Components Web's real constants — umbra .2,
+     penumbra .14, ambient .12, with elevation-8 offsets 0 5px 5px -3px /
+     0 8px 10px 1px / 0 3px 14px 2px
+     (https://github.com/material-components/material-components-web/blob/master/packages/mdc-elevation/_elevation-theme.scss).
+     Deepened here because our ground is darker than Material's.
+   · grain: 8-bit colour gives 256 levels per channel, so a large area
+     that "changes very slowly from one shade to another" bands — exactly
+     what a big blurred panel is, and dark gradients are the unforgiving
+     case (https://www.anisopteragames.com/how-to-fix-color-banding-with-dithering/).
+     Microsoft ships noise as the final Acrylic layer but publishes no
+     alpha. The feTurbulence data-URI below is the freeCodeCamp recipe
+     (https://www.freecodecamp.org/news/grainy-css-backgrounds-using-svg-filters/),
+     `type='fractalNoise'` per Codrops because fractalNoise is the cloudy
+     one and `turbulence` makes ripples
+     (https://tympanus.net/codrops/2019/02/19/svg-filter-effects-creating-texture-with-feturbulence/).
+   · performance: the spec reason blur is expensive is that EVERY
+     backdrop-filter element copies the whole Backdrop Root Image into a
+     buffer, filters it, inverse-transforms and clips — and the spec warns
+     of "a potential doubling of the CPU/GPU memory and bandwidth"
+     (https://drafts.csswg.org/filter-effects-2/). web.dev: "backdrop-filter
+     may harm performance. Test it before deploying." Microsoft: "Avoid
+     layering multiple acrylic surfaces", "Don't place multiple acrylic
+     panes next to each other", acrylic is for TRANSIENT surfaces.
+     Hardest evidence of all: Apple strips it on phones —
+     `@media (max-width: 833px) { #ac-globalnav { backdrop-filter: none } }`.
+     CONSEQUENCE FOR THIS APP, WHICH IS A PHONE BARCODE SCANNER: real
+     `backdrop-filter` is applied to at most the 2–3 transient/sticky
+     surfaces visible at once (top bar, bottom nav, scanner strip, share
+     overlay, the single verdict hero). The dozens of list cards get the
+     *look* — low-alpha tint + hairline + inset highlight over the field —
+     with NO blur, so a scrolling list on a mid-range Android never pays
+     the per-element buffer copy. See --glass-panel vs .vj-glass-blur.
+   · prefers-reduced-transparency is Chromium-only (Chrome/Edge 118+, no
+     Safari, no Firefox, ~75% global —
+     https://caniuse.com/mdn-css_at-rules_media_prefers-reduced-transparency).
+     The ~25% without it are overwhelmingly Apple users, i.e. exactly the
+     people whose OS has had "Reduce Transparency" longest. So the media
+     query is a bonus, never the safety net: text contrast on glass is
+     made to pass unconditionally (see §3).
+
+   ------------------------------------------------------------
+   3. CONTRAST — MEASURED, NOT ASSUMED  (WCAG 2.1 ratios)
+   ------------------------------------------------------------
+   Against --navy-900 #0b1222, the page ground:
+     --ink       #e8ecf5  15.9:1   body + headings            (AA, AAA)
+     --ink-dim   #a8b4cc   9.2:1   secondary text             (AA, AAA)
+     --ink-faint            meta / mono labels
+
+   CONTRAST, RE-MEASURED 2026-09-17 against the graphite ramp that actually
+   renders. The numbers that were here before were measured against
+   --surface-raised #16233d — a value the ramp had already stopped defining,
+   so they documented a palette that no longer existed. A stale contrast
+   figure is worse than none: it reads as verified.
+   Worst case is the LIGHTEST panel a token lands on, not the page ground:
+     on --navy-700 #2c3138 (highest surface):
+       --ink       #edeff3  11.38:1   AAA
+       --ink-dim   #adb3bd   6.21:1   AA
+       --ink-faint #979ea9   4.85:1   AA
+     on --navy-800 #22262c (raised panel):  13.20 · 7.21 · 5.63  (all AA)
+     on --navy-900 #14161a (page ground):   15.73 · 8.59 · 6.71  (all AA)
+   --ink-faint was #868d98 and measured 3.91:1 on --navy-700 — BELOW AA.
+   Found while porting this system to Xapi, which measured against
+   composited surfaces rather than trusting the comment. Lightened to
+   #979ea9, which clears AA on every surface in the ramp.
+   The CTA:
+     --accent-cta #e01b1b fill vs page ground  3.9:1  (AA non-text, ≥3:1)
+     #ffffff label on --accent-cta             4.8:1  (AA normal text)
+   Deliberate: body ink is NOT #ffffff. Pure white on deep navy is ~18.5:1
+   and optically harsh — it haloes and bloats at small sizes. #e8ecf5 is
+   dimmed just enough to stop that while staying far above AA. For the
+   same reason the CTA red is #e01b1b, not #ff0000: white on #ff0000 is
+   only 4.0:1 and fails AA for normal text, while #ff2e2e with a dark label reaches 4.9:1
+   and is still unmistakably the brand red. #ff0000 survives nowhere.
+
+   LIGHT TEXT ON DARK OPTICALLY BLOATS, so the whole system runs one step
+   lighter than the poster did: display type 600 → 500, body 500 → 400,
+   and the mono labels keep 400. Sizes are untouched.
+   ============================================================ */
+
+:root {
+  /* ---- the navy ramp: 7 steps, near-black navy → mid slate blue ---- */
+  /* GRAPHITE, NOT NAVY — changed 2026-09-17.
+     Owner: "make the dark blue UI dark Gray now .and accentuate the logo and
+     the RED color a bit more when you can".
+     The token NAMES stay `--navy-*` on purpose: they are referenced ~200
+     times across App.css and six stylesheets, and a rename is churn with a
+     real chance of leaving one call site behind — which is exactly how the
+     desktop ground ended up near-black for a day. The VALUES are now a
+     neutral graphite ramp. Read the names as "the ramp", not as a colour.
+     The payoff of going neutral is the red: measured against the new ground
+     #14161a, #ff2e2e reaches 4.90:1 and PASSES WCAG AA for text, where the
+     old #e01b1b on navy managed only 3.57:1 and failed it. So the accent is
+     both louder and legible, which it could not be before. */
+  --navy-950: #0b0c0e; /* abyss — deepest slab */ /* abyss — deepest slab */
+  --navy-900: #14161a; /* page ground */
+  --navy-850: #1a1d22;
+  --navy-800: #22262c; /* raised panel */
+  --navy-700: #2c3138;
+  --navy-500: #3c434c;
+  --navy-300: #59616d; /* mid graphite — edges, dividers */ /* mid slate blue — edges, dividers, tick marks */
+
+  /* ---- semantic surfaces ---- */
+  --surface-abyss: var(--navy-950);
+  --surface-deep: var(--navy-900);
+  --surface: var(--navy-850);
+  --surface-raised: var(--navy-800);
+  --surface-high: var(--navy-700);
+  /* Glass: a tint, not a blur. Applied everywhere the poster used to put
+     a white card. Cheap — it is one rgba background over the body field. */
+  --surface-glass: rgba(44, 49, 56, 0.58);
+  --surface-glass-soft: rgba(44, 49, 56, 0.34);
+  /* Blur-backed glass. RESTRICTED to sticky/transient surfaces — see the
+     performance note above. Never put this on a list item. */
+  --surface-glass-bar: rgba(20, 22, 26, 0.62);
+  --surface-glass-modal: rgba(11, 12, 14, 0.78);
+
+  /* ---- edges. Light overlay, not shadow: Material's dark-theme rule. ---- */
+  --edge: rgba(208, 214, 224, 0.12);
+  --edge-strong: rgba(208, 214, 224, 0.24);
+  --edge-top: rgba(236, 240, 246, 0.24); /* specular top hairline */ /* specular top hairline */
+
+  /* ---- ink ---- */
+  --ink: #edeff3;
+  --ink-dim: #adb3bd;
+  --ink-faint: #979ea9;
+  --on-light: #14161a; /* text that sits on an --ink-filled chip/button */
+  /* Source links carry the app's honesty ("çfarë e raportoi burimi"), so
+     they must read AS links, not as body text. A light blue is the one hue
+     that reads as a link without competing with the CTA red. 10.4:1. */
+  --link: #9fb6d8;
+
+  /* ---- the one loud colour ---- */
+  --accent-cta: #ff2e2e;
+  --accent-cta-hi: #ff4a4a;
+  /* A LOUDER RED BUYS A DARKER LABEL — it does not come free.
+     Measured: white on the new #ff2e2e is 3.70:1 and FAILS AA. That is
+     worse than the 4.00:1 this very file rejects #ff0000 for a few lines
+     above. White on the old #e01b1b was 4.84:1 and passed, so brightening
+     the accent silently broke the label on its own button. --on-light
+     (#14161a) on #ff2e2e is 4.90:1, and 5.46:1 on the hover shade.
+     Found while porting this system to Xapi, which re-ran the
+     arithmetic instead of assuming the accent change was free. */
+  --accent-cta-ink: var(--on-light);
+
+  /* ---- status. --green is the owner's measured value and does not move. ---- */
+  --green: #00a651;
+  --status-local: var(--green);
+  --local-wash: rgba(0, 166, 81, 0.12);
+  --local-edge: rgba(0, 166, 81, 0.42);
+  --status-alarm: #ff5a5a;
+  --alarm-wash: rgba(255, 46, 46, 0.14);
+  --alarm-edge: rgba(255, 90, 90, 0.38);
+
+  /* Product photography is shot on white. A white-ish tile keeps a packshot
+     from cutting a hard hole in the dark UI; it is a MEDIA ground, never a
+     UI ground. */
+  --media-ground: #e9eaec;
+
+  /* ---- glass primitives ---- */
+  --glass-blur: 20px; /* Apple's shipped radius */
+  --glass-sat: 170%; /* just under Apple's 180% — our field is chromatic */
+  --glass-filter: saturate(var(--glass-sat)) blur(var(--glass-blur));
+  /* Material's umbra/penumbra/ambient triple at elevation 8, deepened
+     because our ground is darker than Material's. */
+  --shadow-1: 0 2px 4px -1px rgba(0, 0, 0, 0.38), 0 1px 10px 0 rgba(0, 0, 0, 0.24);
+  --shadow-2: 0 5px 5px -3px rgba(0, 0, 0, 0.44), 0 8px 10px 1px rgba(0, 0, 0, 0.3),
+    0 3px 14px 2px rgba(0, 0, 0, 0.24);
+  --inset-hi: inset 0 1px 0 0 var(--edge-top);
+
+  /* ---- fonts ----
+     Changed 2026-09-16. See the ë/ç coverage note below; all three are
+     free (OFL), loaded from Google Fonts in index.html, each with a real
+     system fallback stack behind it.
+
+     --stack  DISPLAY. Archivo (Omnibus-Type, variable 400–800). Replaces
+              Inter Tight. A semi-grotesque drawn for "highly legible text
+              on screens", with tight sidebearings that hold together at
+              the poster sizes (up to 21cqw) where Inter Tight went
+              generic. Its Latin Extended is unusually complete because
+              Omnibus-Type ship the full diacritic set as a matter of
+              course — which is the whole reason it was shortlisted for an
+              Albanian-language UI.
+     --round  UI / BODY. Geist (Vercel, variable 300–700). Replaces Outfit.
+              Outfit is a GEOMETRIC face: near-circular bowls and narrow
+              apertures, which is exactly the wrong thing at the 11–14px
+              sizes this app spends most of its text budget on, and worse
+              again as light-on-dark. Geist is an interface face designed
+              and hinted for dark developer UI — big x-height, open
+              apertures, unambiguous l/1/I — so the Albanian meta text
+              stays readable at 3cqw on a phone.
+     --mono   META / LABELS / BARCODES. IBM Plex Mono, KEPT. The existing
+              decision was sound: barcodes and GS1 prefixes are digit
+              strings and want a tabular, unambiguous mono.
+
+     ë / ç COVERAGE — VERIFIED, NOT ASSUMED. Both characters live in
+     Latin-1 Supplement (ë U+00EB, ç U+00E7), inside the `latin` subset
+     range U+0000-00FF that Google Fonts declares for all three families
+     (checked against the live css2 response on 2026-09-16). A declared
+     unicode-range only says which file to fetch, not that the glyph is
+     drawn, so coverage was additionally confirmed by rendering "ë" and
+     "ç" in each face in Chrome and comparing the rasters against the
+     fallback face — see the build report. */
+  --stack: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --round: 'Geist', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-display: var(--round);
+  --font-info: var(--round);
+
+  --info-sm: 12px;
+  --info-md: 14px;
+
+  /* SINGLE-LINE ICONS as data-URI masks, so they inherit currentColor and
+     cannot degrade into text the way a CSS codepoint escape can. */
+  --icon-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4'/%3E%3Cpath d='M14 4h6v6'/%3E%3Cpath d='M20 4 11 13'/%3E%3C/svg%3E");
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  /* `overflow-x: hidden` here was silently killing every position:sticky in
+     the app. Setting overflow on one axis forces the other to `auto`, which
+     made <body> a scroll CONTAINER — and a sticky element anchors to its
+     nearest scrolling ancestor, so the navbar was sticking to a scrollport
+     that never moves while the real scrolling happened on <html>.
+     Measured 2026-09-12: body computed to `overflow: hidden auto`.
+     `clip` gives the same horizontal guard WITHOUT creating a scroll
+     container, so sticky works again. */
+  overflow-x: clip;
+  background: var(--surface-deep);
+}
+
+/* THE FIELD. Three large radial washes, fixed, so every glass panel above
+   has real variation to sample — otherwise the blur returns one flat grey
+   and the whole effect reads as mud. The top-right wash is a very faint
+   red bloom: it keeps the brand colour in the air without red ever being a
+   surface again. `fixed` means the field does not scroll under the panels,
+   which is also what stops the blur re-rasterising on every scroll frame. */
+body {
+  color: var(--ink);
+  font-family: var(--font-info);
+  font-size: var(--info-md);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  background-color: var(--surface-deep);
+  background-image: radial-gradient(
+      108% 62% at 12% -8%,
+      rgba(96, 104, 118, 0.42) 0%,
+      rgba(96, 104, 118, 0) 62%
+    ),
+    radial-gradient(74% 46% at 96% 4%, rgba(255, 46, 46, 0.14) 0%, rgba(255, 46, 46, 0) 60%),
+    radial-gradient(120% 70% at 50% 112%, rgba(70, 76, 86, 0.50) 0%, rgba(70, 76, 86, 0) 64%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* GRAIN. 8-bit colour has 256 levels per channel, so the slow, large
+   gradients above band visibly on a phone — dark gradients worst of all.
+   fractalNoise (not `turbulence`, which makes ripples) at a low alpha
+   dithers the steps away. It is one fixed, pointer-transparent layer for
+   the whole app, never per panel. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  /* above the grain layer */
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: var(--accent-cta);
+  color: var(--accent-cta-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: var(--ink);
+}
+
+::placeholder {
+  color: var(--ink-faint);
+  opacity: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Every poster screen must clip its oversized type — never a horizontal
+   scrollbar, no matter how big the treatment renders. */
+.poster-screen {
+  overflow: hidden;
+}
+
+/* ============================================================
+   GLASS PRIMITIVES
+   Two tiers, deliberately. `.vj-glass` is the cheap one and is what the
+   dozens of list cards use: a tint over the field plus a hairline and a
+   specular top edge. `.vj-glass-blur` is the expensive one and is only
+   ever on a sticky bar, the scanner strip, the share overlay or the one
+   verdict hero — at most two or three on screen at a time, because per
+   the Filter Effects spec each one copies and filters the whole backdrop
+   root, and because Apple themselves ship `backdrop-filter: none` below
+   833px on their own nav.
+   ============================================================ */
+.vj-glass {
+  background: var(--surface-glass);
+  border: 1px solid var(--edge);
+  box-shadow: var(--inset-hi), var(--shadow-1);
+}
+
+.vj-glass-blur {
+  background: var(--surface-glass-bar);
+  border: 1px solid var(--edge);
+  box-shadow: var(--inset-hi), var(--shadow-2);
+}
+
+/* Apple's own @supports form — the OR is what makes Safari take it. */
+@supports (
+  (-webkit-backdrop-filter: saturate(170%) blur(20px)) or (backdrop-filter: saturate(170%) blur(20px))
+) {
+  .vj-glass-blur {
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+  }
+}
+
+/* No backdrop-filter at all (older Firefox, some Android WebViews): the
+   tint alone must still be opaque enough to read text on. Nothing here
+   depends on the blur to be legible — it only ever adds depth. */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  :root {
+    /* REFERENCE THE RAMP, DO NOT RESTATE IT.
+       These were four hand-written rgba values, and the graphite re-tone
+       only converted the first one — so on a browser with no
+       backdrop-filter, three of the four fallback surfaces still
+       composited BLUE (#141f34, #080d19, #060a14) on a graphite page.
+       Nobody saw it because no browser here takes this branch.
+       Pointing at the ramp instead means a future palette change carries
+       automatically and this can never half-convert again; it is also why
+       the prefers-reduced-transparency block below never broke. Fully
+       opaque on purpose: with no blur, leftover transparency only muddies
+       the panel edge. */
+    --surface-glass: var(--navy-800);
+    --surface-glass-soft: var(--navy-850);
+    --surface-glass-bar: var(--navy-900);
+    --surface-glass-modal: var(--navy-950);
+  }
+}
+
+/* prefers-reduced-transparency: Chromium-only today (~75% of the world),
+   so this is a bonus, not the accessibility story — the ratios in §3 hold
+   with or without it. When the user has asked for it, every glass surface
+   becomes a solid slab from the ramp and the grain comes off. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --surface-glass: var(--surface-raised);
+    --surface-glass-soft: var(--surface);
+    --surface-glass-bar: var(--surface-abyss);
+    --surface-glass-modal: var(--surface-abyss);
+    --glass-blur: 0px;
+  }
+  body::before {
+    display: none;
+  }
+  .vj-glass-blur,
+  .vj-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Forced-colors (Windows high contrast): drop the whole decorative layer
+   and let the OS palette through. */
+@media (forced-colors: active) {
+  body::before {
+    display: none;
+  }
+  .vj-glass,
+  .vj-glass-blur {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+/* prefers-reduced-motion: keep every layout exactly as designed, just strip
+   the sliding — this single rule covers every animation/transition added
+   anywhere in the app (poster lines included), so no per-component opt-out
+   is needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   THE FIELD ON A WIDE SCREEN
+   Owner, 2026-09-16: "improve UI .especially on desktop aswell" — and,
+   standing: "darkblue (for everything)".
+
+   The three washes on `body` are sized in PERCENTAGES of the viewport, so
+   on a phone they fill the screen and read as deep blue, while at 1346px
+   the same percentages spread the same light over four times the area and
+   the page reads as near-black. Photographed on the desktop home screen.
+
+   Fixed by anchoring the washes in `vmin` on wide viewports instead of
+   percentages, so their physical size stays roughly constant as the window
+   grows, and by raising the page ground one step off the abyss. Glass has
+   to have something to sample; a flat near-black ground is what made the
+   panels read as grey boxes in the first place.
+   ============================================================ */
+@media (min-width: 900px) {
+  body {
+    background-color: var(--navy-900);
+    background-image: radial-gradient(
+        90vmin 70vmin at 8% -6%,
+        rgba(96, 104, 118, 0.44) 0%,
+        rgba(96, 104, 118, 0) 65%
+      ),
+      radial-gradient(60vmin 45vmin at 98% 2%, rgba(255, 46, 46, 0.16) 0%, rgba(255, 46, 46, 0) 62%),
+      radial-gradient(
+        110vmin 80vmin at 50% 108%,
+        rgba(70, 76, 86, 0.52) 0%,
+        rgba(70, 76, 86, 0) 66%
+      ),
+      /* A fourth, slow wash across the middle so the vertical centre of a
+         tall desktop page is not the darkest part of it. */
+        radial-gradient(
+          120vmin 60vmin at 78% 52%,
+          rgba(88, 95, 108, 0.20) 0%,
+          rgba(88, 95, 108, 0) 70%
+        );
+  }
+
+  /* The full-bleed poster screens paint their own abyss over the field,
+     which on desktop is most of what a visitor sees. One step up the ramp
+     and a hint of the wash through it, so "dark blue" is actually blue
+     without touching the measured poster typography. */
+  .screen.black,
+  .poster-screen.bg-black {
+    background: linear-gradient(
+      180deg,
+      var(--navy-900) 0%,
+      var(--navy-950) 55%,
+      var(--navy-900) 100%
+    );
+  }
+}

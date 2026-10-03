@@ -1,0 +1,39 @@
+# vendorja — git attributes for the data directory.
+#
+# THIS FILE EXISTS TO PROTECT ONE MEASURED PROPERTY: a daily commit of the
+# 63 MB data/kosovo-retail.json costs ~12 KB in the repacked pack, because
+# every new version is the old version plus an append plus point edits and
+# git deltifies that almost perfectly (docs/REFRESH.md §5). Anything that
+# rewrites the file's bytes wholesale turns that 12 KB back into a ~6.5 MB
+# blob, every day, forever. Two such things are one config flag away:
+#
+#   -text   A Windows checkout with core.autocrlf=true rewrites line
+#           endings on files git thinks are text. For a data file that is
+#           not a formatting preference, it is a CONTENT change: the blob
+#           hash moves, the delta chain against the previous version breaks,
+#           and the working copy no longer matches what CI and Vercel read.
+#           `-text` means "never convert, in either direction", so the bytes
+#           on disk are the bytes in the object store on every platform.
+#
+#   -diff   data/kosovo-retail.json is 66,195,438 bytes on ONE line (it is
+#           minified — there is not a single newline in it). Marking it
+#           -diff stops git, GitHub and every review tool from trying to
+#           render a textual diff of a 66 MB line, which is never useful and
+#           is how a `git log -p` or a PR page hangs.
+#
+# WHAT IS DELIBERATELY *NOT* HERE: `-delta`. That attribute disables delta
+# compression and is the one setting that would actually cause the bloat
+# this file is here to prevent. Never add it.
+#
+# [measured] 2026-09-18, two bare repos, real catalogue as v1 and v1 + 1,000
+# appended rows + 400 changed prices as v2, `git gc` after each:
+#
+#   without .gitattributes   v1 packed 5,537 KiB   v1+v2 packed 5,584 KiB
+#   with    .gitattributes   v1 packed 5,537 KiB   v1+v2 packed 5,584 KiB
+#
+# Identical. The `diff` and `text` attributes affect diff generation and
+# checkout filters, not packing, so this costs nothing.
+
+data/*.json                 -text
+data/kosovo-retail.json     -diff
+data/kosovo-retail-xapi.json -diff
