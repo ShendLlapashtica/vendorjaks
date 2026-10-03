@@ -1,0 +1,549 @@
+{
+  "builtAt": "2026-09-12T00:00:00.000Z",
+  "why": [
+    "A GS1 prefix identifies the Member Organisation that ISSUED the number, not who owns the brand or where the money goes. A Serbian company can and does register numbers through another country's GS1 organisation.",
+    "Concrete, verified case that forced this file to exist (owner, 2026-09-12): barcode 3870508000157 is a 40g bag of Chipsy. Its prefix is 387 -- GS1 Bosnia and Herzegovina -- so a prefix-only check calls it 'not Serbian' and clears it. Open Food Facts returns brands = 'Chipsy, Marbo, Pepsico' for that exact barcode: it is Marbo Product, Backa Maglic, Serbia. The revenue is Serbian regardless of which GS1 office issued the number.",
+    "So the prefix table is necessary but NOT sufficient. This file is the override: an explicit, evidence-carrying list of brands and barcodes that are boycott targets whatever their prefix says.",
+    "DIRECTION OF THE OVERRIDE IS ONE-WAY. This file can only ever ADD a boycott verdict, never remove one. Nothing here can clear an 860-prefixed product."
+  ],
+  "confidenceRule": "Every entry carries a sourceUrl. A brand is listed only where its Serbian ownership is documented, never inferred from a name that sounds Serbian.",
+  "brands": [
+    {
+      "brand": "Chipsy",
+      "company": "Marbo Product d.o.o., Bačka Maglić (PepsiCo)",
+      "country": "serbia",
+      "aliases": [
+        "chipsy",
+        "marbo",
+        "marbo product",
+        "marbo produkt",
+        "gud",
+        "clipsy",
+        "pardon"
+      ],
+      "category": "chips-snacks",
+      "evidence": "Chipsy is the flagship brand of Marbo Product d.o.o., a Serbian snack manufacturer based in Bačka Maglić, acquired by PepsiCo in 2008. Production and corporate seat are in Serbia. Wikipedia's article on the company lists its brands as Chipsy, Clipsy, GUD and Pardon, so those three are matched here as well.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Marbo_Product"
+    },
+    {
+      "brand": "Bambi",
+      "company": "Koncern Bambi a.d., Đure Đakovića bb, 12000 Požarevac (Coca-Cola HBC Srbija)",
+      "country": "serbia",
+      "aliases": [
+        "bambi",
+        "plazma",
+        "koncern bambi",
+        "bambi pozarevac",
+        "bambi požarevac"
+      ],
+      "category": "biscuits",
+      "evidence": "Bambi’s own contact page gives the seat as Koncern \"Bambi\" a.d., Đure Đakovića bb, 12000 Požarevac, with a Belgrade head office at Omladinskih brigada 88v. Registry: PIB 100436827. Owned 100% by Coca-Cola HBC – Srbija d.o.o. Zemun, i.e. a foreign parent over a Serbian-seated company.",
+      "sourceUrl": "https://www.bambi.rs/kontakt/"
+    },
+    {
+      "brand": "Imlek",
+      "company": "AD Imlek, Industrijsko naselje bb, Padinska Skela, Beograd",
+      "country": "serbia",
+      "aliases": [
+        "imlek",
+        "ad imlek",
+        "moja kravica"
+      ],
+      "category": "dairy",
+      "evidence": "Imlek’s own contact page gives the seat as AD Imlek, Industrijsko naselje bb, Padinska Skela, Beograd. Registry: PIB 100001636, MB 07042701.",
+      "sourceUrl": "https://www.imlek.rs/kontakt/"
+    },
+    {
+      "brand": "Knjaz Miloš",
+      "company": "Knjaz Miloš a.d., Krćevački put 26, 34300 Aranđelovac",
+      "country": "serbia",
+      "aliases": [
+        "knjaz milos",
+        "knjaz miloš",
+        "knjaz",
+        "aqua viva",
+        "akva viva"
+      ],
+      "category": "bottled-water",
+      "evidence": "Own contact page: Knjaz Miloš a.d., Krćevački put 26, Aranđelovac, Srbija, plus a Belgrade office. Registry PIB 100994867. The operating company is a Mattoni 1873 / PepsiCo joint venture — foreign owners, Serbian seat.",
+      "sourceUrl": "https://www.knjaz.rs/kontakt"
+    },
+    {
+      "brand": "Guarana",
+      "company": "Knjaz Miloš a.d., Krćevački put 26, 34300 Aranđelovac",
+      "country": "serbia",
+      "aliases": [
+        "guarana"
+      ],
+      "category": "juices-soft-drinks",
+      "evidence": "Knjaz Miloš’s own contact page lists Guarana among its brands alongside Knjaz Miloš, Aqua Viva and Golf; the company is seated at Krćevački put 26, Aranđelovac.",
+      "sourceUrl": "https://knjaz.rs/contact/?lang=en"
+    },
+    {
+      "brand": "Nectar",
+      "company": "Nectar d.o.o., Kiš Ernea 1, 21000 Novi Sad; factory Novosadski put 9, Bačka Palanka",
+      "country": "serbia",
+      "aliases": [
+        "nectar",
+        "nektar",
+        "tomatello"
+      ],
+      "category": "juices-soft-drinks",
+      "evidence": "Nectar’s own contact page names Novi Sad (Kiš Ernea 1) as the seat, with further sites in Beograd, Bačka Palanka and Arilje; the registered fruit-and-vegetable processing entity is in Bačka Palanka, PIB 101922265.",
+      "sourceUrl": "https://www.nectar.rs/en/contact/"
+    },
+    {
+      "brand": "Fruvita",
+      "company": "Fruvita d.o.o., Trg Nikole Pašića 5, 11000 Beograd; plant Lunjevac/Kolari near Smederevo",
+      "country": "serbia",
+      "aliases": [
+        "fruvita",
+        "voćna dolina",
+        "vocna dolina"
+      ],
+      "category": "juices-soft-drinks",
+      "evidence": "Fruvita’s own site gives Trg Nikole Pašića 5, Stari Grad, Beograd; registry PIB 101600233, activity 1032 (fruit and vegetable juice production), owner Goran Redžić 100%.",
+      "sourceUrl": "http://www.fruvita.com/"
+    },
+    {
+      "brand": "Swisslion-Takovo",
+      "company": "Swisslion-Takovo d.o.o., Vaska Pope 4, 11000 Beograd; plant Gornji Milanovac",
+      "country": "serbia",
+      "aliases": [
+        "swisslion",
+        "swisslion takovo",
+        "svislajon",
+        "eurokrem",
+        "eurocrem",
+        "bananica"
+      ],
+      "category": "chocolate-confectionery",
+      "evidence": "The company’s own contact page lists Swisslion-Takovo d.o.o., Vaska Pope 4, 11000 Beograd, MB 07178107, PIB 101152004, plus the Gornji Milanovac confectionery plant where Eurokrem has been produced since 1972.",
+      "sourceUrl": "https://swisslion-takovo.com/kontakt/"
+    },
+    {
+      "brand": "Soko Štark",
+      "company": "Atlantic Štark d.o.o., Bulevar Peka Dapčevića 29, Beograd (Voždovac)",
+      "country": "serbia",
+      "aliases": [
+        "soko stark",
+        "soko štark",
+        "stark",
+        "štark",
+        "smoki",
+        "najlepše želje"
+      ],
+      "category": "chocolate-confectionery",
+      "evidence": "The stark.rs footer gives Bulevar Peka Dapčevića 29, Beograd, for the entity historically registered as Soko-Nada Štark and now Atlantic Štark. Registry PIB 100002799. Foreign parent (Atlantic Grupa), Serbian seat.",
+      "sourceUrl": "https://www.stark.rs/"
+    },
+    {
+      "brand": "Jaffa Crvenka",
+      "company": "DOO Jaffa fabrika biskvita Crvenka, Maršala Tita 245, 25230 Crvenka",
+      "country": "serbia",
+      "aliases": [
+        "jaffa",
+        "jaffa crvenka",
+        "munchmallow"
+      ],
+      "category": "biscuits",
+      "evidence": "Serbian business registry: Maršala Tita 245, Crvenka (opština Kula), PIB 100263582, MB 08004684, owner Kappa Star Limited. jaffa.rs brands itself Jaffa Crvenka d.o.o. but publishes the address only inside a downloadable PDF.",
+      "sourceUrl": "https://www.companywall.rs/firma/drustvo-sa-ogranicenom-odgovornoscu-jaffa-fabrika-biskvita-crvenka/MMQzguCq"
+    },
+    {
+      "brand": "Dijamant",
+      "company": "Dijamant d.o.o., Temišvarski drum 14, 23101 Zrenjanin",
+      "country": "serbia",
+      "aliases": [
+        "dijamant",
+        "dijamant zrenjanin"
+      ],
+      "category": "cooking-oil",
+      "evidence": "Own contact page: DIJAMANT DOO ZRENJANIN, Temišvarski drum 14, 23101 Zrenjanin, Srbija. Producer of sunflower oil, margarine and mayonnaise.",
+      "sourceUrl": "https://dijamant.rs/en/contact/"
+    },
+    {
+      "brand": "Vital",
+      "company": "AD Vital fabrika ulja i biljnih masti, Kulski put bb, 21460 Vrbas",
+      "country": "serbia",
+      "aliases": [
+        "vital vrbas",
+        "ad vital",
+        "vital ulje"
+      ],
+      "category": "cooking-oil",
+      "evidence": "Own contact page lists Kulski put bb, Vrbas 21460, plus a Belgrade office; registry confirms the same seat, PIB 100636842. Part of the Serbian Invej corporation. SHORT-TOKEN CAUTION: \"Vital\" is a short name that also exists outside Serbia, and the brand name is always matched as a whole token (never a substring), so \"Vitalis\" or \"Vitaminka\" cannot trigger it — but a genuinely different \"Vital\" product would. The company and this source are shown next to the verdict so a shopper can check the claim rather than take it on trust.",
+      "sourceUrl": "https://vital.rs/kontakt/"
+    },
+    {
+      "brand": "Frikom",
+      "company": "Frikom d.o.o., Zrenjaninski put bb, 11213 Beograd",
+      "country": "serbia",
+      "aliases": [
+        "frikom",
+        "frikom beograd"
+      ],
+      "category": "frozen-foods",
+      "evidence": "The cleanest primary source of the set: Frikom’s own \"Osnovni podaci\" page states the legal name, the seat at Zrenjaninski put b.b., Beograd, PIB 100003092 and matični broj 07042728. Owner Nomad Foods Europe — foreign parent, Serbian seat.",
+      "sourceUrl": "https://www.frikom.rs/rs/o-nama/frikom-danas/osnovni-podaci"
+    },
+    {
+      "brand": "Carnex",
+      "company": "Carnex d.o.o. industrija mesa, Kulski put 26, 21460 Vrbas",
+      "country": "serbia",
+      "aliases": [
+        "carnex",
+        "karneks",
+        "industrija mesa carnex"
+      ],
+      "category": "meat-charcuterie",
+      "evidence": "Own contact page: Industrija mesa Carnex, Kulski put 26, 21460 Vrbas, Srbija. Registry PIB 100637458.",
+      "sourceUrl": "https://carnex.rs/pages/kontakti"
+    },
+    {
+      "brand": "Neoplanta",
+      "company": "Neoplanta industrija mesa d.o.o., Primorska 90, 21000 Novi Sad",
+      "country": "serbia",
+      "aliases": [
+        "neoplanta",
+        "industrija mesa neoplanta"
+      ],
+      "category": "meat-charcuterie",
+      "evidence": "Own contact page names NEOPLANTA INDUSTRIJA MESA DOO NOVI SAD, Primorska 90, 21000 Novi Sad. Registry PIB 102034237.",
+      "sourceUrl": "https://neoplanta.rs/kontakt/"
+    },
+    {
+      "brand": "Matijević",
+      "company": "IM Matijević d.o.o., Rumenački put 86, 21000 Novi Sad",
+      "country": "serbia",
+      "aliases": [
+        "matijević",
+        "matijevic",
+        "im matijević",
+        "industrija mesa matijević"
+      ],
+      "category": "meat-charcuterie",
+      "evidence": "The company’s own contact page gives the seat as Rumenački put 86, 21000 Novi Sad, and describes industrial slaughterhouses plus meat products.",
+      "sourceUrl": "https://matijevic.rs/kontakt/"
+    },
+    {
+      "brand": "Zlatiborac",
+      "company": "Zlatiborac d.o.o., Mojkovačka 58, Beograd (Čukarica); plant Mačkat, Zlatibor",
+      "country": "serbia",
+      "aliases": [
+        "zlatiborac"
+      ],
+      "category": "meat-charcuterie",
+      "evidence": "Own contact page states the seat as Mojkovačka 58, Beograd; registry PIB 101014156, owner Aleksandar Stojanović 100%. Dry-cured meats made at the Mačkat plant on Zlatibor.",
+      "sourceUrl": "https://www.zlatiborac.com/kontakt"
+    },
+    {
+      "brand": "Sojaprotein",
+      "company": "Sojaprotein d.o.o., Industrijska 1, 21220 Bečej (ADM)",
+      "country": "serbia",
+      "aliases": [
+        "sojaprotein",
+        "soja protein"
+      ],
+      "category": "soy-products",
+      "evidence": "ADM’s own Sojaprotein page gives Sojaprotein DOO Bečej, Industrijska 1, 21220 Bečej, Serbia, and records ADM’s 2022 acquisition. Registry PIB 100741587. The standalone sojaprotein.rs now redirects here.",
+      "sourceUrl": "https://www.adm.com/en-us/standalone-pages/sojaprotein/"
+    },
+    {
+      "brand": "Grand Kafa",
+      "company": "Atlantic Grand d.o.o., Miloša Obilića 41, 22310 Šimanovci",
+      "country": "serbia",
+      "aliases": [
+        "grand kafa",
+        "grand aroma",
+        "grand gold",
+        "atlantic grand",
+        "grand prom"
+      ],
+      "category": "coffee",
+      "evidence": "grandkafa.rs/kontakt gives Miloša Obilića 41, Šimanovci; the registry lists Atlantic Grand doo Šimanovci at the same address, PIB 100001126. The widely-copied \"Grand Prom, Surčinska 6a, Novi Beograd\" address is stale — the entity now sits at the former Strauss plant.",
+      "sourceUrl": "https://www.grandkafa.rs/kontakt"
+    },
+    {
+      "brand": "Doncafé",
+      "company": "Atlantic Grand d.o.o., Miloša Obilića 41, 22310 Šimanovci",
+      "country": "serbia",
+      "aliases": [
+        "doncafe",
+        "doncafé",
+        "don cafe",
+        "c kafa"
+      ],
+      "category": "coffee",
+      "evidence": "doncafe.rs gives Miloša Obilića 41, 22310 Šimanovci, Srbija. Atlantic Grupa’s own release records its acquisition of Doncafé and C kafa together with Strauss Adriatic’s Šimanovci production facility; the Strauss entity has since been merged into Atlantic Grand.",
+      "sourceUrl": "https://www.doncafe.rs/"
+    },
+    {
+      "brand": "Mlekara Šabac",
+      "company": "Mlekara Šabac a.d., Krsmanovača bb, 15000 Šabac",
+      "country": "serbia",
+      "aliases": [
+        "mlekara šabac",
+        "mlekara sabac",
+        "sirko",
+        "a la kajmak",
+        "šabačka"
+      ],
+      "category": "dairy",
+      "evidence": "The dairy’s own site gives Krsmanovača bb, 15000 Šabac, Srbija, and lists cheeses, spreads and sour-milk products under the Sirko, A la kajmak and Šabačka brands. Registry PIB 102056739.",
+      "sourceUrl": "https://mlekara-sabac.com/"
+    },
+    {
+      "brand": "Aleva",
+      "company": "Prehrambena industrija Aleva d.o.o., Svetozara Miletića 15, 23330 Novi Kneževac",
+      "country": "serbia",
+      "aliases": [
+        "aleva",
+        "aleva paprika",
+        "aleva začin"
+      ],
+      "category": "spices",
+      "evidence": "Aleva’s own site gives Svetozara Miletića 15, 23330 Novi Kneževac, Srbija, states the company was founded in 1947 and processes about 4,000 t of paprika and 10,000 t of vegetables a year across 160+ products.",
+      "sourceUrl": "https://aleva.rs/"
+    },
+    {
+      "brand": "Centroproizvod",
+      "company": "Nestlé Adriatic S d.o.o., Železnička 131, 11077 Surčin, Beograd",
+      "country": "serbia",
+      "aliases": [
+        "centroproizvod",
+        "c kečap",
+        "c kecap",
+        "c majonez",
+        "super supa"
+      ],
+      "category": "sauces-condiments",
+      "evidence": "The registry gives NESTLE ADRIATIC S DOO BEOGRAD-SURČIN, Železnička 131, 11077 Surčin, PIB 107073029, owner Société des Produits Nestlé S.A. Centroproizvod, maker of the \"C\" condiments, was acquired by Nestlé in 2011 and folded into this entity at the same Surčin factory; centroproizvod.rs no longer resolves.",
+      "sourceUrl": "https://www.companywall.rs/firma/nestle-adriatic-s-doo-beograd-surcin/MMfajHUY"
+    },
+    {
+      "brand": "Voda Vrnjci",
+      "company": "Voda Vrnjci a.d., Kneza Miloša 162, 36210 Vrnjačka Banja",
+      "country": "serbia",
+      "aliases": [
+        "voda vrnjci",
+        "vrnjci"
+      ],
+      "category": "bottled-water",
+      "evidence": "Own contact page gives Kneza Miloša 162, 36210 Vrnjačka Banja, Srbija; registry PIB 101077432, owner Ekstra-Pet d.o.o. Beograd.",
+      "sourceUrl": "https://vodavrnjci.rs/kontakt/"
+    },
+    {
+      "brand": "Rosa",
+      "company": "Coca-Cola HBC Srbija d.o.o., Batajnički drum 14-16, 11080 Beograd (Zemun); bottled at Vlasinka, Surdulica",
+      "country": "serbia",
+      "aliases": [
+        "rosa voda",
+        "rosa vlasina"
+      ],
+      "category": "bottled-water",
+      "evidence": "The registry gives COCA-COLA HBC SRBIJA DOO BEOGRAD (ZEMUN), Batajnički drum 14-16, PIB 100000709, activity 1107 (soft drinks, mineral and other bottled water); Rosa is bottled at the Vlasinka plant in Surdulica. SHORT-TOKEN CAUTION: \"Rosa\" is a common word on packaging worldwide. It is matched only as a whole brand token, and the company and source are shown with the verdict so the claim can be checked.",
+      "sourceUrl": "https://www.companywall.rs/firma/coca-cola-hbc---srbija-doo-zemun/MMsqIZhY"
+    },
+    {
+      "brand": "Yumis",
+      "company": "Yumis d.o.o., Bulevar Svetog cara Konstantina 80-86, 18106 Niš",
+      "country": "serbia",
+      "aliases": [
+        "yumis",
+        "yumis začin"
+      ],
+      "category": "spices",
+      "evidence": "Yumis’s own site footer reads \"Food Industry Yumis d.o.o., Bul. Sv. cara Konstantina 80-86, Serbia, 18106 Niš\" and lists soups, spices, teas and Turkish delight. Registry PIB 101858325, owner Milovan Kocić 100%.",
+      "sourceUrl": "https://yumis.rs/en/"
+    },
+    {
+      "brand": "Jelen",
+      "company": "Apatinska pivara Apatin d.o.o., Trg Oslobođenja 5, 25260 Apatin (Molson Coors)",
+      "country": "serbia",
+      "aliases": [
+        "jelen",
+        "jelen pivo",
+        "apatinska pivara",
+        "apatinsko"
+      ],
+      "category": "beer",
+      "evidence": "Industry directory and the brewery’s own LinkedIn both give Apatinska Pivara, Trg Oslobođenja 5, 25260 Apatin, Serbia, in the Molson Coors group. apatinskapivara.rs serves a broken TLS chain; jelenpivo.com shows the Molson Coors notice without an address.",
+      "sourceUrl": "https://www.beverage-world.com/en/company/apatinska-pivara-ad-molson-coors-group-apatin-2438453"
+    },
+    {
+      "brand": "Lav",
+      "company": "Carlsberg Srbija d.o.o., Proleterska 17, 21413 Čelarevo",
+      "country": "serbia",
+      "aliases": [
+        "lav pivo",
+        "carlsberg srbija",
+        "pivara čelarevo",
+        "lav premium"
+      ],
+      "category": "beer",
+      "evidence": "The brewery’s own contact page states Carlsberg Srbija d.o.o., Proleterska 17, 21413 Čelarevo; registry PIB 100495907, owner Baltic Beverages Holding (Carlsberg group). SHORT-TOKEN CAUTION: \"Lav\" is three letters. It is matched only as a whole brand token — never as a substring — but it is the weakest-evidence token in this file, which is why the company and source sit next to the verdict.",
+      "sourceUrl": "https://www.carlsbergsrbija.rs/kontakt/"
+    },
+    {
+      "brand": "Polimark",
+      "company": "Polimark d.o.o., Autoput Beograd-Novi Sad 100b, 11080 Beograd-Zemun",
+      "country": "serbia",
+      "aliases": [
+        "polimark"
+      ],
+      "category": "ketchup",
+      "evidence": "Polimark is seated at Autoput Beograd-Novi Sad 100b, Beograd-Zemun; it began ketchup production in Serbia in 1992 and is the category leader there.",
+      "sourceUrl": "https://poslovi.infostud.com/poslodavac/polimark-d.o.o.-beograd/822"
+    },
+    {
+      "brand": "Perfex",
+      "company": "Drenik ND d.o.o., seat Deligradska 19, Beograd; plant Pančevački put 69, Beograd",
+      "country": "serbia",
+      "aliases": [
+        "perfex",
+        "perfeks",
+        "drenik nd"
+      ],
+      "category": "paper-hygiene",
+      "evidence": "The Perfex contact page names Drenik ND d.o.o., Pančevački put 69, 11000 Beograd, Srbija. Registry: DRENIK ND DOO BEOGRAD, Deligradska 19, activity 1712 (paper and cardboard manufacture), active since 1995. Honest limit: part of the range is made at Drenik Kft in Szolnok, Hungary.",
+      "sourceUrl": "https://www.perfex.rs/kontakt.php"
+    },
+    {
+      "brand": "Duel",
+      "company": "Beohemija d.o.o., Pančevačka 84, 23000 Zrenjanin",
+      "country": "serbia",
+      "aliases": [
+        "duel",
+        "beohemija",
+        "duel color"
+      ],
+      "category": "cleaning",
+      "evidence": "Beohemija (Pančevačka 84, Zrenjanin) publishes Duel, Spin, Selection and Pompa as its own laundry, softener, dishwashing and household-cleaning brands. Serbian-owned, unlike the Merix/Persil/Bref lines made in Serbia for Henkel.",
+      "sourceUrl": "https://www.beohemija.com/proizvodi/"
+    },
+    {
+      "brand": "Danubius",
+      "company": "Danubius d.o.o., Kanalska 1, 21000 Novi Sad",
+      "country": "serbia",
+      "aliases": [
+        "danubius",
+        "speltino"
+      ],
+      "category": "flour-pasta",
+      "evidence": "Danubius’s own contact page gives Kanalska 1, 21000 Novi Sad, Srbija; it makes milling products, durum/wholegrain pasta and Speltino flour.",
+      "sourceUrl": "https://www.danubius.rs/kontakt/"
+    },
+    {
+      "brand": "Fidelinka",
+      "company": "Fidelinka 1868 d.o.o., Čantavirski put 1, 24000 Subotica",
+      "country": "serbia",
+      "aliases": [
+        "fidelinka",
+        "fidelinka 1868"
+      ],
+      "category": "flour-pasta",
+      "evidence": "Fidelinka’s own site: \"Kompanija Fidelinka je vodeći proizvođač brašna i testenina u zemlji\". Registry gives Čantavirski put 1, Subotica, activity 1061 Proizvodnja mlinskih proizvoda.",
+      "sourceUrl": "https://www.fidelinka.rs/"
+    },
+    {
+      "brand": "Fructus",
+      "company": "Fructus d.o.o., Novosadski put 15, 21420 Bač / Bačka Palanka",
+      "country": "serbia",
+      "aliases": [
+        "fructus",
+        "fruktus"
+      ],
+      "category": "tea",
+      "evidence": "Fructus’s own contact page describes production of classic and flavoured teas; the registry gives Novosadski put 15, 21420 Bač, activity 1083 Prerada čaja i kafe.",
+      "sourceUrl": "https://www.fructus.rs/kontakt/"
+    },
+    {
+      "brand": "Vitamin Horgoš",
+      "company": "Prehrambena industrija \"Vitamin\" d.o.o., Segedinski put 427, 24410 Horgoš",
+      "country": "serbia",
+      "aliases": [
+        "vitamin horgoš",
+        "vitamin horgos",
+        "horgoški začin",
+        "narodni čaj"
+      ],
+      "category": "tea",
+      "evidence": "The company’s own site footer gives Segedinski put 427, 24410 Horgoš, and states a capacity of about 50 million tea bags and 1,500 t of ground paprika a year; registry address identical, activity 1039. NOTE: the bare token \"vitamin\" is deliberately not an alias, and this company is NOT Vitaminka of Prilep, North Macedonia.",
+      "sourceUrl": "https://www.vitamin.rs/"
+    },
+    {
+      "brand": "Don Don",
+      "company": "Don Don d.o.o., Zmajeva 12v, 11080 Beograd-Zemun",
+      "country": "serbia",
+      "aliases": [
+        "don don",
+        "dondon",
+        "lulu pekare"
+      ],
+      "category": "bread",
+      "evidence": "Registry: DON DON DOO BEOGRAD, Zmajeva 12v, Beograd-Zemun, activity 1071 Proizvodnja hleba, svežeg peciva i kolača. Serbian-registered; part of the Slovenian Don Don group. dondon.rs now redirects to the retail brand LULU pekare.",
+      "sourceUrl": "https://www.companywall.rs/firma/don-don-doo-beograd/MMNbs8KD"
+    },
+    {
+      "brand": "Rubin",
+      "company": "RUBIN AD, Cara Lazara 291, 37000 Kruševac",
+      "country": "serbia",
+      "aliases": [
+        "rubin",
+        "rubin ad",
+        "rubin krusevac",
+        "rubin kruševac",
+        "vinjak rubin"
+      ],
+      "category": "wine",
+      "evidence": "RUBIN AD is a Kruševac winery and distillery producing wine, Rubinov vinjak and rakija; its own contact page gives the registered address Cara Lazara 291, 37000 Kruševac, Srbija, and the site footer reads \"© RUBIN AD\".",
+      "sourceUrl": "https://www.rubin.rs/nasa-prica-2/contact/"
+    }
+  ],
+  "barcodes": [
+    {
+      "code": "8606014409017",
+      "brand": "Chipsy",
+      "name": "Chipsy Classic",
+      "quantity": "43 g",
+      "prefixNote": "860 — GS1 Serbia. Prefix alone already resolves this one.",
+      "confirmedOn": "openfoodfacts"
+    },
+    {
+      "code": "8606017378532",
+      "brand": "Chipsy",
+      "name": "Chipsy",
+      "quantity": "140 g",
+      "prefixNote": "860 — GS1 Serbia.",
+      "confirmedOn": "openfoodfacts"
+    },
+    {
+      "code": "8606017372806",
+      "brand": "Chipsy",
+      "name": "Chipsy Classic",
+      "quantity": "250 g",
+      "prefixNote": "860 — GS1 Serbia.",
+      "confirmedOn": "owner-supplied",
+      "note": "Not present in Open Food Facts as of 2026-09-12 — checked, returns status 0. Name and size are the owner's, not OFF's, and no product photo exists to show."
+    },
+    {
+      "code": "8606017375357",
+      "brand": "Chipsy",
+      "name": "Chipsy Domaćinski",
+      "quantity": null,
+      "prefixNote": "860 — GS1 Serbia.",
+      "confirmedOn": "openfoodfacts",
+      "note": "OFF lists this as 'Domacinski' (crinkle-cut / home-style)."
+    },
+    {
+      "code": "3870508000157",
+      "brand": "Chipsy",
+      "name": "Chipsy Classic",
+      "quantity": "40 g",
+      "prefixNote": "387 — GS1 Bosnia and Herzegovina. THE CASE THIS FILE EXISTS FOR: a prefix-only check clears this product. It is Marbo/PepsiCo Serbia.",
+      "confirmedOn": "openfoodfacts",
+      "note": "OFF has no product_name for this code but does return brands = 'Chipsy, Marbo, Pepsico' and a front image."
+    }
+  ]
+}
