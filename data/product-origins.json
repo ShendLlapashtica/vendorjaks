@@ -1,0 +1,1683 @@
+{
+  "builtAt": "2026-09-11T16:32:50.041Z",
+  "disclaimer": "A GS1 prefix identifies the organisation that registered the barcode, not the country of manufacture. Entries marked verified:true carry a checked production source (company site, retailer country-of-origin declaration, or Open Food Facts manufacturing_places field). Entries marked verified:false have a real company but no confirmed production-location source yet -- treat as 'company is Serbian, production location unconfirmed', never as 'made in Serbia'.",
+  "brands": [
+    {
+      "brand": "Bambi",
+      "aliases": [
+        "Plazma",
+        "Bambi a.d.",
+        "Bambi a.d. Požarevac"
+      ],
+      "company": "Bambi a.d. Požarevac",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Coca-Cola HBC (acquired June 2019)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:biscuits",
+        "en:sweet-biscuits"
+      ],
+      "sourceUrl": "https://www.bambi.rs/o-nama/istorijat",
+      "evidence": "Company's own history page: \"Svakoga dana u našoj fabrici u Požarevcu proizvedemo između 110 i 120 tona keksa\" (110-120 tons of biscuits produced daily at the Požarevac factory); \"Od juna 2019. godine kompanija Bambi posluje u okviru Coca-Cola HBC grupe.\"",
+      "alternatives": [
+        {
+          "brand": "Sempre",
+          "company": "Liri L.L.C., Prizren",
+          "country": "XK",
+          "sourceUrl": "https://prizrenpress.com/haradinaj-viziton-kompanine-liri-ne-prizren-ketu-prodhohen-produktet-me-te-mira/",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://kallxo.com/shkurt/media-serbe-sempre-ne-vend-te-plazma-s-menyra-e-re-e-patriotizmit-ne-kosove/"
+        }
+      ]
+    },
+    {
+      "brand": "Štark",
+      "aliases": [
+        "Stark",
+        "Soko Štark",
+        "Atlantic Štark",
+        "Soko-Nada Štark"
+      ],
+      "company": "Atlantic Štark d.o.o. Beograd",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Atlantic Grupa (Croatia) -- via Droga Kolinska (Slovenia) acquisition chain",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:chocolates",
+        "en:confectioneries"
+      ],
+      "sourceUrl": "https://www.stark.rs/",
+      "evidence": "Company address confirmed as Bulevar Peka Dapčevića 29, Beograd, Srbija; operates as a Strategic Business Unit of Atlantic Grupa (Croatia). Factory active since 1975 at Kumodraška ulica, Voždovac, Belgrade.",
+      "alternatives": [
+        {
+          "brand": "Sempre",
+          "company": "Liri L.L.C., Prizren",
+          "country": "XK",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Smoki",
+      "aliases": [
+        "Smoki Original"
+      ],
+      "company": "Atlantic Štark d.o.o. Beograd (Soko Štark)",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Atlantic Grupa (Croatia)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:salty-snacks",
+        "en:corn-snacks"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Smoki",
+      "evidence": "\"Serbian brand of puffed corn snack, brought to the market by the food company Soko Štark in 1972\" (Zemun). Open Food Facts confirms manufacturing_places=Serbia for multiple Smoki SKUs. Smoki is a product line of Štark, not a separate company -- same ownership chain (Atlantic Grupa) applies.",
+      "alternatives": [
+        {
+          "brand": "Vipa Snacks",
+          "company": "Pestova sh.p.k., Vushtrri",
+          "country": "XK",
+          "sourceUrl": "https://vipa-ks.com/en/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Swisslion-Takovo",
+      "aliases": [
+        "Swisslion",
+        "Takovo",
+        "PIK Takovo",
+        "Eurokrem",
+        "Eurocrem"
+      ],
+      "company": "Swisslion-Takovo d.o.o.",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:chocolates",
+        "en:biscuits",
+        "en:spreads"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Swisslion_Group",
+      "evidence": "HQ Partizanska 42, Novi Sad, Serbia; owned by DRD Swisslion (92.86%) and Rodoljub Drašković (7.14%) -- despite the Swiss-sounding name, no Swiss parent found. Main plants in Vršac (est. 1997) and Gornji Milanovac (PIK Takovo, merged 2004; Eurocrem produced there since 1972). CAVEAT: the group also runs a large plant in Trebinje, Bosnia and Herzegovina (est. 2009) producing biscuits/baby food -- some Swisslion-branded barcodes are genuinely Bosnian-made, not Serbian; check manufacturing_places per SKU rather than assuming Serbia for the whole brand.",
+      "alternatives": []
+    },
+    {
+      "brand": "Cipiripi",
+      "aliases": [
+        "Paraćinka"
+      ],
+      "company": "Paraćinka a.d., Paraćin",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:chocolates",
+        "en:chocolate-spreads"
+      ],
+      "sourceUrl": "https://celijakija.rs/kompanija-nestle-iz-srbije-prodala-je-cipiripi-brend-kompaniji-paracinka-a-d/",
+      "evidence": "\"Kompanija Nestlé iz Srbije, prodala je CIPIRIPI brend kompaniji Paraćinka a.d.\" (2018); \"Cipiripi is 100 percent owned by a domestic company... produced in the factory facilities in Paraćin.\" Brand was Nestlé-owned 2011-2018 (multinational period), independently Serbian-owned since.",
+      "alternatives": []
+    },
+    {
+      "brand": "Marbo Product",
+      "aliases": [
+        "Chipsy",
+        "Clipsy",
+        "Marbo"
+      ],
+      "company": "Marbo Product d.o.o., Beograd",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "PepsiCo (USA), acquired August 2008 for ~EUR 210 million",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:chips-and-fries",
+        "en:crisps",
+        "en:appetizers"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Marbo_Product",
+      "evidence": "\"purchased by American multinational food, snack, and beverage corporation, PepsiCo\" (Aug 2008). Factory in Maglić, near Bački Petrovac/Novi Sad, Serbia (est. 1995, still operating); a second Bosnian plant (Laktaši) was closed in 2021, so current production is Serbia-based.",
+      "alternatives": [
+        {
+          "brand": "Vipa Chips",
+          "company": "Pestova sh.p.k., Vushtrri",
+          "country": "XK",
+          "sourceUrl": "https://vipa-ks.com/en/",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://kallxo.com/lajm/pronari-i-vipa-chips-konkurrencen-kryesore-e-kemi-nga-serbia/"
+        }
+      ]
+    },
+    {
+      "brand": "Polimark",
+      "aliases": [],
+      "company": "Polimark d.o.o. Beograd (Unisol Group)",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:condiments",
+        "en:sauces",
+        "en:ketchup",
+        "en:mustards"
+      ],
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=polimark",
+      "evidence": "Founded 1989 (Zemun/Beograd), first product (ketchup) launched 1992; founder-owned by Vojin Starčević, part of the Unisol Group since 2016. Open Food Facts manufacturing_places=Serbia on multiple ketchup/mayonnaise SKUs (e.g. 8600005001150, 8600015004493).",
+      "alternatives": []
+    },
+    {
+      "brand": "Knjaz Miloš",
+      "aliases": [
+        "Aqua Viva"
+      ],
+      "company": "Knjaz Miloš a.d., Aranđelovac",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Mattoni 1873 (Czech Republic) -- 100% owner since 24 April 2024, having bought out PepsiCo's prior 46.43% stake",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:waters",
+        "en:mineral-waters"
+      ],
+      "sourceUrl": "https://knjaz.rs/knjaz-milos-u-punom-vlasnistvu-grupe-mattoni-1873/?lang=en",
+      "evidence": "\"Knjaz Miloš u punom vlasništvu grupe Mattoni 1873\" -- full ownership transferred 24 April 2024. Open Food Facts: barcode 8600037000879 has manufacturing_places=Serbia.",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove",
+          "country": "XK",
+          "sourceUrl": "https://rugove.eu/en/corporation/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Rosa",
+      "aliases": [
+        "Vlasinska Rosa"
+      ],
+      "company": "Coca-Cola HBC Srbija (brand originally owned by Vlasinka)",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Coca-Cola HBC (acquired the Rosa brand from Vlasinka in 2005)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:waters",
+        "en:spring-waters"
+      ],
+      "sourceUrl": "https://rs.coca-colahellenic.com/rs/our-24-7-portfolio/hydration/rosa",
+      "evidence": "Coca-Cola HBC Srbija's own portfolio page lists Rosa as a hydration brand bottled via its Serbian facilities including the 'Vlasinka factory' near the Vardenik spring source (southern Serbia). CAUTION: a separate, unrelated company (Preslap d.o.o., vlasinawater.com) sells a similarly-named 'Vlasina Water' -- do not conflate with this Coca-Cola-owned Rosa brand.",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove",
+          "country": "XK",
+          "sourceUrl": "https://rugove.eu/en/corporation/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Next",
+      "aliases": [
+        "NeXt",
+        "Fresh & Co"
+      ],
+      "company": "Fresh & Co, Subotica",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Coca-Cola HBC Srbija (acquired Fresh & Co 100% in 2006, along with the Subotica production facility)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:fruit-juices",
+        "en:fruit-drinks"
+      ],
+      "sourceUrl": "https://www.foodingredientsfirst.com/news/coca-cola-hbc-acquires-serbian-fruit-juice-company-fresh-co.html",
+      "evidence": "\"Coca-Cola HBC Acquires Serbian Fruit Juice Company Fresh & Co\" -- the 2006 acquisition explicitly included Su-voće, Joy and Next brands plus \"a production facility located at Subotica.\" No fresher current-year statement found confirming Subotica is still the sole production site, so treat with slight caution despite the historical acquisition record being explicit.",
+      "alternatives": [
+        {
+          "brand": "Frutomania",
+          "company": "MOEA, Kravarica (Gjilan)",
+          "country": "XK",
+          "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Nectar",
+      "aliases": [],
+      "company": "Nectar d.o.o., Bačka Palanka",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:fruit-juices",
+        "en:fruit-nectars"
+      ],
+      "sourceUrl": "https://www.ekapija.com/company/92547/nectar-backa-palanka",
+      "evidence": "Founded 19 Jan 1998, Bačka Palanka; owned by Radun Inženjering d.o.o. (81.11%) and Smilja Radun (18.89%), both Serbian -- no multinational stake found. Open Food Facts: barcode 8606107544144 has manufacturing_places=Serbia.",
+      "alternatives": [
+        {
+          "brand": "Frutomania",
+          "company": "MOEA, Kravarica (Gjilan)",
+          "country": "XK",
+          "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://telegrafi.com/pronari-frutomania-perfituam-nga-taksa-nuk-importojme-asnjehere-nga-serbia/"
+        },
+        {
+          "brand": "Mia Vita",
+          "company": "Devolli Group",
+          "country": "XK",
+          "sourceUrl": "https://devolligroup.com/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Imlek",
+      "aliases": [
+        "Moja Kravica",
+        "Grekos"
+      ],
+      "company": "Imlek a.d., Padinska Skela, Beograd",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Mid Europa Partners (UK-based private equity), since 2015; a sale back to Serbian ownership (AJFH family office with CEO Bojan Radun) was announced but is a separate, distinct fact from any 'MK Group' claim",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:dairies",
+        "en:milks",
+        "en:yogurts",
+        "en:cheeses"
+      ],
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "evidence": "\"Imlek posluje na teritorijama Srbije, Crne Gore, Bosne i Hercegovine i Makedonije. Pored dva proizvodna pogona u Srbiji...\" (two production plants in Serbia, plus the acquired Niš dairy since 2016). Open Food Facts: barcodes 8601500122159 (Grekos) and 8601500114468 (Pavlaka) both show manufacturing_places=Serbia.",
+      "alternatives": [
+        {
+          "brand": "Vita",
+          "company": "Devolli Group (Qumështorja Vita), Radushë, Istog",
+          "country": "XK",
+          "sourceUrl": "https://www.qumeshtorjavita.com/about-us/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "XK",
+          "sourceUrl": "https://abimilk.com/en/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Jaffa",
+      "aliases": [
+        "Jaffa Crvenka",
+        "O'cake"
+      ],
+      "company": "Jaffa Crvenka d.o.o., Crvenka",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Kappa Star Limited (Cyprus-registered holding company); ultimate beneficial owner reported as Nebojša Šaranović, a Serbian businessman",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:biscuits",
+        "en:wafers"
+      ],
+      "sourceUrl": "https://www.jaffa.rs/en/our-story/",
+      "evidence": "\"Our company was founded in a small Vojvodina town of Crvenka, way back in 1975\" -- confirmed genuinely Serbian-manufactured (Crvenka plant), distinct from the unrelated UK 'Jaffa Cakes' (McVitie's) brand. Open Food Facts: barcode 8600114000211 has manufacturing_places=Serbia.",
+      "alternatives": []
+    },
+    {
+      "brand": "VodaVoda",
+      "aliases": [
+        "Voda Voda"
+      ],
+      "company": "Voda Voda (founder Vojin Đorđević), Banja Vrujci",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:waters",
+        "en:artesian-waters"
+      ],
+      "sourceUrl": "https://www.diplomacyandcommerce.rs/a-source-of-purity-and-a-symbol-of-trust-vodavoda-from-the-heart-of-serbia-recognized-in-the-world/",
+      "evidence": "Bottling facility built directly above the artesian spring at Banja Vrujci (near Mionica, western Serbia, source ~605m deep); founder-owned by Vojin Đorđević after a messy ownership history (a brief Vlade Divac involvement, an unsuccessful attempted sale) -- no confirmed active multinational stake as of latest reporting.",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove",
+          "country": "XK",
+          "sourceUrl": "https://rugove.eu/en/corporation/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Vital",
+      "aliases": [
+        "Vital a.d. Vrbas"
+      ],
+      "company": "Vital a.d. Vrbas",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Invej a.d. (Serbian conglomerate owned by Predrag Ranković), 84.90% since privatization in October 2005 -- NOT Sunoko/MK Group, a common mix-up since both operate plants in Vrbas",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:vegetable-oils",
+        "en:sunflower-oils",
+        "en:margarines"
+      ],
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600109113117/jestivo-rafinisano-ulje-suncokreta-vital",
+      "evidence": "Founded 1978, Kulski put bb, Vrbas, Serbia. Open Food Facts: barcode 8600109113117 (\"Jestivo rafinisano ulje suncokreta\") has manufacturing_places=Serbia.",
+      "alternatives": []
+    },
+    {
+      "brand": "Dijamant",
+      "aliases": [],
+      "company": "Dijamant d.o.o., Zrenjanin",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "MK Group (Serbian), since 23 June 2026 -- previously Fortenova Grupa (Croatia); Dijamant's own site: \"dana 23.6.2026. formalno je zaključen proces kojim kompanija Dijamant prelazi iz vlasništva Fortenova grupe u vlasništvo MK Group\"",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:sunflower-oils",
+        "en:vegetable-oils",
+        "en:condiments",
+        "en:ketchup",
+        "en:mayonnaise"
+      ],
+      "sourceUrl": "https://www.dijamant.rs/en/about-us/",
+      "evidence": "Serbia's largest edible-oil producer per its own site; plant at Temišvarski drum 14, Zrenjanin. Open Food Facts manufacturing_places=Serbia on multiple SKUs (e.g. ketchup, mayonnaise, Omegol margarine).",
+      "alternatives": []
+    },
+    {
+      "brand": "Grand Kafa",
+      "aliases": [
+        "Grand Prom",
+        "Grand"
+      ],
+      "company": "Grand Prom a.d., Beograd (Šimanovci plant)",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Atlantic Grupa (Croatia)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:coffees",
+        "en:ground-coffees"
+      ],
+      "sourceUrl": "https://bizlife.rs/promene-na-trzistu-kafe-atlantic-grupa-preuzima-strauss-adriatic/",
+      "evidence": "\"Serbian coffee brands Doncafe and C kafa into Atlantic Grupa's portfolio, joining existing regional leaders Grand kafa and Barcaffè\" -- Grand Prom/Grand Kafa confirmed as an existing Atlantic Grupa coffee brand, production at the Šimanovci industrial zone near Belgrade.",
+      "alternatives": [
+        {
+          "brand": "Prince Caffe",
+          "company": "Devolli Corporation",
+          "country": "XK",
+          "sourceUrl": "https://caffevergnano-ks.com/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Doncafé",
+      "aliases": [
+        "Doncafe",
+        "C Kafa"
+      ],
+      "company": "Strauss Adriatic d.o.o., Šimanovci (Serbian market); a separate Strauss Romania entity supplies the Romanian market under the same brand name",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Atlantic Grupa (Croatia), since 1 March 2024 -- previously Strauss Group (Israel)",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:coffees",
+        "en:turkish-coffees"
+      ],
+      "sourceUrl": "https://boss.co.rs/product/doncafe-dzezverska-domaca-kafa-200g",
+      "evidence": "IMPORTANT NUANCE: Doncafé is produced separately per market. Barcodes starting 860 (e.g. the retailer-confirmed 'DONCAFE Džezverska domaća kafa') carry an explicit retailer declaration 'Zemlja porekla: Srbija' / 'Proizvođač: Strauss Adriatic d.o.o., 22310 Šimanovci' -- genuinely Serbian-made, at the Šimanovci plant built in 2007. Separately, barcodes starting 594 (Romania's GS1 range) are Romanian-made by Strauss Romania for the Romanian market (confirmed via Open Food Facts manufacturing_places=Romania on codes 5941623005322, 5941623002536, 5941623009504) -- those specific SKUs must NOT be labelled Serbian. Always check the barcode prefix for this brand rather than assuming one country.",
+      "alternatives": [
+        {
+          "brand": "Prince Caffe Turke",
+          "company": "Devolli Corporation",
+          "country": "XK",
+          "sourceUrl": "https://caffevergnano-ks.com/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Carnex",
+      "aliases": [],
+      "company": "Carnex d.o.o., Vrbas (Industrija mesa Carnex)",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "MK Group (Serbian conglomerate), acquired 2011/finalized May 2013",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:meats",
+        "en:sausages",
+        "en:canned-meats"
+      ],
+      "sourceUrl": "https://carnex.rs/istorijat-kompanije/",
+      "evidence": "Company's own site: address \"Kulski put 26, 21460 Vrbas, Srbija\"; \"Carnex, koji postaje deo MK grupe... jedne od najuspešnijih kompanija u regionu.\" Open Food Facts manufacturing_places=Serbia on multiple SKUs (e.g. 8600012700336, 86037051).",
+      "alternatives": []
+    },
+    {
+      "brand": "Zlatiborac",
+      "aliases": [],
+      "company": "Zlatiborac d.o.o. (Stojanović family), production plant in Mačkat",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:meats",
+        "en:cured-meats",
+        "en:sausages"
+      ],
+      "sourceUrl": "https://www.zlatiborac.com/nasa-tradicija",
+      "evidence": "\"Na imanju naše porodice Stojanović počinje tradicija koju negujemo i danas\"; production facility at \"Mačkat bb, 31312 Mačkat\" (45,000 m²). Founded 1992 by Aleksandar Stojanović, continuing a family meat-curing tradition dating to 1885 -- privately family-owned, no multinational parent.",
+      "alternatives": []
+    },
+    {
+      "brand": "Frikom",
+      "aliases": [],
+      "company": "Frikom d.o.o. Beograd",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Nomad Foods (United Kingdom) -- acquired from Fortenova Group (Croatia, ex-Agrokor) in September 2021",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:frozen-foods",
+        "en:ice-creams"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Frikom",
+      "evidence": "\"In September 2021 Fortenova Group (successor of Agrokor) sold Frikom along with Ledo plus and Ledo Čitluk to the British Nomad Foods.\" Registered at Zrenjaninski put bb, Beograd (Palilula), operating since 1976. Open Food Facts shows overwhelmingly en:serbia country tags across sampled SKUs (no explicit manufacturing_places field populated for this brand -- weaker evidence than Carnex/Zlatiborac, verified via HQ/factory address instead).",
+      "alternatives": []
+    },
+    {
+      "brand": "Jelen",
+      "aliases": [
+        "Jelen pivo"
+      ],
+      "company": "Apatinska Pivara Apatin d.o.o.",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": true,
+      "ownership": "Molson Coors (USA/Canada) -- since June 2012",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:beers"
+      ],
+      "sourceUrl": "https://rs.openfoodfacts.org/product/86027618/jelen-pivo",
+      "evidence": "Open Food Facts product page lists countries as Srbija with contact email apa.info@molsoncoors.com -- direct evidence of Molson Coors ownership and Serbian production at the Apatin brewery.",
+      "alternatives": [
+        {
+          "brand": "Birra Peja",
+          "company": "Birra Peja sh.a. (Devolli Group)",
+          "country": "XK",
+          "sourceUrl": "https://birrapeja.com/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        },
+        {
+          "brand": "Birra Korça",
+          "company": "Birra Korça sh.p.k. (IHB Group)",
+          "country": "AL",
+          "sourceUrl": "https://birrakorca.com.al/en/about-us/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Lav",
+      "aliases": [
+        "Lav pivo"
+      ],
+      "company": "Carlsberg Srbija d.o.o., Čelarevo",
+      "companyCountry": "RS",
+      "productionCountry": "RS",
+      "verified": false,
+      "ownership": "Carlsberg Group (Denmark) -- majority stake since privatization September 2003",
+      "gs1Prefixes": [
+        "860"
+      ],
+      "categories": [
+        "en:beers"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Lav_pivo",
+      "evidence": "Historic Čelarevo brewery (founded by Lazar Dunđerski), renamed Carlsberg Srbija after the 2003 privatization -- ownership is solidly confirmed, but no direct Open Food Facts manufacturing_places record or retailer country-of-origin declaration was independently fetched for a specific Lav barcode, so production location is corroborated by company history rather than a per-product source. Needs one more confirming source before treating as fully verified.",
+      "alternatives": [
+        {
+          "brand": "Birra Peja",
+          "company": "Birra Peja sh.a. (Devolli Group)",
+          "country": "XK",
+          "sourceUrl": "https://birrapeja.com/",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "brand": "Sempre",
+      "aliases": [
+        "Liri"
+      ],
+      "company": "Liri L.L.C., Prizren",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [],
+      "categories": [
+        "en:biscuits",
+        "en:chocolates"
+      ],
+      "sourceUrl": "https://liriprizren.com/aboutus.php",
+      "evidence": "Liri is described as the largest confectionery producer in Kosovo, located at Ukë Bytyqi, Prizren, with production capacity over 18 tons/day; Sempre is one of its main brands alongside Krem Banane, Strudel and Praline. Owned by Liridon Kalanderi. Reported repeatedly (kallxo.com, prizrenpress.com, PM visit coverage) as the local alternative introduced in place of Serbian Plazma. No specific EAN for a Sempre-branded SKU could be located (Liri's other lines do have confirmed barcodes, e.g. 3901408430031), so no barcode entry is included for Sempre itself -- flagged as a gap rather than guessed.",
+      "alternatives": []
+    },
+    {
+      "brand": "Vipa",
+      "aliases": [
+        "Vipa Chips",
+        "Pestova"
+      ],
+      "company": "Pestova sh.p.k., Vushtrri",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "390"
+      ],
+      "categories": [
+        "en:chips-and-fries",
+        "en:crisps",
+        "en:salty-snacks"
+      ],
+      "sourceUrl": "https://kallxo.com/lajm/pronari-i-vipa-chips-konkurrencen-kryesore-e-kemi-nga-serbia/",
+      "evidence": "Pestova is a vertically-integrated Kosovo potato processor (est. 1991, re-registered 1999; EBRD shareholder since 2008), processing ~50,000 kg of potatoes daily at the Vipa Chips factory; holds an estimated 50-60% of the Kosovo chips market.",
+      "alternatives": []
+    },
+    {
+      "brand": "Birra Peja",
+      "aliases": [],
+      "company": "Birra Peja sh.a., Peja",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": "Devolli Group (Kosovo) -- majority stake (57.63%) acquired from Slovenian Pivovarna Laško/Pivovarna Union in July 2014",
+      "gs1Prefixes": [],
+      "categories": [
+        "en:beers"
+      ],
+      "sourceUrl": "https://birrapeja.com/about-timeline/",
+      "evidence": "Kosovo's only domestic brewery; construction began 1968, production since 1971, factory complex covers 24 hectares in Peja. Holds a dominant share of Kosovo's beer market.",
+      "alternatives": []
+    },
+    {
+      "brand": "Birra Korça",
+      "aliases": [],
+      "company": "Birra Korça sh.p.k., Korçë, Albania",
+      "companyCountry": "AL",
+      "productionCountry": "AL",
+      "verified": true,
+      "ownership": "IHB Group (Irfan Hysenbelliu), since 2004, EUR 15 million renovation investment",
+      "gs1Prefixes": [],
+      "categories": [
+        "en:beers"
+      ],
+      "sourceUrl": "https://birrakorca.com.al/en/about-us/",
+      "evidence": "Albania's first brewery, founded 1928 by Umberto Umberti and Selim Mboria in Korçë; state property post-1946, privatized 1994, bought by IHB Group in 2004. Third-largest beer producer in Albania, widely distributed in Kosovo.",
+      "alternatives": []
+    },
+    {
+      "brand": "Frutomania",
+      "aliases": [
+        "MOEA"
+      ],
+      "company": "MOEA, Kravarica (Gjilan)",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [],
+      "categories": [
+        "en:fruit-juices",
+        "en:fruit-nectars",
+        "en:jams"
+      ],
+      "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+      "evidence": "MOEA established 2006 in Kravarica near Gjilan, growing fruit on ~400 hectares with 500,000+ trees; started juice production in 2010. Products are 100% fruit with no added water, sugar, preservatives or concentrates.",
+      "alternatives": []
+    },
+    {
+      "brand": "ABI",
+      "aliases": [
+        "ABI Dairy",
+        "ABI Milk"
+      ],
+      "company": "ABI sh.p.k., Prizren",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [],
+      "categories": [
+        "en:dairies",
+        "en:cheeses",
+        "en:yogurts"
+      ],
+      "sourceUrl": "https://abimilk.com/en/",
+      "evidence": "\"ABI Dairy Industry is the first producer of dairy products in Kosovo, established in 1996\", located at Rr. Tirana, Prizren; production capacity over 10 million liters/year, 45+ fresh products.",
+      "alternatives": []
+    },
+    {
+      "brand": "Rugove",
+      "aliases": [
+        "Korporata Rugove",
+        "Ujë Rugove"
+      ],
+      "company": "Korporata Rugove",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "390"
+      ],
+      "categories": [
+        "en:waters",
+        "en:spring-waters",
+        "en:cheeses",
+        "en:yogurts"
+      ],
+      "sourceUrl": "https://rugove.eu/en/corporation/",
+      "evidence": "Established 2006 as a Slovenian(Unior DD)-Kosovo partnership; fully local ownership since Unior sold its shares in 2009. Water bottled directly from the Drelaj spring, Rugovë (Peja region); cheese production facility added there in 2009. Open Food Facts: barcode 3902379930018 shows manufacturing_places=\"Kosovë\" explicitly.",
+      "alternatives": []
+    },
+    {
+      "brand": "Golden Eagle",
+      "aliases": [
+        "Frutex"
+      ],
+      "company": "Frutex, Suhareka",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "390"
+      ],
+      "categories": [
+        "en:energy-drinks",
+        "en:sodas",
+        "en:fruit-juices"
+      ],
+      "sourceUrl": "https://goldeneagle-ks.com/",
+      "evidence": "Frutex founded 1994 in Suhareka, Kosovo as a family beverage business; began producing the Golden Eagle energy drink in the first half of 2006. Not made by Devolli Group, a common misattribution -- Frutex is a separate, independent Kosovo company employing 200+ people and exporting to 30+ countries.",
+      "alternatives": []
+    },
+    {
+      "brand": "Sabaja",
+      "aliases": [
+        "Sabaja Craft Brewery"
+      ],
+      "company": "Sabaja Craft Brewery, Hajvalia (Prishtina)",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": null,
+      "gs1Prefixes": [
+        "390"
+      ],
+      "categories": [
+        "en:beers",
+        "en:ales"
+      ],
+      "sourceUrl": "https://prishtinainsight.com/beyond-pils-kosovos-expanding-beer-scene-mag/",
+      "evidence": "Kosovo's first craft microbrewery, established 2012/2013 in Hajvalia near Prishtina by Alex Butler and Etida Zeka -- an American/Kosovar partnership. Open Food Facts confirms barcodes under the 390 (Kosovo-used legacy) prefix range with countries_tags=kosovo.",
+      "alternatives": []
+    },
+    {
+      "brand": "Vita",
+      "aliases": [
+        "Qumështorja Vita"
+      ],
+      "company": "Devolli Group (Qumështorja Vita), Radushë, Istog",
+      "companyCountry": "XK",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": "Devolli Group (Kosovo)",
+      "gs1Prefixes": [
+        "530"
+      ],
+      "categories": [
+        "en:dairies",
+        "en:milks",
+        "en:yogurts"
+      ],
+      "sourceUrl": "https://www.qumeshtorjavita.com/about-us/",
+      "evidence": "\"Në Radushë të Istogut u ndërtua një fabrikë e re\" -- plant built in Radushë, Istog, Kosovo; \"më 19 nëntor 2003 Devolli Group filloi përpunimin e qumështit me markën VITA.\" Vita was Kosovo's first UHT milk (Tetra Pak partnership, 2003).",
+      "alternatives": []
+    },
+    {
+      "brand": "Bimilk",
+      "aliases": [
+        "Mlekara AD Bitola",
+        "IMB Mlekara Bitola",
+        "AD IMB Mlekara Bitola",
+        "Bi Milk"
+      ],
+      "company": "Mlekara AD Bitola (AD IMB Mlekara Bitola)",
+      "companyCountry": "MK",
+      "productionCity": "Bitola",
+      "productionCountry": "MK",
+      "verified": true,
+      "ownership": "Imlek a.d. (Beograd, RS) — group owner Mid Europa Partners; part of Danube Foods Group / Salford Investment Fund from end-2007, Mid Europa from February 2015",
+      "ownershipCountry": "RS",
+      "ownershipSourceUrl": "https://en.wikipedia.org/wiki/Imlek_a.d.",
+      "gs1Prefixes": [
+        "860",
+        "531"
+      ],
+      "categories": [
+        "en:dairies",
+        "en:yogurts",
+        "en:milks"
+      ],
+      "sourceUrl": "https://bimilk.mk/en/about-us/",
+      "evidence": "SPLIT ORIGIN, not a Serbian product. bimilk.mk/en/about-us: \"Having a tradition since 1952, «Mlekara AD Bitola» (Joint Stock Company for Dairy Product Production- Bitola) is today the largest producer of milk and dairy products in the Republic Macedonia\"; the plant moved in 1984 to \"facilities located on the road to the village of Dolno Orizari\" and \"successfully carries out its operations on this location to this day\". AmCham North Macedonia lists the member as \"IMB Mlekara Bitola\", address \"Gjurcin Naumov Pljakot, 7000 Bitola, North Macedonia\", website bimilk.mk. OWNERSHIP is Serbian: bimilk.mk dates it \"at the end of 2007\" that \"Mlekara Ad Bitola became part of the milk industry Danube Foods Group, meaning the Salford Investment Fund\", and en.wikipedia.org/wiki/Imlek_a.d. lists \"AD IMB Mlekara Bitola, North Macedonia\" among Imlek subsidiaries, Imlek itself being \"a Serbian food company based in Belgrade, Serbia\" owned by Mid Europa Partners since February 2015. REGISTRATION is Serbian: 8601500111207 sits on Imlek own GS1 company prefix 8601500 (QUMESHT IMLEK is 8601500110057). The same brand also ships on 5310054000921, prefix 531 = GS1 North Macedonia — one dairy, two GS1 offices."
+    },
+    {
+      "brand": "Fluidi",
+      "aliases": [
+        "Fluidi Corporation",
+        "Fluidi Group",
+        "Fluidi Sh.p.k",
+        "Fluidi SH.P.K.",
+        "Extra Fluidi"
+      ],
+      "company": "Fluidi Group L.L.C. / Fluidi SH.P.K.",
+      "companyCountry": "XK",
+      "productionCity": "Gjilan (Velekincë)",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": "Fluidi SH.P.K. (NUI 810281387) and Fluidi Group L.L.C. (NUI 811582651), both registered at Velekincë, Gjilan, Kosovo; Mustafa family (Berat / Bujar / Mitat Mustafa). The group also holds the Preševo (Serbia) entity «FLUIDI» Sh.p.k, which is the address published on fluidi.net.",
+      "ownershipCountry": "XK",
+      "ownershipSourceUrl": "https://arbk.org/biz/fluidi-shpk/",
+      "gs1Prefixes": [
+        "390",
+        "530",
+        "860"
+      ],
+      "categories": [
+        "en:beverages",
+        "en:non-alcoholic-beverages",
+        "en:juices",
+        "en:sodas"
+      ],
+      "sourceUrl": "https://fluidigroup.com/production-operation/",
+      "evidence": "SPLIT ORIGIN, not a Serbian product — the mirror of the Bimilk case. Fluidi is a Kosovar beverage producer in Velekincë, Gjilan. fluidigroup.com/production-operation: \"Fluidi Group produces and operates out of their factory located in Gjilan\" and \"This is where their wide range of food and beverage products are created and later on shared with the rest of the world\"; fluidigroup.com/about-the-company: \"What today is known as Fluidi Group started with our founding father Berat Mustafa in 1994 in Gjilan\". The Kosovo business register (ARBK) lists Fluidi SH.P.K., NUI 810281387, \"e regjistruar në komunën e Gjilanit, në Velekincë\", primary activity \"1107 Prodhim i pijeve freskuese; prodhimi i ujit mineral dhe ujit tjetër në shishe\", and Fluidi Group L.L.C., NUI 811582651, at \"P, n., Velekincë, Gjilan, Kosovo\". eciks.com/fluidi-invests-over-3-million-euro-in-kosovo: \"The producer of beverages “Fluidi” From Gjilan has invested more than 3 million euro in the installation of a new line for the production of the non-alcoholic “Jaffa,” an Israeli-American licensed drink.\" REGISTRATION is scattered across three GS1 offices, none of which names a factory: 390 (the legacy Kosovo range), 530 (GS1 Albania) and 860 (GS1 Serbia, via the group Preševo entity «FLUIDI» Sh.p.k, Zujinski Str 5, 17523 Presevo, the only address published on fluidi.net). The producer states the reason himself — buletiniekonomik.com / mesazhi.com, 19/02/2026, owner Berat Mustafa: \"I purchased barcodes in Albania because I had registered the company there and it was easier\", and the same piece reports that \"products produced in Kosovo have appeared on shelves in European and global markets labeled as coming from Albania or other countries\" because Kosovo had no international prefix before 381. DISCLOSED CAVEAT, not hidden: botasot.info, 10 gusht 2011, quotes owner Bujar Mustafa describing TWO plants — \"Fabrikën për prodhimin e lëngje natyrore e kemi në Preshevë, ndërsa për pijet e ndryshme freskuese, si dhe për pijet energjike e kemi në Gjilan.\" No source, then or since, attributes any individual SKU to the Preševo plant, and every source from 2019 onward names only Gjilan. If one ever does, that SKU gets a barcode-level exception the way the Swisslion Bosnian SKU has one."
+    },
+    {
+      "brand": "Jaffa Champion",
+      "aliases": [
+        "Jaffa Champ",
+        "Jaffa Champ."
+      ],
+      "company": "Fluidi Group L.L.C. / Fluidi SH.P.K.",
+      "companyCountry": "XK",
+      "productionCity": "Gjilan (Velekincë)",
+      "productionCountry": "XK",
+      "verified": true,
+      "ownership": "Fluidi SH.P.K. (NUI 810281387) and Fluidi Group L.L.C. (NUI 811582651), both registered at Velekincë, Gjilan, Kosovo; Mustafa family (Berat / Bujar / Mitat Mustafa). The group also holds the Preševo (Serbia) entity «FLUIDI» Sh.p.k, which is the address published on fluidi.net.",
+      "ownershipCountry": "XK",
+      "ownershipSourceUrl": "https://arbk.org/biz/fluidi-shpk/",
+      "gs1Prefixes": [
+        "390",
+        "530",
+        "860"
+      ],
+      "categories": [
+        "en:beverages",
+        "en:juices",
+        "en:fruit-juices"
+      ],
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en",
+      "evidence": "JAFFA CHAMPION IS NOT JAFFA CRVENKA. Two unrelated producers use the Israeli place-name Jaffa. The juice is Fluidi: fluidi.net/eng/jaffa-champion — \"Jaffa Champion Lemonade and Jaffa Champion Dredëz 1.5 will be the newest flavors in the local and international market from the Fluidi company\"; fluidi.net/eng/rreth-nesh — \"In March 2003, it was the year when the world taste brand Jaffa Champion started its journey\"; Jaffa Champion fills six of the eight tiles on the Fluidi Brendet (Brands) page. eciks.com: Fluidi \"From Gjilan has invested more than 3 million euro in the installation of a new line for the production of the non-alcoholic “Jaffa,” an Israeli-American licensed drink.\" The Serbian Jaffa makes NO beverages at all: jaffa.rs/en — \"We are Jaffa Crvenka, one of the largest sweets and snacks manufacturer in the West Balkans\", founded \"in a small Vojvodina town of Crvenka, way back in 1975\"; its complete brand list is Jaffa cakes, Munchmallow, Jaffa Napolitanke/Wafers, Jaffa Kolači, Buttons, Jaffa Buttero, O-cake, Tak, Njamb — not one drink, nectar or juice. Its only Kosovo link on that site is a distributor, \"Albi Group, Priština\". PRODUCTION follows Fluidi: see the Fluidi entry. The biscuits keep their own barcodes (the Jaffa Crvenka GS1 range 8600114…) and stay flagged."
+    }
+  ],
+  "barcodes": [
+    {
+      "code": "8600043029536",
+      "brand": "Bambi",
+      "product": "Plazma Stiksi lešnik",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600043029536"
+    },
+    {
+      "code": "8600043023596",
+      "brand": "Bambi",
+      "product": "Kokos galete",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600043023596"
+    },
+    {
+      "code": "8600043001105",
+      "brand": "Bambi",
+      "product": "Plazma mlevena",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=bambi"
+    },
+    {
+      "code": "8600043026443",
+      "brand": "Bambi",
+      "product": "Zasladi priču",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600043026443"
+    },
+    {
+      "code": "8600939212264",
+      "brand": "Štark",
+      "product": "Prima Classic",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600939212264"
+    },
+    {
+      "code": "8600939346136",
+      "brand": "Štark",
+      "product": "Najlepše želje",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600939346136"
+    },
+    {
+      "code": "8600939366288",
+      "brand": "Štark",
+      "product": "Bananica",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600939366288"
+    },
+    {
+      "code": "8600939506936",
+      "brand": "Smoki",
+      "product": "Smoki Original Fresh Baked Peanuts",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600939506936"
+    },
+    {
+      "code": "8601900502032",
+      "brand": "Swisslion-Takovo",
+      "product": "Eurocrem Bar",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=swisslion-takovo"
+    },
+    {
+      "code": "8601900503558",
+      "brand": "Swisslion-Takovo",
+      "product": "Eurocrem",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8601900503558"
+    },
+    {
+      "code": "3875000050020",
+      "brand": "Swisslion-Takovo",
+      "product": "Eurocrem (Bosnia-made SKU)",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3875000050020"
+    },
+    {
+      "code": "8600076040089",
+      "brand": "Cipiripi",
+      "product": "Cipiripi",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=cipiripi"
+    },
+    {
+      "code": "8605073300761",
+      "brand": "Cipiripi",
+      "product": "Cipiripi Krem",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=cipiripi"
+    },
+    {
+      "code": "8606017377306",
+      "brand": "Marbo Product",
+      "product": "Chipsy",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606017377306"
+    },
+    {
+      "code": "8600005008883",
+      "brand": "Polimark",
+      "product": "Senf (mustard)",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600005008883"
+    },
+    {
+      "code": "8600005000016",
+      "brand": "Polimark",
+      "product": "Ketchup Mild",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600005000016"
+    },
+    {
+      "code": "8600037000879",
+      "brand": "Knjaz Miloš",
+      "product": "Aqua Viva",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600037000879"
+    },
+    {
+      "code": "8600037999265",
+      "brand": "Knjaz Miloš",
+      "product": "Ivi breskva",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600037999265"
+    },
+    {
+      "code": "8600995140013",
+      "brand": "Rosa",
+      "product": "Vlasinska Rosa 1/2 Izv. Voda",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600995140013/vlasinska-rosa-1-2-izv-voda"
+    },
+    {
+      "code": "8606107544144",
+      "brand": "Nectar",
+      "product": "Tomatello sos od paradajza origano i bosiljak",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606107544144"
+    },
+    {
+      "code": "8606004250407",
+      "brand": "Nectar",
+      "product": "Nectar Family borovnica",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606004250407"
+    },
+    {
+      "code": "8601500122159",
+      "brand": "Imlek",
+      "product": "Grekos",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8601500122159"
+    },
+    {
+      "code": "8601500114468",
+      "brand": "Imlek",
+      "product": "Pavlaka",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8601500114468"
+    },
+    {
+      "code": "3870199003369",
+      "brand": "Imlek",
+      "product": "Moja Kravica",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3870199003369"
+    },
+    {
+      "code": "8600114000211",
+      "brand": "Jaffa",
+      "product": "Jaffa Cakes",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600114000211"
+    },
+    {
+      "code": "8600462041164",
+      "brand": "Jaffa",
+      "product": "O'cake čokolada",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/api/v2/search?brands_tags=jaffa"
+    },
+    {
+      "code": "8606107628370",
+      "brand": "VodaVoda",
+      "product": "Vodavoda Vodica",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606107628370"
+    },
+    {
+      "code": "8600109113117",
+      "brand": "Vital",
+      "product": "Jestivo rafinisano ulje suncokreta",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600109113117"
+    },
+    {
+      "code": "8600109125011",
+      "brand": "Vital",
+      "product": "Vital Vegetable ghee",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600109125011"
+    },
+    {
+      "code": "8600498176441",
+      "brand": "Dijamant",
+      "product": "Dijamant Majonez Family Pack",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600498176441"
+    },
+    {
+      "code": "8600498172276",
+      "brand": "Dijamant",
+      "product": "Omegol",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600498172276"
+    },
+    {
+      "code": "8600103056021",
+      "brand": "Grand Kafa",
+      "product": "Grand kafa",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600103056021"
+    },
+    {
+      "code": "8600012700336",
+      "brand": "Carnex",
+      "product": "Domestic cabbage rolls",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8600012700336"
+    },
+    {
+      "code": "86037051",
+      "brand": "Carnex",
+      "product": "Smazalica",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/86037051"
+    },
+    {
+      "code": "8606107664583",
+      "brand": "Zlatiborac",
+      "product": "Pileća viršla",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606107664583"
+    },
+    {
+      "code": "8606018047482",
+      "brand": "Zlatiborac",
+      "product": "Kulen",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606018047482"
+    },
+    {
+      "code": "8606006083133",
+      "brand": "Frikom",
+      "product": "Zuppa inglese",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/8606006083133"
+    },
+    {
+      "code": "86027618",
+      "brand": "Jelen",
+      "product": "Jelen pivo",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/86027618"
+    },
+    {
+      "code": "3902634650354",
+      "brand": "Vipa",
+      "product": "Vipa Chilli Pepper Chips",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902634650354"
+    },
+    {
+      "code": "3902634650545",
+      "brand": "Vipa",
+      "product": "Vipa Snacks Chicken",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902634650545"
+    },
+    {
+      "code": "3902634650057",
+      "brand": "Vipa",
+      "product": "Vipa Classic",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902634650057"
+    },
+    {
+      "code": "3902634650064",
+      "brand": "Vipa",
+      "product": "Chilli Pepper Chips",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902634650064"
+    },
+    {
+      "code": "3830055970013",
+      "brand": "Birra Peja",
+      "product": "Birra Peja, Original",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3830055970013"
+    },
+    {
+      "code": "3903253650015",
+      "brand": "Birra Peja",
+      "product": "Birra peja",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3903253650015"
+    },
+    {
+      "code": "5301000110610",
+      "brand": "Birra Korça",
+      "product": "Bjonde",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/5301000110610"
+    },
+    {
+      "code": "3903655080502",
+      "brand": "Frutomania",
+      "product": "Frutomania",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3903655080502"
+    },
+    {
+      "code": "3902379930018",
+      "brand": "Rugove",
+      "product": "Spring Water Rugove",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902379930018"
+    },
+    {
+      "code": "3902379930742",
+      "brand": "Rugove",
+      "product": "Greek Yoghurt Rugove 0%",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3902379930742"
+    },
+    {
+      "code": "3900518300760",
+      "brand": "Golden Eagle",
+      "product": "Golden Eagle Junior",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3900518300760"
+    },
+    {
+      "code": "3900518300340",
+      "brand": "Golden Eagle",
+      "product": "Golden Eagle Sugarfree",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3900518300340"
+    },
+    {
+      "code": "3908767440022",
+      "brand": "Sabaja",
+      "product": "Smoked Porter",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3908767440022"
+    },
+    {
+      "code": "3908767440015",
+      "brand": "Sabaja",
+      "product": "IPA",
+      "verified": true,
+      "sourceUrl": "https://world.openfoodfacts.org/product/3908767440015"
+    },
+    {
+      "code": "5306000029436",
+      "brand": "Vita",
+      "product": "Vita Cow Milk",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/5306000029436"
+    },
+    {
+      "code": "5306000029429",
+      "brand": "Vita",
+      "product": "Cow yogurt Vita",
+      "verified": false,
+      "sourceUrl": "https://world.openfoodfacts.org/product/5306000029429"
+    },
+    {
+      "code": "8601500111207",
+      "brand": "Bimilk",
+      "product": "Jogurt Bimilk Balans 1% 1L",
+      "verified": true,
+      "prefixNote": "Prefix 860 = GS1 Serbia, on Imlek company prefix 8601500. The yogurt is made in Bitola, North Macedonia.",
+      "sourceUrl": "https://bimilk.mk/en/about-us/"
+    },
+    {
+      "code": "5310054000921",
+      "brand": "Bimilk",
+      "product": "Bimilk Jogurt Vita Balans 1% 1L",
+      "verified": true,
+      "prefixNote": "Prefix 531 = GS1 North Macedonia. Same brand, same dairy, a different GS1 office from 8601500111207 — the plainest available proof that a prefix names a registration, not a factory.",
+      "sourceUrl": "https://bimilk.mk/en/about-us/"
+    },
+    {
+      "code": "3900386780411",
+      "brand": "Fluidi",
+      "product": "Fluidi Cola 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "3900386780428",
+      "brand": "Fluidi",
+      "product": "Fluidi Orange 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "3900386780435",
+      "brand": "Fluidi",
+      "product": "Fluidi Biter Lemon 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "3900386780459",
+      "brand": "Fluidi",
+      "product": "Fluidi Gazoza 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "3902076612545",
+      "brand": "Fluidi",
+      "product": "Fluidi Tropical 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "8600101990242",
+      "brand": "Fluidi",
+      "product": "Fluidi Leng Fruta 200Ml",
+      "verified": true,
+      "prefixNote": "Prefix 860 = GS1 SERBIA, registered through the group Preševo entity «FLUIDI» Sh.p.k. This is the exact case the owner reported: an Albanian/Kosovar product registered in Serbia. Registration only; the drink is made at Velekincë, Gjilan. The same Jaffa Champion 1.5L also ships on 3902076610336 (prefix 390) — one producer, two GS1 offices, the same bottle.",
+      "sourceUrl": "https://fluidigroup.com/production-operation/"
+    },
+    {
+      "code": "3902076610114",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Leng Portokalli 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610121",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Multivitamin 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610152",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Molle 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610169",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Multivitamin 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610176",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Pjeshke 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610183",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Vishnje 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610244",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Molle 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610275",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Boronice 2L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610312",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Multivitamin 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610336",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Orange 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610350",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Boronice 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610398",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Multivitamin 0.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610428",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Nektarina Orange 0.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610930",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Boronice 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076610992",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Fruta Mali 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "3902076611623",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Lemonade 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 390 = the legacy range Kosovo producers used before Kosovo had its own 381 (see gs1-prefixes.json). Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430030",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Multivitamin 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430047",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Molle 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430054",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Leng Pjeshke 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430061",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Leng Portokalli 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430085",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Leng Boronic 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430115",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa C+D+A Multifrutti 2L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430153",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Dredhëz 1L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430221",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Pjeshkë 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430238",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Multivitamin 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430245",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Vishnje 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430252",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Mollë 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430269",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Orange 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430276",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Dredhëz 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430283",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champ. Boronice 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430290",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Ice Pjeshkë 0.25L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430597",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Ace 1L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430610",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Dredhëz 1L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430702",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa C+D+A 1L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "5304000430740",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Mango 1L",
+      "verified": true,
+      "prefixNote": "Prefix 530 = GS1 ALBANIA, not Kosovo. Owner Berat Mustafa, buletiniekonomik.com 19/02/2026: \"I purchased barcodes in Albania because I had registered the company there and it was easier.\" Registration only; the drink is made at Velekincë, Gjilan.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "8600101990518",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champion Orange PET 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 860 = GS1 SERBIA, registered through the group Preševo entity «FLUIDI» Sh.p.k. This is the exact case the owner reported: an Albanian/Kosovar product registered in Serbia. Registration only; the drink is made at Velekincë, Gjilan. The same Jaffa Champion 1.5L also ships on 3902076610336 (prefix 390) — one producer, two GS1 offices, the same bottle.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    },
+    {
+      "code": "8600101990532",
+      "brand": "Jaffa Champion",
+      "product": "Jaffa Champion Multivitamin 1.5L",
+      "verified": true,
+      "prefixNote": "Prefix 860 = GS1 SERBIA, registered through the group Preševo entity «FLUIDI» Sh.p.k. This is the exact case the owner reported: an Albanian/Kosovar product registered in Serbia. Registration only; the drink is made at Velekincë, Gjilan. The same Jaffa Champion 1.5L also ships on 3902076610336 (prefix 390) — one producer, two GS1 offices, the same bottle.",
+      "sourceUrl": "https://fluidi.net/eng/jaffa-champion/?lang=en"
+    }
+  ]
+}
