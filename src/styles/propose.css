@@ -1,0 +1,299 @@
+/* ============================================================
+   PROPOSE AN ALTERNATIVE — the "IF NO MATCH FOUND" submit surface.
+   Imported by src/components/ProposeAlternative.jsx.
+
+   NOT in App.css / index.css on purpose: those two hold the visual
+   system. This file therefore CONSUMES that system's tokens (--surface-glass, --edge,
+   --edge-top, --shadow-1, --glass-filter, --ink*, --accent-cta, --round,
+   --mono) and defines none of its own colours, so when the palette moves
+   this panel moves with it.
+
+   HOUSE RULES APPLIED:
+   2. Dark blue is the ground; RED IS CTA-ONLY. The submit button is the
+      only red thing in this file — it is the one action on the surface.
+      The error line uses --status-alarm (text), not a red fill.
+   3. Glass must actually be glass: translucent fill + hairline border +
+      lighter top edge + real shadow + backdrop-filter behind an @supports
+      with the -webkit- OR form so Safari takes it. The body field in
+      index.css supplies the varied backdrop it samples.
+      `grep -c backdrop-filter src/styles/propose.css` -> 8 (measured), of
+      which 6 are declarations: the @supports test pair, the -webkit- pair
+      that turns it on, and the -webkit- pair that turns it off again under
+      prefers-reduced-transparency at the foot of the file. The other 2 are
+      these comment lines.
+
+   SIZED IN PX, NOT cqw. The rest of the app measures in cqw because its
+   screens declare `container-type`; this panel is mounted INSIDE somebody
+   else's screen, so a cqw here resolves against whatever container happens
+   to wrap it. Measured: at 1346px wide the 4.2cqw padding rendered as 56px
+   instead of ~15px and the collapsed card came out 222px tall. Fixed units
+   make the panel look the same wherever /alternativa puts it.
+   4. Icons single-line: there are none here, and a form does not need one.
+   ============================================================ */
+
+.propose {
+  container-type: inline-size;
+  margin: 16px 0 0;
+  padding: 18px;
+  background: var(--surface-glass, rgba(30, 50, 92, 0.52));
+  border: 1px solid var(--edge, rgba(155, 178, 222, 0.13));
+  border-top-color: var(--edge-top, rgba(219, 232, 255, 0.26));
+  box-shadow: var(--inset-hi, inset 0 1px 0 0 rgba(219, 232, 255, 0.26)),
+    var(--shadow-1, 0 2px 4px -1px rgba(0, 0, 0, 0.38));
+  font-family: var(--round, system-ui, sans-serif);
+  color: var(--ink, #e8ecf5);
+}
+
+/* Apple's own @supports form — the OR is what makes Safari take it. One
+   panel at a time is on screen, so the expensive tier is affordable here. */
+@supports (
+  (-webkit-backdrop-filter: saturate(170%) blur(20px)) or
+    (backdrop-filter: saturate(170%) blur(20px))
+) {
+  .propose {
+    -webkit-backdrop-filter: var(--glass-filter, saturate(170%) blur(20px));
+    backdrop-filter: var(--glass-filter, saturate(170%) blur(20px));
+  }
+}
+
+.propose__lead,
+.propose__note {
+  margin: 0;
+  color: var(--ink-dim, #a8b4cc);
+  font-size: var(--info-sm, 12px);
+  line-height: 1.55;
+}
+
+.propose__note--fine {
+  margin-top: 12px;
+  color: var(--ink-faint, #8593ae);
+}
+
+.propose__title {
+  margin: 0 0 6px;
+  font-family: var(--round, system-ui, sans-serif);
+  font-size: var(--info-md, 14px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink, #e8ecf5);
+}
+
+/* ---- collapsed state: one quiet control, never a red one ---- */
+
+.propose--collapsed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.propose__open {
+  flex: 0 0 auto;
+  min-height: 44px; /* a real touch target, per the app's own control rule */
+  padding: 0 16px;
+  background: transparent;
+  color: var(--ink, #e8ecf5);
+  border: 1px solid var(--edge-strong, rgba(155, 178, 222, 0.26));
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.propose__open:hover,
+.propose__open:focus-visible {
+  background: var(--surface-high, #22396a);
+}
+
+/* ---- the form ---- */
+
+.propose__form {
+  display: block;
+  margin-top: 14px;
+}
+
+.propose__field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.propose__label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: var(--info-sm, 12px);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--ink-faint, #8593ae);
+}
+
+.propose__input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 12px;
+  background: var(--surface-deep, #0d1a35);
+  color: var(--ink, #e8ecf5);
+  border: 1px solid var(--edge, rgba(155, 178, 222, 0.13));
+  border-radius: 0;
+  font: inherit;
+  font-size: 16px; /* < 16px makes iOS Safari zoom the whole page on focus */
+}
+
+.propose__input::placeholder {
+  color: var(--ink-faint, #8593ae);
+  opacity: 0.75;
+}
+
+.propose__input:focus-visible {
+  outline: 2px solid var(--link, #9fc2ff);
+  outline-offset: 1px;
+  border-color: var(--edge-strong, rgba(155, 178, 222, 0.26));
+}
+
+.propose__hint {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-faint, #8593ae);
+  font-size: var(--info-sm, 12px);
+  line-height: 1.5;
+}
+
+/* The one loud thing on the surface, and the only red in this file. */
+.propose__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.propose__submit {
+  flex: 1 1 auto;
+  min-height: 52px;
+  padding: 0 16px;
+  background: var(--accent-cta, #e01b1b);
+  color: var(--accent-cta-ink, #14161a);
+  border: 1px solid var(--accent-cta, #e01b1b);
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+.propose__submit:hover:not(:disabled) {
+  background: var(--accent-cta-hi, #f22a2a);
+  border-color: var(--accent-cta-hi, #f22a2a);
+}
+
+.propose__submit:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.propose__cancel {
+  flex: 0 0 auto;
+  min-height: 52px;
+  padding: 0 16px;
+  background: transparent;
+  color: var(--ink-dim, #a8b4cc);
+  border: 1px solid var(--edge, rgba(155, 178, 222, 0.13));
+  font: inherit;
+  cursor: pointer;
+}
+
+.propose__cancel:hover,
+.propose__cancel:focus-visible {
+  color: var(--ink, #e8ecf5);
+  border-color: var(--edge-strong, rgba(155, 178, 222, 0.26));
+}
+
+/* Alarm TEXT, not an alarm fill — red stays the CTA's, per house rule 2. */
+.propose__error {
+  margin: 12px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--alarm-edge, rgba(255, 90, 90, 0.38));
+  color: var(--status-alarm, #ff5a5a);
+  font-size: var(--info-sm, 12px);
+  line-height: 1.5;
+}
+
+/* ---- queued ("we have it, nobody has seen it yet") ---- */
+
+.propose--done .propose__done-title {
+  margin: 0 0 5px;
+  font-weight: 600;
+  font-size: var(--info-md, 14px);
+  /* Green is reserved for the `vendore` badge (house rule 2), and a queued
+     proposal is emphatically NOT a verified local product — so the success
+     state is plain ink, not a green tick. */
+  color: var(--ink, #e8ecf5);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .propose {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--surface-raised, #192d55);
+  }
+}
+
+/* ---- PROPOSE IS A CTA, SO IT IS RED ----
+   Owner, 2026-09-17: "proopzo is a CTA must be red and cleanups make it
+   symmetrical".
+   The opener used to be the quiet glass secondary, which read as a footnote
+   on a row that had already answered. It is a call to action, so it carries
+   the accent — and on the graphite ground #ff2e2e measures 4.90:1, so it can
+   be red AND legible, which was not true on the old navy. */
+.vj-alt__propose {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 2px;
+  border-top: 1px solid var(--edge);
+  margin-top: 12px;
+}
+.vj-alt__propose > * {
+  width: 100%;
+  max-width: 460px;
+}
+.propose__open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-cta, #ff2e2e);
+  background: var(--accent-cta, #ff2e2e);
+  color: var(--accent-cta-ink, #14161a);
+  font-family: var(--round);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.22), 0 6px 18px rgba(255, 46, 46, 0.28);
+  transition: background-color 0.16s ease, transform 0.12s ease;
+}
+.propose__open:hover {
+  background: var(--accent-cta-hi, #ff4a4a);
+  border-color: var(--accent-cta-hi, #ff4a4a);
+}
+.propose__open:active {
+  transform: translateY(1px);
+}
+.propose__open:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+/* SYMMETRY. Every row now ends with the same full-width centred control at
+   the same height, whether it answered or not — so the column reads as one
+   rhythm instead of two different card shapes. */
+.vj-alt__row {
+  display: flex;
+  flex-direction: column;
+}
+.vj-alt__row > .vj-alt__propose {
+  margin-top: auto;
+}

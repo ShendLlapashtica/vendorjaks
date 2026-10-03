@@ -1,0 +1,236 @@
+/* ==========================================================================
+   The pre-ask — src/components/ConsentGate.jsx
+   ==========================================================================
+
+   Owner, 2026-09-16: "cookies always pre-ask ... tick X"
+   Owner, 2026-09-16: "show a cookie on there, and make the text shorter and
+   make it like a banner. wiht show more. PO must be like red calling for a
+   click"
+
+   A BANNER, so: pinned to the bottom edge, one sentence on its face, and
+   everything else folded into a native <details>. It is not a modal — no
+   scrim, no focus trap, nothing blocked. That is only safe because the
+   default is already "share nothing" (lib/feedConsent.js), so a person who
+   ignores the strip has, by ignoring it, shared nothing.
+
+   Glass per HOUSE RULE 3, all four parts at once: --surface-glass-bar fill,
+   backdrop-filter blur+saturate, a hairline border with a lighter top edge,
+   and a real shadow. It sits over the app's own gradient, which is the
+   varied field the blur needs to have anything to do.
+
+   PO is --accent-cta. Red is CTA-only in this palette and this is one of the
+   very few places it is spent. JO is the glass secondary AT THE SAME HEIGHT
+   AND THE SAME WIDTH — `grid-template-columns: 1fr 1fr` is doing that work,
+   and it is not to be changed to `auto` or to a text link. A consent prompt
+   whose decline is hard to press is a dark pattern; a styled primary is not.
+
+   Loaded by ConsentGate.jsx itself, deliberately NOT from src/App.css or
+   src/index.css — those hold the base UI.
+   ========================================================================== */
+
+.vj-consent-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+
+  /* Phone-first: never under the home indicator. */
+  padding: 0.7rem clamp(0.75rem, 3vw, 1rem);
+  padding-bottom: calc(0.7rem + env(safe-area-inset-bottom, 0px));
+
+  background: var(--surface-glass-bar, rgba(13, 26, 53, 0.58));
+  -webkit-backdrop-filter: var(--glass-filter, saturate(170%) blur(20px));
+  backdrop-filter: var(--glass-filter, saturate(170%) blur(20px));
+  border-top: 1px solid var(--edge, rgba(155, 178, 222, 0.13));
+  box-shadow:
+    0 -10px 34px rgba(0, 0, 0, 0.42),
+    var(--inset-hi, inset 0 1px 0 0 rgba(219, 232, 255, 0.26));
+
+  color: var(--ink, #e8ecf5);
+  font-family: var(--round, 'Geist', system-ui, sans-serif);
+  animation: vj-consent-rise 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* While the banner is up, give the app exactly its height back at the
+   bottom, so the home screen's sticky footer nav is never buried under it.
+   ConsentGate.jsx measures --vj-consent-h; the fallback covers the frame
+   before the first measurement lands. Scoped to body.vj-consent-open so it
+   disappears with the banner, and kept here rather than in App.css. */
+body.vj-consent-open .vj-app {
+  padding-bottom: var(--vj-consent-h, 10rem);
+}
+
+.vj-consent-inner {
+  display: grid;
+  gap: 0.55rem;
+  width: min(34rem, 100%);
+  margin: 0 auto;
+}
+
+/* --- the one sentence, with the cookie --------------------------------- */
+.vj-consent-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink, #e8ecf5);
+}
+
+.vj-consent-cookie {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--ink-dim, #a8b4cc);
+}
+
+/* --- "shfaq më shumë" --------------------------------------------------- */
+.vj-consent-details {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.vj-consent-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  min-height: 28px;
+  padding: 0 0.1rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--link, #9fc2ff);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vj-consent-more::-webkit-details-marker {
+  display: none;
+}
+
+/* A disclosure triangle drawn in CSS so the native marker can go: one
+   stroke, rotating on open. HOUSE RULE 4. */
+.vj-consent-more::after {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 160ms ease;
+}
+
+.vj-consent-details[open] .vj-consent-more::after {
+  transform: rotate(-135deg) translate(-1px, -1px);
+}
+
+.vj-consent-more:focus-visible {
+  outline: 2px solid var(--link, #9fc2ff);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.vj-consent-detail-body {
+  /* Long on purpose: this is where the full, accurate description of what
+     api/feed.js publishes lives. It is capped and scrollable so opening it
+     can never grow the banner over the whole screen. */
+  max-height: min(38vh, 16rem);
+  overflow-y: auto;
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-left: 2px solid var(--navy-300, #4466a3);
+  border-radius: 0 8px 8px 0;
+  background: var(--surface-glass-soft, rgba(30, 50, 92, 0.3));
+}
+
+.vj-consent-detail-body p {
+  margin: 0 0 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-dim, #a8b4cc);
+}
+
+.vj-consent-detail-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- the two choices ---------------------------------------------------- */
+.vj-consent-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* equal. do not change to auto. */
+  gap: 0.6rem;
+}
+
+.vj-consent-btn {
+  min-height: 48px; /* a real touch target for BOTH answers */
+  padding: 0.7rem 1rem;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 120ms ease;
+}
+
+.vj-consent-btn:active {
+  transform: scale(0.98);
+}
+
+.vj-consent-btn:focus-visible {
+  outline: 2px solid var(--link, #9fc2ff);
+  outline-offset: 2px;
+}
+
+/* PO — the call to action the owner asked for. */
+.vj-consent-yes {
+  border: 2px solid var(--accent-cta, #e01b1b);
+  background: var(--accent-cta, #e01b1b);
+  color: var(--accent-cta-ink, #14161a);
+  box-shadow: 0 8px 22px rgba(224, 27, 27, 0.32);
+}
+
+.vj-consent-yes:hover {
+  background: var(--accent-cta-hi, #f22a2a);
+  border-color: var(--accent-cta-hi, #f22a2a);
+}
+
+/* JO — the glass secondary. Same height, same width, same hit area. */
+.vj-consent-no {
+  border: 2px solid var(--edge-strong, rgba(155, 178, 222, 0.26));
+  background: var(--surface-glass, rgba(30, 50, 92, 0.52));
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  backdrop-filter: blur(8px) saturate(150%);
+  color: var(--ink, #e8ecf5);
+  box-shadow: var(--inset-hi, inset 0 1px 0 0 rgba(219, 232, 255, 0.26));
+}
+
+.vj-consent-no:hover {
+  background: var(--surface-high, #22396a);
+}
+
+@keyframes vj-consent-rise {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vj-consent-banner {
+    animation: none;
+  }
+}
