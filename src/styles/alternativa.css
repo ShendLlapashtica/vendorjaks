@@ -1,0 +1,803 @@
+/* /alternativa — the exact-match screen.
+ *
+ * Lives here, not in App.css or index.css, because those two are owned by
+ * the visual-system rewrite and a parallel edit to either would destroy it.
+ * Imported from src/components/AlternativaScreen.jsx, so nothing loads it
+ * unless the screen is on.
+ *
+ * Every token below comes from index.css's palette — dark blue is the
+ * ground for everything, red is CTA-only, green stays reserved for the
+ * `vendore` badge (STANDING HOUSE RULES 2). Glass is all five things at
+ * once (rule 3): backdrop-filter blur+saturate, a translucent fill, a
+ * hairline border lighter on top, a real shadow, and a varied field behind
+ * it to sample — the page paints that field itself below.
+ */
+
+.vj-alt {
+  --vj-alt-gap: 14px;
+  position: relative;
+  /* The side gutter is OURS, not the shell's: `.vj-chrome-main` carries no
+     horizontal padding at phone width, so without this the intro text and
+     the cards sit flush against both screen edges. Measured at 390px. */
+  padding: 4px 16px 64px;
+}
+
+/* THE FIELD BEHIND THE GLASS. Without something varied to sample, a blur
+   over flat navy is flat navy and every card reads as a grey box. Two soft
+   washes, pinned behind the content and non-interactive. */
+.vj-alt::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 12% 8%, rgba(47, 77, 135, 0.34), transparent 70%),
+    radial-gradient(50% 36% at 92% 24%, rgba(224, 27, 27, 0.09), transparent 72%);
+}
+
+/* ---- header -------------------------------------------------------- */
+
+.vj-alt__intro {
+  margin: 0 0 18px;
+}
+
+.vj-alt__lede {
+  margin: 0 0 8px;
+  font-family: var(--round);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  max-width: 62ch;
+}
+
+.vj-alt__rule {
+  margin: 0;
+  font-family: var(--round);
+  font-size: var(--info-sm);
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  max-width: 62ch;
+}
+
+/* The counts. Not a boast — the gap number is deliberately as loud as the
+   match number, because "no exact match yet" is the honest answer and the
+   screen must not read as if it were a failure. */
+.vj-alt__tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.vj-alt__tally li {
+  flex: 1 1 130px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--edge);
+  border-top-color: var(--edge-top);
+  border-radius: 12px;
+  background: var(--surface-glass-soft);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  box-shadow: var(--shadow-1), var(--inset-hi);
+}
+
+.vj-alt__tally-n {
+  display: block;
+  font-family: var(--stack);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.vj-alt__tally-k {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--round);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+/* ---- filter --------------------------------------------------------- */
+
+.vj-alt__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.vj-alt__filter {
+  appearance: none;
+  padding: 7px 13px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--surface-glass-soft);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  color: var(--ink-dim);
+  font-family: var(--round);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.vj-alt__filter:hover {
+  color: var(--ink);
+  border-color: var(--edge-strong);
+}
+
+.vj-alt__filter[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-light);
+}
+
+.vj-alt__search {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 7px 13px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--surface-glass-soft);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  color: var(--ink);
+  font-family: var(--round);
+  font-size: 13px;
+}
+
+.vj-alt__search::placeholder {
+  color: var(--ink-faint);
+}
+
+/* ---- one Serbian product ------------------------------------------- */
+
+.vj-alt__list {
+  display: grid;
+  gap: var(--vj-alt-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vj-alt__row {
+  border: 1px solid var(--edge);
+  border-top-color: var(--edge-top);
+  border-radius: 16px;
+  background: var(--surface-glass);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  box-shadow: var(--shadow-1), var(--inset-hi);
+  overflow: hidden;
+}
+
+.vj-alt__head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 13px 14px;
+}
+
+.vj-alt__shot {
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: var(--media-ground);
+  /* The black-and-white rule for anything flagged. */
+  filter: grayscale(1);
+}
+
+.vj-alt__shot--none {
+  display: grid;
+  place-items: center;
+  font-family: var(--round);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  background: var(--surface-raised);
+  filter: none;
+}
+
+.vj-alt__who {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.vj-alt__name {
+  margin: 0;
+  font-family: var(--round);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+/* NOTHING RENDERS UNDOCUMENTED (rule 5). Every one of these prints a real
+   value or the word for "unknown" — never a blank, never a bare comma. */
+.vj-alt__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--round);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.vj-alt__meta li {
+  white-space: nowrap;
+}
+
+.vj-alt__meta .is-unknown {
+  opacity: 0.72;
+  font-style: italic;
+}
+
+/* The boycott mark: ONE diagonal stroke, never a fat X (rule 4). */
+.vj-alt__flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 3px 9px 3px 7px;
+  border: 1px solid var(--alarm-edge);
+  border-radius: 999px;
+  background: var(--alarm-wash);
+  color: var(--status-alarm);
+  font-family: var(--round);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vj-alt__flag svg {
+  display: block;
+}
+
+/* ---- the answer ----------------------------------------------------- */
+
+.vj-alt__answer {
+  border-top: 1px solid var(--edge);
+  padding: 12px 14px 14px;
+  background: rgba(8, 19, 39, 0.24);
+}
+
+.vj-alt__answer-label {
+  margin: 0 0 9px;
+  font-family: var(--round);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* 150px was too narrow the moment each card gained a pack shot: the photo
+   plate plus a price left about 70px for the name. 210px is the measured
+   width at which "Vaj Luledielli Santeoil 850Ml" wraps to two lines rather
+   than five. */
+.vj-alt__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vj-alt__cards > li {
+  display: flex;
+  min-width: 0;
+}
+
+/* The card is a <button> or an <a> now, so every inherited control style
+   has to be reset explicitly — a UA-styled button would otherwise arrive
+   centred, in the system font, on a grey ground. */
+.vj-alt__card {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--local-edge);
+  border-radius: 11px;
+  background: var(--local-wash);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.vj-alt__card--open {
+  cursor: pointer;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.vj-alt__card--open:hover {
+  border-color: var(--green);
+  background: rgba(0, 166, 81, 0.13);
+}
+
+/* Keyboard reachability is the point of making these real controls, so the
+   focus ring is explicit and never removed. */
+.vj-alt__card--open:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vj-alt__card--open {
+    transition: none;
+  }
+}
+
+/* THE PACK SHOT. Mirrors `.vj-explore-row-media`'s treatment in App.css —
+   light plate, contained, rounded, clipped — written here rather than
+   reusing that class because App.css belongs to the visual-system lane.
+   Deliberately NOT greyscale: the black-and-white rule is the verdict on a
+   flagged product, and this is the opposite of a flagged product. */
+.vj-alt__card-shot {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--media-ground);
+}
+
+.vj-alt__card-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* Rule 5: a missing photo says so in words, it is never an empty frame.
+   The light plate is dropped with it — pale mono type on the photo ground
+   would be unreadable, and an empty light square reads as a broken image. */
+.vj-alt__card-shot--none {
+  background: var(--surface-raised);
+}
+
+.vj-alt__card-shot-none {
+  padding: 2px;
+  font-family: var(--round);
+  font-size: 11.5px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--ink-faint);
+}
+
+.vj-alt__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.vj-alt__card-name {
+  font-family: var(--round);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.vj-alt__card-meta {
+  font-family: var(--round);
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  overflow-wrap: anywhere;
+}
+
+/* GREEN IS RESERVED, and this is the one thing it is reserved for. */
+.vj-alt__vendore {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 1px 7px;
+  border: 1px solid var(--local-edge);
+  border-radius: 999px;
+  background: rgba(0, 166, 81, 0.16);
+  color: var(--green);
+  font-family: var(--round);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vj-alt__evidence {
+  margin: 9px 0 0;
+  font-family: var(--round);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  overflow-wrap: anywhere;
+}
+
+.vj-alt__evidence a {
+  color: var(--link);
+}
+
+/* ---- the gap — a first-class state, not an error -------------------- */
+
+.vj-alt__row--gap {
+  border-style: dashed;
+  background: var(--surface-glass-soft);
+}
+
+.vj-alt__gap {
+  border-top: 1px dashed var(--edge-strong);
+  padding: 12px 14px 14px;
+}
+
+.vj-alt__gap-title {
+  margin: 0 0 5px;
+  font-family: var(--round);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.vj-alt__gap-body {
+  margin: 0;
+  font-family: var(--round);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  max-width: 60ch;
+}
+
+.vj-alt__gap-why {
+  margin: 7px 0 0;
+  font-family: var(--round);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+/* ProposeAlternative renders inside here and brings its own
+   stylesheet; this only gives it room and a divider. */
+.vj-alt__propose {
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px solid var(--edge);
+}
+
+.vj-alt__more {
+  display: block;
+  width: 100%;
+  margin: 18px 0 0;
+  padding: 11px;
+  border: 1px solid var(--edge-strong);
+  border-radius: 12px;
+  background: var(--surface-glass-soft);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  color: var(--ink);
+  font-family: var(--round);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.vj-alt__empty {
+  margin: 24px 0;
+  font-family: var(--round);
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+
+.vj-alt__loading {
+  margin: 40px 0;
+  font-family: var(--round);
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+/* ---- narrow screens -------------------------------------------------- */
+
+/* ONE COLUMN ON A PHONE (fixed 2026-09-17). Owner: "responsivity looks
+   shit on phone since this alternativa dropped".
+   `1fr 1fr` at 390px is two ~163px columns once the page gutter (32px),
+   the row padding (28px) and the grid gap (8px) are taken out — and each
+   of those columns now has to hold a 52px pack shot as well as a name, a
+   brand, a price and the vendore badge. It cannot. One column per card is
+   the only honest layout at this width. */
+@media (max-width: 480px) {
+  .vj-alt__cards {
+    grid-template-columns: 1fr;
+  }
+  .vj-alt__tally li {
+    flex-basis: calc(50% - 5px);
+  }
+  /* The meta line is `white-space: nowrap` so a fact never breaks across
+     two lines mid-value. At phone width the longest of them ("lloji: keçap
+     e salcë domatesh") is wider than the space left beside the pack shot,
+     and a nowrap item that does not fit is what pushes the whole page
+     sideways. Wrapping is the lesser evil, and only here. */
+  .vj-alt__meta li {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .vj-alt__row,
+  .vj-alt__tally li,
+  .vj-alt__filter,
+  .vj-alt__search,
+  .vj-alt__more {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--surface-raised);
+  }
+}
+
+/* ---- desktop: let the shell breathe -------------------------------- */
+
+/* The app shell is a 480px phone-width column by design (App.css caps
+   `.vj-app`), and /eksploro, /pyetje and /historiku each release it for
+   themselves with a `:has()` rule. This is the same rule for this screen,
+   written HERE rather than in App.css so the parallel visual rewrite in
+   that file cannot collide with it — `:has(.vj-alt)` is inert on every
+   other route, and the extra class makes it specific enough to win. */
+@media (min-width: 900px) {
+  .vj-app:has(.vj-alt) {
+    /* `width` as well as `max-width`: App.css pins the desktop shell to an
+       explicit `width: 480px`, so releasing the cap alone changed nothing
+       (measured in the browser, not assumed). */
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  /* Widening `.vj-app` alone does nothing: `.vj-chrome-main` caps further
+     down the chain. Both have to be released (measured the same way the
+     explore block in App.css documents). */
+  .vj-app:has(.vj-alt) .vj-chrome-main {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* Two products per line once there is room, instead of one with 700px of
+     empty navy beside it. */
+  .vj-app:has(.vj-alt) .vj-alt__list {
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    align-items: start;
+  }
+}
+
+/* The Serbian product header is activatable (owner, 2026-09-18: "make every
+   product everywhere clickable"). It needs to LOOK activatable, or a
+   clickable region with no affordance is just a surprise. */
+.vj-alt__head.is-clickable {
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.vj-alt__head.is-clickable:hover {
+  background: var(--surface-glass-soft);
+}
+.vj-alt__head.is-clickable:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+/* ---- OPEN CASES — the unanswered half, behind its own filter -------- *
+ *
+ * Owner, 2026-09-18: "and when a serbian product and is live a case is
+ * opened for it", then, correcting where they go: "at the very top show
+ * the ones that have been found always" and "only to the second filter can
+ * one see raste te hapura".
+ *
+ * So this panel is the HEADER OF THE `raste të hapura` VIEW, not a banner
+ * over the default one — it only ever renders when that tab is pressed.
+ * Nothing about it is meant to compete with the answered list for the top
+ * of the page.
+ *
+ * COLOUR, and why none of it is red or green. A case is a STATUS, not a
+ * verdict and not a call to action: red belongs to the propose button that
+ * sits inside each case (rule 2, "red is CTA-only, almost nothing") and
+ * green is reserved for the `vendore` badge (rule 2 again). A red panel
+ * would out-shout the one control that can actually close a case, which is
+ * backwards. So it is the neutral glass the rest of the screen is made of.
+ */
+
+.vj-alt__cases {
+  margin: 0 0 16px;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--edge-strong);
+  border-top-color: var(--edge-top);
+  border-radius: 18px;
+  background: var(--surface-glass-soft);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  box-shadow: var(--shadow-1), var(--inset-hi);
+}
+
+.vj-alt__cases-title {
+  margin: 0;
+  font-family: var(--stack);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.vj-alt__cases-lede {
+  margin: 7px 0 0;
+  font-family: var(--round);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  max-width: 62ch;
+}
+
+/* The two kinds, side by side, because they are different work and the
+   screen has to keep saying so. Never collapsed into one number. */
+.vj-alt__cases-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vj-alt__cases-split li {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid var(--edge);
+  border-radius: 11px;
+  background: rgba(20, 22, 26, 0.3);
+}
+
+.vj-alt__cases-split-n {
+  flex: 0 0 auto;
+  font-family: var(--stack);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.vj-alt__cases-split-k {
+  min-width: 0;
+  font-family: var(--round);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ink-faint);
+}
+
+/* The honesty line: no ids, no statuses, nothing stored. It is here rather
+   than only in a source comment because "200 open cases" reads as a
+   tracker, and this app has no backend to keep one in. */
+.vj-alt__cases-note {
+  margin: 10px 0 0;
+  font-family: var(--round);
+  font-size: var(--info-sm);
+  line-height: 1.45;
+  color: var(--ink-faint);
+  max-width: 62ch;
+}
+
+/* ---- the case mark on a row ----------------------------------------- */
+
+/* Two chips can now sit on the flag line — why the product is listed, and
+   that it is an open case — so they need a wrapper that wraps. Without it
+   the second chip pushes the first off a 390px screen. */
+.vj-alt__marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.vj-alt__flag {
+  margin-top: 0;
+}
+
+.vj-alt__case-mark {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid var(--edge-strong);
+  border-radius: 999px;
+  background: rgba(20, 22, 26, 0.42);
+  color: var(--ink-dim);
+  font-family: var(--round);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* The label is long in Albanian ("rast i hapur · lloj i papërcaktuar")
+     and `nowrap` on a chip is what pushes a 390px page sideways. */
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* The resolvable kind is the one a single proposal can close, so it is the
+   brighter of the two — still neutral, just not faded. */
+.vj-alt__case-mark--known {
+  border-color: var(--edge-top);
+  color: var(--ink);
+}
+
+.vj-alt__case-mark--unknown {
+  color: var(--ink-faint);
+}
+
+/* What would close this case, sitting directly above the control that does
+   it. Slightly brighter than .vj-alt__gap-why: that line states a fact
+   about the data, this one asks the reader for something. */
+.vj-alt__gap-close {
+  margin: 9px 0 0;
+  font-family: var(--round);
+  font-size: var(--info-sm);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  max-width: 60ch;
+}
+
+/* ---- counts on the filter tabs -------------------------------------- */
+
+.vj-alt__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.vj-alt__filter-n {
+  font-variant-numeric: tabular-nums;
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.vj-alt__filter[aria-pressed='true'] .vj-alt__filter-n {
+  color: var(--on-light);
+  opacity: 0.72;
+}
+
+@media (max-width: 480px) {
+  .vj-alt__cases {
+    padding: 12px 11px 14px;
+  }
+  .vj-alt__cases-title {
+    font-size: 19px;
+  }
+  /* One per line: two 200px basis columns cannot both fit inside a panel
+     that is itself inside a 390px page with 16px gutters. */
+  .vj-alt__cases-split li {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .vj-alt__cases {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--surface-raised);
+  }
+}

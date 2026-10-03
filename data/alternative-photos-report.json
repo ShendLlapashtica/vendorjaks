@@ -1,0 +1,1768 @@
+{
+  "builtAt": "2026-09-13T17:11:25.135Z",
+  "purpose": "Provenance and gap record for the product photos in public/alternatives/, produced by scripts/fetch-alternative-photos.mjs. Every photo comes from the named producer's own official website; nothing here is from an image search, a stock library or a retailer listing.",
+  "rules": ["Only the producer's own official site (or the CDN that site serves its own assets from).", "Never attach a photo that is not confidently the named brand's own product — an absent image is correct, a wrong one is not.", "robots.txt honoured, one request at a time, polite delay between requests, no bot-protection bypass.", "imageSource + imageCredit recorded for every file so a producer objection can be actioned by deleting one row."],
+  "limits": {
+    "maxLongEdgePx": 800,
+    "maxBytes": 153600
+  },
+  "photographed": [
+    {
+      "key": "vipa-chips",
+      "brand": "Vipa Chips",
+      "file": "/alternatives/vipa-chips.webp",
+      "imageSource": "https://vipa-ks.com/en/product-category/chips-en/",
+      "imageUrl": "https://vipa-ks.com/wp-content/uploads/2020/04/07-Classic.png",
+      "imageCredit": "Pestova sh.p.k. / Vipa Chips (official site)",
+      "shows": "Vipa Classic Ribbed Chips salted potato-crisp bag, transparent-background pack shot.",
+      "ok": true,
+      "sourceBytes": 18622,
+      "sourceSize": {
+        "width": 284,
+        "height": 410
+      },
+      "sha256": "b7d6bd89b4029b5b",
+      "optimised": "WEBP 284x410 q88 18780",
+      "bytes": 18780,
+      "size": {
+        "width": 284,
+        "height": 410
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "sempre",
+      "brand": "Sempre",
+      "file": "/alternatives/sempre.jpg",
+      "imageSource": "https://liriprizren.com/",
+      "imageUrl": "https://liriprizren.com/images/slides/sempre.jpg",
+      "imageCredit": "Liri Prizren (official site)",
+      "shows": "Liri homepage slide for its Sempre brand: Sempre carton plus loose biscuits, strapline \"Shendeti dhe shije\".",
+      "ok": true,
+      "sourceBytes": 484578,
+      "sourceSize": {
+        "height": 666,
+        "width": 1920
+      },
+      "sha256": "a3efc8f0310aa78a",
+      "optimised": "JPEG 800x278 q88 32677",
+      "bytes": 32677,
+      "size": {
+        "height": 278,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "frutomania",
+      "brand": "Frutomania",
+      "file": "/alternatives/frutomania.jpg",
+      "imageSource": "https://frutomaniaks.com/",
+      "imageUrl": "https://frutomaniaks.com/__l5e/assets-v1/9165144f-4df3-4d9b-9c1a-8a863e42d536/home-hero-bottles.png",
+      "imageCredit": "MOEA / Frutomania (official site)",
+      "shows": "Five Frutomania juice bottles (0% added sugar) with the fruit each is pressed from.",
+      "ok": true,
+      "sourceBytes": 1975593,
+      "sourceSize": {
+        "width": 1916,
+        "height": 821
+      },
+      "sha256": "4df841c8d29e2833",
+      "optimised": "JPEG 800x343 q88 55173",
+      "bytes": 55173,
+      "size": {
+        "height": 343,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "rugove-water",
+      "brand": "Rugove (water)",
+      "file": "/alternatives/rugove-water.jpg",
+      "imageSource": "https://rugove.eu/en/products/water-rugove/",
+      "imageUrl": "https://rugove.eu/wp-content/uploads/2025/10/Eng-Pallet-info-web-01.jpg",
+      "imageCredit": "Korporata Rugove (official site)",
+      "shows": "Rugove 1.5L spring-water bottle from the product page for Rugove water.",
+      "ok": true,
+      "sourceBytes": 270628,
+      "sourceSize": {
+        "height": 1286,
+        "width": 1630
+      },
+      "sha256": "4e3de2e6f0b817bd",
+      "optimised": "JPEG 753x800 q88 41390",
+      "bytes": 41390,
+      "size": {
+        "height": 800,
+        "width": 753
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "rugove-cheese",
+      "brand": "Rugove (cheese)",
+      "file": "/alternatives/rugove-cheese.webp",
+      "imageSource": "https://rugove.eu/en/products/cheese-rugove/",
+      "imageUrl": "https://rugove.eu/wp-content/uploads/2023/09/djathe400-1.png",
+      "imageCredit": "Korporata Rugove (official site)",
+      "shows": "Rugove branded cheese tub, transparent-background pack shot from the Rugove cheese product page.",
+      "ok": true,
+      "sourceBytes": 132020,
+      "sourceSize": {
+        "width": 752,
+        "height": 677
+      },
+      "sha256": "a1b1b258597bcff2",
+      "optimised": "WEBP 752x677 q88 31212",
+      "bytes": 31212,
+      "size": {
+        "width": 752,
+        "height": 677
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "birra-peja",
+      "brand": "Birra Peja",
+      "file": "/alternatives/birra-peja.webp",
+      "imageSource": "https://birrapeja.com/products/lager/",
+      "imageUrl": "https://birrapeja.com/wp-content/uploads/2025/08/BP-Lager_0000.webp",
+      "imageCredit": "Birra Peja sh.a. (official site)",
+      "shows": "Birra Peja Premium Lager 0.33L bottle, transparent-background pack shot from the Lager product page.",
+      "ok": true,
+      "sourceBytes": 57588,
+      "sourceSize": {
+        "width": 1500,
+        "height": 1500
+      },
+      "sha256": "38d5e9ba593d3151",
+      "optimised": "WEBP 800x800 q88 35258",
+      "bytes": 35258,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "birra-korca",
+      "brand": "Birra Korça",
+      "file": "/alternatives/birra-korca.webp",
+      "imageSource": "https://birrakorca.com.al/en/",
+      "imageUrl": "https://birrakorca.com.al/wp-content/uploads/2021/09/blonde_beer_korca_720x.png",
+      "imageCredit": "Birra Korça sh.a. (official site)",
+      "shows": "Birra Korça blonde-beer line-up: 1928 bottles and cans with a poured glass.",
+      "ok": true,
+      "sourceBytes": 272977,
+      "sourceSize": {
+        "width": 720,
+        "height": 720
+      },
+      "sha256": "d6a55ae70fdd9edc",
+      "optimised": "WEBP 720x720 q88 118484",
+      "bytes": 118484,
+      "size": {
+        "width": 720,
+        "height": 720
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "vita",
+      "brand": "Vita",
+      "file": "/alternatives/vita.webp",
+      "imageSource": "https://www.qumeshtorjavita.com/",
+      "imageUrl": "https://www.qumeshtorjavita.com/wp-content/uploads/2025/11/Vita_Qumesht_3.2_1L-04-Nsh.webp",
+      "imageCredit": "Qumështorja Vita / Devolli Group (official site)",
+      "shows": "Vita qumësht 3.2% 1L UHT milk carton, transparent-background pack shot.",
+      "ok": true,
+      "sourceBytes": 161682,
+      "sourceSize": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "a29fb3e77941c278",
+      "optimised": "WEBP 450x800 q88 65470",
+      "bytes": 65470,
+      "size": {
+        "width": 450,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "abi",
+      "brand": "ABI",
+      "file": "/alternatives/abi.jpg",
+      "imageSource": "https://abimilk.com/en/products/",
+      "imageUrl": "https://abimilk.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-20-at-15.24.35_d6d7add0-640x638.jpg",
+      "imageCredit": "ABI sh.p.k. (official site)",
+      "shows": "ABI jogurt bottles on the ABI dairy line, ABI roundel logo on the label.",
+      "ok": true,
+      "sourceBytes": 61512,
+      "sourceSize": {
+        "height": 638,
+        "width": 640
+      },
+      "sha256": "7405e15d9d6fa1d9",
+      "optimised": "JPEG 640x638 q88 67236",
+      "bytes": 67236,
+      "size": {
+        "height": 638,
+        "width": 640
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "prince-caffe",
+      "brand": "Prince Caffe",
+      "file": "/alternatives/prince-caffe.webp",
+      "imageSource": "https://devollicorporation.com/en/",
+      "imageUrl": "https://devollicorporation.com/wp-content/uploads/2017/02/2-premium-web.png",
+      "imageCredit": "Devolli Corporation / Prince Caffe (official site)",
+      "shows": "Prince Premium Espresso Caffe bag, transparent-background pack shot from Devolli Corporation's coffee range.",
+      "ok": true,
+      "sourceBytes": 105536,
+      "sourceSize": {
+        "width": 243,
+        "height": 416
+      },
+      "sha256": "9e292fae4ac3c913",
+      "optimised": "WEBP 243x416 q88 15772",
+      "bytes": 15772,
+      "size": {
+        "width": 243,
+        "height": 416
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "prince-caffe-turke",
+      "brand": "Prince Caffe Turke",
+      "file": "/alternatives/prince-caffe-turke.webp",
+      "imageSource": "https://devollicorporation.com/en/",
+      "imageUrl": "https://devollicorporation.com/wp-content/uploads/2021/03/1-Turke-web-1.png",
+      "imageCredit": "Devolli Corporation / Prince Caffe (official site)",
+      "shows": "Prince Caffe \"Caffe' Turca Princ\" Turkish-coffee pack, transparent-background pack shot.",
+      "ok": true,
+      "sourceBytes": 149615,
+      "sourceSize": {
+        "width": 243,
+        "height": 416
+      },
+      "sha256": "612bc643e169a78c",
+      "optimised": "WEBP 243x416 q88 29724",
+      "bytes": 29724,
+      "size": {
+        "width": 243,
+        "height": 416
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "miell-diamond",
+      "brand": "Miell Diamond",
+      "file": "/alternatives/miell-diamond.webp",
+      "imageSource": "https://mielldiamond.com/",
+      "imageUrl": "https://mielldiamond.com/wp-content/uploads/2025/09/MIELL-Classic.webp",
+      "imageCredit": "Miell Diamond (official site)",
+      "shows": "Diamond \"Miell Gruri Classic\" wheat-flour sack with the Diamond roundel logo printed on it.",
+      "ok": true,
+      "sourceBytes": 73166,
+      "sourceSize": {
+        "width": 862,
+        "height": 960
+      },
+      "sha256": "a14e0baed8c0518b",
+      "optimised": "WEBP 718x800 q88 72370",
+      "bytes": 72370,
+      "size": {
+        "width": 718,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "prima",
+      "brand": "Prima (flour and pasta)",
+      "file": "/alternatives/prima.jpg",
+      "imageSource": "https://prima.al/produkte",
+      "imageUrl": "https://assets.zyrosite.com/dJoZMOqnkPfzM4g4/miell-mxB2lpaQzaTZEV25.png",
+      "imageCredit": "Prima sh.p.k. (official site)",
+      "shows": "Prima flour banner from the Prima products page: Prima wordmark, \"Cilësia fillon nga gruri\", and a Prima miell retail pack.",
+      "ok": true,
+      "sourceBytes": 1608978,
+      "sourceSize": {
+        "width": 3840,
+        "height": 1504
+      },
+      "sha256": "49f078843ac54b32",
+      "optimised": "JPEG 800x313 q88 47918",
+      "bytes": 47918,
+      "size": {
+        "height": 313,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "atlas-mills",
+      "brand": "Atlas Mills",
+      "file": "/alternatives/atlas-mills.webp",
+      "imageSource": "https://atlasmills.al/produkte/",
+      "imageUrl": "https://atlasmills.al/wp-content/uploads/2026/03/MIELL-I-BARDHE-BG-1024x1024.webp",
+      "imageCredit": "Atlas Mills (official site)",
+      "shows": "Atlas Mills white-flour (\"miell i bardhë\") retail packs carrying the ATLAS logo, from the Atlas products page.",
+      "ok": true,
+      "sourceBytes": 100278,
+      "sourceSize": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "085eaaa2d48a79f6",
+      "optimised": "WEBP 800x800 q88 79070",
+      "bytes": 79070,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "eurofood-ajvar",
+      "brand": "EuroFood (ajvar)",
+      "file": "/alternatives/eurofood-ajvar.webp",
+      "imageSource": "https://www.euro-food.org/products-categories.php",
+      "imageUrl": "https://www.euro-food.org/uploads/categories/692574c68e66e.png",
+      "imageCredit": "EuroFood (official site)",
+      "shows": "EuroFood ajvar jars (\"Ajvar shtëpie\") as published under EuroFood's own Ajvar product category.",
+      "ok": true,
+      "sourceBytes": 798629,
+      "sourceSize": {
+        "width": 942,
+        "height": 667
+      },
+      "sha256": "f90a470a25e62f3c",
+      "optimised": "WEBP 800x566 q88 84840",
+      "bytes": 84840,
+      "size": {
+        "width": 800,
+        "height": 566
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "eurofood-ketchup",
+      "brand": "EuroFood (ketchup)",
+      "file": "/alternatives/eurofood-ketchup.webp",
+      "imageSource": "https://www.euro-food.org/products-categories.php",
+      "imageUrl": "https://www.euro-food.org/uploads/categories/692574299f095.png",
+      "imageCredit": "EuroFood (official site)",
+      "shows": "EuroFood Tomato Ketchup and Pizza Ketchup bottles, printed \"EuroFood - Prizren, Kosova\", as published under EuroFood's own Ketchup product category.",
+      "ok": true,
+      "sourceBytes": 737718,
+      "sourceSize": {
+        "width": 942,
+        "height": 667
+      },
+      "sha256": "6a68f3b06cd47b14",
+      "optimised": "WEBP 800x566 q88 72572",
+      "bytes": 72572,
+      "size": {
+        "width": 800,
+        "height": 566
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "camel-mando",
+      "brand": "Camel Mando",
+      "file": "/alternatives/camel-mando.webp",
+      "imageSource": "https://www.camel-ks.com/",
+      "imageUrl": "https://www.camel-ks.com/img/mando-140g.png",
+      "imageCredit": "Camel (official site)",
+      "shows": "Mando Skinny Wafers 140 g pack, from Camel's own front page product row.",
+      "ok": true,
+      "sourceBytes": 858574,
+      "sourceSize": {
+        "width": 944,
+        "height": 1000
+      },
+      "sha256": "af95fca033cc9b36",
+      "optimised": "WEBP 755x800 q88 99030",
+      "bytes": 99030,
+      "size": {
+        "width": 755,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "camel-biscam",
+      "brand": "Camel Biscam",
+      "file": "/alternatives/camel-biscam.webp",
+      "imageSource": "https://www.camel-ks.com/",
+      "imageUrl": "https://www.camel-ks.com/img/biscam.png",
+      "imageCredit": "Camel (official site)",
+      "shows": "Camel Biscam 250 g caramel cookies pack, from Camel's own front page product row.",
+      "ok": true,
+      "sourceBytes": 293138,
+      "sourceSize": {
+        "width": 944,
+        "height": 1000
+      },
+      "sha256": "d7fc5fe06680f22f",
+      "optimised": "WEBP 755x800 q88 42228",
+      "bytes": 42228,
+      "size": {
+        "width": 755,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "liri-wafer",
+      "brand": "Liri (vafera)",
+      "file": "/alternatives/liri-wafer.jpg",
+      "imageSource": "https://liriprizren.com/",
+      "imageUrl": "https://liriprizren.com/images/waferia.jpg",
+      "imageCredit": "Liri Prizren (official site)",
+      "shows": "Liri \"Waferia Hazelnut\" wafer box, LIRI logo on the pack, from the Liri Prizren site. (The /images/cat-wafer.jpg category tile was rejected first: an unbranded close-up of loose wafers is not a pack shot and could not be confirmed as Liri's own product.)",
+      "ok": true,
+      "sourceBytes": 75501,
+      "sourceSize": {
+        "height": 290,
+        "width": 355
+      },
+      "sha256": "54d4b7fa5356f67e",
+      "optimised": "JPEG 355x290 q88 16677",
+      "bytes": 16677,
+      "size": {
+        "height": 290,
+        "width": 355
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "liri-bonbone",
+      "brand": "Liri (bonbone dhe praline)",
+      "file": "/alternatives/liri-bonbone.jpg",
+      "imageSource": "https://liriprizren.com/",
+      "imageUrl": "https://liriprizren.com/images/slides/praline.jpg",
+      "imageCredit": "Liri Prizren (official site)",
+      "shows": "Liri's own Praline box carrying the LIRI mark, from the Praline brand slide on the Liri homepage. (The /images/cat-bonbone.jpg tile was rejected first: a tray of loose wrapped sweets carrying another name, not confidently Liri's own product.)",
+      "ok": true,
+      "sourceBytes": 394650,
+      "sourceSize": {
+        "height": 666,
+        "width": 1920
+      },
+      "sha256": "7f40b18e05ab1e02",
+      "optimised": "JPEG 800x278 q88 27765",
+      "bytes": 27765,
+      "size": {
+        "height": 278,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-cokokrem",
+      "brand": "Pi&Ki Çokokrem",
+      "file": "/alternatives/piki-cokokrem.webp",
+      "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=6",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/coko1.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki Çokokrem cocoa spread jar, from EGI Group's own spreads category.",
+      "ok": true,
+      "sourceBytes": 391362,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "fa9d5756a2ed0e7b",
+      "optimised": "WEBP 800x800 q88 75228",
+      "bytes": 75228,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-pasta",
+      "brand": "Pi&Ki (makarona)",
+      "file": "/alternatives/piki-pasta.webp",
+      "imageSource": "https://www.egigroup-ks.com/produkti.php?id=156",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/capelli500.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki Capelli d'Angelo 500 g pasta pack, from EGI Group's own product page for that SKU.",
+      "ok": true,
+      "sourceBytes": 208299,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "4cc30a3b1a2e59fb",
+      "optimised": "WEBP 800x800 q88 85672",
+      "bytes": 85672,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-spec",
+      "brand": "Pi&Ki Spec i Kuq",
+      "file": "/alternatives/piki-spec.webp",
+      "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=15",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/specibluar200.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki ground red pepper (Spec i Kuq i bluar) 200 g pack, from EGI Group's own spice category.",
+      "ok": true,
+      "sourceBytes": 122102,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "8b3ee91cde6c3782",
+      "optimised": "WEBP 800x800 q88 50162",
+      "bytes": 50162,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "olim-frito",
+      "brand": "Olim",
+      "file": "/alternatives/olim-frito.webp",
+      "imageSource": "https://olim.al/produkte/",
+      "imageUrl": "https://olim.al/wp-content/uploads/2024/05/frito-1l.png",
+      "imageCredit": "Olim sh.a. (official site)",
+      "shows": "Olim's Frito 1 L frying-oil bottle, from the Olim products page.",
+      "ok": true,
+      "sourceBytes": 448554,
+      "sourceSize": {
+        "width": 768,
+        "height": 1056
+      },
+      "sha256": "7c4e6c7eda906c8e",
+      "optimised": "WEBP 582x800 q88 40588",
+      "bytes": 40588,
+      "size": {
+        "width": 582,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "shkrela-olive",
+      "brand": "Shkrela",
+      "file": "/alternatives/shkrela-olive.jpg",
+      "imageSource": "https://shkrelaoliveoil.com/en/products/",
+      "imageUrl": "https://shkrelaoliveoil.com/wp-content/uploads/2025/06/ABC_1282-1-scaled-1.jpg",
+      "imageCredit": "Shkrela Olive Oil (official site)",
+      "shows": "Shkrela extra-virgin olive oil bottle, studio shot from the producer's own products page.",
+      "ok": true,
+      "sourceBytes": 126199,
+      "sourceSize": {
+        "height": 2560,
+        "width": 1920
+      },
+      "sha256": "9cbd14f0303d3df0",
+      "optimised": "JPEG 600x800 q88 17449",
+      "bytes": 17449,
+      "size": {
+        "height": 800,
+        "width": 600
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "biolive",
+      "brand": "Biolive",
+      "file": "/alternatives/biolive.webp",
+      "imageSource": "https://bioliveoil.com/products",
+      "imageUrl": "https://bioliveoil.com/front/products/1/shishe-ekstra.png",
+      "imageCredit": "Biolive (official site)",
+      "shows": "Biolive 500 ml Extra Virgin Robust bottle, label printed \"Product of ALBANIA\".",
+      "ok": true,
+      "sourceBytes": 436139,
+      "sourceSize": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "c728ee8599c740b8",
+      "optimised": "WEBP 800x800 q88 24726",
+      "bytes": 24726,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "tepelene-water",
+      "brand": "Uji i Ftohtë Tepelenë",
+      "file": "/alternatives/tepelene-water.webp",
+      "imageSource": "https://ujitepelene.com/uji-yne/linja-klasike/",
+      "imageUrl": "https://ujitepelene.com/wp-content/uploads/2025/06/image-2.webp",
+      "imageCredit": "Uji i Ftohtë Tepelenë (official site)",
+      "shows": "Tepelena 1 L PET spring-water bottle from the producer's own classic-line page.",
+      "ok": true,
+      "sourceBytes": 9844,
+      "sourceSize": {
+        "width": 146,
+        "height": 484
+      },
+      "sha256": "de49a49de852d4ab",
+      "optimised": "WEBP 146x484 q88 11442",
+      "bytes": 11442,
+      "size": {
+        "width": 146,
+        "height": 484
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "lajthiza",
+      "brand": "Lajthiza",
+      "file": "/alternatives/lajthiza.webp",
+      "imageSource": "https://lajthiza.al/produktet/",
+      "imageUrl": "https://lajthiza.al/wp-content/uploads/2025/07/1.5-L.webp",
+      "imageCredit": "Lajthiza (official site)",
+      "shows": "Lajthiza 1.5 L water bottle from the producer's own products page.",
+      "ok": true,
+      "sourceBytes": 74850,
+      "sourceSize": {
+        "width": 500,
+        "height": 500
+      },
+      "sha256": "2a1d23a6e74a9e6e",
+      "optimised": "WEBP 500x500 q88 11098",
+      "bytes": 11098,
+      "size": {
+        "width": 500,
+        "height": 500
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "glina",
+      "brand": "Glina",
+      "file": "/alternatives/glina.webp",
+      "imageSource": "https://glina.com/Produkte.aspx",
+      "imageUrl": "https://glina.com/Products/GlinaProdukt.png",
+      "imageCredit": "Fabrika e Glinës (official site)",
+      "shows": "Glina mineral-water pack shot from the Glina factory's own products page.",
+      "ok": true,
+      "sourceBytes": 1246475,
+      "sourceSize": {
+        "width": 2408,
+        "height": 3168
+      },
+      "sha256": "1ee1d57366d65b97",
+      "optimised": "WEBP 608x800 q88 32464",
+      "bytes": 32464,
+      "size": {
+        "width": 608,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "frutti",
+      "brand": "Frutti",
+      "file": "/alternatives/frutti.webp",
+      "imageSource": "https://frutti-ks.com/sq/molle/",
+      "imageUrl": "https://frutti-ks.com/file/2023/10/06/Apple_5.png",
+      "imageCredit": "Frutti sh.p.k. (official site)",
+      "shows": "Frutti apple juice 1 L carton, transparent-background pack shot from Frutti's own apple-juice page.",
+      "ok": true,
+      "sourceBytes": 260050,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "cb188740a62517b1",
+      "optimised": "WEBP 800x800 q88 30102",
+      "bytes": 30102,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "tango",
+      "brand": "Tango",
+      "file": "/alternatives/tango.webp",
+      "imageSource": "https://devolligroup.com/brands/tango/",
+      "imageUrl": "https://devolligroup.com/wp-content/uploads/2026/01/TangoLife_Portokall.webp",
+      "imageCredit": "Devolli Group (official site)",
+      "shows": "Tango Life orange soft drink, transparent-background pack shot from Devolli Group's own Tango brand page.",
+      "ok": true,
+      "sourceBytes": 38082,
+      "sourceSize": {
+        "width": 650,
+        "height": 1080
+      },
+      "sha256": "fb6735dd50d6c753",
+      "optimised": "WEBP 481x800 q88 33634",
+      "bytes": 33634,
+      "size": {
+        "width": 481,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "go-energy",
+      "brand": "GO+",
+      "file": "/alternatives/go-energy.webp",
+      "imageSource": "https://devolligroup.com/brands/go/",
+      "imageUrl": "https://devolligroup.com/wp-content/uploads/2026/07/Go_Zero_03.webp",
+      "imageCredit": "Devolli Group (official site)",
+      "shows": "GO+ Zero energy drink can, transparent-background pack shot from Devolli Group's own GO brand page.",
+      "ok": true,
+      "sourceBytes": 17120,
+      "sourceSize": {
+        "width": 700,
+        "height": 700
+      },
+      "sha256": "a9be9c834327298d",
+      "optimised": "WEBP 700x700 q88 19948",
+      "bytes": 19948,
+      "size": {
+        "width": 700,
+        "height": 700
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "golden-eagle",
+      "brand": "Golden Eagle",
+      "file": "/alternatives/golden-eagle.webp",
+      "imageSource": "https://frutex-ks.com/golden-eagle",
+      "imageUrl": "https://frutex-ks.com/wp-content/uploads/2026/01/GoldenEagle-716x716-1.png",
+      "imageCredit": "Frutex L.L.C. (official site)",
+      "shows": "Golden Eagle energy drink can from Frutex's own Golden Eagle product page.",
+      "ok": true,
+      "sourceBytes": 386412,
+      "sourceSize": {
+        "width": 716,
+        "height": 716
+      },
+      "sha256": "22d8971d1843d0c4",
+      "optimised": "WEBP 716x716 q88 56592",
+      "bytes": 56592,
+      "size": {
+        "width": 716,
+        "height": 716
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "art-food-ketchup",
+      "brand": "Art Food",
+      "file": "/alternatives/art-food-ketchup.webp",
+      "imageSource": "https://frutex-ks.com/art-food",
+      "imageUrl": "https://frutex-ks.com/wp-content/uploads/2026/04/Art-Ketchup-png.png",
+      "imageCredit": "Frutex L.L.C. (official site)",
+      "shows": "Art Food ketchup bottle from Frutex's own Art Food product page.",
+      "ok": true,
+      "sourceBytes": 756543,
+      "sourceSize": {
+        "width": 1024,
+        "height": 1536
+      },
+      "sha256": "58e8c8fb933eae6f",
+      "optimised": "WEBP 533x800 q88 31770",
+      "bytes": 31770,
+      "size": {
+        "width": 533,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "ajka-milk",
+      "brand": "Ajka",
+      "file": "/alternatives/ajka-milk.webp",
+      "imageSource": "https://ajka.al/produktet/",
+      "imageUrl": "https://ajka.al/wp-content/uploads/2024/06/2.png",
+      "imageCredit": "Delta Doni sh.p.k. / Ajka (official site)",
+      "shows": "Ajka UHT milk carton (2.8% fat), transparent-background pack shot from the Ajka products page.",
+      "ok": true,
+      "sourceBytes": 115760,
+      "sourceSize": {
+        "width": 201,
+        "height": 347
+      },
+      "sha256": "15f923f01cdf939c",
+      "optimised": "WEBP 201x347 q88 17378",
+      "bytes": 17378,
+      "size": {
+        "width": 201,
+        "height": 347
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "mulliri-vjeter",
+      "brand": "Mulliri Vjetër",
+      "file": "/alternatives/mulliri-vjeter.jpg",
+      "imageSource": "https://mullirivjeter.al/produktet/",
+      "imageUrl": "https://mullirivjeter.al/wp-content/uploads/2018/07/Mulliri%C2%AE-Moka-Premium-250g.jpg",
+      "imageCredit": "Mulliri Vjetër (official site)",
+      "shows": "Mulliri Moka Premium 250 g ground-coffee pack from the roaster's own products page.",
+      "ok": true,
+      "sourceBytes": 369968,
+      "sourceSize": {
+        "height": 1000,
+        "width": 1000
+      },
+      "sha256": "53701e7f74549ea9",
+      "optimised": "JPEG 800x800 q88 69723",
+      "bytes": 69723,
+      "size": {
+        "height": 800,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "lori-caffe",
+      "brand": "Lori Caffè",
+      "file": "/alternatives/lori-caffe.webp",
+      "imageSource": "https://loricaffe.com/produkte/lori-experience/",
+      "imageUrl": "https://loricaffe.com/wp-content/uploads/2024/02/Turke-Ekstra-1.png",
+      "imageCredit": "Valtelina / Lori Caffè (official site)",
+      "shows": "Lori Caffè Turke Ekstra pack, transparent-background pack shot from the producer's own site.",
+      "ok": true,
+      "sourceBytes": 491283,
+      "sourceSize": {
+        "width": 800,
+        "height": 890
+      },
+      "sha256": "1b39c8de581560a7",
+      "optimised": "WEBP 719x800 q88 53988",
+      "bytes": 53988,
+      "size": {
+        "width": 719,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "merja-caj",
+      "brand": "Merja",
+      "file": "/alternatives/merja-caj.jpg",
+      "imageSource": "https://merjabioprodukte.com/produkte.php?category=1",
+      "imageUrl": "https://merjabioprodukte.com/images/MonOct1312574120259781.jpg",
+      "imageCredit": "Bio Produkte Merja (official site)",
+      "shows": "Merja \"Çaj mali\" 25 g mountain-tea pack from the producer's own tea category page.",
+      "ok": true,
+      "sourceBytes": 60052,
+      "sourceSize": {
+        "height": 900,
+        "width": 700
+      },
+      "sha256": "7ad1ab176a187bc5",
+      "optimised": "JPEG 622x800 q88 56908",
+      "bytes": 56908,
+      "size": {
+        "height": 800,
+        "width": 622
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "euroni-salt",
+      "brand": "Euroni",
+      "file": "/alternatives/euroni-salt.webp",
+      "imageSource": "https://euroni-ks.com/product-category/vacuum-rock-salt/",
+      "imageUrl": "https://euroni-ks.com/wp-content/uploads/2023/04/Untitled-design-40-300x300.png",
+      "imageCredit": "Euroni Salt L.L.C. (official site)",
+      "shows": "Euroni Salt 1 kg carton box from the producer's own vacuum-rock-salt category.",
+      "ok": true,
+      "sourceBytes": 6551,
+      "sourceSize": {
+        "width": 300,
+        "height": 300
+      },
+      "sha256": "1a1580962a50ca90",
+      "optimised": "WEBP 300x300 q88 6586",
+      "bytes": 6586,
+      "size": {
+        "width": 300,
+        "height": 300
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "tara-toilet",
+      "brand": "Tara",
+      "file": "/alternatives/tara-toilet.jpg",
+      "imageSource": "https://tarasoft-ks.com/dyqani",
+      "imageUrl": "https://cdn.zyrosite.com/cdn-ecommerce/store_01JAAF3J8GQTMWKSQ9D4FAAYX3%2Fassets%2F1729077495806-store_01JAAF3J8GQTMWKSQ9D4FAAYX3%252Fassets%252F1729077464274-tara%2520premium%2520-%2520toilet%2520paper.jpeg",
+      "imageCredit": "Tara Soft L.L.C. (official site)",
+      "shows": "Tara Premium toilet paper pack from Tara Soft's own online shop.",
+      "ok": true,
+      "sourceBytes": 1295026,
+      "sourceSize": {
+        "height": 4000,
+        "width": 5000
+      },
+      "sha256": "6422ef502ae64250",
+      "optimised": "JPEG 800x640 q88 65074",
+      "bytes": 65074,
+      "size": {
+        "height": 640,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "er-abi-attix",
+      "brand": "ER-ABI Attix",
+      "file": "/alternatives/er-abi-attix.webp",
+      "imageSource": "https://www.er-abi.com",
+      "imageUrl": "https://www.er-abi.com/assets/detenp-CR9FCT7s.png",
+      "imageCredit": "NTP ER-ABI (official site)",
+      "shows": "ER-ABI \"Attix\" dishwashing liquid 1000 ml bottle, transparent-background pack shot from ER-ABI's own site.",
+      "ok": true,
+      "sourceBytes": 225086,
+      "sourceSize": {
+        "width": 400,
+        "height": 700
+      },
+      "sha256": "d6f2ffbed08feb56",
+      "optimised": "WEBP 400x700 q88 24492",
+      "bytes": 24492,
+      "size": {
+        "width": 400,
+        "height": 700
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "er-abi-softly",
+      "brand": "ER-ABI Softly",
+      "file": "/alternatives/er-abi-softly.webp",
+      "imageSource": "https://www.er-abi.com",
+      "imageUrl": "https://www.er-abi.com/assets/sapunp-DwquEFBg.png",
+      "imageCredit": "NTP ER-ABI (official site)",
+      "shows": "ER-ABI \"Softly\" shampon per duar (liquid hand soap) 1 lit pump bottle, transparent-background pack shot from ER-ABI's own site.",
+      "ok": true,
+      "sourceBytes": 290715,
+      "sourceSize": {
+        "width": 400,
+        "height": 572
+      },
+      "sha256": "c5c086d465370177",
+      "optimised": "WEBP 400x572 q88 37900",
+      "bytes": 37900,
+      "size": {
+        "width": 400,
+        "height": 572
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "er-abi-shampoo",
+      "brand": "ER-ABI (shampon)",
+      "file": "/alternatives/er-abi-shampoo.webp",
+      "imageSource": "https://www.er-abi.com",
+      "imageUrl": "https://www.er-abi.com/assets/flokp-DRO3g0SL.png",
+      "imageCredit": "NTP ER-ABI (official site)",
+      "shows": "The hair-care bottle ER-ABI publishes under its own shampoo category (\"Rosemary Leaf Oil\" shampoo). HONEST LIMIT: the bottle carries the product-line name, not an ER-ABI mark, so the attribution rests on ER-ABI publishing it as its own line.",
+      "ok": true,
+      "sourceBytes": 296496,
+      "sourceSize": {
+        "width": 400,
+        "height": 700
+      },
+      "sha256": "346e6e9bdcce7962",
+      "optimised": "WEBP 400x700 q88 39450",
+      "bytes": 39450,
+      "size": {
+        "width": 400,
+        "height": 700
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "get-rea",
+      "brand": "Rea (Get)",
+      "file": "/alternatives/get-rea.jpg",
+      "imageSource": "https://get.com.al/product/rea-black/",
+      "imageUrl": "https://get.com.al/wp-content/uploads/2019/03/REA2.jpg",
+      "imageCredit": "Get sh.p.k. (official site)",
+      "shows": "Rea \"Zbardhues\" bleach bottle, REA mark on the label, from Get sh.p.k.'s own product page.",
+      "ok": true,
+      "sourceBytes": 40736,
+      "sourceSize": {
+        "height": 600,
+        "width": 600
+      },
+      "sha256": "cd3186b11a864814",
+      "optimised": "JPEG 600x600 q88 9382",
+      "bytes": 9382,
+      "size": {
+        "height": 600,
+        "width": 600
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "abi-progres-ajvar",
+      "brand": "ABI Progres",
+      "file": "/alternatives/abi-progres-ajvar.webp",
+      "imageSource": "https://www.abiprogres.com/products",
+      "imageUrl": "https://www.abiprogres.com/app/assets/img/CATEGORIES_AJVAR.png",
+      "imageCredit": "\"ABI\" Progres sh.p.k. (official site)",
+      "shows": "ABI Progres ajvar jars, the producer's own ajvar category image.",
+      "ok": true,
+      "sourceBytes": 272923,
+      "sourceSize": {
+        "width": 1600,
+        "height": 600
+      },
+      "sha256": "db6483b600d8622c",
+      "optimised": "WEBP 416x600 q88 28132",
+      "bytes": 28132,
+      "size": {
+        "width": 416,
+        "height": 600
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "xhoshkun",
+      "brand": "Mishtore Xhoshkun",
+      "file": "/alternatives/xhoshkun.jpg",
+      "imageSource": "https://mishtorexhoshkun.com/produktet/",
+      "imageUrl": "https://mishtorexhoshkun.com/wp-content/uploads/2025/04/Rollad-Viqi-683x1024.jpg",
+      "imageCredit": "Mishtore Xhoshkun (official site)",
+      "shows": "Packaged Rollad Viçi (beef roulade) from the Prizren meat plant's own products page.",
+      "ok": true,
+      "sourceBytes": 137912,
+      "sourceSize": {
+        "height": 1024,
+        "width": 683
+      },
+      "sha256": "7a65b5d6382261d2",
+      "optimised": "JPEG 534x800 q88 109218",
+      "bytes": 109218,
+      "size": {
+        "height": 800,
+        "width": 534
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "vipa-flips",
+      "brand": "Vipa Flips",
+      "file": "/alternatives/vipa-flips.webp",
+      "imageSource": "https://vipa-ks.com/en/product-category/flips-en/",
+      "imageUrl": "https://vipa-ks.com/wp-content/uploads/2020/04/flips-peanuts-1.png",
+      "imageCredit": "Pestova sh.p.k. / Vipa (official site)",
+      "shows": "Vipa peanut Flips bag, transparent-background pack shot from Pestova's own Flips category.",
+      "ok": true,
+      "sourceBytes": 20718,
+      "sourceSize": {
+        "width": 284,
+        "height": 410
+      },
+      "sha256": "cfd0f6033c900346",
+      "optimised": "WEBP 284x410 q88 21170",
+      "bytes": 21170,
+      "size": {
+        "width": 284,
+        "height": 410
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "haje-kikirik",
+      "brand": "Haje",
+      "file": "/alternatives/haje-kikirik.webp",
+      "imageSource": "https://www.haje-ks.com/arrore",
+      "imageUrl": "https://www.haje-ks.com/wp-content/uploads/2025/04/kikirik-1024x1024.png",
+      "imageCredit": "HAJE SH.P.K. (official site)",
+      "shows": "Haje \"Kikirik i pjekur dhe i kriposur\" roasted-and-salted peanut bag with the hajé roundel, from the Obiliq producer's own Arrore product page.",
+      "ok": true,
+      "sourceBytes": 718521,
+      "sourceSize": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "25acdb183bf280a8",
+      "optimised": "WEBP 800x800 q88 94182",
+      "bytes": 94182,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-kikirik",
+      "brand": "Pi&Ki (kikirik dhe arra)",
+      "file": "/alternatives/piki-kikirik.webp",
+      "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=3",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/kikirikf11.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki \"Kikirikë / Peantus — i fërguar me kripë\" 800 g roasted-salted peanut pack artwork from EGI Group's own peanut category page.",
+      "ok": true,
+      "sourceBytes": 91512,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "95dddf9b432a49c9",
+      "optimised": "WEBP 800x800 q88 43044",
+      "bytes": 43044,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-fasule",
+      "brand": "Pi&Ki Fasule",
+      "file": "/alternatives/piki-fasule.webp",
+      "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=10",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/7312014.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki \"Fasule / Beans\" 800 g white-bean bag from EGI Group's own Fasule category page.",
+      "ok": true,
+      "sourceBytes": 60579,
+      "sourceSize": {
+        "height": 1152,
+        "width": 2048
+      },
+      "sha256": "a556c068a9814397",
+      "optimised": "WEBP 469x800 q88 28942",
+      "bytes": 28942,
+      "size": {
+        "width": 469,
+        "height": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "pestova-patate",
+      "brand": "Pestova (patate të freskëta)",
+      "file": "/alternatives/pestova-patate.webp",
+      "imageSource": "https://vipa-ks.com/en/patatja/",
+      "imageUrl": "https://vipa-ks.com/wp-content/uploads/2020/08/4.png",
+      "imageCredit": "Pestova sh.p.k. (official site)",
+      "shows": "Pestova fresh table potatoes in the producer's own red net bag with its printed label, from the Potato page of Pestova's own site.",
+      "ok": true,
+      "sourceBytes": 7964,
+      "sourceSize": {
+        "width": 264,
+        "height": 192
+      },
+      "sha256": "ae7b4f30ac299d19",
+      "optimised": "WEBP 264x192 q88 7988",
+      "bytes": 7988,
+      "size": {
+        "width": 264,
+        "height": 192
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "buka-fara",
+      "brand": "Buka Bakery",
+      "file": "/alternatives/buka-fara.jpg",
+      "imageSource": "https://bukabakery.com/produktet/",
+      "imageUrl": "https://bukabakery.com/wp-content/uploads/2021/07/43-1.jpg",
+      "imageCredit": "Buka Bakery (official site)",
+      "shows": "Buka Bakery \"Bukë Shtëpie me Fara\" — a seeded house loaf, top-down studio shot on white from the bakery's own product catalogue.",
+      "ok": true,
+      "sourceBytes": 152930,
+      "sourceSize": {
+        "height": 1080,
+        "width": 1080
+      },
+      "sha256": "4220eb936bf3ab28",
+      "optimised": "JPEG 800x800 q88 80187",
+      "bytes": 80187,
+      "size": {
+        "height": 800,
+        "width": 800
+      },
+      "withinBudget": true
+    },
+    {
+      "key": "piki-oriz",
+      "brand": "Pi&Ki Oriz",
+      "file": "/alternatives/piki-oriz.webp",
+      "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=11",
+      "imageUrl": "https://www.egigroup-ks.com/images/produkte/egi/oriz.png",
+      "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)",
+      "shows": "Pi&Ki \"Rice / Oriz\" 800 g rice bag from EGI Group's own Oriz category page.",
+      "ok": true,
+      "sourceBytes": 371614,
+      "sourceSize": {
+        "width": 800,
+        "height": 800
+      },
+      "sha256": "1f041daa3083709f",
+      "optimised": "WEBP 800x800 q88 52326",
+      "bytes": 52326,
+      "size": {
+        "width": 800,
+        "height": 800
+      },
+      "withinBudget": true
+    }
+  ],
+  "appliedTo": [
+    {
+      "serbianBrand": "Bambi (Plazma)",
+      "brand": "Sempre",
+      "image": "/alternatives/sempre.jpg"
+    },
+    {
+      "serbianBrand": "Štark (Bananica / Krem banana)",
+      "brand": "Liri (bonbone dhe praline)",
+      "image": "/alternatives/liri-bonbone.jpg"
+    },
+    {
+      "serbianBrand": "Štark (Bananica / Krem banana)",
+      "brand": "Pi&Ki Çokokrem",
+      "image": "/alternatives/piki-cokokrem.webp"
+    },
+    {
+      "serbianBrand": "Cipiripi",
+      "brand": "Pi&Ki Çokokrem",
+      "image": "/alternatives/piki-cokokrem.webp"
+    },
+    {
+      "serbianBrand": "Cipiripi",
+      "brand": "Liri (bonbone dhe praline)",
+      "image": "/alternatives/liri-bonbone.jpg"
+    },
+    {
+      "serbianBrand": "Swisslion-Takovo (biscuits, wafers)",
+      "brand": "Camel Mando",
+      "image": "/alternatives/camel-mando.webp"
+    },
+    {
+      "serbianBrand": "Swisslion-Takovo (biscuits, wafers)",
+      "brand": "Liri (vafera)",
+      "image": "/alternatives/liri-wafer.jpg"
+    },
+    {
+      "serbianBrand": "Swisslion-Takovo (biscuits, wafers)",
+      "brand": "Sempre",
+      "image": "/alternatives/sempre.jpg"
+    },
+    {
+      "serbianBrand": "Eurokrem (Swisslion-Takovo)",
+      "brand": "Pi&Ki Çokokrem",
+      "image": "/alternatives/piki-cokokrem.webp"
+    },
+    {
+      "serbianBrand": "Eurokrem (Swisslion-Takovo)",
+      "brand": "Liri (bonbone dhe praline)",
+      "image": "/alternatives/liri-bonbone.jpg"
+    },
+    {
+      "serbianBrand": "Marbo Product (Chipsy)",
+      "brand": "Vipa Chips",
+      "image": "/alternatives/vipa-chips.webp"
+    },
+    {
+      "serbianBrand": "Nectar",
+      "brand": "Frutomania",
+      "image": "/alternatives/frutomania.jpg"
+    },
+    {
+      "serbianBrand": "Next",
+      "brand": "Frutomania",
+      "image": "/alternatives/frutomania.jpg"
+    },
+    {
+      "serbianBrand": "Knjaz Miloš",
+      "brand": "Rugove",
+      "image": "/alternatives/rugove-water.jpg"
+    },
+    {
+      "serbianBrand": "Rosa",
+      "brand": "Rugove",
+      "image": "/alternatives/rugove-water.jpg"
+    },
+    {
+      "serbianBrand": "VodaVoda",
+      "brand": "Rugove",
+      "image": "/alternatives/rugove-water.jpg"
+    },
+    {
+      "serbianBrand": "Jelen",
+      "brand": "Birra Peja",
+      "image": "/alternatives/birra-peja.webp"
+    },
+    {
+      "serbianBrand": "Jelen",
+      "brand": "Birra Korça",
+      "image": "/alternatives/birra-korca.webp"
+    },
+    {
+      "serbianBrand": "Lav",
+      "brand": "Birra Peja",
+      "image": "/alternatives/birra-peja.webp"
+    },
+    {
+      "serbianBrand": "Lav",
+      "brand": "Birra Korça",
+      "image": "/alternatives/birra-korca.webp"
+    },
+    {
+      "serbianBrand": "Imlek",
+      "brand": "Vita",
+      "image": "/alternatives/vita.webp"
+    },
+    {
+      "serbianBrand": "Imlek",
+      "brand": "ABI",
+      "image": "/alternatives/abi.jpg"
+    },
+    {
+      "serbianBrand": "Imlek (djathë)",
+      "brand": "Rugove (cheese)",
+      "image": "/alternatives/rugove-cheese.webp"
+    },
+    {
+      "serbianBrand": "Imlek (djathë)",
+      "brand": "ABI",
+      "image": "/alternatives/abi.jpg"
+    },
+    {
+      "serbianBrand": "Grand Kafa",
+      "brand": "Prince Caffe",
+      "image": "/alternatives/prince-caffe.webp"
+    },
+    {
+      "serbianBrand": "C Kafa",
+      "brand": "Prince Caffe Turke",
+      "image": "/alternatives/prince-caffe-turke.webp"
+    },
+    {
+      "serbianBrand": "Dijamant",
+      "brand": "Olim",
+      "image": "/alternatives/olim-frito.webp"
+    },
+    {
+      "serbianBrand": "Dijamant",
+      "brand": "Shkrela",
+      "image": "/alternatives/shkrela-olive.jpg"
+    },
+    {
+      "serbianBrand": "Dijamant",
+      "brand": "Biolive",
+      "image": "/alternatives/biolive.webp"
+    },
+    {
+      "serbianBrand": "Serbian flour/pasta importers (generic - no single dominant branded exporter verified)",
+      "brand": "Miell Diamond",
+      "image": "/alternatives/miell-diamond.webp"
+    },
+    {
+      "serbianBrand": "Serbian flour/pasta importers (generic - no single dominant branded exporter verified)",
+      "brand": "Prima (flour and pasta)",
+      "image": "/alternatives/prima.jpg"
+    },
+    {
+      "serbianBrand": "Serbian flour/pasta importers (generic - no single dominant branded exporter verified)",
+      "brand": "Atlas Mills",
+      "image": "/alternatives/atlas-mills.webp"
+    },
+    {
+      "serbianBrand": "Leskovački ajvar (Serbian PGI-protected regional product)",
+      "brand": "EuroFood",
+      "image": "/alternatives/eurofood-ajvar.webp"
+    },
+    {
+      "serbianBrand": "Polimark",
+      "brand": "EuroFood",
+      "image": "/alternatives/eurofood-ketchup.webp"
+    },
+    {
+      "serbianBrand": "Jaffa Crvenka",
+      "brand": "Sempre",
+      "image": "/alternatives/sempre.jpg"
+    },
+    {
+      "serbianBrand": "Jaffa Crvenka",
+      "brand": "Camel Biscam",
+      "image": "/alternatives/camel-biscam.webp"
+    },
+    {
+      "serbianBrand": "Soko Štark (Smoki)",
+      "brand": "Vipa Flips",
+      "image": "/alternatives/vipa-flips.webp"
+    },
+    {
+      "serbianBrand": "Soko Štark (Smoki)",
+      "brand": "Vipa Chips",
+      "image": "/alternatives/vipa-chips.webp"
+    },
+    {
+      "serbianBrand": "Vital (Vrbas)",
+      "brand": "Olim",
+      "image": "/alternatives/olim-frito.webp"
+    },
+    {
+      "serbianBrand": "Vital (Vrbas)",
+      "brand": "Shkrela",
+      "image": "/alternatives/shkrela-olive.jpg"
+    },
+    {
+      "serbianBrand": "Vital (Vrbas)",
+      "brand": "Biolive",
+      "image": "/alternatives/biolive.webp"
+    },
+    {
+      "serbianBrand": "Voda Vrnjci",
+      "brand": "Rugove",
+      "image": "/alternatives/rugove-water.jpg"
+    },
+    {
+      "serbianBrand": "Voda Vrnjci",
+      "brand": "Uji i Ftohtë Tepelenë",
+      "image": "/alternatives/tepelene-water.webp"
+    },
+    {
+      "serbianBrand": "Voda Vrnjci",
+      "brand": "Lajthiza",
+      "image": "/alternatives/lajthiza.webp"
+    },
+    {
+      "serbianBrand": "Voda Vrnjci",
+      "brand": "Glina",
+      "image": "/alternatives/glina.webp"
+    },
+    {
+      "serbianBrand": "Fruvita",
+      "brand": "Frutti",
+      "image": "/alternatives/frutti.webp"
+    },
+    {
+      "serbianBrand": "Fruvita",
+      "brand": "Tango",
+      "image": "/alternatives/tango.webp"
+    },
+    {
+      "serbianBrand": "Fruvita",
+      "brand": "Frutomania",
+      "image": "/alternatives/frutomania.jpg"
+    },
+    {
+      "serbianBrand": "Guarana",
+      "brand": "Golden Eagle",
+      "image": "/alternatives/golden-eagle.webp"
+    },
+    {
+      "serbianBrand": "Guarana",
+      "brand": "GO+",
+      "image": "/alternatives/go-energy.webp"
+    },
+    {
+      "serbianBrand": "Mlekara Šabac",
+      "brand": "Vita",
+      "image": "/alternatives/vita.webp"
+    },
+    {
+      "serbianBrand": "Mlekara Šabac",
+      "brand": "Ajka",
+      "image": "/alternatives/ajka-milk.webp"
+    },
+    {
+      "serbianBrand": "Mlekara Šabac",
+      "brand": "ABI",
+      "image": "/alternatives/abi.jpg"
+    },
+    {
+      "serbianBrand": "Sirko (Mlekara Šabac)",
+      "brand": "ABI",
+      "image": "/alternatives/abi.jpg"
+    },
+    {
+      "serbianBrand": "Sirko (Mlekara Šabac)",
+      "brand": "Rugove (cheese)",
+      "image": "/alternatives/rugove-cheese.webp"
+    },
+    {
+      "serbianBrand": "Carnex",
+      "brand": "Mishtore Xhoshkun",
+      "image": "/alternatives/xhoshkun.jpg"
+    },
+    {
+      "serbianBrand": "Matijević",
+      "brand": "Mishtore Xhoshkun",
+      "image": "/alternatives/xhoshkun.jpg"
+    },
+    {
+      "serbianBrand": "Neoplanta",
+      "brand": "Mishtore Xhoshkun",
+      "image": "/alternatives/xhoshkun.jpg"
+    },
+    {
+      "serbianBrand": "Zlatiborac",
+      "brand": "Mishtore Xhoshkun",
+      "image": "/alternatives/xhoshkun.jpg"
+    },
+    {
+      "serbianBrand": "Doncafé",
+      "brand": "Prince Caffe",
+      "image": "/alternatives/prince-caffe.webp"
+    },
+    {
+      "serbianBrand": "Doncafé",
+      "brand": "Mulliri Vjetër",
+      "image": "/alternatives/mulliri-vjeter.jpg"
+    },
+    {
+      "serbianBrand": "Doncafé",
+      "brand": "Lori Caffè",
+      "image": "/alternatives/lori-caffe.webp"
+    },
+    {
+      "serbianBrand": "Fructus",
+      "brand": "Merja",
+      "image": "/alternatives/merja-caj.jpg"
+    },
+    {
+      "serbianBrand": "Vitamin Horgoš",
+      "brand": "Merja",
+      "image": "/alternatives/merja-caj.jpg"
+    },
+    {
+      "serbianBrand": "Aleva",
+      "brand": "EFI Spec i Kuq (EGI Group)",
+      "image": "/alternatives/piki-spec.webp"
+    },
+    {
+      "serbianBrand": "Aleva",
+      "brand": "Euroni",
+      "image": "/alternatives/euroni-salt.webp"
+    },
+    {
+      "serbianBrand": "Centroproizvod (C)",
+      "brand": "EuroFood",
+      "image": "/alternatives/eurofood-ajvar.webp"
+    },
+    {
+      "serbianBrand": "Centroproizvod (C)",
+      "brand": "Art Food",
+      "image": "/alternatives/art-food-ketchup.webp"
+    },
+    {
+      "serbianBrand": "Centroproizvod (C)",
+      "brand": "ABI Progres",
+      "image": "/alternatives/abi-progres-ajvar.webp"
+    },
+    {
+      "serbianBrand": "Danubius",
+      "brand": "Pi&Ki (makarona)",
+      "image": "/alternatives/piki-pasta.webp"
+    },
+    {
+      "serbianBrand": "Danubius",
+      "brand": "Prima (flour and pasta)",
+      "image": "/alternatives/prima.jpg"
+    },
+    {
+      "serbianBrand": "Danubius",
+      "brand": "Miell Diamond",
+      "image": "/alternatives/miell-diamond.webp"
+    },
+    {
+      "serbianBrand": "Fidelinka",
+      "brand": "Pi&Ki (makarona)",
+      "image": "/alternatives/piki-pasta.webp"
+    },
+    {
+      "serbianBrand": "Fidelinka",
+      "brand": "Prima (flour and pasta)",
+      "image": "/alternatives/prima.jpg"
+    },
+    {
+      "serbianBrand": "Fidelinka",
+      "brand": "Miell Diamond",
+      "image": "/alternatives/miell-diamond.webp"
+    },
+    {
+      "serbianBrand": "Perfex (Drenik ND)",
+      "brand": "Tara",
+      "image": "/alternatives/tara-toilet.jpg"
+    },
+    {
+      "serbianBrand": "Duel (Beohemija)",
+      "brand": "ER-ABI Attix",
+      "image": "/alternatives/er-abi-attix.webp"
+    },
+    {
+      "serbianBrand": "Duel (Beohemija)",
+      "brand": "Rea (Get)",
+      "image": "/alternatives/get-rea.jpg"
+    },
+    {
+      "serbianBrand": "Personal care sold in Kosovo (no single verified Serbian mass brand)",
+      "brand": "ER-ABI Softly",
+      "image": "/alternatives/er-abi-softly.webp"
+    },
+    {
+      "serbianBrand": "Personal care sold in Kosovo (no single verified Serbian mass brand)",
+      "brand": "ER-ABI (shampon)",
+      "image": "/alternatives/er-abi-shampoo.webp"
+    },
+    {
+      "serbianBrand": "Jam, honey and fruit preserves (no single verified Serbian brand)",
+      "brand": "ABI Progres",
+      "image": "/alternatives/abi-progres-ajvar.webp"
+    },
+    {
+      "serbianBrand": "GUD (Marbo Product)",
+      "brand": "Haje",
+      "image": "/alternatives/haje-kikirik.webp"
+    },
+    {
+      "serbianBrand": "GUD (Marbo Product)",
+      "brand": "Pi&Ki (kikirik dhe arra)",
+      "image": "/alternatives/piki-kikirik.webp"
+    },
+    {
+      "serbianBrand": "Canned beans, peas and pulses (no single dominant Serbian brand verified)",
+      "brand": "Pi&Ki Fasule",
+      "image": "/alternatives/piki-fasule.webp"
+    },
+    {
+      "serbianBrand": "Rice sold from Serbia (no verified Serbian rice brand — Serbia has no significant rice crop)",
+      "brand": "Pi&Ki Oriz",
+      "image": "/alternatives/piki-oriz.webp"
+    },
+    {
+      "serbianBrand": "Don Don",
+      "brand": "Buka Bakery",
+      "image": "/alternatives/buka-fara.jpg"
+    },
+    {
+      "serbianBrand": "Fresh potatoes, fruit and vegetables traded from Serbia (no single dominant Serbian consumer brand)",
+      "brand": "Pestova (patate të freskëta)",
+      "image": "/alternatives/pestova-patate.webp"
+    }
+  ],
+  "brandsWithoutPhoto": [
+    {
+      "brand": "Mia Vita",
+      "company": "listed in brand-alternatives.json as Devolli Group, Fushë Kosovë",
+      "reason": "No official page for a \"Mia Vita\" product could be found, so no photo could be attributed with confidence.",
+      "tried": ["https://devolligroup.com/ — brand index lists Aquavita, Birra Peja, Go, Holla, Sola, Tango and Vita; there is no Mia Vita brand page and the string \"Mia Vita\" does not appear on the site.", "https://devolligroup.com/brands/ — same: no Mia Vita.", "https://devollicorporation.com/en/ (the separate Devolli Corporation, Pejë) — coffee and logistics only, no Mia Vita.", "https://www.qumeshtorjavita.com/ — Vita dairy only (milk, yogurt, cream, cheese); no juice line under this name.", "Web search for \"Mia Vita\" juice Kosovo / lëng frutash — returned only Vita dairy coverage and unrelated juice producers (Frutti, Frutomania)."],
+      "recommendation": "Before a photo is attached, the Mia Vita pairing itself should be re-verified — the alternative may need to be replaced by a documented Kosovo juice brand (Frutomania is already in this file; Frutti sh.p.k., https://frutti-ks.com/, is the obvious second candidate)."
+    },
+    {
+      "brand": "ABI-ELIF 19 Progres",
+      "company": "ABI / ELIF 19, Prizren",
+      "reason": "The official group site publishes only the ABI PROGRES wordmark logo, not a product photo. A logo is not a product photo and was not used.",
+      "tried": ["https://abi-center.com/en/companies/ — every image under this page is a company logo (ABI_PROGRES_LOGO, abi-shpk-transparent, abi-store, abi_plus, furra, kino …); no packaged-product shot.", "https://abi-center.com/en/ and /en/about-us/ — same asset set, no product photography.", "https://abimilk.com/ — this is the ABI dairy arm and has real product photography, but it is a different product line (milk/yogurt/cheese) and cannot stand in for Progres preserves."],
+      "recommendation": "A Progres pack shot would have to come from a Progres product page that does not currently exist. Until then the ajvar entry still has EuroFood and Krusha alongside it, and EuroFood does have a photo."
+    },
+    {
+      "brand": "Krusha (KB Krusha cooperative)",
+      "company": "Kooperativa Bujqësore Krusha, Krushë e Madhe",
+      "reason": "The cooperative has no reachable official website, and the only source in the data file (balkanappetite.com) is a retailer listing, which the sourcing rules exclude.",
+      "tried": ["https://kbkrusha.net/ and http://kbkrusha.net/ — the domain cited on the cooperative's own Facebook page does not resolve (DNS failure, curl exit 6).", "https://krusha.net/, https://kbkrusha.com/ — do not resolve either.", "https://balkanappetite.com/products/krusha-ajvar-home-made-720gr — this is the source already in brand-alternatives.json, but it is a third-party shop listing, not the producer's own site, so its imagery is out of bounds.", "The cooperative's only live official presence found is https://www.facebook.com/gratekrushes/ — Facebook's robots.txt disallows the crawling this would require, so it was not scraped."],
+      "recommendation": "Ask KB Krusha directly for a pack shot, or use the Facebook page only with the cooperative's written permission. Do not lift the retailer photo."
+    },
+    {
+      "brand": "Sharri",
+      "company": "Qumështorja Sharri, Rr. Besim Shala p.n., Prizren",
+      "reason": "Sharri publishes excellent pack shots for its whole range, and sharrimilk.com/robots.txt leaves `User-agent: *` wide open — but the SAME file carries an explicit `User-agent: ClaudeBot / Disallow: /` block, alongside `Content-Signal: ai-train=no`. This crawler treats AI-crawler opt-outs as binding. Sending a browser User-Agent and then treating the ClaudeBot rule as \"not about us\" would be a bot-protection bypass dressed up as a technicality, so the photos were not taken. The alternative is still listed, just without an image — which is the correct outcome under rule 3.",
+      "tried": ["https://www.sharrimilk.com/robots.txt — Cloudflare-managed file: `User-agent: * / Content-Signal: search=yes,ai-train=no,use=reference / Allow: /`, then explicit `Disallow: /` blocks for ClaudeBot, GPTBot, CCBot, Google-Extended, Bytespider, Amazonbot, Applebot-Extended and meta-externalagent.", "https://www.sharrimilk.com/produktet/ — 19 usable own-site pack shots exist here (jogurt 500ml/1l, djath i bardhë 800g/2kg/4kg, Djathi i Sharrit 1kg/2kg, kaçkavall, dhallë, ayran, kos, gjizë, gjalpë). None were downloaded.", "The robots parser in this script was widened in the same pass so the rule is enforced automatically rather than relying on someone remembering it — see SELF_UA_TOKENS in loadRobots()."],
+      "recommendation": "Ask Qumështorja Sharri directly for permission or for a press pack. Do not fetch these assets while that ClaudeBot rule stands."
+    },
+    {
+      "brand": "Bletoria",
+      "company": "Bletoria, Kamenicë (Gollak)",
+      "reason": "The only product image on Bletoria's own product page is a MARKETING BANNER — black background, \"OFERTË SPECIALE\", \"3 KG 70€ 60€\" struck-through pricing and a honey dipper — not a pack shot. Shipping it would put a price promotion that expires into the app's alternatives grid, and the jar inside it cannot be confirmed as Bletoria's own rather than a stock composite. The producer itself is well evidenced and stays listed; only the photo is withheld.",
+      "tried": ["https://bletoria.com/images/products/pako-familjare-3kg.jpg — fetched and eyeballed: it is the special-offer banner described above, not a product photograph.", "https://bletoria.com/produktet/ — the rest of the range is presented with the same promotional treatment.", "https://bletoria.com/images/story/lifestyle-jar.png — a lifestyle composition rather than a pack shot, and the jar carries no readable Bletoria label."],
+      "recommendation": "Ask Bletoria for a plain jar photograph. Until then the honey/preserves entry still carries ABI Progres, which does have a usable own-site image."
+    },
+    {
+      "brand": "Apetit",
+      "company": "Apetit Group sh.p.k., Fshati Babi Most, Obiliq",
+      "reason": "Apetit is a verified Kosovo meat producer with its own licensed slaughterhouse, but no image on its site could be confidently identified as an Apetit product. The two candidate files under the site's own \"produktet\" section carry empty alt text, and the neighbouring gallery page is still filled with unedited site-template stock (a boat, a butterfly, an iPhone) — so an image from this site cannot be trusted to be the producer's own product without a human eyeball.",
+      "tried": ["https://apetitgroup.com/ — returns a 500-status iframe wrapper; the real site is at https://apetitgroup.com/wp/.", "https://apetitgroup.com/wp/ — img/1.jpg and img/2.jpg sit inside the #produktet section and are real JPEGs, but have no alt text and could not be confirmed as pack shots.", "https://apetitgroup.com/wp/galeri.html — template stock imagery, which is what makes the two candidates above untrustworthy."],
+      "recommendation": "A human should look at apetitgroup.com/wp/img/1.jpg and decide. Until then the meat entries still carry Mishtore Xhoshkun, which does have a verified own-site product photo."
+    },
+    {
+      "brand": "Bodrumi i Vjetër",
+      "company": "Veraria \"Bodrumi i Vjetër\", Rr. Gzim Hamza PN, 21000 Rahovec, Kosovë",
+      "reason": "Same situation as Sharri: the Rahovec winery publishes clean bottle shots for its whole range, but bodrumivjeter.com/robots.txt carries a Cloudflare-managed block with an explicit `User-agent: ClaudeBot / Disallow: /` (plus `Content-Signal: ai-train=no`). This crawler treats AI-crawler opt-outs as binding, so the photos were not taken. The alternative is listed without an image, which is the correct outcome under rule 3.",
+      "tried": ["https://bodrumivjeter.com/robots.txt — `User-agent: * / Content-Signal: search=yes,ai-train=no,use=reference / Allow: /`, then explicit `Disallow: /` for ClaudeBot, GPTBot, CCBot, Google-Extended, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent and CloudflareBrowserRenderingCrawler.", "https://bodrumivjeter.com/produkte/ — 28 own-site bottle shots exist here (Vranac, Riesling Italian, Cabernet Sauvignon, Merlot, Merlot Barrique, Chardonnay, Pinot Noir, Rosé, Terra, Elephant, Rozafa, DARDA Raki Rrushi, Dhurata e Parë). None were downloaded.", "https://stonecastlewinery.com/ — checked as a second Kosovo winery so the entry would not depend on one blocked site: the domain now serves only a redirect to /lander and its sitemap has a single URL, i.e. it is parked. Rejected, no longer an official producer site.", "https://suharekaverari.com/ — resolves, but serves an untouched default WordPress install (\"My Blog / My WordPress Blog\"). Rejected on the same ground."],
+      "recommendation": "Ask Veraria Bodrumi i Vjetër for a press pack or written permission. Do not fetch these assets while the ClaudeBot rule stands."
+    }
+  ],
+  "alternativesWithoutPhoto": [
+    {
+      "serbianBrand": "Nectar",
+      "brand": "Mia Vita"
+    },
+    {
+      "serbianBrand": "Imlek (djathë)",
+      "brand": "Sharri"
+    },
+    {
+      "serbianBrand": "Leskovački ajvar (Serbian PGI-protected regional product)",
+      "brand": "ABI-ELIF 19 Progres"
+    },
+    {
+      "serbianBrand": "Leskovački ajvar (Serbian PGI-protected regional product)",
+      "brand": "Krusha (KB Krusha cooperative)"
+    },
+    {
+      "serbianBrand": "Mlekara Šabac",
+      "brand": "Sharri"
+    },
+    {
+      "serbianBrand": "Sirko (Mlekara Šabac)",
+      "brand": "Sharri"
+    },
+    {
+      "serbianBrand": "Carnex",
+      "brand": "Apetit"
+    },
+    {
+      "serbianBrand": "Matijević",
+      "brand": "Apetit"
+    },
+    {
+      "serbianBrand": "Neoplanta",
+      "brand": "Apetit"
+    },
+    {
+      "serbianBrand": "Zlatiborac",
+      "brand": "Apetit"
+    },
+    {
+      "serbianBrand": "Jam, honey and fruit preserves (no single verified Serbian brand)",
+      "brand": "Bletoria"
+    },
+    {
+      "serbianBrand": "Rubin (Kruševac)",
+      "brand": "Bodrumi i Vjetër"
+    }
+  ]
+}
