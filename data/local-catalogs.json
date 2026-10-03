@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-09-10T19:47:00Z",
+  "usable": [
+    {
+      "domain": "birrakorca.com.al",
+      "platform": "woocommerce",
+      "endpoint": "https://birrakorca.com.al/wp-json/wc/store/products?per_page=20",
+      "storeName": "Birra Korça Sh.P.K.",
+      "currency": "ALL",
+      "sampleCount": 5,
+      "exampleProducts": ["Uji Fab", "BIRRA GOLD", "Birra Korca e zezë (24 cope)"],
+      "hasImages": true,
+      "note": "Genuinely local: this is the Korça, Albania brewery's own WordPress/WooCommerce site selling its own beer (Birra Korca bionde/e zezë) plus one distributed water brand (Uji Fab, made by Alpin Sh.P.K.). Small B2B/wholesale-style catalog (kegs, 24-can cases), only 5 SKUs, not a consumer webshop. No brand/origin field needed for filtering since the entire catalog is this one Albanian producer's own line, but product descriptions state delivery is Albania-only ('Dorezime vetem ne Shqiperi') -- so it documents the product but may not be orderable from Kosovo."
+    },
+    {
+      "domain": "vipa-ks.com",
+      "platform": "woocommerce",
+      "endpoint": "https://www.vipa-ks.com/wp-json/wc/store/products?per_page=20",
+      "storeName": "Vipa (Pestova Sh.P.K.)",
+      "currency": "EUR",
+      "sampleCount": 20,
+      "exampleProducts": ["Stix Hot Dog", "Bugles Baharatli", "Chips Classic"],
+      "hasImages": true,
+      "note": "Genuinely local: this is the Kosovo snack maker Pestova's own brand site (pestova-ks.com 301-redirects here) for the Vipa Chips line -- exactly the kind of brand named in the brief. Real WooCommerce Store API, 20 real products with images, but all prices are 0 -- it is a showcase/catalog site, not a working online store, so it has no real currency/price data despite reporting EUR. Entire catalog is this one Kosovo brand so no local/imported filtering is needed."
+    },
+    {
+      "domain": "dyqanibio.com",
+      "platform": "shopify",
+      "endpoint": "https://dyqanibio.com/products.json?limit=250",
+      "storeName": "DYQANI BIO",
+      "currency": "EUR",
+      "sampleCount": 250,
+      "exampleProducts": ["Vaj nga farat e zeza (Nigela), 60 kapsulla", "AshwaMag, 30 tableta", "Uthull molle e pafiltruar, 500ml"],
+      "hasImages": true,
+      "note": "Real Shopify store based in Prishtina (meta.json confirms city/country XK, myshopify_domain dyqanibio.myshopify.com) with a working products.json (250 items) and images. Has a 'vendor' field that DOES let you filter local vs imported -- but of 44 distinct vendors, only 3 products are actually vendor='DYQANI BIO' (their own private label); the rest (Physalis, Il Nutrimente, Clearspring, Amaizin, Okinawa, ISWARI, etc.) are imported organic/health-food brands from Bulgaria/Italy/UK/Belgium/Canada. So: usable and filterable, but almost entirely imported goods -- low value as a source of LOCAL Kosovo alternatives."
+    },
+    {
+      "domain": "shopstop.al",
+      "platform": "woocommerce",
+      "endpoint": "https://shopstop.al/wp-json/wc/store/products?per_page=20",
+      "storeName": "ShopStop.al",
+      "currency": "ALL",
+      "sampleCount": 20,
+      "exampleProducts": ["Furce dhembesh elektrike Waterpik Sonic", "Llambe tavoline LED me kend te rregullueshem Mi Smart", "Mini tastiere me Bluetooth Wireless keyboard"],
+      "hasImages": true,
+      "note": "Real WooCommerce Store API, works and returns real data with images. But this is a general electronics/gadgets importer (toothbrushes, keyboards, car stereos) with no food/FMCG category and no brand/origin field distinguishing local vs imported -- irrelevant to the Plazma-to-Sempre style alternative use case. Included for completeness/honesty but not recommended for the alternatives DB."
+    }
+  ],
+  "rejected": [
+    { "domain": "meridianexpress.com", "reason": "Not a product catalog at all -- it is the corporate/CSR site for the Meridian Express kiosk-retail franchise network. Only 1 JSON-LD block on the homepage and it is Yoast's generic WebPage/Organization schema, not Product data. Our own tooling's 'reverse-engineerable-embedded' verdict appears to be a false positive (it likely matched on the mere presence of an ld+json tag without checking its @type). No /products.json, no WooCommerce route (confirmed via /wp-json/ route list -- no wc/store namespace present), no offer/price data anywhere on the page." },
+    { "domain": "etc-ks.com", "reason": "Confirmed 'no-obvious-data-source'. Custom legacy PHP site (aktualitet.php?product=... weekly-offer pages). Zero ld+json blocks anywhere. /products.json and /wp-json/wc/store/products both 404. The 'offer' pages are static promotional flyer IMAGES (images/aktualitet1.png etc.) with no machine-readable product text or price at all." },
+    { "domain": "vivafresh.com", "reason": "HTTP 403 Forbidden on every request (root and www, with full browser headers) -- WAF/bot-blocking prevents any programmatic access." },
+    { "domain": "interex-ks.com", "reason": "HTTP 500 Internal Server Error on repeated attempts (root and www); site is not serving working pages at all right now." },
+    { "domain": "albi-mall.com", "reason": "DNS resolution failure ('Could not resolve host') -- domain does not currently resolve." },
+    { "domain": "gjirafamall.com", "reason": "Real, live nopCommerce marketplace (GjirafaMall KS) with food categories including /biskota-ushqime, but product data is rendered server-side as plain HTML grid only -- the only JSON-LD present is Organization/CollectionPage/FAQPage schema, no Product schema, no products.json, no WooCommerce REST route. Sampled the biscuits category page directly: 6 products shown (Lotus Biscoff, various Gambini biscuit packs), no Sempre found, no brand/origin field visible in the markup. Would require full HTML scraping, not a JSON API, so it fails the 'usable source' bar as defined; also a general marketplace mixing local and heavily imported goods with no way to filter by origin." },
+    { "domain": "abimilk.com", "reason": "ABI Dairy Industry (real Prizren dairy producer) has a /en/products/ page but it carries only Organization/WebPage/BreadcrumbList JSON-LD, no Product schema; /wp-json/wc/store/products returns 404 (no WooCommerce REST route registered). Products are listed in plain HTML only." },
+    { "domain": "vipros-ks.com", "reason": "Site loads (title 'Vipros') but /wp-json/wc/store/products returns 404 -- no WooCommerce catalog exposed; did not identify what this domain actually sells." },
+    { "domain": "elkosgroup.com", "reason": "Elkos Group (real distributor of ~90 world brands in Kosovo) homepage loads but no shop/product/dyqan links found in the nav; no products.json (redirects to homepage). Appears to be a corporate distributor site, not a browsable catalog, and even if found would be an importer of foreign brands rather than local Kosovo products." },
+    { "domain": "adadistribution-ks.com", "reason": "HTTP 526 (Cloudflare: invalid origin SSL certificate) -- cannot connect." },
+    { "domain": "rroshi-co.com", "reason": "DNS resolution failure on both root and www." },
+    { "domain": "albicommerce.com", "reason": "WordPress site loads but /wp-json/wc/store/products returns 404 rest_no_route -- WooCommerce REST not exposed (or plugin absent); /products.json returns the WP 404 page (not Shopify)." },
+    { "domain": "madein-kosova.com", "reason": "DNS resolution failure on both root and www (http and https) -- domain appears dead despite being referenced in older search-indexed pages." },
+    { "domain": "maxiks.shop", "reason": "Custom PHP shop (Maxi Shop), loads fine and does carry local brands (confirmed Birra Peja on a product page), but no products.json, no JSON-LD anywhere on product pages, no discoverable API -- price/name only present as plain HTML spans (class=\"main-price\", \"product-price\")." },
+    { "domain": "e-baa.com", "reason": "The /new/ path referenced in search results now 404s after a redirect (https://e-baa.com/new). No __NEXT_DATA__, no ld+json found in the returned page." },
+    { "domain": "aladini.al", "reason": "DNS resolution failure on both root and www." },
+    { "domain": "argodrinks.com", "reason": "301-redirects to argoshowroom.com (a real beer/wine/spirits importer-distributor in Kosovo that does carry Birra Peja per earlier search results). /products.json 404. Only Organization-type JSON-LD present, no Product schema, no catalog API found. Also explicitly a beverage IMPORT/distribution company, not a local producer." },
+    { "domain": "freshalbmarket.co.uk", "reason": "UK-based Albanian/Kosovo diaspora grocery reseller (PrestaShop-style URLs seen in search results, e.g. /en/home/12-golden-eagle-energy-drink-250ml.html) but that exact URL now 404s; homepage has zero ld+json blocks and no products.json. No accessible catalog API found. Also UK-based, not Kosovo-based." },
+    { "domain": "sakushton.com", "reason": "Real Kosovo price-comparison site ('Krahaso çmimet në Kosovë') but it is an Angular single-page app -- /products.json just returns the app's index.html shell (HTTP 200 but not real data), not a data endpoint. Would need to find its real backend API route, which was not identified in this pass." },
+    { "domain": "birrapeja.com", "reason": "Real Kosovo brewery (confirmed brand), WordPress site with an age-verification gate, but /products.json 404 and /wp-json/wc/store/products 404 (rest_no_route) -- no WooCommerce catalog exposed. Appears to be a corporate brand site, not a webshop." }
+  ],
+  "brandFindings": [
+    { "brand": "Sempre", "found": true, "where": "https://kallxo.com/gjate/analize/biznesi-kosovar-dhe-vendosja-reciprocitetit/", "note": "Confirmed real: Sempre is a biscuit made by the Kosovo company 'Liri' (owner Arben Tërshnjaku), and is explicitly reported as having been introduced as a local alternative to Serbian Plazma -- this is exactly the canonical case in the brief. However, no dedicated Sempre/Liri e-commerce site or catalog API was found; it did not appear in the sampled GjirafaMall biscuits category page either. Treat as a confirmed brand name/fact, not as a data source." },
+    { "brand": "Vipa", "found": true, "where": "https://vipa-ks.com/wp-json/wc/store/products?per_page=20 (also press: kallxo.com, insajderi.org, betimiperdrejtesi.com)", "note": "Confirmed and captured live -- see 'usable' entry above. Vipa Chips is made by Pestova Sh.P.K. in Vushtrri, Kosovo." },
+    { "brand": "Devolli (Golden Eagle / Tea Rex)", "found": false, "where": "https://devollicorporation.com/en/ confirms Devolli Corporation is real, but its stated main brands are coffee (Princ Caffe, Prince Espresso, Pascalin) and Comodita Home mattresses -- no mention of 'Tea Rex' or 'Golden Eagle' anywhere in search results tied to Devolli", "note": "Golden Eagle energy drink is real but belongs to a DIFFERENT company, Frutex (Suhareka, Kosovo, since 1994) at goldeneagle-ks.com -- not Devolli. Marking the specific 'Devolli -> Tea Rex/Golden Eagle' claim in the brief as unconfirmed/likely incorrect rather than guessing." },
+    { "brand": "Golden Eagle (Frutex)", "found": true, "where": "https://goldeneagle-ks.com/ (brand site, not deep-tested for a catalog API), also sold on maxiks.shop and freshalbmarket.co.uk", "note": "Real Kosovo energy-drink brand, confirmed via multiple independent retailer listings and Amazon." },
+    { "brand": "Frutomania", "found": true, "where": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/ ; https://alva.al/frutomania-100-produkt-nga-kosova/", "note": "Confirmed real: 100% Kosovo-made fruit juice/jam producer near Gjilan, in production since 2006/2010. A domain 'frutomaniaks.com' was referenced in one search snippet but I did not independently load or verify it -- not counted as a checked source." },
+    { "brand": "Abi (ABI Dairy)", "found": true, "where": "https://abimilk.com/en/", "note": "Confirmed real dairy producer (Prizren, since 1996, 45+ products) -- see rejected-source note above for why its site isn't usable as a catalog API." },
+    { "brand": "Bimeri", "found": false, "where": "not found online", "note": "No company or brand matching this name turned up in searches; not confirming its existence." },
+    { "brand": "Agrokultura", "found": false, "where": "not found online", "note": "Searches returned only generic 'agriculture' content, no specific branded company by this name." },
+    { "brand": "Rugove", "found": true, "where": "https://www.facebook.com/@qumeshtorjarugove/", "note": "Confirmed real: Qumështorja Rugove is a real Kosovo dairy/water company. No dedicated website or e-commerce catalog found, only a Facebook page and news coverage (including recent food-safety inspection issues, noted for completeness, not as a recommendation)." },
+    { "brand": "Kosovarja", "found": false, "where": "kosovarja-ks.com appears to be a lifestyle/news magazine, not a product brand", "note": "Did not find any FMCG product company operating under the name 'Kosovarja' -- only a media outlet." },
+    { "brand": "Elkos/ETC", "found": true, "where": "https://www.elkosgroup.com ; https://etc-ks.com", "note": "Both are confirmed real Kosovo retail/distribution companies. Elkos Group is described as an exclusive distributor of ~90 world (i.e. foreign) brands -- so even if reachable, it would mostly surface imported goods. ETC is a real supermarket chain but its site exposes no catalog data (see rejected list)." },
+    { "brand": "Birra Peja", "found": true, "where": "https://birrapeja.com", "note": "Confirmed real Kosovo brewery with its own branded site, but no catalog API (see rejected list). Also distributed by maxiks.shop and argoshowroom.com." },
+    { "brand": "Birra Korça", "found": true, "where": "https://birrakorca.com.al/en/shop/", "note": "Confirmed and captured live -- see 'usable' entry above." },
+    { "brand": "Alpe", "found": false, "where": "not found online", "note": "Too generic a term in my searches to isolate a specific Kosovo/Albania FMCG brand; not verified." },
+    { "brand": "Lajthiza", "found": false, "where": "not found online", "note": "No independent confirmation found in this pass; only appeared bundled in a compound search query with no distinct result." },
+    { "brand": "Tepelena", "found": false, "where": "not found online", "note": "Not independently verified in this pass (no dedicated search run beyond a bundled query that returned no relevant hits)." },
+    { "brand": "Bylis", "found": false, "where": "not found online", "note": "Not independently verified in this pass (no dedicated search run beyond a bundled query that returned no relevant hits)." }
+  ]
+}

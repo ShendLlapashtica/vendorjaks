@@ -1,0 +1,94 @@
+/*
+ * Store-list detail added with the owner's 2026-09-16 Google Maps paste:
+ * rating, review count, business category, opening time.
+ *
+ * Imported from StoreList.jsx only. App.css and index.css are not
+ * touched here.
+ *
+ * Everything below inherits colour from the surrounding theme via
+ * currentColor and opacity, so it survives a palette rewrite
+ * without needing to know what the palette is.
+ */
+
+.vj-store-rating {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vj-store-rating-value {
+  font-weight: 600;
+}
+
+/* The star is decoration for a number that is already written out; it must
+   not be read aloud as "star" before the value. */
+.vj-store-rating-star {
+  opacity: 0.8;
+}
+
+.vj-store-rating-count {
+  opacity: 0.7;
+  font-size: 0.92em;
+}
+
+/* "No ratings yet" — deliberately words, not an empty five-star row and not
+   a zero. A shop nobody has reviewed is not a shop rated zero. */
+.vj-store-rating-none {
+  opacity: 0.6;
+  font-size: 0.92em;
+  font-style: italic;
+}
+
+.vj-store-type {
+  opacity: 0.75;
+  font-size: 0.92em;
+}
+
+.vj-store-row-hours-partial {
+  opacity: 0.75;
+}
+
+/* A phone number we were given but could not verify as dialable (a +381
+   Serbian code on a Kosovo shop, or a malformed length). Shown as text, never
+   as a tel: link, with the reason available on hover/focus. */
+.vj-store-phone-unverified {
+  opacity: 0.75;
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+.vj-store-provenance {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 0.82em;
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   THE CLAIM LINE — StoreList.jsx
+   Owner, 2026-09-16: "why show markets when not sourced there."
+
+   A list of shop names, on its own, always reads as "you can buy it here".
+   The panel can only support something narrower than that, so it says which
+   of the three claims it is making (src/lib/stores.js CLAIM_*) in words,
+   above the list, before the names can do the implying.
+   -------------------------------------------------------------------------- */
+.vj-stores-claim {
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.55rem 0.7rem;
+  border-left: 2px solid var(--navy-300, #4466a3);
+  border-radius: 0 8px 8px 0;
+  background: var(--surface-glass-soft, rgba(30, 50, 92, 0.3));
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-dim, #a8b4cc);
+}
+
+/* "Nowhere nearby that we can verify" is a correct answer, not a failure,
+   so it is not styled as an error. */
+.vj-stores-claim-none {
+  margin-bottom: 0;
+  border-left-color: var(--edge-strong, rgba(155, 178, 222, 0.26));
+}
