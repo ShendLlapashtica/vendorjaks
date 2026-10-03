@@ -1,0 +1,1894 @@
+{
+  "builtAt": "2026-09-12T11:50:36.325Z",
+  "builtBy": "scripts/build-gs1-table.mjs",
+  "disclaimer": "GS1 prefixes do not identify the country of origin for a given product.",
+  "notes": [
+    "A GS1 'company prefix' identifies which national/regional GS1 Member Organisation issued the number to the brand owner -- i.e. where the brand owner registered -- not where the item was manufactured, assembled, or grown.",
+    "A brand can register with one GS1 Member Organisation and manufacture (or contract-manufacture) anywhere in the world; multinationals often number all their products under one home-country prefix regardless of factory location.",
+    "This table is therefore a REGISTRATION/ISSUER map, never a manufacturing-origin map. Vendorja must only ever say \"issued by GS1 <X>\", never \"made in <X>\".",
+    "Coverage is total: every 3-digit prefix 000-999 resolves to exactly one entry. Ranges GS1 has not allocated are present explicitly with kind \"unassigned\" rather than being absent, so the app can say \"this prefix is not allocated\" instead of failing to classify.",
+    "Non-country ranges (restricted distribution, coupons, ISBN/ISSN, refund receipts, GS1 Global Office) carry kind != \"country\" and iso = null. They must never be rendered with a flag or described as a country.",
+    "381 is Kosovo's own official GS1 prefix. 389 is GS1 Montenegro. 390 is not an official Kosovo allocation but was used in practice by Kosovo producers before 381 became available, and is still in circulation -- both 381 and 390 are treated as local here, with 390 labelled as the legacy case. Verified 2026-09-12."
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/List_of_GS1_country_codes",
+    "https://upc.dev/prefixes"
+  ],
+  "coverage": {
+    "totalPrefixes": 1000,
+    "covered": 1000,
+    "entries": 187
+  },
+  "prefixes": [
+    {
+      "range": "000-019",
+      "country": "United States & Canada",
+      "countrySq": "SHBA e Kanada",
+      "iso": "US",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 US (shared UPC space with Canada)."
+    },
+    {
+      "range": "020-029",
+      "country": "Restricted distribution",
+      "countrySq": "Përdorim i brendshëm",
+      "iso": null,
+      "kind": "restricted",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Retailer-internal / in-store numbers. Not a country."
+    },
+    {
+      "range": "030-039",
+      "country": "United States",
+      "countrySq": "SHBA",
+      "iso": "US",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 US (drugs / National Drug Code)."
+    },
+    {
+      "range": "040-049",
+      "country": "Restricted distribution",
+      "countrySq": "Përdorim i brendshëm",
+      "iso": null,
+      "kind": "restricted",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Retailer-internal / in-store numbers. Not a country."
+    },
+    {
+      "range": "050-059",
+      "country": "Coupons",
+      "countrySq": "Kuponë",
+      "iso": null,
+      "kind": "coupon",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 US coupon identification."
+    },
+    {
+      "range": "060-139",
+      "country": "United States",
+      "countrySq": "SHBA",
+      "iso": "US",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 US."
+    },
+    {
+      "range": "140-199",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "200-299",
+      "country": "Restricted distribution",
+      "countrySq": "Përdorim i brendshëm",
+      "iso": null,
+      "kind": "restricted",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Retailer-internal / in-store numbers (weighed goods, loyalty). Not a country."
+    },
+    {
+      "range": "300-379",
+      "country": "France",
+      "countrySq": "Francë",
+      "iso": "FR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 France (incl. Monaco)."
+    },
+    {
+      "range": "380",
+      "country": "Bulgaria",
+      "countrySq": "Bullgari",
+      "iso": "BG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Bulgaria."
+    },
+    {
+      "range": "381",
+      "country": "Kosovo",
+      "countrySq": "Kosovë",
+      "iso": "XK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": true,
+      "note": "GS1 Kosovo — Kosovo's own official prefix."
+    },
+    {
+      "range": "382",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "383",
+      "country": "Slovenia",
+      "countrySq": "Slloveni",
+      "iso": "SI",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Slovenia."
+    },
+    {
+      "range": "384",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "385",
+      "country": "Croatia",
+      "countrySq": "Kroaci",
+      "iso": "HR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Croatia."
+    },
+    {
+      "range": "386",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "387",
+      "country": "Bosnia and Herzegovina",
+      "countrySq": "Bosnjë e Hercegovinë",
+      "iso": "BA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Bosnia and Herzegovina."
+    },
+    {
+      "range": "388",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "389",
+      "country": "Montenegro",
+      "countrySq": "Mal i Zi",
+      "iso": "ME",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Montenegro."
+    },
+    {
+      "range": "390",
+      "country": "Kosovo (legacy range)",
+      "countrySq": "Kosovë (rreze e vjetër)",
+      "iso": "XK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": true,
+      "note": "Used in practice by Kosovo producers before Kosovo had its own 381 allocation. Not an official Kosovo assignment, but real and still in circulation."
+    },
+    {
+      "range": "391-399",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "400-440",
+      "country": "Germany",
+      "countrySq": "Gjermani",
+      "iso": "DE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Germany."
+    },
+    {
+      "range": "441-449",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "450-459",
+      "country": "Japan",
+      "countrySq": "Japoni",
+      "iso": "JP",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Japan."
+    },
+    {
+      "range": "460-469",
+      "country": "Russia",
+      "countrySq": "Rusi",
+      "iso": "RU",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Russia."
+    },
+    {
+      "range": "470",
+      "country": "Kyrgyzstan",
+      "countrySq": "Kirgizstan",
+      "iso": "KG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Kyrgyzstan."
+    },
+    {
+      "range": "471",
+      "country": "Taiwan",
+      "countrySq": "Tajvan",
+      "iso": "TW",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Taiwan."
+    },
+    {
+      "range": "472-473",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "474",
+      "country": "Estonia",
+      "countrySq": "Estoni",
+      "iso": "EE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Estonia."
+    },
+    {
+      "range": "475",
+      "country": "Latvia",
+      "countrySq": "Letoni",
+      "iso": "LV",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Latvia."
+    },
+    {
+      "range": "476",
+      "country": "Azerbaijan",
+      "countrySq": "Azerbajxhan",
+      "iso": "AZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Azerbaijan."
+    },
+    {
+      "range": "477",
+      "country": "Lithuania",
+      "countrySq": "Lituani",
+      "iso": "LT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Lithuania."
+    },
+    {
+      "range": "478",
+      "country": "Uzbekistan",
+      "countrySq": "Uzbekistan",
+      "iso": "UZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Uzbekistan."
+    },
+    {
+      "range": "479",
+      "country": "Sri Lanka",
+      "countrySq": "Sri Lankë",
+      "iso": "LK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Sri Lanka."
+    },
+    {
+      "range": "480",
+      "country": "Philippines",
+      "countrySq": "Filipine",
+      "iso": "PH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Philippines."
+    },
+    {
+      "range": "481",
+      "country": "Belarus",
+      "countrySq": "Bjellorusi",
+      "iso": "BY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Belarus."
+    },
+    {
+      "range": "482",
+      "country": "Ukraine",
+      "countrySq": "Ukrainë",
+      "iso": "UA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Ukraine."
+    },
+    {
+      "range": "483",
+      "country": "Turkmenistan",
+      "countrySq": "Turkmenistan",
+      "iso": "TM",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Turkmenistan."
+    },
+    {
+      "range": "484",
+      "country": "Moldova",
+      "countrySq": "Moldavi",
+      "iso": "MD",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Moldova."
+    },
+    {
+      "range": "485",
+      "country": "Armenia",
+      "countrySq": "Armeni",
+      "iso": "AM",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Armenia."
+    },
+    {
+      "range": "486",
+      "country": "Georgia",
+      "countrySq": "Gjeorgji",
+      "iso": "GE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Georgia."
+    },
+    {
+      "range": "487",
+      "country": "Kazakhstan",
+      "countrySq": "Kazakistan",
+      "iso": "KZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Kazakhstan."
+    },
+    {
+      "range": "488",
+      "country": "Tajikistan",
+      "countrySq": "Taxhikistan",
+      "iso": "TJ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Tajikistan."
+    },
+    {
+      "range": "489",
+      "country": "Hong Kong",
+      "countrySq": "Hong Kong",
+      "iso": "HK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Hong Kong."
+    },
+    {
+      "range": "490-499",
+      "country": "Japan",
+      "countrySq": "Japoni",
+      "iso": "JP",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Japan."
+    },
+    {
+      "range": "500-509",
+      "country": "United Kingdom",
+      "countrySq": "Mbretëri e Bashkuar",
+      "iso": "GB",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 UK."
+    },
+    {
+      "range": "510-519",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "520-521",
+      "country": "Greece",
+      "countrySq": "Greqi",
+      "iso": "GR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Association Greece."
+    },
+    {
+      "range": "522-527",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "528",
+      "country": "Lebanon",
+      "countrySq": "Liban",
+      "iso": "LB",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Lebanon."
+    },
+    {
+      "range": "529",
+      "country": "Cyprus",
+      "countrySq": "Qipro",
+      "iso": "CY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Cyprus."
+    },
+    {
+      "range": "530",
+      "country": "Albania",
+      "countrySq": "Shqipëri",
+      "iso": "AL",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": true,
+      "note": "GS1 Albania."
+    },
+    {
+      "range": "531",
+      "country": "North Macedonia",
+      "countrySq": "Maqedoni e Veriut",
+      "iso": "MK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 North Macedonia."
+    },
+    {
+      "range": "532-534",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "535",
+      "country": "Malta",
+      "countrySq": "Maltë",
+      "iso": "MT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Malta."
+    },
+    {
+      "range": "536-538",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "539",
+      "country": "Ireland",
+      "countrySq": "Irlandë",
+      "iso": "IE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Ireland."
+    },
+    {
+      "range": "540-549",
+      "country": "Belgium & Luxembourg",
+      "countrySq": "Belgjikë e Luksemburg",
+      "iso": "BE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Belgium & Luxembourg."
+    },
+    {
+      "range": "550-559",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "560",
+      "country": "Portugal",
+      "countrySq": "Portugali",
+      "iso": "PT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Portugal."
+    },
+    {
+      "range": "561-568",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "569",
+      "country": "Iceland",
+      "countrySq": "Islandë",
+      "iso": "IS",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Iceland."
+    },
+    {
+      "range": "570-579",
+      "country": "Denmark",
+      "countrySq": "Danimarkë",
+      "iso": "DK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Denmark."
+    },
+    {
+      "range": "580-589",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "590",
+      "country": "Poland",
+      "countrySq": "Poloni",
+      "iso": "PL",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Poland."
+    },
+    {
+      "range": "591-593",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "594",
+      "country": "Romania",
+      "countrySq": "Rumani",
+      "iso": "RO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Romania."
+    },
+    {
+      "range": "595-598",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "599",
+      "country": "Hungary",
+      "countrySq": "Hungari",
+      "iso": "HU",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Hungary."
+    },
+    {
+      "range": "600-601",
+      "country": "South Africa",
+      "countrySq": "Afrikë e Jugut",
+      "iso": "ZA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 South Africa."
+    },
+    {
+      "range": "602",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "603",
+      "country": "Ghana",
+      "countrySq": "Ganë",
+      "iso": "GH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Ghana."
+    },
+    {
+      "range": "604",
+      "country": "Senegal",
+      "countrySq": "Senegal",
+      "iso": "SN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Senegal."
+    },
+    {
+      "range": "605",
+      "country": "Uganda",
+      "countrySq": "Ugandë",
+      "iso": "UG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Uganda."
+    },
+    {
+      "range": "606",
+      "country": "Angola",
+      "countrySq": "Angolë",
+      "iso": "AO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Angola."
+    },
+    {
+      "range": "607",
+      "country": "Oman",
+      "countrySq": "Oman",
+      "iso": "OM",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Oman."
+    },
+    {
+      "range": "608",
+      "country": "Bahrain",
+      "countrySq": "Bahrein",
+      "iso": "BH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Bahrain."
+    },
+    {
+      "range": "609",
+      "country": "Mauritius",
+      "countrySq": "Mauritius",
+      "iso": "MU",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Mauritius."
+    },
+    {
+      "range": "610",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "611",
+      "country": "Morocco",
+      "countrySq": "Marok",
+      "iso": "MA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Morocco."
+    },
+    {
+      "range": "612",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "613",
+      "country": "Algeria",
+      "countrySq": "Algjeri",
+      "iso": "DZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Algeria."
+    },
+    {
+      "range": "614",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "615",
+      "country": "Nigeria",
+      "countrySq": "Nigeri",
+      "iso": "NG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Nigeria."
+    },
+    {
+      "range": "616",
+      "country": "Kenya",
+      "countrySq": "Kenia",
+      "iso": "KE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Kenya."
+    },
+    {
+      "range": "617",
+      "country": "Cameroon",
+      "countrySq": "Kamerun",
+      "iso": "CM",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Cameroon."
+    },
+    {
+      "range": "618",
+      "country": "Ivory Coast",
+      "countrySq": "Bregu i Fildishtë",
+      "iso": "CI",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Ivory Coast."
+    },
+    {
+      "range": "619",
+      "country": "Tunisia",
+      "countrySq": "Tunizi",
+      "iso": "TN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Tunisia."
+    },
+    {
+      "range": "620",
+      "country": "Tanzania",
+      "countrySq": "Tanzani",
+      "iso": "TZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Tanzania."
+    },
+    {
+      "range": "621",
+      "country": "Syria",
+      "countrySq": "Siri",
+      "iso": "SY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Syria."
+    },
+    {
+      "range": "622",
+      "country": "Egypt",
+      "countrySq": "Egjipt",
+      "iso": "EG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Egypt."
+    },
+    {
+      "range": "623",
+      "country": "Brunei",
+      "countrySq": "Brunei",
+      "iso": "BN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Brunei."
+    },
+    {
+      "range": "624",
+      "country": "Libya",
+      "countrySq": "Libi",
+      "iso": "LY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Libya."
+    },
+    {
+      "range": "625",
+      "country": "Jordan",
+      "countrySq": "Jordani",
+      "iso": "JO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Jordan."
+    },
+    {
+      "range": "626",
+      "country": "Iran",
+      "countrySq": "Iran",
+      "iso": "IR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Iran."
+    },
+    {
+      "range": "627",
+      "country": "Kuwait",
+      "countrySq": "Kuvajt",
+      "iso": "KW",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Kuwait."
+    },
+    {
+      "range": "628",
+      "country": "Saudi Arabia",
+      "countrySq": "Arabi Saudite",
+      "iso": "SA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Saudi Arabia."
+    },
+    {
+      "range": "629",
+      "country": "United Arab Emirates",
+      "countrySq": "Emiratet e Bashkuara Arabe",
+      "iso": "AE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Emirates."
+    },
+    {
+      "range": "630",
+      "country": "Qatar",
+      "countrySq": "Katar",
+      "iso": "QA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Qatar."
+    },
+    {
+      "range": "631",
+      "country": "Namibia",
+      "countrySq": "Namibi",
+      "iso": "NA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Namibia."
+    },
+    {
+      "range": "632",
+      "country": "Rwanda",
+      "countrySq": "Ruandë",
+      "iso": "RW",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Rwanda."
+    },
+    {
+      "range": "633-639",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "640-649",
+      "country": "Finland",
+      "countrySq": "Finlandë",
+      "iso": "FI",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Finland."
+    },
+    {
+      "range": "650-689",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "690-699",
+      "country": "China",
+      "countrySq": "Kinë",
+      "iso": "CN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 China."
+    },
+    {
+      "range": "700-709",
+      "country": "Norway",
+      "countrySq": "Norvegji",
+      "iso": "NO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Norway."
+    },
+    {
+      "range": "710-728",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "729",
+      "country": "Israel",
+      "countrySq": "Izrael",
+      "iso": "IL",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Israel."
+    },
+    {
+      "range": "730-739",
+      "country": "Sweden",
+      "countrySq": "Suedi",
+      "iso": "SE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Sweden."
+    },
+    {
+      "range": "740",
+      "country": "Guatemala",
+      "countrySq": "Guatemalë",
+      "iso": "GT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Guatemala."
+    },
+    {
+      "range": "741",
+      "country": "El Salvador",
+      "countrySq": "Salvador",
+      "iso": "SV",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 El Salvador."
+    },
+    {
+      "range": "742",
+      "country": "Honduras",
+      "countrySq": "Honduras",
+      "iso": "HN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Honduras."
+    },
+    {
+      "range": "743",
+      "country": "Nicaragua",
+      "countrySq": "Nikaragua",
+      "iso": "NI",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Nicaragua."
+    },
+    {
+      "range": "744",
+      "country": "Costa Rica",
+      "countrySq": "Kosta Rika",
+      "iso": "CR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Costa Rica."
+    },
+    {
+      "range": "745",
+      "country": "Panama",
+      "countrySq": "Panama",
+      "iso": "PA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Panama."
+    },
+    {
+      "range": "746",
+      "country": "Dominican Republic",
+      "countrySq": "Republika Dominikane",
+      "iso": "DO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Republica Dominicana."
+    },
+    {
+      "range": "747-749",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "750",
+      "country": "Mexico",
+      "countrySq": "Meksikë",
+      "iso": "MX",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Mexico."
+    },
+    {
+      "range": "751-753",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "754-755",
+      "country": "Canada",
+      "countrySq": "Kanada",
+      "iso": "CA",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Canada."
+    },
+    {
+      "range": "756-758",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "759",
+      "country": "Venezuela",
+      "countrySq": "Venezuelë",
+      "iso": "VE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Venezuela."
+    },
+    {
+      "range": "760-769",
+      "country": "Switzerland",
+      "countrySq": "Zvicër",
+      "iso": "CH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Schweiz/Suisse/Svizzera."
+    },
+    {
+      "range": "770-771",
+      "country": "Colombia",
+      "countrySq": "Kolumbi",
+      "iso": "CO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Colombia."
+    },
+    {
+      "range": "772",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "773",
+      "country": "Uruguay",
+      "countrySq": "Uruguai",
+      "iso": "UY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Uruguay."
+    },
+    {
+      "range": "774",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "775",
+      "country": "Peru",
+      "countrySq": "Peru",
+      "iso": "PE",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Peru."
+    },
+    {
+      "range": "776",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "777",
+      "country": "Bolivia",
+      "countrySq": "Bolivi",
+      "iso": "BO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Bolivia."
+    },
+    {
+      "range": "778-779",
+      "country": "Argentina",
+      "countrySq": "Argjentinë",
+      "iso": "AR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Argentina."
+    },
+    {
+      "range": "780",
+      "country": "Chile",
+      "countrySq": "Kili",
+      "iso": "CL",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Chile."
+    },
+    {
+      "range": "781-783",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "784",
+      "country": "Paraguay",
+      "countrySq": "Paraguai",
+      "iso": "PY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Paraguay."
+    },
+    {
+      "range": "785",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "786",
+      "country": "Ecuador",
+      "countrySq": "Ekuador",
+      "iso": "EC",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Ecuador."
+    },
+    {
+      "range": "787-788",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "789-790",
+      "country": "Brazil",
+      "countrySq": "Brazil",
+      "iso": "BR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Brasil."
+    },
+    {
+      "range": "791-799",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "800-839",
+      "country": "Italy",
+      "countrySq": "Itali",
+      "iso": "IT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Italy (incl. San Marino, Vatican City)."
+    },
+    {
+      "range": "840-849",
+      "country": "Spain",
+      "countrySq": "Spanjë",
+      "iso": "ES",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Spain (incl. Andorra)."
+    },
+    {
+      "range": "850",
+      "country": "Cuba",
+      "countrySq": "Kubë",
+      "iso": "CU",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Cuba."
+    },
+    {
+      "range": "851-857",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "858",
+      "country": "Slovakia",
+      "countrySq": "Sllovaki",
+      "iso": "SK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Slovakia."
+    },
+    {
+      "range": "859",
+      "country": "Czechia",
+      "countrySq": "Çeki",
+      "iso": "CZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Czech Republic."
+    },
+    {
+      "range": "860",
+      "country": "Serbia",
+      "countrySq": "Serbi",
+      "iso": "RS",
+      "kind": "country",
+      "isSerbia": true,
+      "isLocal": false,
+      "note": "GS1 Serbia."
+    },
+    {
+      "range": "861-864",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "865",
+      "country": "Mongolia",
+      "countrySq": "Mongoli",
+      "iso": "MN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Mongolia."
+    },
+    {
+      "range": "866",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "867",
+      "country": "North Korea",
+      "countrySq": "Kore e Veriut",
+      "iso": "KP",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 DPR Korea."
+    },
+    {
+      "range": "868-869",
+      "country": "Türkiye",
+      "countrySq": "Turqi",
+      "iso": "TR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Türkiye."
+    },
+    {
+      "range": "870-879",
+      "country": "Netherlands",
+      "countrySq": "Holandë",
+      "iso": "NL",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Netherlands."
+    },
+    {
+      "range": "880",
+      "country": "South Korea",
+      "countrySq": "Kore e Jugut",
+      "iso": "KR",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 South Korea."
+    },
+    {
+      "range": "881-882",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "883",
+      "country": "Myanmar",
+      "countrySq": "Mianmar",
+      "iso": "MM",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Myanmar."
+    },
+    {
+      "range": "884",
+      "country": "Cambodia",
+      "countrySq": "Kamboxhia",
+      "iso": "KH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Cambodia."
+    },
+    {
+      "range": "885",
+      "country": "Thailand",
+      "countrySq": "Tajlandë",
+      "iso": "TH",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Thailand."
+    },
+    {
+      "range": "886-887",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "888",
+      "country": "Singapore",
+      "countrySq": "Singapor",
+      "iso": "SG",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Singapore."
+    },
+    {
+      "range": "889",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "890",
+      "country": "India",
+      "countrySq": "Indi",
+      "iso": "IN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 India."
+    },
+    {
+      "range": "891-892",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "893",
+      "country": "Vietnam",
+      "countrySq": "Vietnam",
+      "iso": "VN",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Vietnam."
+    },
+    {
+      "range": "894",
+      "country": "Bangladesh",
+      "countrySq": "Bangladesh",
+      "iso": "BD",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Bangladesh."
+    },
+    {
+      "range": "895",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "896",
+      "country": "Pakistan",
+      "countrySq": "Pakistan",
+      "iso": "PK",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Pakistan."
+    },
+    {
+      "range": "897-898",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "899",
+      "country": "Indonesia",
+      "countrySq": "Indonezi",
+      "iso": "ID",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Indonesia."
+    },
+    {
+      "range": "900-919",
+      "country": "Austria",
+      "countrySq": "Austri",
+      "iso": "AT",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Austria."
+    },
+    {
+      "range": "920-929",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "930-939",
+      "country": "Australia",
+      "countrySq": "Australi",
+      "iso": "AU",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Australia."
+    },
+    {
+      "range": "940-949",
+      "country": "New Zealand",
+      "countrySq": "Zelandë e Re",
+      "iso": "NZ",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 New Zealand."
+    },
+    {
+      "range": "950-952",
+      "country": "GS1 Global Office",
+      "countrySq": "Zyra Globale GS1",
+      "iso": null,
+      "kind": "office",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Global Office (EPC manager numbers, demonstrations/examples)."
+    },
+    {
+      "range": "953",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "954",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "955",
+      "country": "Malaysia",
+      "countrySq": "Malajzi",
+      "iso": "MY",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Malaysia."
+    },
+    {
+      "range": "956-957",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "958",
+      "country": "Macau",
+      "countrySq": "Makao",
+      "iso": "MO",
+      "kind": "country",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Macau."
+    },
+    {
+      "range": "959",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "960-969",
+      "country": "GS1 Global Office",
+      "countrySq": "Zyra Globale GS1",
+      "iso": null,
+      "kind": "office",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 Global Office — GTIN-8 allocations."
+    },
+    {
+      "range": "970-976",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "977",
+      "country": "Serial publication (ISSN)",
+      "countrySq": "Botim serial (ISSN)",
+      "iso": null,
+      "kind": "issn",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Magazines and journals, not a retail product."
+    },
+    {
+      "range": "978-979",
+      "country": "Book (ISBN / ISMN)",
+      "countrySq": "Libër (ISBN / ISMN)",
+      "iso": null,
+      "kind": "isbn",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Bookland — books and sheet music, not a retail food product."
+    },
+    {
+      "range": "980",
+      "country": "Refund receipt",
+      "countrySq": "Faturë rimbursimi",
+      "iso": null,
+      "kind": "refund",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Refund receipts, not a product."
+    },
+    {
+      "range": "981-984",
+      "country": "Coupons",
+      "countrySq": "Kuponë",
+      "iso": null,
+      "kind": "coupon",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 coupon identification for common currency areas."
+    },
+    {
+      "range": "985-989",
+      "country": "Unassigned",
+      "countrySq": "E paalokuar",
+      "iso": null,
+      "kind": "unassigned",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "Not allocated by GS1."
+    },
+    {
+      "range": "990-999",
+      "country": "Coupons",
+      "countrySq": "Kuponë",
+      "iso": null,
+      "kind": "coupon",
+      "isSerbia": false,
+      "isLocal": false,
+      "note": "GS1 coupon identification."
+    }
+  ]
+}
