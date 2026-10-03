@@ -1,0 +1,405 @@
+<title>Vendorja Screen Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============ TOKENS — single, fixed look. No dark mode on purpose. ============ */
+:root{
+  --red:#FF0000;
+  --white:#FFFFFF;
+  --black:#000000;
+  --green:#00A651;
+  --stack:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --round:"Outfit","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --logo-k:13.6; /* font-size (in cqw) that makes "vendorja" 61.2% of the width; refined by script */
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--red);color:var(--black)}
+body{font-family:var(--round);font-size:16px;line-height:1.5;padding-inline:clamp(16px,4vw,48px);padding-block:0 0}
+
+/* ============ PAGE CHROME ============ */
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:18px;font:500 12px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.masthead{container-type:inline-size;padding-block:clamp(40px,8vw,96px) clamp(24px,5vw,56px);display:grid;justify-items:center;gap:28px}
+.masthead .logo{font-size:calc(var(--logo-k) * .42cqw)}
+.intro{max-width:62ch;margin:0 auto;text-align:left;font-size:18px;line-height:1.55;text-wrap:pretty}
+.intro b{font-weight:600}
+
+.screens{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:56px 28px;padding-block:48px 96px;max-width:1320px;margin:0 auto}
+figure{margin:0;display:grid;gap:14px;align-content:start}
+.phone{border:9px solid var(--black);border-radius:34px;overflow:hidden;background:var(--black)}
+figcaption{display:grid;gap:4px}
+figcaption .n{font:500 12px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+figcaption .t{font:600 19px/1.2 var(--round)}
+figcaption .d{font-size:14px;line-height:1.45;max-width:36ch}
+
+/* ============ APP SCREEN CONTAINER ============ */
+/* All sizes inside a screen are cqw = % of the screen width, measured from the posters. */
+.screen{container-type:inline-size;position:relative;overflow:hidden;width:100%;aspect-ratio:390/844;background:var(--red);color:var(--white)}
+.screen.black{background:var(--black)}
+.screen.white{background:var(--white);color:var(--black)}
+
+/* ---------- A · STACK  (poster 1: "JO T'SHKIVE") ---------- */
+.stack{position:absolute;top:6.55cqw;left:17.45cqw;margin:0;padding:0;list-style:none}
+.stack li{font:500 15.5cqw/14.65cqw var(--stack);letter-spacing:-.015em;word-spacing:-.08em;text-transform:uppercase;white-space:nowrap;color:var(--white)}
+.stack li.ink{color:var(--black)}
+
+/* ---------- B · STAGGER  (poster 2: "bojkot çetnikëve…") ---------- */
+.stagger{position:absolute;left:0;right:0;margin:0}
+.stagger span{display:block;font:500 13.2cqw/18.8cqw var(--round);letter-spacing:-.01em;word-spacing:-.06em;white-space:nowrap;color:var(--black)}
+.stagger span:nth-child(1){margin-left:12.6cqw}
+.stagger span:nth-child(2){margin-left:13.45cqw}
+.stagger span:nth-child(3){margin-left:19.45cqw}
+.stagger span:nth-child(4){margin-left:1.45cqw}
+
+/* ---------- C · COLLISION  (poster 3: "bojkot produkteve…") ---------- */
+.collision{position:absolute;top:5.5cqw;left:0;display:grid;gap:5.3cqw}
+.collision .g span{display:block;font:400 16cqw/14.4cqw var(--round);letter-spacing:-.07em;word-spacing:-.12em;white-space:nowrap;color:var(--white)}
+.collision .g:nth-child(1){margin-left:1.3cqw}
+.collision .g:nth-child(2){margin-left:-15.65cqw}
+.collision .g:nth-child(3){margin-left:-26.85cqw}
+.collision .g:nth-child(4){margin-left:-33.5cqw}
+.collision .g:nth-child(5){margin-left:-37.5cqw}
+.collision .g:nth-child(6){margin-left:-39.5cqw}
+
+/* ---------- LOGO — the only centered, whole, unmoving element ---------- */
+.logo{font:600 calc(var(--logo-k) * 1cqw)/1 var(--round);letter-spacing:-.02em;color:var(--white);text-align:center;white-space:nowrap}
+.logo.small{font-size:calc(var(--logo-k) * .34cqw)}
+.logo.red{color:var(--red)}
+.screen .logo{position:absolute;left:0;right:0}
+
+/* ---------- small info text ---------- */
+.meta{position:absolute;font:400 3.4cqw/1.35 var(--mono);letter-spacing:.01em}
+.label{font:500 3.1cqw/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- motion: rows drift in opposite directions ---------- */
+@keyframes driftL{from{transform:translateX(0)}to{transform:translateX(-5cqw)}}
+@keyframes driftR{from{transform:translateX(0)}to{transform:translateX(5cqw)}}
+.drift > *:nth-child(odd){animation:driftL 9s cubic-bezier(.4,0,.2,1) infinite alternate}
+.drift > *:nth-child(even){animation:driftR 11s cubic-bezier(.4,0,.2,1) infinite alternate}
+@keyframes sweep{from{top:0}to{top:calc(100% - .8cqw)}}
+
+/* ---------- HOME ---------- */
+.scanbtn{position:absolute;left:12.6cqw;top:128cqw;display:flex;align-items:center;gap:5cqw;background:none;border:0;padding:0;cursor:pointer;color:var(--black);font:500 9cqw/1 var(--round)}
+.scanbtn .c{width:30cqw;height:30cqw;border-radius:50%;background:var(--white);display:grid;place-items:center}
+.reticle{position:relative;width:12cqw;height:12cqw}
+.reticle i{position:absolute;width:4cqw;height:4cqw;border:1.1cqw solid var(--black)}
+.reticle i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.reticle i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.reticle i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.reticle i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.scanbtn:focus-visible{outline:1cqw solid var(--black);outline-offset:2cqw}
+.search{position:absolute;left:12.6cqw;right:0;top:172cqw;border-bottom:.7cqw solid var(--black);padding-bottom:2cqw;font:500 4.6cqw/1 var(--round);color:var(--black)}
+
+/* ---------- SCANNER ---------- */
+.frame{position:absolute;left:12cqw;width:76cqw;top:62cqw;height:50cqw}
+.frame i{position:absolute;width:12cqw;height:12cqw;border:1.2cqw solid var(--white)}
+.frame i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.frame i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.frame i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.frame i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.barcode{position:absolute;left:14cqw;right:14cqw;top:12cqw;bottom:16cqw;background:repeating-linear-gradient(90deg,var(--white) 0 .9cqw,transparent .9cqw 1.6cqw,var(--white) 1.6cqw 3.4cqw,transparent 3.4cqw 4.1cqw,var(--white) 4.1cqw 4.6cqw,transparent 4.6cqw 6cqw)}
+.digits{position:absolute;left:14cqw;right:14cqw;bottom:9cqw;font:400 3.2cqw/1 var(--mono);color:var(--white);text-align:center;letter-spacing:.2em}
+.line{position:absolute;left:4cqw;right:4cqw;height:.8cqw;background:var(--red);animation:sweep 1.6s linear infinite alternate}
+.strip{position:absolute;left:0;right:0;bottom:0;height:44cqw;background:var(--red);padding:7cqw 6cqw 0}
+.strip p{margin:0;font:500 6.2cqw/1.1 var(--round);color:var(--black);max-width:80cqw}
+.strip .search{left:6cqw;top:auto;bottom:10cqw;right:0;color:var(--white);border-color:var(--white)}
+
+/* ---------- CHOICE ---------- */
+.alt{position:absolute;left:12.6cqw;right:6cqw;top:52cqw;display:grid;gap:3.2cqw}
+.pack{width:46cqw;aspect-ratio:1;background:var(--white);position:relative}
+.pack span{position:absolute;left:4cqw;bottom:4cqw;font:400 3cqw/1.3 var(--mono);color:var(--black)}
+.alt h3{margin:1cqw 0 0;font:600 8.4cqw/1 var(--round);letter-spacing:-.02em;color:var(--white)}
+.alt p{margin:0;font:400 4.1cqw/1.35 var(--round);color:var(--black)}
+.badge{display:inline-flex;align-items:center;gap:2cqw;background:var(--black);color:var(--white);padding:1.6cqw 3cqw;justify-self:start;font:500 3.4cqw/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.dot{width:2.6cqw;height:2.6cqw;border-radius:50%;background:var(--green)}
+.actions{position:absolute;left:12.6cqw;right:6cqw;bottom:14cqw;display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw}
+.actions button{height:15cqw;border:0;font:500 4.6cqw/1 var(--round);cursor:pointer}
+.actions .w{background:var(--white);color:var(--black)}
+.actions .k{background:var(--black);color:var(--white)}
+.actions button:focus-visible{outline:.8cqw solid var(--white);outline-offset:1cqw}
+
+/* ---------- CLEAR ---------- */
+.clear{position:absolute;left:8cqw;right:8cqw;top:66cqw;display:grid;gap:4cqw}
+.clear .word{font:600 21cqw/.9 var(--round);letter-spacing:-.03em;color:var(--black)}
+.check{width:13cqw;height:13cqw;background:var(--green);position:relative}
+.check::after{content:"";position:absolute;left:4.3cqw;top:2.2cqw;width:3.4cqw;height:6.6cqw;border:solid var(--white);border-width:0 1.4cqw 1.4cqw 0;transform:rotate(45deg)}
+.clear p{margin:0;font:400 4.4cqw/1.35 var(--round)}
+.redbtn{position:absolute;left:8cqw;right:8cqw;bottom:14cqw;height:15cqw;border:0;background:var(--red);color:var(--white);font:500 4.8cqw/1 var(--round);cursor:pointer}
+.redbtn:focus-visible{outline:.8cqw solid var(--black);outline-offset:1cqw}
+
+/* ============ RULES SECTION ============ */
+.rules{background:var(--black);color:var(--white);margin-inline:calc(clamp(16px,4vw,48px) * -1);padding:clamp(48px,8vw,104px) clamp(16px,4vw,48px)}
+.rules-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:64px}
+.rules-in > *{min-width:0}
+.rules h2{margin:0;font:600 clamp(34px,6vw,64px)/1 var(--round);letter-spacing:-.03em;text-wrap:balance}
+.rules h3{margin:0 0 16px;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.sw{display:grid;gap:10px}
+.sw div{aspect-ratio:3/2;border:1px solid var(--white)}
+.sw b{font:600 17px/1.2 var(--round)}
+.sw span{font:400 13px/1.4 var(--mono)}
+.types{display:grid;gap:0;border-top:1px solid var(--white)}
+.types > div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px 24px;padding-block:18px;border-bottom:1px solid var(--white);align-items:baseline}
+.types .sample{font-size:clamp(26px,4vw,40px);line-height:1;white-space:nowrap;overflow:hidden}
+.types .spec{font:400 13px/1.5 var(--mono)}
+@media (max-width:640px){.types > div{grid-template-columns:1fr}}
+.never{margin:0;padding:0;list-style:none;display:grid;gap:14px;max-width:70ch}
+.never li{font-size:17px;line-height:1.5;padding-left:28px;position:relative}
+.never li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:3px;background:var(--red)}
+.code{overflow-x:auto;border:1px solid var(--white);padding:20px}
+.code pre{margin:0;font:400 13px/1.6 var(--mono);color:var(--white);white-space:pre}
+.handoff{font:400 15px/1.6 var(--mono);max-width:72ch;border-left:4px solid var(--red);padding-left:20px}
+footer{padding-block:24px;font:500 12px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+
+@media (prefers-reduced-motion:reduce){
+  .drift > *,.line{animation:none!important}
+}
+</style>
+
+<header class="bar">
+  <span>vendorja · UI reference v1</span>
+  <span>measured from 4 posters · 2000 × 2000 px</span>
+</header>
+
+<section class="masthead">
+  <div class="logo" aria-label="vendorja">vendorja</div>
+  <p class="intro">Give your builder this page <b>and</b> the four posters. Every size here is measured from your posters and written in <b>cqw</b> (percent of the screen's width), so the cropping and overlap look the same on every phone. The builder should rebuild these eight screens exactly, not interpret them.</p>
+</section>
+
+<main class="screens">
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <div class="logo small" style="top:9cqw">vendorja</div>
+      <p class="stagger" style="top:30cqw" aria-label="bleje tanen, jo te beogradit! skano produktin para se ta vendosësh në shportë. bleje tanen">
+        <span>bleje tanen, jo te</span><span>,beogradit! skano produktin</span><span>para se ta vendosësh</span><span>në shportë. bleje tanen</span>
+      </p>
+      <button class="scanbtn" id="scan-home" type="button"><span class="c"><span class="reticle"><i></i><i></i><i></i><i></i></span></span>skano</button>
+      <div class="search">kërko produktin me emër</div>
+      <div class="meta" style="left:12.6cqw;bottom:8cqw;color:var(--black)">12 480 produkte të skanuara · shembull</div>
+    </div></div>
+    <figcaption><span class="n">01 · treatment B</span><span class="t">ballina / home</span><span class="d">Staggered black sentence cut at both edges. One white scan button, aligned to the text indent, not centered.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen black">
+      <div class="logo small" style="top:9cqw">vendorja</div>
+      <div class="meta" style="right:6cqw;top:10.4cqw;color:var(--white)">mbyll</div>
+      <div class="frame"><i></i><i></i><i></i><i></i><div class="barcode"></div><div class="digits">8 60 0000 00000 0</div><div class="line"></div></div>
+      <div class="strip"><p>drejtoje kamerën te barkodi</p><div class="search">ose kërko me emër</div></div>
+    </div></div>
+    <figcaption><span class="n">02 · camera</span><span class="t">skaneri / scanner</span><span class="d">Black camera view, white corner brackets, a red scan line. A red strip at the bottom holds the manual search.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <ul class="stack drift" aria-label="Jo e jona">
+        <li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li>
+        <li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li><li>JO E JONA JO E JONA</li>
+      </ul>
+      <div style="position:absolute;left:17.45cqw;right:6cqw;top:166cqw;display:grid;gap:2cqw">
+        <span class="label" style="color:var(--black)">shembull</span>
+        <span style="font:500 6cqw/1.1 var(--round)">Biskota me qumësht, 300 g</span>
+        <span style="font:400 3.4cqw/1.35 var(--mono)">prodhuar në Serbi · EAN 860…</span>
+      </div>
+      <div class="meta" style="right:6cqw;bottom:6cqw;color:var(--black)">vazhdo ↓</div>
+    </div></div>
+    <figcaption><span class="n">03 · treatment A</span><span class="t">vendimi / verdict</span><span class="d">"JO E JONA" repeated in white, starting 17.45% in and always cut off at the right. Rows drift in opposite directions.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <div class="label" style="position:absolute;left:12.6cqw;top:10cqw;color:var(--black)">argumenti 1 / 3</div>
+      <p class="stagger" style="top:66cqw" aria-label="çdo euro që e jep për këtë produkt shkon te shteti që e mohon gjenocidin e Srebrenicës">
+        <span>çdo euro që e jep për</span><span>,këtë produkt shkon te</span><span>shteti që e mohon</span><span>gjenocidin e srebrenicës</span>
+      </p>
+      <div class="meta" style="left:12.6cqw;right:8cqw;bottom:9cqw;color:var(--black)">burimi: ICJ, Bosnia and Herzegovina v. Serbia and Montenegro, 2007</div>
+    </div></div>
+    <figcaption><span class="n">04 · treatment B</span><span class="t">argumenti / argument</span><span class="d">Exactly like poster 2, including the comma at the start of a line. One fact per screen, with its source in small mono text.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <div class="collision drift" aria-label="kujto: bleje tanen jo te beogradit">
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+        <div class="g"><span>kujto</span><span>bleje tanen jo te beogradit</span></div>
+      </div>
+    </div></div>
+    <figcaption><span class="n">05 · treatment C</span><span class="t">kujto / reminder</span><span class="d">Letters overlap (−0.07em spacing). Each pair of lines slides further left until the first word disappears.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <ul class="stack drift" aria-label="bleje tanen, jo te beogradit">
+        <li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li>
+        <li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li>
+        <li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li><li>BLEJE TANEN</li>
+        <li>BLEJE TANEN</li><li class="ink">JO TE BEOGRADIT!</li>
+      </ul>
+    </div></div>
+    <figcaption><span class="n">06 · treatment A</span><span class="t">parulla / slogan</span><span class="d">Thirteen white lines, then one black line. That single color change is the punchline.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen">
+      <div class="logo" style="top:22cqw">vendorja</div>
+      <div class="alt">
+        <span class="label" style="color:var(--black);margin-top:6cqw">alternativa vendore · 1 / 3</span>
+        <div class="pack"><span>[foto e produktit]</span></div>
+        <h3>Biskota me qumësht</h3>
+        <p>prodhuar në Prishtinë · 0,85 € · shembull</p>
+        <span class="badge"><i class="dot"></i>vendore</span>
+      </div>
+      <div class="actions"><button class="w" id="where-buy" type="button">ku ta gjej</button><button class="k" id="share" type="button">ndaje</button></div>
+    </div></div>
+    <figcaption><span class="n">07 · calm</span><span class="t">zgjedhja / the choice</span><span class="d">No more broken text. The logo is centered and whole, and the Kosovar product is fully readable for the first time.</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="phone"><div class="screen white">
+      <div class="logo small red" style="top:9cqw">vendorja</div>
+      <div class="clear">
+        <div class="check" role="img" aria-label="në rregull"></div>
+        <div class="word">vendore</div>
+        <p>Ujë mineral, 1,5 L<br>nuk është prodhuar në Serbi · shembull</p>
+      </div>
+      <button class="redbtn" id="scan-again" type="button">skano tjetër</button>
+    </div></div>
+    <figcaption><span class="n">08 · clean result</span><span class="t">vendore / not from Serbia</span><span class="d">The only white screen. Nothing is cropped, and that contrast is the reward.</span></figcaption>
+  </figure>
+
+</main>
+
+<section class="rules">
+  <div class="rules-in">
+    <h2>Build rules. Copy these exactly.</h2>
+
+    <div>
+      <h3>Colors: exactly four, never changed</h3>
+      <div class="swatches">
+        <div class="sw"><div style="background:#FF0000"></div><b>Red</b><span>#FF0000 · every poster screen</span></div>
+        <div class="sw"><div style="background:#FFFFFF"></div><b>White</b><span>#FFFFFF · stack, collision, logo</span></div>
+        <div class="sw"><div style="background:#000000"></div><b>Black</b><span>#000000 · stagger, camera, buttons</span></div>
+        <div class="sw"><div style="background:#00A651"></div><b>Green</b><span>#00A651 · "vendore" status only</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Type: three treatments and a logo</h3>
+      <div class="types">
+        <div><span class="sample" style="font:500 clamp(26px,4vw,40px)/1 var(--stack);text-transform:uppercase;letter-spacing:-.015em">JO E JONA</span><span class="spec">A · STACK: Inter Tight 500, uppercase<br>15.5cqw, line 14.65cqw, left 17.45cqw, spacing −0.015em</span></div>
+        <div><span class="sample" style="font:500 clamp(26px,4vw,40px)/1 var(--round);letter-spacing:-.01em">çdo euro që e jep</span><span class="spec">B · STAGGER: Outfit 500, black<br>13.2cqw, line 18.8cqw, indents 12.6 / 13.45 / 19.45 / 1.45cqw</span></div>
+        <div><span class="sample" style="font:400 clamp(26px,4vw,40px)/1 var(--round);letter-spacing:-.07em;word-spacing:-.12em">bleje tanen jo te</span><span class="spec">C · COLLISION: Outfit 400, white<br>16cqw, line 14.4cqw, spacing −0.07em, pairs shift 1.3 → −15.65 → −26.85cqw</span></div>
+        <div><span class="sample" style="font:600 clamp(26px,4vw,40px)/1 var(--round);letter-spacing:-.02em">vendorja</span><span class="spec">LOGO: Outfit 600, spacing −0.02em<br>61.2% of width, centered. The only whole, centered thing</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Never</h3>
+      <ul class="never">
+        <li>No dark mode and no theme switching. The red is #FF0000 everywhere: never darkened, never semi-transparent, never under an overlay, shadow, gradient, blur or filter. A darkened or overlaid red is what turns the screen brown.</li>
+        <li>No rounded cards, soft shadows, emoji or icons next to headlines. The type is the design.</li>
+        <li>Poster text is never centered and never fully visible. Only the vendorja logo is centered and whole.</li>
+        <li>Inside a screen, sizes use cqw on the screen container, not px or rem, so the crop is the same on every phone.</li>
+        <li>Use only these three text treatments. Don't invent a fourth.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>The CSS: paste into the project as-is</h3>
+      <div class="code"><pre id="css-code">:root{
+  --red:#FF0000; --white:#FFFFFF; --black:#000000; --green:#00A651;
+  color-scheme:light;               /* no dark mode, ever */
+}
+.screen{
+  container-type:inline-size;       /* makes cqw = % of screen width */
+  position:relative; overflow:hidden;
+  background:var(--red); color:var(--white);
+  min-height:100dvh;
+}
+
+/* A · STACK (poster 1) */
+.stack{position:absolute; top:6.55cqw; left:17.45cqw; margin:0; padding:0; list-style:none}
+.stack li{
+  font:500 15.5cqw/14.65cqw "Inter Tight","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.015em; word-spacing:-.08em;
+  text-transform:uppercase; white-space:nowrap; color:var(--white);
+}
+.stack li.ink{color:var(--black)}
+
+/* B · STAGGER (poster 2) */
+.stagger span{
+  display:block;
+  font:500 13.2cqw/18.8cqw "Outfit","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.01em; word-spacing:-.06em;
+  white-space:nowrap; color:var(--black);
+}
+.stagger span:nth-child(1){margin-left:12.6cqw}
+.stagger span:nth-child(2){margin-left:13.45cqw}
+.stagger span:nth-child(3){margin-left:19.45cqw}
+.stagger span:nth-child(4){margin-left:1.45cqw}
+
+/* C · COLLISION (poster 3): pairs of lines */
+.collision{display:grid; gap:5.3cqw}
+.collision .g span{
+  display:block;
+  font:400 16cqw/14.4cqw "Outfit","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.07em; word-spacing:-.12em;
+  white-space:nowrap; color:var(--white);
+}
+.collision .g:nth-child(1){margin-left:1.3cqw}
+.collision .g:nth-child(2){margin-left:-15.65cqw}
+.collision .g:nth-child(3){margin-left:-26.85cqw}
+.collision .g:nth-child(4){margin-left:-33.5cqw}
+.collision .g:nth-child(5){margin-left:-37.5cqw}
+.collision .g:nth-child(6){margin-left:-39.5cqw}
+
+/* LOGO: centered, whole, never animated. Scale font-size so the word = 61.2cqw wide */
+.logo{
+  font:600 13.6cqw/1 "Outfit","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.02em; color:var(--white); text-align:center; white-space:nowrap;
+}
+
+/* Motion: rows drift in opposite directions */
+@keyframes driftL{to{transform:translateX(-5cqw)}}
+@keyframes driftR{to{transform:translateX(5cqw)}}
+.drift > :nth-child(odd){animation:driftL 9s cubic-bezier(.4,0,.2,1) infinite alternate}
+.drift > :nth-child(even){animation:driftR 11s cubic-bezier(.4,0,.2,1) infinite alternate}
+@media (prefers-reduced-motion:reduce){.drift > *{animation:none}}
+
+/* Fonts */
+/* &lt;link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&amp;family=Outfit:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt; */</pre></div>
+    </div>
+
+    <div>
+      <h3>Message for the builder</h3>
+      <p class="handoff">Rebuild the 8 screens from this reference 1:1. Paste the CSS block exactly as written. Match the four attached posters: pure #FF0000, cropped repeated type, no dark mode, no cards, no shadows. If anything you build looks different from the poster screenshots, the posters are correct and your build is wrong.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bar" style="padding-inline:0"><span>vendorja.com</span><span>bleje tanen jo te beogradit!</span></footer>
+
+<script>
+(function(){
+  function fit(){
+    try{
+      var s=document.createElement('span');
+      s.textContent='vendorja';
+      s.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;font:600 100px/1 "Outfit","Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.02em';
+      document.body.appendChild(s);
+      var w=s.getBoundingClientRect().width;
+      s.remove();
+      if(w>0){document.documentElement.style.setProperty('--logo-k',(61.2/(w/100)).toFixed(3));}
+    }catch(e){}
+  }
+  fit();
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
+})();
+</script>
