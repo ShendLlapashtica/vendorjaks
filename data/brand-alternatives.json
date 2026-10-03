@@ -1,0 +1,2377 @@
+{
+  "builtAt": "2026-09-14T16:31:53.861Z",
+  "disclaimer": "Brand-level guidance curated from public sources; a GS1 prefix identifies where a barcode was registered, not where a product was manufactured.",
+  "entries": [
+    {
+      "serbianBrand": "Bambi (Plazma)",
+      "serbianCompany": "Bambi a.d. Požarevac",
+      "category": "biscuits",
+      "offCategoryTags": [
+        "en:biscuits",
+        "en:sweet-biscuits"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://bambi.rs/en/brendovi/plazma/",
+      "alternatives": [
+        {
+          "brand": "Sempre",
+          "company": "Liri",
+          "country": "kosovo",
+          "sourceUrl": "https://prizrenpress.com/haradinaj-viziton-kompanine-liri-ne-prizren-ketu-prodhohen-produktet-me-te-mira/",
+          "evidence": "Liri is a Prizren-based Kosovo manufacturer confirmed to produce Sempre biscuits; visited and named by the then-PM as a domestic producer.",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://kallxo.com/shkurt/media-serbe-sempre-ne-vend-te-plazma-s-menyra-e-re-e-patriotizmit-ne-kosove/",
+          "image": "/alternatives/sempre.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Štark (Bananica / Krem banana)",
+      "serbianCompany": "Soko Štark d.o.o. Beograd (Atlantic Grupa)",
+      "category": "chocolate-confectionery",
+      "offCategoryTags": [
+        "en:chocolates"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://sr.m.wikipedia.org/w/index.php?title=%D0%A8%D1%82%D0%B0%D1%80%D0%BA&useFormat=mobile&variant=sr-el",
+      "alternatives": [
+        {
+          "brand": "Camel Krembanane",
+          "company": "Camel L.L.C., Zona Industriale P/N, Mitrovicë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.camel-ks.com/product/krembanane/",
+          "evidence": "Camel L.L.C. (Mitrovicë, founded 1991; \"for the last 12 years we only deal with production\", ISO/HACCP/Halal certificates published on its own site) case-packs Krembanane 510 g and 153 g — the same banana-cream confection format as Štark’s Krem Banana.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/camel-krembanane.webp",
+          "imageSource": "https://www.camel-ks.com/product/krembanane/",
+          "imageCredit": "Camel L.L.C. (official site)"
+        },
+        {
+          "brand": "Liri (bonbone dhe praline)",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri produces çokollata, bonbona, praline, karamele and Krem Banane at its Prizren plant; its brands include Sempre, Buena Vita, Poco and Krem Banane.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/liri-bonbone.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ],
+      "note": "Retagged 2026-09-14: en:chocolates only. alternatives[0] is now Camel Krembanane — the same banana-cream format Štark sells — because the inline row shows only the first alternative and a box of pralines is not a Krem Banana."
+    },
+    {
+      "serbianBrand": "Cipiripi",
+      "serbianCompany": "Paraćinka d.o.o., Paraćin",
+      "category": "chocolate-confectionery",
+      "offCategoryTags": [
+        "en:chocolate-spreads"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://cenoteka.rs/p/cokoladica-cipiripi-80g/",
+      "alternatives": [
+        {
+          "brand": "Pi&Ki Çokokrem",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group runs a 20,000 m² plant in Zahaq near Pejë with 11 production lines under the Pi&Ki brand; Çokokrem Cocoa and Çokokrem Duo are its cocoa spreads.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-cokokrem.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=6",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        },
+        {
+          "brand": "Liri (bonbone dhe praline)",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri produces çokollata, bonbona, praline, karamele and Krem Banane at its Prizren plant; its brands include Sempre, Buena Vita, Poco and Krem Banane.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/liri-bonbone.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: en:chocolates removed — Cipiripi is a cocoa cream, and the chocolate-BAR kind is answered by the Štark entry above."
+    },
+    {
+      "serbianBrand": "Bonbone dhe karamele nga Serbia (no single dominant Serbian sweets brand verified beyond the confectionery makers already listed)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "candy",
+      "offCategoryTags": [
+        "en:candies",
+        "en:bonbons"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Liri (bonbone dhe praline)",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri produces çokollata, bonbona, praline, karamele and Krem Banane at its Prizren plant; its brands include Sempre, Buena Vita, Poco and Krem Banane.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/liri-bonbone.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14. en:candies/en:bonbons had no curated entry, so a bag of sweets was answered by the first chocolate entry in the family. Liri (Prizren) states on its own about page that it competes with \"llokuma, biskota, vaferi, çokollata, bonbona, halvë dhe karamele\"."
+    },
+    {
+      "serbianBrand": "Swisslion-Takovo (keks)",
+      "serbianCompany": "Swisslion Group / PIK Takovo, Gornji Milanovac",
+      "category": "biscuits",
+      "offCategoryTags": [
+        "en:biscuits"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://swisslion-takovo.com/en/about-us/",
+      "alternatives": [
+        {
+          "brand": "Sempre",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri (Prizren, since 1985) describes itself on its own site as the largest confectionery producer in Kosovo; Sempre is its biscuit brand.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/sempre.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        },
+        {
+          "brand": "Camel Biscam",
+          "company": "Camel, Mitrovicë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.camel-ks.com/company",
+          "evidence": "Camel, founded 1991 in Mitrovica, states on its own site that \"for the last 12 years we only deal with production\"; Biscam is its biscuit line. HACCP, Halal and ISO certificates are published on the same site.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/camel-biscam.webp",
+          "imageSource": "https://www.camel-ks.com/",
+          "imageCredit": "Camel (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 from the combined biscuits+wafers entry: a keks scan was being answered with a Mando wafer, which is exactly the \"waffles as a biscuit alternative\" the owner reported."
+    },
+    {
+      "serbianBrand": "Swisslion-Takovo (napolitanke)",
+      "serbianCompany": "Swisslion Group / PIK Takovo, Gornji Milanovac",
+      "category": "wafers",
+      "offCategoryTags": [
+        "en:wafers"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://swisslion-takovo.com/en/about-us/",
+      "alternatives": [
+        {
+          "brand": "Camel Mando",
+          "company": "Camel, Mitrovicë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.camel-ks.com/company",
+          "evidence": "Mando Skinny Wafers (140 g, cocoa/hazelnut/vanilla/lemon/coconut/cappuccino) are made by Camel in Mitrovica — the only Kosovo wafer manufacturer found at industrial scale.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/camel-mando.webp",
+          "imageSource": "https://www.camel-ks.com/",
+          "imageCredit": "Camel (official site)"
+        },
+        {
+          "brand": "Liri (vafera)",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri lists vaferi (wafers) among its own product categories alongside biscuits, chocolates, halva and Turkish delight, made at its Prizren factory.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/liri-wafer.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14. en:wafers is now answered only by real wafers (Camel Mando, Liri vafera)."
+    },
+    {
+      "serbianBrand": "Eurokrem (Swisslion-Takovo)",
+      "serbianCompany": "Swisslion Group / PIK Takovo, Gornji Milanovac",
+      "category": "chocolate-confectionery",
+      "offCategoryTags": [
+        "en:chocolate-spreads"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://swisslion-takovo.com/en/about-us/",
+      "alternatives": [
+        {
+          "brand": "Pi&Ki Çokokrem",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group runs a 20,000 m² plant in Zahaq near Pejë with 11 production lines under the Pi&Ki brand; Çokokrem Cocoa and Çokokrem Duo are its cocoa spreads.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-cokokrem.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=6",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        },
+        {
+          "brand": "Liri (bonbone dhe praline)",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri produces çokollata, bonbona, praline, karamele and Krem Banane at its Prizren plant; its brands include Sempre, Buena Vita, Poco and Krem Banane.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/liri-bonbone.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Marbo Product (Chipsy)",
+      "serbianCompany": "Marbo Product d.o.o., Bačka Maglić (PepsiCo)",
+      "category": "chips-snacks",
+      "offCategoryTags": [
+        "en:crisps",
+        "en:potato-crisps",
+        "en:chips-and-fries"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Marbo_Product",
+      "alternatives": [
+        {
+          "brand": "Vipa Chips",
+          "company": "Pestova sh.p.k., Vushtrri",
+          "country": "kosovo",
+          "sourceUrl": "https://vipa-ks.com/en/product-category/chips-en/",
+          "evidence": "Pestova is a vertically-integrated Kosovo potato processor; Vipa Chips holds an estimated 50-60% of the Kosovo chips market and exports to the EU.",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://kallxo.com/lajm/pronari-i-vipa-chips-konkurrencen-kryesore-e-kemi-nga-serbia/",
+          "image": "/alternatives/vipa-chips.webp",
+          "imageSource": "https://vipa-ks.com/en/product-category/chips-en/",
+          "imageCredit": "Pestova sh.p.k. / Vipa Chips (official site)"
+        }
+      ],
+      "note": "Retagged 2026-09-14: en:appetizers dropped (places no family), en:potato-crisps added so the crisps kind resolves on either tag."
+    },
+    {
+      "serbianBrand": "Nectar",
+      "serbianCompany": "Nectar d.o.o., Bačka Palanka",
+      "category": "juices-soft-drinks",
+      "offCategoryTags": [
+        "en:fruit-juices",
+        "en:fruit-nectars"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nectar_d.o.o.",
+      "alternatives": [
+        {
+          "brand": "Frutomania",
+          "company": "MOEA, Gjilan",
+          "country": "kosovo",
+          "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+          "evidence": "MOEA grows fruit on ~400 hectares in Kravarica near Gjilan and cold-presses it into 100%-fruit Frutomania juice with no added water or sugar; sources from over 400 Kosovo contract growers.",
+          "pairingEvidence": "reported",
+          "pairingUrl": "https://telegrafi.com/pronari-frutomania-perfituam-nga-taksa-nuk-importojme-asnjehere-nga-serbia/",
+          "image": "/alternatives/frutomania.jpg",
+          "imageSource": "https://frutomaniaks.com/",
+          "imageCredit": "MOEA / Frutomania (official site)"
+        },
+        {
+          "brand": "Frutti",
+          "company": "Frutti sh.p.k., Reçan, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://frutti-ks.com",
+          "evidence": "Frutti’s own \"Rreth nesh\" states the company was founded in 2000 in Prizren, based in the village of Reçan; it bottles fruit juice in 200 ml glass, 250, 330 ml and 1 L.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/frutti.webp",
+          "imageSource": "https://frutti-ks.com/sq/molle/",
+          "imageCredit": "Frutti sh.p.k. (official site)"
+        }
+      ],
+      "note": "Updated 2026-09-14: \"Mia Vita\" removed — data/alternative-photos-report.json records that no Devolli page carries that brand at all. Frutti (frutti-ks.com) takes its place."
+    },
+    {
+      "serbianBrand": "Next",
+      "serbianCompany": "Fresh & Co, Subotica (Coca-Cola HBC Srbija)",
+      "category": "juices-soft-drinks",
+      "offCategoryTags": [
+        "en:fruit-juices",
+        "en:fruit-drinks"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.calix.rs/sr/brend/next",
+      "alternatives": [
+        {
+          "brand": "Frutomania",
+          "company": "MOEA, Gjilan",
+          "country": "kosovo",
+          "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+          "evidence": "See Frutomania evidence under Nectar entry - same producer, same category.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/frutomania.jpg",
+          "imageSource": "https://frutomaniaks.com/",
+          "imageCredit": "MOEA / Frutomania (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Knjaz Miloš",
+      "serbianCompany": "Knjaz Miloš a.d., Aranđelovac (Mattoni 1873 / PepsiCo joint venture)",
+      "category": "bottled-water",
+      "offCategoryTags": [
+        "en:waters",
+        "en:mineral-waters"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://sr.wikipedia.org/sr-el/%D0%9A%D1%9A%D0%B0%D0%B7_%D0%9C%D0%B8%D0%BB%D0%BE%D1%88_(%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%98%D0%B0)",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/home-2/",
+          "evidence": "Korporata Rugove bottles spring water directly from the Drelaj spring at 1000m altitude in the Rugova region of Kosovo - the only Kosovo water not drawn from a well.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-water.jpg",
+          "imageSource": "https://rugove.eu/en/products/water-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Rosa",
+      "serbianCompany": "Vlasinka, Vardenik spring, South Serbia",
+      "category": "bottled-water",
+      "offCategoryTags": [
+        "en:waters",
+        "en:spring-waters"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://mondo.rs/Magazin/Stil/a93177/Knjaz-rosa-prolom.-koju-vodu-piti.html",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/home-2/",
+          "evidence": "See Rugove evidence under Knjaz Miloš entry - same producer, same category.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-water.jpg",
+          "imageSource": "https://rugove.eu/en/products/water-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "VodaVoda",
+      "serbianCompany": "Voda Voda d.o.o., Banja Vrujci",
+      "category": "bottled-water",
+      "offCategoryTags": [
+        "en:waters",
+        "en:artesian-waters"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://vodavoda.com/",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/home-2/",
+          "evidence": "See Rugove evidence under Knjaz Miloš entry - same producer, same category.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-water.jpg",
+          "imageSource": "https://rugove.eu/en/products/water-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Jelen",
+      "serbianCompany": "Apatinska Pivara (Molson Coors), Apatin",
+      "category": "beer",
+      "offCategoryTags": [
+        "en:beers"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jelen_(beer)",
+      "alternatives": [
+        {
+          "brand": "Birra Peja",
+          "company": "Birra Peja sh.a. (Devolli Group), Peja",
+          "country": "kosovo",
+          "sourceUrl": "https://birrapeja.com/",
+          "evidence": "Kosovo's only domestic brewery, operating since 1971, now owned by Devolli Group; holds roughly 78% of Kosovo's beer market with Jelen among the imported competitors on the same shelves.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": "https://www.zoominfo.com/c/birra-peja/372831245",
+          "image": "/alternatives/birra-peja.webp",
+          "imageSource": "https://birrapeja.com/products/lager/",
+          "imageCredit": "Birra Peja sh.a. (official site)"
+        },
+        {
+          "brand": "Birra Korça",
+          "company": "Birra Korça sh.a., Korçë, Albania",
+          "country": "albania",
+          "sourceUrl": "https://birrakorca.com.al/en/",
+          "evidence": "Albania's first brewery, founded 1928 in Korçë; third-largest beer producer in Albania and widely distributed in Kosovo.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/birra-korca.webp",
+          "imageSource": "https://birrakorca.com.al/en/",
+          "imageCredit": "Birra Korça sh.a. (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Lav",
+      "serbianCompany": "Carlsberg Srbija, Čelarevo",
+      "category": "beer",
+      "offCategoryTags": [
+        "en:beers"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Lav_pivo",
+      "alternatives": [
+        {
+          "brand": "Birra Peja",
+          "company": "Birra Peja sh.a. (Devolli Group), Peja",
+          "country": "kosovo",
+          "sourceUrl": "https://birrapeja.com/",
+          "evidence": "See Birra Peja evidence under Jelen entry - same producer, same category.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/birra-peja.webp",
+          "imageSource": "https://birrapeja.com/products/lager/",
+          "imageCredit": "Birra Peja sh.a. (official site)"
+        },
+        {
+          "brand": "Birra Korça",
+          "company": "Birra Korça sh.a., Korçë, Albania",
+          "country": "albania",
+          "sourceUrl": "https://birrakorca.com.al/en/",
+          "evidence": "See Birra Korça evidence under Jelen entry - same producer, same category.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/birra-korca.webp",
+          "imageSource": "https://birrakorca.com.al/en/",
+          "imageCredit": "Birra Korça sh.a. (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Imlek",
+      "serbianCompany": "Imlek a.d., Beograd",
+      "category": "milk",
+      "offCategoryTags": [
+        "en:milks",
+        "en:uht-milks"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "alternatives": [
+        {
+          "brand": "Vita",
+          "company": "Devolli Group, Fushë Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.qumeshtorjavita.com/about-us/",
+          "evidence": "Vita was Kosovo's first UHT milk (partnership with Tetra Pak, 2003); Devolli's Radushë plant runs dedicated milk and yogurt lines.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vita.webp",
+          "imageSource": "https://www.qumeshtorjavita.com/",
+          "imageCredit": "Qumështorja Vita / Devolli Group (official site)"
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-13 (cheese) and again 2026-09-14 (yogurt, cream, butter). This entry is MILK only: en:yogurts and en:sour-creams used to sit here, so a tub of yogurt was answered with a carton of milk."
+    },
+    {
+      "serbianBrand": "Imlek (jogurt dhe kos)",
+      "serbianCompany": "Imlek a.d., Beograd",
+      "category": "yogurt",
+      "offCategoryTags": [
+        "en:yogurts"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "alternatives": [
+        {
+          "brand": "Vita (jogurt)",
+          "company": "Qumështorja Vita / Devolli Group, Rudina Nr. 91, 31000 Istog",
+          "country": "kosovo",
+          "sourceUrl": "https://www.qumeshtorjavita.com/products/",
+          "evidence": "Qumështorja Vita’s own products listing carries a dedicated yogurt line — Vita Jogurt 3.2%, 1.5% and 0.5% — plus Kos 3.2% in 180 g, 400 g and 800 g, made at the Istog dairy whose address the site prints in its footer.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vita-jogurt.webp",
+          "imageSource": "https://www.qumeshtorjavita.com/products/",
+          "imageCredit": "Qumështorja Vita / Devolli Group (official site)"
+        },
+        {
+          "brand": "Ajka",
+          "company": "Delta Doni sh.p.k., Gorre, Lushnjë",
+          "country": "albania",
+          "sourceUrl": "https://ajka.al/rreth-nesh/",
+          "evidence": "Delta Doni’s own about page: the family business bought premises in Gorre, Lushnjë in 1999 \"aty ku kompania operon edhe sot\", and acquired the Ajka dairy brand in 2007. Produces UHT and pasteurised milk, kos, dhallë and butter.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/ajka-milk.webp",
+          "imageSource": "https://ajka.al/produktet/",
+          "imageCredit": "Delta Doni sh.p.k. / Ajka (official site)"
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14 so a yogurt scan is answered with yogurt."
+    },
+    {
+      "serbianBrand": "Imlek (pavlaka / ajkë)",
+      "serbianCompany": "Imlek a.d., Beograd",
+      "category": "cream",
+      "offCategoryTags": [
+        "en:sour-creams",
+        "en:creams"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "alternatives": [
+        {
+          "brand": "Vita (ajkë / Schmand)",
+          "company": "Qumështorja Vita / Devolli Group, Rudina Nr. 91, 31000 Istog",
+          "country": "kosovo",
+          "sourceUrl": "https://www.qumeshtorjavita.com/products/",
+          "evidence": "Vita’s own products listing has a Schmand category — Schmand 18% in 400 g and 800 g tubs, the sour-cream SKU — alongside Cooking Cream 0.5 L / 1 L and Whipping Cream.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vita-schmand.webp",
+          "imageSource": "https://www.qumeshtorjavita.com/products/",
+          "imageCredit": "Qumështorja Vita / Devolli Group (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14 so a tub of sour cream is answered with sour cream, not with milk."
+    },
+    {
+      "serbianBrand": "Imlek (djathë)",
+      "serbianCompany": "Imlek a.d., Beograd",
+      "category": "cheese",
+      "offCategoryTags": [
+        "en:cheeses"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "alternatives": [
+        {
+          "brand": "Rugove (cheese)",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/home-2/",
+          "evidence": "Alongside its water line, Korporata Rugove has expanded into a growing cheese product range for the Kosovo market.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-cheese.webp",
+          "imageSource": "https://rugove.eu/en/products/cheese-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        },
+        {
+          "brand": "Sharri",
+          "company": "Qumështorja Sharri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.sharrimilk.com/kompania.html",
+          "evidence": "Qumështorja Sharri (Rr. Besim Shala p.n., Prizren) states on its own site that organic milk is taken into \"fabrikën tonë\", pasteurised and homogenised in \"objektin tonë të prodhimit\", and distributed by refrigerated van. Makes jogurt, djathë, kos, ajran, gjizë and gjalpë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Grand Kafa",
+      "serbianCompany": "Grand Prom a.d. / Atlantic Grupa, Beograd",
+      "category": "coffee",
+      "offCategoryTags": [
+        "en:coffees",
+        "en:ground-coffees"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://n1info.rs/biznis/atlantik-grupa-preuzima-jos-jednu-kompaniju-u-srbiji-i-dva-poznata-brenda-kafe/",
+      "alternatives": [
+        {
+          "brand": "Prince Caffe",
+          "company": "Devolli Corporation, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://caffevergnano-ks.com/",
+          "evidence": "Prince Caffe (Prince Premium Espresso, Prince Caffe Turke) is roasted and produced for the Kosovo market and distributed across Kosovo, Albania, Montenegro and North Macedonia by Devolli.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prince-caffe.webp",
+          "imageSource": "https://devollicorporation.com/en/",
+          "imageCredit": "Devolli Corporation / Prince Caffe (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "C Kafa",
+      "serbianCompany": "Strauss Adriatic d.o.o., Šimanovci",
+      "category": "coffee",
+      "offCategoryTags": [
+        "en:coffees",
+        "en:turkish-coffees"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://ckafa.rs/",
+      "alternatives": [
+        {
+          "brand": "Prince Caffe Turke",
+          "company": "Devolli Corporation, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://caffevergnano-ks.com/",
+          "evidence": "Prince Caffe Turke is marketed specifically as a Turkish-style coffee blend produced for Kosovo households, the same use-case as C Kafa.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prince-caffe-turke.webp",
+          "imageSource": "https://devollicorporation.com/en/",
+          "imageCredit": "Devolli Corporation / Prince Caffe (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Dijamant",
+      "serbianCompany": "Dijamant a.d., Zrenjanin (Fortenova Grupa)",
+      "category": "cooking-oil",
+      "offCategoryTags": [
+        "en:sunflower-oils",
+        "en:vegetable-oils"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://dijamant.rs/",
+      "alternatives": [
+        {
+          "brand": "Olim",
+          "company": "Olim sh.a., Gjokaj, Vorë (Tiranë)",
+          "country": "albania",
+          "sourceUrl": "https://olim.al/rreth-nesh/",
+          "evidence": "Olim’s own about page states its 1999 factory runs a closed cycle — pressing sunflower seed, physical and chemical refining at 120 tons/day, PET bottle manufacture and bottling — and that Olim covers about 55% of the Albanian oil market. This is a real sunflower/frying-oil refinery, the same everyday product tier as Dijamant, not an olive-oil substitute.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/olim-frito.webp",
+          "imageSource": "https://olim.al/produkte/",
+          "imageCredit": "Olim sh.a. (official site)"
+        }
+      ],
+      "note": "Retagged 2026-09-14: en:condiments removed (blocklisted aisle tag), and the two Albanian OLIVE oils moved to their own entry — a bottle of frying oil must not be answered with a €12 olive oil as the one inline suggestion."
+    },
+    {
+      "serbianBrand": "Miell i shitur nga Serbia (no single dominant branded Serbian flour exporter verified)",
+      "serbianCompany": "N/A",
+      "category": "flour",
+      "offCategoryTags": [
+        "en:flours",
+        "en:wheat-flours"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Miell Diamond",
+          "company": "Diamond flour mill, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://mielldiamond.com/",
+          "evidence": "Miell Diamond mills flour in Kosovo for home cooking, bakeries, pizzerias and pastry production.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/miell-diamond.webp",
+          "imageSource": "https://mielldiamond.com/",
+          "imageCredit": "Miell Diamond (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Albania",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima describes itself as Albania's largest flour and pasta factory, self-stated on its own site.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        },
+        {
+          "brand": "Atlas Mills",
+          "company": "Atlas Mills, Albania",
+          "country": "albania",
+          "sourceUrl": "https://atlasmills.al/",
+          "evidence": "Atlas Mills is an Albanian flour mill that also exports flour to the Kosovo market.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/atlas-mills.webp",
+          "imageSource": "https://atlasmills.al/produkte/",
+          "imageCredit": "Atlas Mills (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 from a combined flour+pasta entry."
+    },
+    {
+      "serbianBrand": "Makarona të shitura nga Serbia (no single dominant branded Serbian pasta exporter verified)",
+      "serbianCompany": "N/A",
+      "category": "pasta",
+      "offCategoryTags": [
+        "en:pastas",
+        "en:dry-pastas"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Pi&Ki (makarona)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group’s own about page lists a dedicated pasta factory with three lines (spaghetti, macaroni, noodle); the product pages state the pasta is made from durum semolina on Italian machinery.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-pasta.webp",
+          "imageSource": "https://www.egigroup-ks.com/produkti.php?id=156",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Albania",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima describes itself as Albania's largest flour and pasta factory, self-stated on its own site.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 from a combined flour+pasta entry: a packet of spaghetti was being answered with a bag of flour."
+    },
+    {
+      "serbianBrand": "Leskovački ajvar (Serbian PGI-protected regional product)",
+      "serbianCompany": "Various Leskovac-area producers; geographically protected as a Serbian product",
+      "category": "canned-preserves",
+      "offCategoryTags": [
+        "en:ajvar",
+        "en:pickles"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://bif.rs/2012/04/leskovacki-ajvar-zasticen-kao-srpski-brend-4/",
+      "alternatives": [
+        {
+          "brand": "EuroFood",
+          "company": "EuroFood, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://www.euro-food.org/",
+          "evidence": "EuroFood is a Kosovo-based producer and exporter of pickled vegetables, ajvar, ketchup, mayonnaise and marmalade.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/eurofood-ajvar.webp",
+          "imageSource": "https://www.euro-food.org/products-categories.php",
+          "imageCredit": "EuroFood (official site)"
+        },
+        {
+          "brand": "ABI-ELIF 19 Progres",
+          "company": "ABI / ELIF 19, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abi-center.com/en/companies/",
+          "evidence": "The former state fruit-and-vegetable processing factory PROGRES in Prizren, commercialized by ABI and ELIF 19 in 2001, processes ~9,000 tons of fruit and vegetables a year including ajvar and preserves.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        },
+        {
+          "brand": "Krusha (KB Krusha cooperative)",
+          "company": "Kooperativa Krusha",
+          "country": "kosovo",
+          "sourceUrl": "https://balkanappetite.com/products/krusha-ajvar-home-made-720gr",
+          "evidence": "An agricultural cooperative in Krusha e Madhe making traditional home-recipe ajvar and pickled peppers; documented by NPR as a Kosovo war-widows' cooperative.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": "https://www.npr.org/sections/thesalt/2018/02/26/588835459/pepper-co-op-helps-kosovo-s-war-widows-reclaim-their-lives"
+        }
+      ],
+      "note": "Retagged 2026-09-14: en:canned-vegetables (places no family) swapped for en:pickles, which is the same kind in the resolver and covers turshi. EuroFood and ABI Progres both publish their own turshi ranges."
+    },
+    {
+      "serbianBrand": "Polimark",
+      "serbianCompany": "Polimark d.o.o., Autoput Beograd-Novi Sad 100b, 11080 Beograd-Zemun, Serbia",
+      "category": "ketchup",
+      "offCategoryTags": [
+        "en:ketchup",
+        "en:tomato-ketchup"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://poslovi.infostud.com/poslodavac/polimark-d.o.o.-beograd/822",
+      "alternatives": [
+        {
+          "brand": "EuroFood",
+          "company": "EuroFood, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.euro-food.org/products-categories.php",
+          "evidence": "EuroFood (Prizren, Kosovo) lists Ketchup as its own first product category on its official site and shows its own Tomato Ketchup and Pizza Ketchup bottles, printed 'EuroFood - Prizren, Kosova', in 500g and 1000g sizes.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/eurofood-ketchup.webp",
+          "imageSource": "https://www.euro-food.org/products-categories.php",
+          "imageCredit": "EuroFood (official site)"
+        }
+      ],
+      "note": "Retagged 2026-09-14: the blocklisted aisle tags en:condiments and en:sauces removed. en:tomato-ketchup was checked against categoryFamily.js first — it resolves to sauces-condiments, not to fresh-produce."
+    },
+    {
+      "serbianBrand": "Jaffa Crvenka",
+      "serbianCompany": "DOO Jaffa fabrika biskvita Crvenka, Crvenka (Kappa Star)",
+      "category": "biscuits",
+      "offCategoryTags": [
+        "en:biscuits",
+        "en:filled-biscuits",
+        "en:chocolate-covered-biscuits"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.companywall.rs/firma/drustvo-sa-ogranicenom-odgovornoscu-jaffa-fabrika-biskvita-crvenka/MMQzguCq",
+      "alternatives": [
+        {
+          "brand": "Sempre",
+          "company": "Liri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://liriprizren.com/aboutus.php",
+          "evidence": "Liri (Prizren, since 1985) describes itself on its own site as the largest confectionery producer in Kosovo; Sempre is its biscuit brand.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/sempre.jpg",
+          "imageSource": "https://liriprizren.com/",
+          "imageCredit": "Liri Prizren (official site)"
+        },
+        {
+          "brand": "Camel Biscam",
+          "company": "Camel, Mitrovicë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.camel-ks.com/company",
+          "evidence": "Camel, founded 1991 in Mitrovica, states on its own site that \"for the last 12 years we only deal with production\"; Biscam is its biscuit line. HACCP, Halal and ISO certificates are published on the same site.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/camel-biscam.webp",
+          "imageSource": "https://www.camel-ks.com/",
+          "imageCredit": "Camel (official site)"
+        }
+      ],
+      "note": "Seat from the Serbian business registry: Maršala Tita 245, 25230 Crvenka (opština Kula), PIB 100263582. jaffa.rs publishes its address only inside a downloadable PDF, which is why the registry is cited here."
+    },
+    {
+      "serbianBrand": "Soko Štark (Smoki)",
+      "serbianCompany": "Atlantic Štark d.o.o. Beograd (Voždovac)",
+      "category": "corn-flips",
+      "offCategoryTags": [
+        "en:corn-chips",
+        "en:extruded-snacks"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.stark.rs/",
+      "alternatives": [
+        {
+          "brand": "Vipa Flips",
+          "company": "Pestova sh.p.k., Vushtrri",
+          "country": "kosovo",
+          "sourceUrl": "https://vipa-ks.com/en/product-category/flips-en/",
+          "evidence": "Pestova (Pestovë, Vushtrri) publishes Flips as one of its own six manufactured snack categories alongside Chips, Snacks, Stix, Bugles and Pop Corn — the direct like-for-like of a peanut flip.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vipa-flips.webp",
+          "imageSource": "https://vipa-ks.com/en/product-category/flips-en/",
+          "imageCredit": "Pestova sh.p.k. / Vipa (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: Smoki is a corn flip, not a crisp and not popcorn. en:crisps and en:popcorn moved to their own entries so a bag of crisps is not answered with flips."
+    },
+    {
+      "serbianBrand": "Kokoshka (popcorn) nga Serbia (no single dominant Serbian popcorn brand verified)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "popcorn",
+      "offCategoryTags": [
+        "en:popcorn"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Vipa Pop Corn",
+          "company": "Pestova sh.p.k., Pestovë – Vushtrri",
+          "country": "kosovo",
+          "sourceUrl": "https://vipa-ks.com/product-category/pop-corn/",
+          "evidence": "Vipa (Pestova sh.p.k.) publishes a Pop Corn category of its own: \"Kokoshka të përgatitura me kujdes të veçant, duke ia shtuar kripën e detit\", ingredients \"Misër, vaj bimor, kripë\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vipa-popcorn.webp",
+          "imageSource": "https://vipa-ks.com/product-category/pop-corn/",
+          "imageCredit": "Pestova sh.p.k. / Vipa (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14. en:popcorn used to sit on the Smoki entry, so a bag of popcorn was answered with corn flips."
+    },
+    {
+      "serbianBrand": "Vital (Vrbas)",
+      "serbianCompany": "AD Vital fabrika ulja i biljnih masti Vrbas",
+      "category": "cooking-oil",
+      "offCategoryTags": [
+        "en:sunflower-oils",
+        "en:vegetable-oils"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://vital.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Olim",
+          "company": "Olim sh.a., Gjokaj, Vorë (Tiranë)",
+          "country": "albania",
+          "sourceUrl": "https://olim.al/rreth-nesh/",
+          "evidence": "Olim’s own about page states its 1999 factory runs a closed cycle — pressing sunflower seed, physical and chemical refining at 120 tons/day, PET bottle manufacture and bottling — and that Olim covers about 55% of the Albanian oil market. This is a real sunflower/frying-oil refinery, the same everyday product tier as Dijamant, not an olive-oil substitute.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/olim-frito.webp",
+          "imageSource": "https://olim.al/produkte/",
+          "imageCredit": "Olim sh.a. (official site)"
+        }
+      ],
+      "note": "Updated 2026-09-14: olive oils moved to the dedicated olive-oil entry."
+    },
+    {
+      "serbianBrand": "Vaj ulliri i shitur nga Serbia (Serbia has no commercial olive groves — every Serbian-branded olive oil is imported and bottled)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "olive-oil",
+      "offCategoryTags": [
+        "en:olive-oils"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Shkrela",
+          "company": "Shkrela Olive Oil, Rreth Libofshë, Fier",
+          "country": "albania",
+          "sourceUrl": "https://shkrelaoliveoil.com/en/",
+          "evidence": "Family-run Albanian producer that hand-picks, cold-presses and bottles its own extra-virgin olive oil in Fier, processing the olives within 24 hours. NOTE: olive oil is a different price tier from everyday frying oil — offered as a second option, not a like-for-like swap.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/shkrela-olive.jpg",
+          "imageSource": "https://shkrelaoliveoil.com/en/products/",
+          "imageCredit": "Shkrela Olive Oil (official site)"
+        },
+        {
+          "brand": "Biolive",
+          "company": "Biolive, Divjakë",
+          "country": "albania",
+          "sourceUrl": "https://bioliveoil.com/products",
+          "evidence": "Albanian extra-virgin olive oil from groves in Berat, Fier and Vlorë; the pack itself prints \"Produced and bottled by: BIOLIVE, Divjakë, Albania\". NOTE: olive oil, a different tier from everyday frying oil.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/biolive.webp",
+          "imageSource": "https://bioliveoil.com/products",
+          "imageCredit": "Biolive (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14. en:olive-oils used to hang off the sunflower-oil entries, whose first alternative is a frying oil."
+    },
+    {
+      "serbianBrand": "Imlek (gjalpë)",
+      "serbianCompany": "Imlek a.d., Beograd",
+      "category": "butter",
+      "offCategoryTags": [
+        "en:butters"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.imlek.rs/o-nama/",
+      "alternatives": [
+        {
+          "brand": "Ajka (gjalpë)",
+          "company": "Delta Doni sh.p.k., Gorre, Lushnjë",
+          "country": "albania",
+          "sourceUrl": "https://ajka.al/produktet/",
+          "evidence": "Delta Doni’s own products page lists \"Gjalpi i freskët Lope (100gr)\" among the Ajka dairy line; the about page places the plant in Gorre, Lushnjë, \"aty ku kompania operon edhe sot\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/ajka-gjalpe.webp",
+          "imageSource": "https://ajka.al/produktet/",
+          "imageCredit": "Delta Doni sh.p.k. / Ajka (official site)"
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14. NOTE for future passes: en:butters resolves to the OILS-FATS family, not milk-yogurt, which is why this entry sits with the oils and not with the dairy — the kind lane is what makes it findable."
+    },
+    {
+      "serbianBrand": "Voda Vrnjci",
+      "serbianCompany": "Voda Vrnjci a.d., Vrnjačka Banja",
+      "category": "bottled-water",
+      "offCategoryTags": [
+        "en:waters",
+        "en:mineral-waters",
+        "en:natural-mineral-waters"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://vodavrnjci.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Rugove",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/home-2/",
+          "evidence": "Korporata Rugove bottles spring water directly from the Drelaj spring at 1000m altitude in the Rugova region of Kosovo.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-water.jpg",
+          "imageSource": "https://rugove.eu/en/products/water-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        },
+        {
+          "brand": "Uji i Ftohtë Tepelenë",
+          "company": "Uji i Ftohtë Tepelenë, Tepelenë",
+          "country": "albania",
+          "sourceUrl": "https://ujitepelene.com/uji-yne/",
+          "evidence": "Albanian spring-water bottler whose own site states the water rises from 400 m below ground in the Tepelena mountains and is bottled on a 30,000 m² site with over 4,000 m² of plant.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/tepelene-water.webp",
+          "imageSource": "https://ujitepelene.com/uji-yne/linja-klasike/",
+          "imageCredit": "Uji i Ftohtë Tepelenë (official site)"
+        },
+        {
+          "brand": "Lajthiza",
+          "company": "Lajthiza, Pukë",
+          "country": "albania",
+          "sourceUrl": "https://lajthiza.al/produktet/",
+          "evidence": "Lajthiza’s own site places its plant in the village of Lajthizë, Pukë (Bashkia Fushë-Arrëz), built at 1,200 m above sea level.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/lajthiza.webp",
+          "imageSource": "https://lajthiza.al/produktet/",
+          "imageCredit": "Lajthiza (official site)"
+        },
+        {
+          "brand": "Glina",
+          "company": "Fabrika e Glinës, Gjirokastër",
+          "country": "albania",
+          "sourceUrl": "https://glina.com/Produkte.aspx",
+          "evidence": "The Glina factory states on its own site that it began operating in 1973; its footer gives \"Fabrika e Glinës, Gjirokastër\" (village of Glinë).",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/glina.webp",
+          "imageSource": "https://glina.com/Produkte.aspx",
+          "imageCredit": "Fabrika e Glinës (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Fruvita",
+      "serbianCompany": "Fruvita d.o.o., Beograd (Stari Grad); plant Lunjevac/Kolari near Smederevo",
+      "category": "juices-soft-drinks",
+      "offCategoryTags": [
+        "en:fruit-juices",
+        "en:fruit-nectars",
+        "en:juices-and-nectars"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "http://www.fruvita.com/",
+      "alternatives": [
+        {
+          "brand": "Frutti",
+          "company": "Frutti sh.p.k., Reçan, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://frutti-ks.com",
+          "evidence": "Frutti’s own \"Rreth nesh\" states the company was founded in 2000 in Prizren, based in the village of Reçan; it bottles fruit juice in 200 ml glass, 250, 330 ml and 1 L.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/frutti.webp",
+          "imageSource": "https://frutti-ks.com/sq/molle/",
+          "imageCredit": "Frutti sh.p.k. (official site)"
+        },
+        {
+          "brand": "Tango",
+          "company": "Devolli Group, Istog",
+          "country": "kosovo",
+          "sourceUrl": "https://devolligroup.com/brands/tango/",
+          "evidence": "Tango Life is Devolli Group’s own fruit/soft-drink brand (apple, orange, peach, sour cherry, strawberry, pear, blueberry, forest fruit, multivitamin), published on the group’s own brand page.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/tango.webp",
+          "imageSource": "https://devolligroup.com/brands/tango/",
+          "imageCredit": "Devolli Group (official site)"
+        },
+        {
+          "brand": "Frutomania",
+          "company": "MOEA, Gjilan",
+          "country": "kosovo",
+          "sourceUrl": "https://fondikgk.org/en/moea-frutomania-a-little-bottle-with-big-love/",
+          "evidence": "MOEA grows fruit on ~400 hectares near Gjilan and cold-presses it into 100%-fruit Frutomania juice.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/frutomania.jpg",
+          "imageSource": "https://frutomaniaks.com/",
+          "imageCredit": "MOEA / Frutomania (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Guarana",
+      "serbianCompany": "Knjaz Miloš a.d., Aranđelovac",
+      "category": "energy-drinks",
+      "offCategoryTags": [
+        "en:energy-drinks"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://knjaz.rs/contact/?lang=en",
+      "alternatives": [
+        {
+          "brand": "Golden Eagle",
+          "company": "Frutex L.L.C., Suharekë",
+          "country": "kosovo",
+          "sourceUrl": "https://frutex-ks.com",
+          "evidence": "Frutex’s own site: \"Frutex L.L.C was established in 1994, in Suhareka, Kosova and was set as a family business with the objective of producing and selling beverages.\" Its plant address is Zona Industriale Shirokë, Suharekë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/golden-eagle.webp",
+          "imageSource": "https://frutex-ks.com/golden-eagle",
+          "imageCredit": "Frutex L.L.C. (official site)"
+        },
+        {
+          "brand": "GO+",
+          "company": "Devolli Group, Istog",
+          "country": "kosovo",
+          "sourceUrl": "https://devolligroup.com/brands/go/",
+          "evidence": "GO+ is Devolli Group’s own energy-drink brand, listed with its SKUs on the group’s brand page.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/go-energy.webp",
+          "imageSource": "https://devolligroup.com/brands/go/",
+          "imageCredit": "Devolli Group (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: en:sodas/en:soft-drinks moved to their own entry so a bottle of fizzy orange is not answered with an energy drink."
+    },
+    {
+      "serbianBrand": "Pije të gazuara nga Serbia (no single dominant Serbian soda brand verified — the cola shelf is bottled under international licence)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "soft-drinks",
+      "offCategoryTags": [
+        "en:sodas",
+        "en:soft-drinks"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Tango",
+          "company": "Devolli Group, Istog",
+          "country": "kosovo",
+          "sourceUrl": "https://devolligroup.com/brands/tango/",
+          "evidence": "Tango Life is Devolli Group’s own fruit/soft-drink brand (apple, orange, peach, sour cherry, strawberry, pear, blueberry, forest fruit, multivitamin), published on the group’s own brand page.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/tango.webp",
+          "imageSource": "https://devolligroup.com/brands/tango/",
+          "imageCredit": "Devolli Group (official site)"
+        },
+        {
+          "brand": "Golden Eagle",
+          "company": "Frutex L.L.C., Suharekë",
+          "country": "kosovo",
+          "sourceUrl": "https://frutex-ks.com",
+          "evidence": "Frutex’s own site: \"Frutex L.L.C was established in 1994, in Suhareka, Kosova and was set as a family business with the objective of producing and selling beverages.\" Its plant address is Zona Industriale Shirokë, Suharekë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/golden-eagle.webp",
+          "imageSource": "https://frutex-ks.com/golden-eagle",
+          "imageCredit": "Frutex L.L.C. (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14 to carry the soft-drink kind, which previously sat on the Guarana energy-drink entry."
+    },
+    {
+      "serbianBrand": "Mlekara Šabac",
+      "serbianCompany": "Mlekara Šabac a.d., Krsmanovača bb, Šabac",
+      "category": "milk",
+      "offCategoryTags": [
+        "en:milks",
+        "en:uht-milks"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://mlekara-sabac.com/",
+      "alternatives": [
+        {
+          "brand": "Vita",
+          "company": "Devolli Group, Fushë Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.qumeshtorjavita.com/about-us/",
+          "evidence": "Vita was Kosovo’s first UHT milk (2003, with Tetra Pak); Devolli’s plant runs dedicated milk and yogurt lines.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/vita.webp",
+          "imageSource": "https://www.qumeshtorjavita.com/",
+          "imageCredit": "Qumështorja Vita / Devolli Group (official site)"
+        },
+        {
+          "brand": "Ajka",
+          "company": "Delta Doni sh.p.k., Gorre, Lushnjë",
+          "country": "albania",
+          "sourceUrl": "https://ajka.al/rreth-nesh/",
+          "evidence": "Delta Doni’s own about page: the family business bought premises in Gorre, Lushnjë in 1999 \"aty ku kompania operon edhe sot\", and acquired the Ajka dairy brand in 2007. Produces UHT and pasteurised milk, kos, dhallë and butter.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/ajka-milk.webp",
+          "imageSource": "https://ajka.al/produktet/",
+          "imageCredit": "Delta Doni sh.p.k. / Ajka (official site)"
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        },
+        {
+          "brand": "Sharri",
+          "company": "Qumështorja Sharri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.sharrimilk.com/kompania.html",
+          "evidence": "Qumështorja Sharri (Rr. Besim Shala p.n., Prizren) states on its own site that organic milk is taken into \"fabrikën tonë\", pasteurised and homogenised in \"objektin tonë të prodhimit\", and distributed by refrigerated van. Makes jogurt, djathë, kos, ajran, gjizë and gjalpë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ],
+      "note": "Split 2026-09-14: yogurt and sour cream moved to the Imlek (jogurt) and Imlek (pavlaka) entries. This entry is milk only."
+    },
+    {
+      "serbianBrand": "Sirko (Mlekara Šabac)",
+      "serbianCompany": "Mlekara Šabac a.d., Krsmanovača bb, Šabac",
+      "category": "cheese",
+      "offCategoryTags": [
+        "en:cheeses"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://mlekara-sabac.com/",
+      "alternatives": [
+        {
+          "brand": "Sharri",
+          "company": "Qumështorja Sharri, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.sharrimilk.com/kompania.html",
+          "evidence": "Qumështorja Sharri (Rr. Besim Shala p.n., Prizren) states on its own site that organic milk is taken into \"fabrikën tonë\", pasteurised and homogenised in \"objektin tonë të prodhimit\", and distributed by refrigerated van. Makes jogurt, djathë, kos, ajran, gjizë and gjalpë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        },
+        {
+          "brand": "ABI",
+          "company": "ABI sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://abimilk.com/en/products/",
+          "evidence": "ABI has processed milk in Kosovo since 1996, producing Sharri cheese, white cheese, kaçkavall, butter, yogurt and ayran.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi.jpg",
+          "imageSource": "https://abimilk.com/en/products/",
+          "imageCredit": "ABI sh.p.k. (official site)"
+        },
+        {
+          "brand": "Rugove (cheese)",
+          "company": "Korporata Rugove, Rugovë/Peja region",
+          "country": "kosovo",
+          "sourceUrl": "https://rugove.eu/en/products/cheese-rugove/",
+          "evidence": "Alongside its water line, Korporata Rugove produces a cheese range for the Kosovo market.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rugove-cheese.webp",
+          "imageSource": "https://rugove.eu/en/products/cheese-rugove/",
+          "imageCredit": "Korporata Rugove (official site)"
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Carnex",
+      "serbianCompany": "Carnex d.o.o. industrija mesa Vrbas",
+      "category": "meat-charcuterie",
+      "offCategoryTags": [
+        "en:sausages",
+        "en:salami",
+        "en:cured-sausages",
+        "en:hams"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://carnex.rs/pages/kontakti",
+      "alternatives": [
+        {
+          "brand": "Mishtore Xhoshkun",
+          "company": "Mishtore Xhoshkun, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://mishtorexhoshkun.com/produktet/",
+          "evidence": "Prizren meat plant founded 1978, licensed for processing and producing meat products, sourcing \"direkt nga fermerët vendas të Kosovës\". Its published catalogue is fresh and marinated cuts rather than dry sausage.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/xhoshkun.jpg",
+          "imageSource": "https://mishtorexhoshkun.com/produktet/",
+          "imageCredit": "Mishtore Xhoshkun (official site)"
+        },
+        {
+          "brand": "Apetit",
+          "company": "Apetit Group sh.p.k., Babi Most, Obiliq",
+          "country": "kosovo",
+          "sourceUrl": "https://apetitgroup.com/wp/",
+          "evidence": "Apetit Group (founded 1983, Babi Most near Obiliq) states on its own site that it owns licensed slaughterhouse 087KS plus its own meat-processing industry and cold store, working to HALLALL and HACCP norms. Honest caveat from the same page: it also imports some raw beef, chicken and fish.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ],
+      "note": "Reordered 2026-09-14: Mishtore Xhoshkun leads because it is the one with a verified pack shot, and the inline row shows only alternatives[0]."
+    },
+    {
+      "serbianBrand": "Matijević",
+      "serbianCompany": "IM Matijević d.o.o., Rumenački put 86, Novi Sad",
+      "category": "meat-charcuterie",
+      "offCategoryTags": [
+        "en:sausages",
+        "en:salami",
+        "en:cured-sausages"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://matijevic.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Mishtore Xhoshkun",
+          "company": "Mishtore Xhoshkun, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://mishtorexhoshkun.com/produktet/",
+          "evidence": "Prizren meat plant founded 1978, licensed for processing and producing meat products, sourcing \"direkt nga fermerët vendas të Kosovës\". Its published catalogue is fresh and marinated cuts rather than dry sausage.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/xhoshkun.jpg",
+          "imageSource": "https://mishtorexhoshkun.com/produktet/",
+          "imageCredit": "Mishtore Xhoshkun (official site)"
+        },
+        {
+          "brand": "Apetit",
+          "company": "Apetit Group sh.p.k., Babi Most, Obiliq",
+          "country": "kosovo",
+          "sourceUrl": "https://apetitgroup.com/wp/",
+          "evidence": "Apetit Group (founded 1983, Babi Most near Obiliq) states on its own site that it owns licensed slaughterhouse 087KS plus its own meat-processing industry and cold store, working to HALLALL and HACCP norms. Honest caveat from the same page: it also imports some raw beef, chicken and fish.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ],
+      "note": "Reordered 2026-09-14: Mishtore Xhoshkun leads because it is the one with a verified pack shot, and the inline row shows only alternatives[0]."
+    },
+    {
+      "serbianBrand": "Neoplanta",
+      "serbianCompany": "Neoplanta industrija mesa d.o.o., Primorska 90, Novi Sad",
+      "category": "meat-charcuterie",
+      "offCategoryTags": [
+        "en:sausages",
+        "en:salami",
+        "en:hams"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://neoplanta.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Mishtore Xhoshkun",
+          "company": "Mishtore Xhoshkun, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://mishtorexhoshkun.com/produktet/",
+          "evidence": "Prizren meat plant founded 1978, licensed for processing and producing meat products, sourcing \"direkt nga fermerët vendas të Kosovës\". Its published catalogue is fresh and marinated cuts rather than dry sausage.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/xhoshkun.jpg",
+          "imageSource": "https://mishtorexhoshkun.com/produktet/",
+          "imageCredit": "Mishtore Xhoshkun (official site)"
+        },
+        {
+          "brand": "Apetit",
+          "company": "Apetit Group sh.p.k., Babi Most, Obiliq",
+          "country": "kosovo",
+          "sourceUrl": "https://apetitgroup.com/wp/",
+          "evidence": "Apetit Group (founded 1983, Babi Most near Obiliq) states on its own site that it owns licensed slaughterhouse 087KS plus its own meat-processing industry and cold store, working to HALLALL and HACCP norms. Honest caveat from the same page: it also imports some raw beef, chicken and fish.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ],
+      "note": "Reordered 2026-09-14: Mishtore Xhoshkun leads because it is the one with a verified pack shot, and the inline row shows only alternatives[0]."
+    },
+    {
+      "serbianBrand": "Zlatiborac",
+      "serbianCompany": "Zlatiborac d.o.o., Beograd (Čukarica); plant Mačkat, Zlatibor",
+      "category": "meat-charcuterie",
+      "offCategoryTags": [
+        "en:cured-sausages",
+        "en:hams",
+        "en:salami"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.zlatiborac.com/kontakt",
+      "alternatives": [
+        {
+          "brand": "Mishtore Xhoshkun",
+          "company": "Mishtore Xhoshkun, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://mishtorexhoshkun.com/produktet/",
+          "evidence": "Prizren meat plant founded 1978, licensed for processing and producing meat products, sourcing \"direkt nga fermerët vendas të Kosovës\". Its published catalogue is fresh and marinated cuts rather than dry sausage.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/xhoshkun.jpg",
+          "imageSource": "https://mishtorexhoshkun.com/produktet/",
+          "imageCredit": "Mishtore Xhoshkun (official site)"
+        },
+        {
+          "brand": "Apetit",
+          "company": "Apetit Group sh.p.k., Babi Most, Obiliq",
+          "country": "kosovo",
+          "sourceUrl": "https://apetitgroup.com/wp/",
+          "evidence": "Apetit Group (founded 1983, Babi Most near Obiliq) states on its own site that it owns licensed slaughterhouse 087KS plus its own meat-processing industry and cold store, working to HALLALL and HACCP norms. Honest caveat from the same page: it also imports some raw beef, chicken and fish.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ],
+      "note": "Reordered 2026-09-14: Mishtore Xhoshkun leads because it is the one with a verified pack shot, and the inline row shows only alternatives[0]."
+    },
+    {
+      "serbianBrand": "Doncafé",
+      "serbianCompany": "Atlantic Grand d.o.o., Miloša Obilića 41, Šimanovci",
+      "category": "coffee",
+      "offCategoryTags": [
+        "en:coffees",
+        "en:ground-coffees"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.doncafe.rs/",
+      "alternatives": [
+        {
+          "brand": "Prince Caffe",
+          "company": "Devolli Corporation, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://princecaffe.com",
+          "evidence": "Prince Caffe’s own site describes a modern Italian-equipped roasting plant in Pejë (Zahir Pajaziti n.n.) with a 40,000 t annual roasting capacity.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prince-caffe.webp",
+          "imageSource": "https://devollicorporation.com/en/",
+          "imageCredit": "Devolli Corporation / Prince Caffe (official site)"
+        },
+        {
+          "brand": "Mulliri Vjetër",
+          "company": "Mulliri Vjetër, Tiranë–Durrës",
+          "country": "albania",
+          "sourceUrl": "https://mullirivjeter.al/produktet/",
+          "evidence": "Albanian roaster on the Tiranë–Durrës secondary road: \"Ne kujdesemi që çdo ditë të pjekim kafe\". Espresso 1 kg, Moka 250 g, Kafe turke and capsules.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/mulliri-vjeter.jpg",
+          "imageSource": "https://mullirivjeter.al/produktet/",
+          "imageCredit": "Mulliri Vjetër (official site)"
+        },
+        {
+          "brand": "Lori Caffè",
+          "company": "Valtelina sh.p.k., Mëzez, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://loricaffe.com",
+          "evidence": "Valtelina (Autostrada Tiranë–Durrës KM 4, Mëzez) states on its own site that it is the largest producer of quality coffee in Albania; Lori Caffè is its brand.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/lori-caffe.webp",
+          "imageSource": "https://loricaffe.com/produkte/lori-experience/",
+          "imageCredit": "Valtelina / Lori Caffè (official site)"
+        }
+      ],
+      "note": "Doncafé and C kafa were acquired by Atlantic Grupa from Strauss Adriatic in 2024 and merged into Atlantic Grand d.o.o. at the Šimanovci plant — so Doncafé and Grand Kafa are now one Serbian legal entity."
+    },
+    {
+      "serbianBrand": "Fructus",
+      "serbianCompany": "Fructus d.o.o., Novosadski put 15, Bač / Bačka Palanka",
+      "category": "tea",
+      "offCategoryTags": [
+        "en:teas",
+        "en:herbal-teas",
+        "en:black-teas"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.fructus.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Merja",
+          "company": "Bio Produkte Merja, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://merjabioprodukte.com/about/1-Rreth-Nesh",
+          "evidence": "Merja Bioprodukte began in Tirana in 1997 collecting and processing Albanian wild medicinal plants and created its own farm in Lushnjë in 2014; site-wide badge \"Prodhuar me krenari në Shqipëri\". Sells çaj mali, sherebelë, bar blete and other single-herb teas.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/merja-caj.jpg",
+          "imageSource": "https://merjabioprodukte.com/produkte.php?category=1",
+          "imageCredit": "Bio Produkte Merja (official site)"
+        }
+      ],
+      "note": "Registry activity code 1083 — \"Prerada čaja i kafe\" (tea and coffee processing)."
+    },
+    {
+      "serbianBrand": "Vitamin Horgoš",
+      "serbianCompany": "Prehrambena industrija \"Vitamin\" d.o.o., Segedinski put 427, Horgoš",
+      "category": "tea",
+      "offCategoryTags": [
+        "en:teas",
+        "en:herbal-teas"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.vitamin.rs/",
+      "alternatives": [
+        {
+          "brand": "Merja",
+          "company": "Bio Produkte Merja, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://merjabioprodukte.com/about/1-Rreth-Nesh",
+          "evidence": "Merja Bioprodukte began in Tirana in 1997 collecting and processing Albanian wild medicinal plants and created its own farm in Lushnjë in 2014; site-wide badge \"Prodhuar me krenari në Shqipëri\". Sells çaj mali, sherebelë, bar blete and other single-herb teas.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/merja-caj.jpg",
+          "imageSource": "https://merjabioprodukte.com/produkte.php?category=1",
+          "imageCredit": "Bio Produkte Merja (official site)"
+        }
+      ],
+      "note": "Own site states roughly 50 million tea bags and 1,500 t of ground paprika a year. NOT to be confused with Vitaminka (Prilep, North Macedonia), which is a different company in a different country."
+    },
+    {
+      "serbianBrand": "Aleva",
+      "serbianCompany": "Prehrambena industrija Aleva d.o.o., Svetozara Miletića 15, Novi Kneževac",
+      "category": "spices",
+      "offCategoryTags": [
+        "en:spices",
+        "en:spice-blends"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://aleva.rs/",
+      "alternatives": [
+        {
+          "brand": "EFI Spec i Kuq (EGI Group)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group (Zahaq, Pejë) operates a packing factory for beans, rice and red pepper; its ground red pepper is sold under the EFI mark — the pack shot on EGI’s own site reads \"EFI Spec i kuq i bluar\", not Pi&Ki, so it is named here as it is named on the shelf.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-spec.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=15",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: en:salts moved to its own entry, and Euroni (a salt packer) with it — a jar of paprika must not be answered with a box of salt."
+    },
+    {
+      "serbianBrand": "Yumis",
+      "serbianCompany": "Yumis d.o.o., Niš",
+      "category": "spices",
+      "offCategoryTags": [
+        "en:spices",
+        "en:spice-blends",
+        "en:seasonings"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.yumis.rs/",
+      "alternatives": [
+        {
+          "brand": "EFI Spec i Kuq (EGI Group)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group (Zahaq, Pejë) operates a packing factory for beans, rice and red pepper; its ground red pepper is sold under the EFI mark — the pack shot on EGI’s own site reads \"EFI Spec i kuq i bluar\", not Pi&Ki, so it is named here as it is named on the shelf.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-spec.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=15",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14. Yumis is already in data/boycott-brands.json as a Serbian spice maker but had no curated entry at all, so the brand lane returned nothing for it."
+    },
+    {
+      "serbianBrand": "Kripë e paketuar (neither Serbia nor Kosovo has salt deposits — every retail pack on both sides is imported raw salt, cleaned and packed locally)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "salt",
+      "offCategoryTags": [
+        "en:salts"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Euroni",
+          "company": "Euroni Salt L.L.C., Fushë Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://euroni-ks.com/about/",
+          "evidence": "Salt washing, drying, iodization, grain separation and packing plant in Fushë Kosovë, operating since 2003 with ISO 9001/22000 and HACCP. HONEST LIMIT: Kosovo has no salt deposits — Euroni processes, iodizes and packs imported raw salt, so this is \"processed and packed in Kosovo\", not \"mined in Kosovo\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/euroni-salt.webp",
+          "imageSource": "https://euroni-ks.com/product-category/vacuum-rock-salt/",
+          "imageCredit": "Euroni Salt L.L.C. (official site)"
+        }
+      ],
+      "note": "Added 2026-09-14 so a box of salt is answered with salt. Euroni is offered exactly as the gaps section describes it: iodised and packed in Fushë Kosovë, from imported raw salt."
+    },
+    {
+      "serbianBrand": "Centroproizvod (C ketchup)",
+      "serbianCompany": "Nestlé Adriatic S d.o.o., Železnička 131, Surčin, Beograd (ex Centroproizvod a.d.)",
+      "category": "ketchup",
+      "offCategoryTags": [
+        "en:ketchup"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.companywall.rs/firma/nestle-adriatic-s-doo-beograd-surcin/MMfajHUY",
+      "alternatives": [
+        {
+          "brand": "EuroFood",
+          "company": "EuroFood, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.euro-food.org/products-categories.php",
+          "evidence": "EuroFood (Prizren, Kosovo) is a producer of pickled vegetables, ajvar, ketchup, mayonnaise and marmalade, with its own bottles printed \"EuroFood - Prizren, Kosova\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/eurofood-ajvar.webp",
+          "imageSource": "https://www.euro-food.org/products-categories.php",
+          "imageCredit": "EuroFood (official site)"
+        },
+        {
+          "brand": "Art Food",
+          "company": "Frutex L.L.C., Suharekë",
+          "country": "kosovo",
+          "sourceUrl": "https://frutex-ks.com/art-food",
+          "evidence": "Art Food is Frutex’s own ketchup and marmalade line, produced at its Suharekë plant alongside Golden Eagle and Relax.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/art-food-ketchup.webp",
+          "imageSource": "https://frutex-ks.com/art-food",
+          "imageCredit": "Frutex L.L.C. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: en:mayonnaises and en:mustards moved off. A squeeze of mayonnaise must not be answered with a bottle of ketchup."
+    },
+    {
+      "serbianBrand": "Centroproizvod (C majonez)",
+      "serbianCompany": "Nestlé Adriatic S d.o.o., Železnička 131, Surčin, Beograd (ex Centroproizvod a.d.)",
+      "category": "mayonnaise",
+      "offCategoryTags": [
+        "en:mayonnaises"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.companywall.rs/firma/nestle-adriatic-s-doo-beograd-surcin/MMfajHUY",
+      "alternatives": [
+        {
+          "brand": "EuroFood (majonezë)",
+          "company": "EuroFood sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.euro-food.org/products.php?category=2",
+          "evidence": "EuroFood (Prizren, founded 1999 — \"Ne grumbullojmë, përpunojmë dhe prodhojmë produkte premium nga pemët dhe perimet\") publishes its own Majonez category: Super Majonez in nine sizes plus Fast Food Majonez.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/eurofood-majonez.webp",
+          "imageSource": "https://www.euro-food.org/products.php?category=2",
+          "imageCredit": "EuroFood sh.p.k. (official site)"
+        },
+        {
+          "brand": "ABI Progres (majonez)",
+          "company": "ABI Progres, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.abiprogres.com/products/ketchup-majonez",
+          "evidence": "ABI Progres — \"përpunuesi më i rëndësishëm i pemëve dhe perimeve, në Kosovë\" on its own about page — lists Majonez Ekstra 500 g and 630 g with a full ingredient declaration on its own product page.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi-progres-majonez.webp",
+          "imageSource": "https://www.abiprogres.com/products/ketchup-majonez",
+          "imageCredit": "ABI Progres (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14. Both local makers were verified on their own sites this pass: EuroFood publishes Super Majonez and Fast Food Majonez, ABI Progres publishes Majonez Ekstra 500/630 g. en:mustards was dropped entirely — no Kosovar or Albanian mustard producer could be verified."
+    },
+    {
+      "serbianBrand": "Danubius (miell)",
+      "serbianCompany": "Danubius d.o.o., Kanalska 1, Novi Sad",
+      "category": "flour",
+      "offCategoryTags": [
+        "en:flours",
+        "en:wheat-flours"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.danubius.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Miell Diamond",
+          "company": "Diamond flour mill, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://mielldiamond.com/",
+          "evidence": "Miell Diamond mills flour in Kosovo for home cooking, bakeries, pizzerias and pastry production.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/miell-diamond.webp",
+          "imageSource": "https://mielldiamond.com/",
+          "imageCredit": "Miell Diamond (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima’s own site describes its pasta factory with three lines at 60 tons/day, at Rruga \"Konferenca e Pezes\", Tiranë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: Danubius mills flour AND extrudes pasta, so one entry could only ever answer half its own scans correctly."
+    },
+    {
+      "serbianBrand": "Danubius (makarona)",
+      "serbianCompany": "Danubius d.o.o., Kanalska 1, Novi Sad",
+      "category": "pasta",
+      "offCategoryTags": [
+        "en:pastas",
+        "en:dry-pastas"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.danubius.rs/kontakt/",
+      "alternatives": [
+        {
+          "brand": "Pi&Ki (makarona)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group’s own about page lists a dedicated pasta factory with three lines (spaghetti, macaroni, noodle); the product pages state the pasta is made from durum semolina on Italian machinery.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-pasta.webp",
+          "imageSource": "https://www.egigroup-ks.com/produkti.php?id=156",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima’s own site describes its pasta factory with three lines at 60 tons/day, at Rruga \"Konferenca e Pezes\", Tiranë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 from the combined Danubius flour+pasta entry."
+    },
+    {
+      "serbianBrand": "Fidelinka (miell)",
+      "serbianCompany": "Fidelinka 1868 d.o.o., Čantavirski put 1, Subotica",
+      "category": "flour",
+      "offCategoryTags": [
+        "en:flours",
+        "en:wheat-flours"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.fidelinka.rs/",
+      "alternatives": [
+        {
+          "brand": "Miell Diamond",
+          "company": "Diamond flour mill, Kosovo",
+          "country": "kosovo",
+          "sourceUrl": "https://mielldiamond.com/",
+          "evidence": "Miell Diamond mills flour in Kosovo for home cooking, bakeries, pizzerias and pastry production.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/miell-diamond.webp",
+          "imageSource": "https://mielldiamond.com/",
+          "imageCredit": "Miell Diamond (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima’s own site describes its pasta factory with three lines at 60 tons/day, at Rruga \"Konferenca e Pezes\", Tiranë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: Fidelinka mills flour AND extrudes pasta, so one entry could only ever answer half its own scans correctly."
+    },
+    {
+      "serbianBrand": "Fidelinka (makarona)",
+      "serbianCompany": "Fidelinka 1868 d.o.o., Čantavirski put 1, Subotica",
+      "category": "pasta",
+      "offCategoryTags": [
+        "en:pastas",
+        "en:dry-pastas"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.fidelinka.rs/",
+      "alternatives": [
+        {
+          "brand": "Pi&Ki (makarona)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/aboutusfinal.php",
+          "evidence": "EGI Group’s own about page lists a dedicated pasta factory with three lines (spaghetti, macaroni, noodle); the product pages state the pasta is made from durum semolina on Italian machinery.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-pasta.webp",
+          "imageSource": "https://www.egigroup-ks.com/produkti.php?id=156",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        },
+        {
+          "brand": "Prima (flour and pasta)",
+          "company": "Prima, Tiranë",
+          "country": "albania",
+          "sourceUrl": "https://prima.al/en/",
+          "evidence": "Prima’s own site describes its pasta factory with three lines at 60 tons/day, at Rruga \"Konferenca e Pezes\", Tiranë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/prima.jpg",
+          "imageSource": "https://prima.al/produkte",
+          "imageCredit": "Prima sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 from the combined Fidelinka flour+pasta entry."
+    },
+    {
+      "serbianBrand": "Perfex (Drenik ND)",
+      "serbianCompany": "Drenik ND d.o.o., Beograd (seat Deligradska 19; plant Pančevački put 69)",
+      "category": "paper-hygiene",
+      "offCategoryTags": [
+        "en:toilet-papers"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.perfex.rs/kontakt.php",
+      "alternatives": [
+        {
+          "brand": "Tara",
+          "company": "Tara Soft L.L.C., Vlashnjë, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://tarasoft-ks.com/",
+          "evidence": "Tara Soft (Rr. Tifozat p.n., Vlashnjë, Prizren) runs its own paper mill — \"Fabrikë e Avancuar — Teknologji të lartë për prodhimin e letrave\" — making toilet paper, kitchen paper, tissues and napkins.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/tara-toilet.jpg",
+          "imageSource": "https://tarasoft-ks.com/dyqani",
+          "imageCredit": "Tara Soft L.L.C. (official site)"
+        }
+      ],
+      "note": "Honest limit: part of the Perfex range is made at Drenik Kft in Szolnok, Hungary, so not every Perfex pack is Serbian-made. Also note drenik.rs is an unrelated ISP with a similar name."
+    },
+    {
+      "serbianBrand": "Duel (Beohemija)",
+      "serbianCompany": "Beohemija d.o.o., Pančevačka 84, Zrenjanin",
+      "category": "cleaning",
+      "offCategoryTags": [
+        "en:laundry-detergents"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.beohemija.com/proizvodi/",
+      "alternatives": [
+        {
+          "brand": "Rea Efekt (Get)",
+          "company": "Get sh.p.k., Zona Industriale Shkozet, Durrës",
+          "country": "albania",
+          "sourceUrl": "https://get.com.al/product/rea-efekt/",
+          "evidence": "Get sh.p.k.’s own about page: \"nje kompani me nje ekperience te gjate 20 vjecare ne fushen e prodhimit te detegeneteve\" (detergent production), site tagline \"Fabrike detergjentesh\". Its Rea Efekt page describes \"pluhur lares per rrobat i cili vjen ne sasine 3-5kg\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/rea-efekt.webp",
+          "imageSource": "https://get.com.al/product/rea-efekt/",
+          "imageCredit": "Get sh.p.k. (official site)"
+        },
+        {
+          "brand": "Rea (Get)",
+          "company": "Get sh.p.k., Zona Industriale Shkozet, Durrës",
+          "country": "albania",
+          "sourceUrl": "https://get.com.al/rreth-nesh/",
+          "evidence": "Get sh.p.k. (Durrës) describes twenty years in detergent PRODUCTION with the Rea brand distributed across Albania; site title \"Fabrike detergjentesh\". HONEST CAVEAT: its homepage separately describes the company as focused on detergent TRADING, so the two pages disagree.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/get-rea.jpg",
+          "imageSource": "https://get.com.al/product/rea-black/",
+          "imageCredit": "Get sh.p.k. (official site)"
+        }
+      ],
+      "note": "Fixed 2026-09-14. alternatives[0] used to be ER-ABI Attix — a DISHWASHING liquid offered against a laundry detergent. ER-ABI’s own sitemap has routes for sapun-per-duar, detergjent-ene, shampo-floke and surface cleaners but NO laundry route, so Attix has moved to the new dish-soap entry and the laundry answer is now Get sh.p.k.’s Rea Efekt washing powder."
+    },
+    {
+      "serbianBrand": "Detergjent për enë nga Serbia (no single verified Serbian dish-soap brand)",
+      "serbianCompany": "N/A — category-keyed entry",
+      "category": "dish-soap",
+      "offCategoryTags": [
+        "en:dishwashing-liquid",
+        "en:dishwashing-products"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "ER-ABI Attix",
+          "company": "NTP ER-ABI, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.er-abi.com",
+          "evidence": "ER-ABI states on its own site: \"ER ABI është kompani prodhuese e detergjentëve në Prizren, Kosovë\", factory founded 2003 on a 1000 m² covered site, labelled \"Prodhuar në Kosovë\". Attix is its dishwashing line; Max Clean, Glorax and Jopaq are its other cleaning brands.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/er-abi-attix.webp",
+          "imageSource": "https://www.er-abi.com",
+          "imageCredit": "NTP ER-ABI (official site)"
+        }
+      ],
+      "note": "Repurposed 2026-09-14 from an empty \"see gaps\" stub that carried the blocklisted tags en:household-products and en:detergents and was therefore invisible to the app. NOTE: en:dish-soaps must NOT be used — the substring \"soap\" files it under personal-care. en:dishwashing-liquid resolves to cleaning."
+    },
+    {
+      "serbianBrand": "Personal care sold in Kosovo (no single verified Serbian mass brand)",
+      "serbianCompany": "N/A",
+      "category": "personal-care",
+      "offCategoryTags": [
+        "en:soaps",
+        "en:shower-gels"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "ER-ABI Softly",
+          "company": "NTP ER-ABI, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.er-abi.com",
+          "evidence": "Softly (\"shampon për duar\") is ER-ABI’s own liquid hand-soap brand, made at its Prizren factory (founded 2003), which also produces shampoo, dish and laundry detergents. Dora is a sister brand from the same plant.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/er-abi-softly.webp",
+          "imageSource": "https://www.er-abi.com",
+          "imageCredit": "NTP ER-ABI (official site)"
+        },
+        {
+          "brand": "ER-ABI (shampon)",
+          "company": "NTP ER-ABI, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.er-abi.com",
+          "evidence": "ER-ABI lists shampon among the lines it manufactures in Prizren, alongside liquid hand soap and dish/laundry detergents, with raw materials sourced from BASF.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/er-abi-shampoo.webp",
+          "imageSource": "https://www.er-abi.com",
+          "imageCredit": "NTP ER-ABI (official site)"
+        }
+      ],
+      "note": "No Serbian-OWNED mass-market soap/shower-gel/toothpaste brand could be verified: production in Serbia in this category belongs to foreign groups (Henkel Srbija), and no Serbian toothpaste producer was found at all. This entry therefore asserts no Serbian counterpart — it exists so a shopper who picks \"personal care\" is still shown a real Kosovo manufacturer instead of a dead end."
+    },
+    {
+      "serbianBrand": "Reçel dhe marmelatë nga Serbia (no single verified Serbian preserve brand)",
+      "serbianCompany": "N/A",
+      "category": "jam",
+      "offCategoryTags": [
+        "en:jams",
+        "en:compotes",
+        "en:marmalades"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "ABI Progres (reçel dhe marmelatë)",
+          "company": "ABI Progres, Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.abiprogres.com/products/marmelata",
+          "evidence": "ABI Progres’s own about page lists \"Pemët e përpunuara: xhem, marmelladë, frute te ziera (kompot)\", and its Marmelata page carries Reçel Dredhëze, Reçel Vishnje, Xhem Vishnje, Xhem Manaferra and marmelatë in 400 g–3 kg.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/abi-progres-recel.webp",
+          "imageSource": "https://www.abiprogres.com/products/marmelata",
+          "imageCredit": "ABI Progres (official site)"
+        },
+        {
+          "brand": "EuroFood (mermelatë)",
+          "company": "EuroFood sh.p.k., Prizren",
+          "country": "kosovo",
+          "sourceUrl": "https://www.euro-food.org/products.php?category=10",
+          "evidence": "EuroFood publishes a Mermelatë category of twelve of its own preserves (kumbull, fik, vishnje, kajsi, pjeshkë, luleshtrydhe, manaferrë, mjedër) under the EuroFood and Esse marks.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/eurofood-mermelate.webp",
+          "imageSource": "https://www.euro-food.org/products.php?category=10",
+          "imageCredit": "EuroFood sh.p.k. (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14: this entry used to carry en:honeys too and led with Bletoria, a beekeeper — so a jar of jam was answered with honey."
+    },
+    {
+      "serbianBrand": "Mjaltë nga Serbia (no single verified Serbian honey brand)",
+      "serbianCompany": "N/A",
+      "category": "honey",
+      "offCategoryTags": [
+        "en:honeys"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Bletoria",
+          "company": "Bletoria, Kamenicë",
+          "country": "kosovo",
+          "sourceUrl": "https://bletoria.com/rreth-nesh",
+          "evidence": "Bletoria’s own about page: \"Bletoria është prodhues i mjaltit organik nga Kamenica, Kosovë. Specializohemi në mjaltë të pastër dhe të papërpunuar\", with its own hives \"në Gollak\" and a timeline starting \"2002 Kosherët e parë\".",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/bletoria-mjalte.jpg",
+          "imageSource": "https://bletoria.com/",
+          "imageCredit": "Bletoria, Kamenicë (official site)"
+        }
+      ],
+      "note": "Split 2026-09-14 so honey is answered by a beekeeper and jam by a fruit processor."
+    },
+    {
+      "serbianBrand": "GUD (Marbo Product)",
+      "serbianCompany": "Marbo Product d.o.o., Đorđa Stanojevića 14, Beograd (PepsiCo)",
+      "category": "nuts-seeds",
+      "offCategoryTags": [
+        "en:nuts",
+        "en:nuts-and-their-products",
+        "en:peanuts",
+        "en:roasted-peanuts",
+        "en:seeds",
+        "en:pumpkin-seeds"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Marbo_Product",
+      "alternatives": [
+        {
+          "brand": "Haje",
+          "company": "HAJE SH.P.K., Hasan Prishtina, Obiliq 15000, Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.haje-ks.com/kontakti/",
+          "evidence": "HAJE SH.P.K. roasts, salts and packs peanuts, cashews, walnuts, hazelnuts, almonds, pistachios and pumpkin/sunflower seeds at its own Obiliq plant under ISO 22000:2018 (\"Prodhim dhe Paketim me Standarde të Larta\", \"Nga Fusha në Tavolinën Tuaj\"); the contact page gives the Obiliq address.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/haje-kikirik.webp",
+          "imageSource": "https://www.haje-ks.com/arrore",
+          "imageCredit": "HAJE SH.P.K. (official site)"
+        },
+        {
+          "brand": "Pi&Ki (kikirik dhe arra)",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/kategori.php?kategoria=3",
+          "evidence": "EGI Group's Pi&Ki brand runs a peanut line (Kikirikë i fërguar me kripë, me lëvore, i pjekur pa vaj, 40g-800g) and a nut line at its 20,000 m² plant in Zahaq near Pejë.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-kikirik.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=3",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        }
+      ],
+      "note": "GUD is Marbo Product's peanut/nut line — \"Some of their brands are Chipsy, Clipsy, GUD and Pardon.\" Marbo is PepsiCo-owned since 2008 but its seat and its snack plants are in Serbia, which is the same basis on which the Chipsy entry treats it as Serbian."
+    },
+    {
+      "serbianBrand": "Rubin (Kruševac)",
+      "serbianCompany": "RUBIN AD, Cara Lazara 291, 37000 Kruševac",
+      "category": "wine",
+      "offCategoryTags": [
+        "en:wines",
+        "en:red-wines",
+        "en:white-wines"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.rubin.rs/nasa-prica-2/contact/",
+      "alternatives": [
+        {
+          "brand": "Bodrumi i Vjetër",
+          "company": "Veraria \"Bodrumi i Vjetër\", Rr. Gzim Hamza PN, 21000 Rahovec, Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "http://bodrumivjeter.com/",
+          "evidence": "Founded in 1953 in Rahovec; its own site lists the wines it vinifies there (Vranac, Riesling Italian, Cabernet Sauvignon, Merlot, Chardonnay, Pinot Noir, Rosé, Terra, Elephant) and its DARDA grape rakia, and gives the Rahovec cellar address.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null
+        }
+      ]
+    },
+    {
+      "serbianBrand": "Canned beans, peas and pulses (no single dominant Serbian brand verified)",
+      "serbianCompany": "N/A",
+      "category": "legumes",
+      "offCategoryTags": [
+        "en:canned-common-beans",
+        "en:common-beans",
+        "en:canned-peas",
+        "en:green-peas",
+        "en:canned-red-kidney-beans"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Pi&Ki Fasule",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/kategori.php?kategoria=10",
+          "evidence": "EGI Group packs white beans (Fasule 800 g) under its Pi&Ki brand at the Zahaq plant near Pejë; the pack carries a Kosovo 390-prefixed barcode.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-fasule.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=10",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        }
+      ],
+      "note": "No single dominant Serbian-branded pulse product could be verified, so this entry records the local alternative without asserting a Serbian counterpart brand."
+    },
+    {
+      "serbianBrand": "Rice sold from Serbia (no verified Serbian rice brand — Serbia has no significant rice crop)",
+      "serbianCompany": "N/A",
+      "category": "rice",
+      "offCategoryTags": [
+        "en:rices",
+        "en:white-rices"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Pi&Ki Oriz",
+          "company": "EGI Group sh.p.k., Zahaq, Pejë",
+          "country": "kosovo",
+          "sourceUrl": "https://www.egigroup-ks.com/kategori.php?kategoria=11",
+          "evidence": "Neither Kosovo nor Albania grows rice. EGI Group cleans and packs imported rice under its Pi&Ki brand (Oriz 800 g) at Zahaq, Pejë — the packing, the jobs and the margin are Kosovar, the grain is not. Listed on the same honest footing as Euroni salt.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/piki-oriz.webp",
+          "imageSource": "https://www.egigroup-ks.com/kategori.php?kategoria=11",
+          "imageCredit": "EGI Group sh.p.k. / Pi&Ki (official site)"
+        }
+      ],
+      "note": "Rice is not grown at industrial scale in Serbia, Kosovo or Albania; every retail pack on either side is imported grain, cleaned and packed locally. The alternative therefore claims only what is true — the packing is Kosovar."
+    },
+    {
+      "serbianBrand": "Don Don",
+      "serbianCompany": "Privredno društvo za proizvodnju hleba i peciva DON DON d.o.o., Zmajeva 12v, 11080 Beograd (Zemun)",
+      "category": "bread",
+      "offCategoryTags": [
+        "en:breads",
+        "en:white-breads",
+        "en:sliced-breads",
+        "en:wheat-breads",
+        "en:bread-rolls",
+        "en:toasts"
+      ],
+      "verifiedSerbian": true,
+      "sourceUrl": "https://www.companywall.rs/firma/don-don-doo-beograd/MMNbs8KD",
+      "alternatives": [
+        {
+          "brand": "Buka Bakery",
+          "company": "Buka Bakery, Zona Industriale, Fushë Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://bukabakery.com/about-us/",
+          "evidence": "Kosovo industrial bakery, founded May 2012 and baking in the Fushë Kosovë industrial zone to ISO and HACCP certification, using German (Schneider) process expertise; its own catalogue lists 19 breads — Bukë Shtëpie me Fara, Volkanbrot, Spelt Dinkelbrot, Ciabatta Integrale, Bukë Malësie, Bukë me Arra, Bukë Dietale, Bukë XL — plus baguettes and pastries.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/buka-fara.jpg",
+          "imageSource": "https://bukabakery.com/produktet/",
+          "imageCredit": "Buka Bakery (official site)"
+        }
+      ],
+      "note": "READ BEFORE KEEPING THIS ROW. Buka Bakery is the manufacturing arm of Kosovo's Meridian corporation — its own About page says so in as many words (\"Në Meridian veçse u vendos të krijohet dega më e re e Korporatës, e cila do të merrej me artin e prodhimit\"). Meridian itself was rejected in an earlier pass as a retailer/importer, i.e. \"sold in Kosovo is not made in Kosovo\". Buka is the opposite case: a bakery with its own plant in Fushë Kosovë, its own certifications and its own bread range, so it satisfies the Kosovar-producer rule on its own site. It is named here explicitly so the Meridian link is visible and this one row can be deleted if the owner still wants nothing Meridian-related. The alternative to keeping it is an empty bread shelf: Ko-Bake sh.p.k. genuinely makes packaged Kosovar bread (Bukë Thekre / Bukë Dietale 500 g, barcode prefix 3902355) but has no live website at all, and Premium Bakery (premiumbakery.net) is in maintenance mode."
+    },
+    {
+      "serbianBrand": "Fresh potatoes, fruit and vegetables traded from Serbia (no single dominant Serbian consumer brand)",
+      "serbianCompany": "N/A",
+      "category": "fresh-produce",
+      "offCategoryTags": [
+        "en:potatoes",
+        "en:fresh-potatoes",
+        "en:fresh-vegetables",
+        "en:fresh-fruits"
+      ],
+      "verifiedSerbian": false,
+      "sourceUrl": null,
+      "alternatives": [
+        {
+          "brand": "Pestova (patate të freskëta)",
+          "company": "PESTOVA SHPK, Pestovë - Vushtrri 42000, Kosovë",
+          "country": "kosovo",
+          "sourceUrl": "https://vipa-ks.com/en/patatja/",
+          "evidence": "Pestova grows, cold-stores, grades and packs fresh table potatoes in Kosovo to the GLOBALGAP standard, in 2.5, 5, 10, 25 and 1000 kg packs — its own potato page describes harvest, \"storage in modern conditions\" and packing; the same company makes Vipa chips from the crop.",
+          "pairingEvidence": "category-match",
+          "pairingUrl": null,
+          "image": "/alternatives/pestova-patate.webp",
+          "imageSource": "https://vipa-ks.com/en/patatja/",
+          "imageCredit": "Pestova sh.p.k. (official site)"
+        }
+      ],
+      "note": "Fresh produce crosses the border loose and unbranded, so there is no Serbian consumer brand to name; this entry exists so a scan that lands in the fresh-produce family still reaches a real Kosovar grower instead of nothing."
+    }
+  ],
+  "gaps": [
+    {
+      "category": "chocolate-confectionery",
+      "reason": "PARTLY CLOSED 2026-09-12. Two industrial-scale local manufacturers were verified from their own sites: Camel (Mitrovicë, since 1991, production-only for the last 12 years — Mando wafers, Biscam biscuits) and Liri (Prizren, self-described largest confectionery producer in Kosovo — çokollata, bonbona, praline, karamele, Krem Banane, hallvë), plus EGI Group/Pi&Ki (Pejë) for cocoa spread against Eurokrem. What is STILL a gap: no Kosovo or Albanian equivalent of a single mass-market filled chocolate bar like Cipiripi at comparable scale; the pairings offered there are the nearest real local confectionery, not a copy of the product."
+    },
+    {
+      "category": "cooking-oil",
+      "reason": "CLOSED 2026-09-12. The gap said no local sunflower/vegetable-oil refinery could be found. Olim sh.a. (Gjokaj, Vorë, Albania) is one: its own site documents a 1999 plant running a closed cycle — pressing sunflower seed, physical and chemical refining at 120 t/day, its own PET bottle production and bottling — and states Olim covers about 55% of the Albanian oil market. Olim (sunflower) and Frito (frying) are now listed against Dijamant and Vital. Albanian olive oils (Shkrela, Biolive) are listed after them and labelled as a different price tier, not as like-for-like frying oil."
+    },
+    {
+      "category": "cleaning-products",
+      "reason": "CLOSED 2026-09-12 on both sides. Serbian side: Beohemija d.o.o. (Pančevačka 84, Zrenjanin) is the Serbian-owned producer of Duel, Spin, Selection and Pompa. Kosovo side: ER-ABI (Prizren, factory founded 2003, 1000 m² covered plant, labelled \"Prodhuar në Kosovë\") manufactures laundry and dish detergents plus household cleaners under Max Clean, Attix, Glorax and Jopaq; Get sh.p.k. (Durrës) makes the Rea line in Albania. Merix/Persil/Bref/Fa are made in Serbia but owned by Henkel, so they are deliberately not called Serbian brands."
+    },
+    {
+      "category": "personal-care",
+      "reason": "STILL A GAP ON THE SERBIAN SIDE, now answerable on the local side. No Serbian-owned mass-market soap/shower-gel brand could be verified (that production in Serbia belongs to Henkel Srbija), and no Serbian toothpaste producer was found at all. The Kosovo side is now real and sourced: ER-ABI (Prizren) manufactures the Dora liquid hand soap and its own shampoo line. Pupla Group, flagged in the previous pass as the Kosovo candidate, was REJECTED this pass: pupla.info no longer belongs to them and the products attributed to them (DeepFresh) are a Turkish brand — they look like an importer, not a manufacturer."
+    },
+    {
+      "category": "bread",
+      "reason": "PARTLY CLOSED 2026-09-13. The Serbian side was already verified (Don Don d.o.o., Zmajeva 12v, Beograd-Zemun, registry activity 1071 \"Proizvodnja hleba, svezeg peciva i kolaca\") and now has a curated entry. The Kosovo side is answered by Buka Bakery (Zona Industriale, Fushe Kosove; founded May 2012; ISO + HACCP; 19 own breads) — WITH THE CAVEAT recorded on that entry: Buka is the manufacturing arm of the Meridian corporation, and Meridian itself was rejected in an earlier pass as a retailer/importer. Still open: a packaged-bread producer with no retail-group parent. Ko-Bake sh.p.k. is exactly that (Buke Thekre and Buke Dietale 500 g on Kosovo shelves, GS1 prefix 3902355, and a live hiring presence) but has no website at all — ko-bake.com, kobake.com, kobake.net and ko-bake.net all fail DNS. Premium Bakery (premiumbakery.net, bakery centres and shops across Kosovo, fresh and frozen) is in WordPress maintenance mode and could not be read."
+    },
+    {
+      "category": "eggs",
+      "reason": "STILL A GAP, re-checked 2026-09-13 and unchanged. Kosovo egg brands are real and on the shelves — Havo Eggs (GS1 3903128), Kokrra (3908072) and Alpa \"Veze Fshati\" (3909736) all appear in the harvested Kosovo retail catalogue — but not one of them has a website: havoeggs.com, havo-ks.com, kokrra.com and vezetearta.com all fail DNS, and the producers found by search (Ferma e Pulave \"EuroFarm\", Fushe Kosove; Tre Farm; Fusha Farm; Bio Farm T&H, Gjilan) exist only as Facebook or Instagram pages. Rule 4 needs the producer's own site, so nothing was published. Note also that en:chicken-eggs resolves to the MEAT family through the substring \"chicken\" — an eggs entry must use en:eggs only."
+    },
+    {
+      "category": "frozen-foods",
+      "reason": "STILL A GAP, and now measured rather than assumed (2026-09-13). Frikom (Zrenjaninski put bb, Beograd) remains the verified Serbian frozen-food and ice-cream producer. On the local side the harvested Kosovo retail catalogue holds 222 ice-cream rows and NOT ONE carries a Kosovo (381/390) or Albanian (530) barcode: the shelf is Despar, Algida/Magnum, Sammontana, Ledo, Kinder, Valsoia, Franui. Two candidates were checked and rejected: Arjeta Group (Skenderaj) turns out to be Ledo's authorised DISTRIBUTOR, not a maker — \"our company became authorized distributor\" on its own company page; and \"Magic Ice\" (Lipjan, GS1 3901470) sells gjize and djathe under that name, not ice cream, and has no website. Lufra (Albania, lufra.al) makes yogurt and milk drinks, no ice cream. Nothing was published."
+    },
+    {
+      "category": "salt",
+      "reason": "Serbia has no salt extraction and no Serbian retail salt brand could be verified, so there is no Serbian counterpart to pair. On the local side Euroni Salt L.L.C. (Fushë Kosovë, since 2003, ISO 9001/22000) is real but processes, iodizes and packs IMPORTED raw salt — Kosovo has no salt deposits either. Euroni is therefore offered only under the spices entry, described as \"processed and packed in Kosovo\", never as Kosovar salt."
+    },
+    {
+      "category": "fish-seafood",
+      "reason": "NEW GAP RECORDED 2026-09-13, and honest on both sides. The Peshk shelf has no curated entry because no Kosovar or Albanian fish producer could be verified from its own site. The only locally-coded fish products in the harvested retail catalogue are \"Sardela Sardines 100g\" (GS1 3903671) and \"Ocean Wave Tuna Flakes\" (3908068) — both prefixes belong to distributors whose other rows are cleaning products and flour, i.e. importer own-labels, not canneries. \"Via Mare\" tuna carries an Albanian 530 prefix but sits on a shared distributor prefix (5301000, which also carries Pepsi and Replay crisps) and has no site: viamare.al, via-mare.al and viamare-al.com all fail DNS. Hotel Trofta (trofta.com, Istog) farms trout but is a hotel and restaurant, not a packaged-goods producer. No verified Serbian consumer fish brand was found either, so this is a two-sided gap."
+    },
+    {
+      "category": "baby-food",
+      "reason": "NEW GAP RECORDED 2026-09-13. No Kosovar or Albanian infant-formula or baby-food manufacturer could be verified; the \"Ushqim per bebe\" shelf in the harvested catalogue is Kosovo-coded only for NAPPIES (Active, Jona — GS1 3900357 and 3904577), which are personal care, not food, and whose makers publish no site either. Every actual baby food on the shelf is imported. A fabricated pairing here would be the worst possible one — this is the shelf where a wrong answer reaches an infant — so nothing was published."
+    },
+    {
+      "category": "oral-care",
+      "reason": "NEW GAP RECORDED 2026-09-13. No toothpaste producer exists on either side of this pairing. The harvested Kosovo retail catalogue has 21 toothpaste rows and none carries a Kosovo or Albanian barcode. TrePharm (Sllatine e Madhe, Kosovo, trepharm.com) was checked as the one local manufacturer plausibly close to oral care: its own site describes prescription drugs, OTC medicines and supplements across 120+ products and says nothing about toothpaste or cosmetics. ER-ABI (Prizren) remains the local answer for soap and shampoo and is already listed under personal-care; it does not make toothpaste. The earlier finding that no Serbian toothpaste producer could be found either still stands."
+    },
+    {
+      "category": "breakfast-cereals",
+      "reason": "NEW GAP RECORDED 2026-09-13, and it currently costs the app something measurable: with no curated entry, a Serbian-flagged porridge or cereal scan falls through to the static pool, which answers with \"Vitalia\" — a North Macedonian brand (GS1 531) that only passes the local-brand gate because the string \"Vita\" (the Kosovo dairy) is a substring of \"Vitalia\". The local candidate found was 2U (2u-ks.com — cereals, bars, muesli, oat flakes, \"Backed by Vitafood\"), REJECTED this pass: its About page is untouched theme lorem ipsum (\"A small river named Duden flows by their place\", \"Mark Jance CEO / FOUNDER\"), it prints no address and no legal name, and the named manufacturer Vitafood (vitafoodks.com) serves an 818-byte JavaScript stub with nothing but a title. Neither can satisfy rule 4. Until one does, the substring collision is worth fixing in matcher.js rather than papered over here."
+    },
+    {
+      "category": "nuts-seeds",
+      "reason": "CLOSED 2026-09-13. HAJE SH.P.K. (Hasan Prishtina, Obiliq 15000) roasts, salts and packs peanuts, cashews, walnuts, hazelnuts, almonds, pistachios, pumpkin and sunflower seeds at its own plant under ISO 22000:2018, and publishes its own pack shots; EGI Group's Pi&Ki peanut line (Zahaq, Peje) is listed alongside it. The Serbian counterpart is GUD, named on Marbo Product's Wikipedia record alongside Chipsy, Clipsy and Pardon — the same Marbo whose Chipsy entry this file already carries. Note for future passes: en:sunflower-seeds resolves to the OILS family, not nuts, so it must not go on this entry."
+    },
+    {
+      "category": "wine-and-spirits",
+      "reason": "CLOSED 2026-09-13 on both sides. Serbian side: RUBIN AD, Cara Lazara 291, 37000 Krusevac — wine, Rubinov vinjak and rakija, address taken from its own contact page. Kosovo side: Veraria \"Bodrumi i Vjeter\", Rr. Gzim Hamza PN, 21000 Rahovec, founded 1953, whose own site lists the wines it vinifies in Rahovec (Vranac, Riesling Italian, Cabernet Sauvignon, Merlot, Chardonnay, Pinot Noir, Rose) and its DARDA grape rakia. It is listed WITHOUT a photo: bodrumivjeter.com/robots.txt carries an explicit ClaudeBot Disallow, the same situation as Sharri. Two other Rahovec wineries were checked and rejected as sources: stonecastlewinery.com is now a parked domain that redirects everything to /lander, and suharekaverari.com serves an untouched default WordPress install."
+    },
+    {
+      "category": "legumes-and-rice",
+      "reason": "CLOSED 2026-09-13, with one honest qualification. Beans: EGI Group packs white beans (Pi&Ki Fasule 800 g) at Zahaq, Peje, and publishes the pack shot. Rice: nobody in Kosovo, Albania or Serbia grows rice at industrial scale — every retail pack on either side is imported grain cleaned and packed locally. Pi&Ki Oriz is therefore offered exactly as Euroni salt is: the packing, the jobs and the margin are Kosovar, the grain is not, and the entry says so. No Serbian counterpart brand is claimed for either, because none could be verified."
+    },
+    {
+      "category": "fresh-produce",
+      "reason": "CLOSED 2026-09-13. PESTOVA SHPK (Pestove - Vushtrri 42000) grows, cold-stores, grades and packs fresh table potatoes in Kosovo to the GLOBALGAP standard in 2.5-1000 kg packs — the same company that makes Vipa chips from the crop — and publishes its own photo of the packed net bag. No Serbian counterpart brand is claimed: fresh produce crosses the border loose and unbranded, so the entry is keyed on the category alone."
+    },
+    {
+      "category": "juices-soft-drinks",
+      "reason": "MOVED OUT OF entries[] 2026-09-14. This was never a pairing — it was a rejection record sitting in the entries array with an empty alternatives list and no category tags, so the app dropped it on load. Verbatim from the old entry: \"Golden Eagle is made by Frutex (Suhareka, Kosovo), not a Serbian brand and not made by Devolli - confirmed per prior research. Included here only so it is not mistakenly treated as a Serbian product needing an alternative; it IS the Kosovo alternative in the soft-drinks/energy-drinks space.\" Source consulted: https://goldeneagle-ks.com/"
+    },
+    {
+      "category": "personal-care",
+      "reason": "STUB REMOVED 2026-09-14. An entry literally named \"Personal care - see gaps\" sat in entries[] with no alternatives and the blocklisted aisle tags en:personal-care and en:hygiene-products. It duplicated the real entry \"Personal care sold in Kosovo (no single verified Serbian mass brand)\", which carries ER-ABI Softly hand soap and the ER-ABI shampoo line with photos, so it was deleted rather than filled. Shampoo deliberately stays on that soaps entry: en:shampoos cannot be used as a tag because the substring \"ham\" files it under meat-charcuterie."
+    }
+  ],
+  "nonLocalBrands": [
+    {
+      "brand": "Kellogg's",
+      "aliases": [
+        "Kelloggs",
+        "Kellogg"
+      ],
+      "company": "Kellanova (cereals outside North America) / WK Kellogg Co (North America)",
+      "country": "US",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kellanova",
+      "evidence": "\"Kellanova, formerly known as the Kellogg Company, is an American multinational corporation, owned by Mars Inc.\" Headquarters: Chicago, Illinois, United States. The North-American cereal business is WK Kellogg Co of Battle Creek, Michigan (https://en.wikipedia.org/wiki/WK_Kellogg_Co). Neither is a Kosovar or Albanian producer.",
+      "whyListed": "A Kellogg's corn-flakes pack carrying Kosovo GS1 prefix 390 (barcode 3904933060414) was being admitted by the local-candidate gate on the strength of that prefix alone, and offered as the local alternative to a Serbian breakfast cereal. The prefix identifies the organisation that registered the number, not the brand owner -- this file's own disclaimer says so."
+    },
+    {
+      "brand": "Top Budget",
+      "aliases": [],
+      "company": "Intermarche / Groupement Les Mousquetaires (ITM Entreprises)",
+      "country": "FR",
+      "sourceUrl": "https://fr.wikipedia.org/wiki/Intermarch%C3%A9",
+      "evidence": "\"Top Budget est la marque premier prix d'Intermarche.\" \"Intermarche est une enseigne francaise de grande distribution du Groupement Mousquetaires\", head office Paris, France.",
+      "whyListed": "A French retailer's own-label line, admitted by the same prefix-only route as Kellogg's. A private label of a French supermarket group is not a Kosovar or Albanian brand."
+    },
+    {
+      "brand": "Velo",
+      "aliases": [],
+      "company": "British American Tobacco (Modern Oral; the brand descends from Swedish Match/Epok)",
+      "country": "GB",
+      "sourceUrl": "https://en.wikipedia.org/wiki/British_American_Tobacco",
+      "evidence": "Velo is BAT's nicotine-pouch line, sold under BAT's New Categories/Modern Oral division; BAT is a British multinational headquartered in London. The pouches for the European market are manufactured in Scandinavia, not in Albania or Kosovo.",
+      "whyListed": "Owner report, 2026-09-16: \"Velo Bright Spearmint ... Shqiperi ... vendore ... barkodi 5301000730801 this product not albanian\". 95 Velo rows are in the catalogue; those on Albanian GS1 prefix 530 were marked isLocalBrand:true on the strength of the prefix alone and badged VENDORE. Note the same product line also appears on prefix 531 (North Macedonia), which is the proof that the prefix tracks the registering distributor, not the producer. The rows carry brand:null, so the non-local gate had to learn to read the product name."
+    }
+  ]
+}
